@@ -18,7 +18,6 @@ export const useUserStore = defineStore('user', {
       await api
         .get<ReadonlyArray<UserInfo>>(apiUrl)
         .then((response) => {
-          console.log('infos: ', response.data)
           this.loading = false
           response.data.forEach((info: UserInfo) => this.Infos.push(info))
           this.error = ''
