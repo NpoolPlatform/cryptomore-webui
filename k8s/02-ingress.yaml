@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: vue-template-webui-ingress
+  namespace: kube-system
+  annotations:
+    k8s.kuboard.cn/displayName: vue-template-webui
+    k8s.kuboard.cn/workload: vue-template-webui
+    kubernetes.io/ingress.class: "devops-vpn-nginx-internal"
+    nginx.com/sticky-cookie-services: "serviceName=kuboard srv_id expires=1h path=/"
+
+spec:
+  rules:
+    - host: vue-template.npool.top
+      http: &http_rules
+        paths:
+          - path: /
+            backend:
+              serviceName: vue-template-webui
+              servicePort: 80
+    - host: vue-template.xpool.top
+      http: *http_rules
+    - host: www.vue-template.npool.top
+      http: *http_rules
+    - host: www.vue-template.xpool.top
+      http: *http_rules
