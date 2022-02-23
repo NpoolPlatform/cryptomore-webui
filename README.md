@@ -22,5 +22,9 @@ yarn lint
 quasar build
 ```
 
+###
+
+> yarn add @babel/preset-env babel-jest @babel/core --dev
+
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).

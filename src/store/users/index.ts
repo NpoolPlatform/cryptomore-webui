@@ -16,10 +16,10 @@ export const useUserStore = defineStore('user', {
     async getUserInfos () {
       this.loading = true
       await api
-        .get<ReadonlyArray<UserInfo>>(apiUrl)
+        .get<Array<UserInfo>>(apiUrl)
         .then((response) => {
           this.loading = false
-          response.data.forEach((info: UserInfo) => this.Infos.push(info))
+          this.Infos = response.data
           this.error = ''
         })
         .catch((err: Error) => {
