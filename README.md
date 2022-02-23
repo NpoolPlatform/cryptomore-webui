@@ -22,7 +22,7 @@ yarn lint
 quasar build
 ```
 
-###
+### compatible babel 
 
 > yarn add @babel/preset-env babel-jest @babel/core --dev
 
