@@ -31,6 +31,7 @@ quasar build
 + [Vue Test Utils](https://test-utils.vuejs.org/guide/)
 + [Pinia Test](https://pinia.vuejs.org/cookbook/testing.html)
 + [Pinia Test Example](https://github.com/vuejs/pinia/blob/v2/packages/testing/src/testing.spec.ts)
++ [Quasar Test Example](https://github.com/quasarframework/quasar-testing/blob/dev/packages/unit-jest/src/templates/typescript/test/jest/___tests__/MyButton.spec.ts)
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).

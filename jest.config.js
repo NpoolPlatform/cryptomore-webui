@@ -7,6 +7,11 @@ module.exports = {
   // testEnvironment: 'node',
   globals: {
     __DEV__: true,
+    // TODO: Remove if resolved natively
+    // See https://github.com/vuejs/vue-jest/issues/175
+    // 'vue-jest': {
+    //   pug: { doctype: 'html' }
+    // },
     // Remove if using `const enums`
     // See https://huafu.github.io/ts-jest/user/config/isolatedModules#example
     'ts-jest': {
