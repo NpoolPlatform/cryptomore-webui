@@ -22,9 +22,15 @@ yarn lint
 quasar build
 ```
 
-### compatible babel 
+### compatible babel
 
 > yarn add @babel/preset-env babel-jest @babel/core --dev
+
+### practice of unit test link
+
++ [Vue Test Utils](https://test-utils.vuejs.org/guide/)
++ [Pinia Test](https://pinia.vuejs.org/cookbook/testing.html)
++ [Pinia Test Example](https://github.com/vuejs/pinia/blob/v2/packages/testing/src/testing.spec.ts)
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
