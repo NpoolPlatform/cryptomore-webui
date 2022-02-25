@@ -14,5 +14,3 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run lint
       - run: yarn run test:unit:ci
-
-      - uses: codecov/codecov-action@v2
