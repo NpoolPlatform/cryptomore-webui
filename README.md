@@ -1,3 +1,5 @@
+<a href="https://github.com/NpoolPlatform/quasar-pinia/actions/workflows/ci.yml"><img src="https://github.com/NpoolPlatform/quasar-pinia/workflows/test/badge.svg" alt="build status"></a>
+
 # quasar pinia (quasar-pinia)
 
 vue3 framework use quasar ui and pinia manage store
