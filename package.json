@@ -1,11 +1,12 @@
 {
-  "name": "quasar-pinia",
+  "name": "ohash-webui",
   "version": "0.0.1",
   "description": "vue3 framework use quasar ui and pinia manage store",
-  "productName": "quasar pinia",
-  "author": "linuxpizi <1360447275@qq.com>",
+  "productName": "Ohash Webui",
+  "author": "OHash Group",
   "private": true,
   "scripts": {
+    "start": "quasar dev",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "test:unit": "jest --updateSnapshot",
     "test:ci": "yarn run lint && yarn run test:unit",
