@@ -4,6 +4,7 @@ declare module 'vue-router' {
   interface RouteMeta {
     ShowHeaderAnnouncement: boolean
     ShowMainHeader: boolean
+    ShowBigLogo: boolean
   }
 }
 
@@ -17,7 +18,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/Index.vue'),
         meta: {
           ShowHeaderAnnouncement: true,
-          ShowMainHeader: false
+          ShowMainHeader: false,
+          ShowBigLogo: true
         }
       }
     ]

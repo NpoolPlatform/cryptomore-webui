@@ -39,6 +39,7 @@ export default route(function (/* { store, ssrContext } */) {
     const setting = useSettingStore()
     setting.ShowHeaderAnnouncement = to.meta.ShowHeaderAnnouncement
     setting.ShowMainHeader = to.meta.ShowMainHeader
+    setting.ShowBigLogo = to.meta.ShowBigLogo
     next()
   })
 

@@ -1,5 +1,5 @@
 <template>
-  <q-layout view='hHh Lpr lFf background-main'>
+  <q-layout view='hHh Lpr lFf background-main body-main'>
     <MainHeader v-if='setting.ShowMainHeader' />
 
     <q-page-container>

@@ -1,0 +1,23 @@
+<template>
+  <div class='banner background-main'>
+    <Announcement />
+    <MainHeader />
+  </div>
+</template>
+
+<script setup lang='ts'>
+import { defineAsyncComponent } from 'vue'
+
+const MainHeader = defineAsyncComponent(() => import('src/components/header/MainHeader.vue'))
+const Announcement = defineAsyncComponent(() => import('src/components/announcement/Announcement.vue'))
+
+</script>
+
+<style lang='sass' scoped>
+.banner
+  background-image: url('../../assets/BannerBg.svg')
+  background-repeat: no-repeat
+  background-size: 100% 660px
+  min-height: 660px
+  width: 100%
+</style>

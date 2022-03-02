@@ -1,6 +1,10 @@
 <template>
-  <q-page class='row items-center justify-evenly' />
+  <Banner />
 </template>
 
 <script setup lang='ts'>
+import { defineAsyncComponent } from 'vue'
+
+const Banner = defineAsyncComponent(() => import('src/components/index/Banner.vue'))
+
 </script>
