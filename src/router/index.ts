@@ -1,4 +1,5 @@
 import { route } from 'quasar/wrappers'
+import { useSettingStore } from 'src/store/setting'
 import {
   createMemoryHistory,
   createRouter,
@@ -22,7 +23,7 @@ export default route(function (/* { store, ssrContext } */) {
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory)
 
-  const Router = createRouter({
+  const router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0 }),
     routes,
 
@@ -34,5 +35,12 @@ export default route(function (/* { store, ssrContext } */) {
     )
   })
 
-  return Router
+  router.beforeEach((to, _, next) => {
+    const setting = useSettingStore()
+    setting.ShowHeaderAnnouncement = to.meta.ShowHeaderAnnouncement
+    setting.ShowMainHeader = to.meta.ShowMainHeader
+    next()
+  })
+
+  return router
 })
