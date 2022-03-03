@@ -1,5 +1,7 @@
 <template>
   <div class='row'>
+    <q-btn>{{ $t('MSG_HOME') }}</q-btn>
+    <q-btn>{{ $t('MSG_MARKET_PLACE') }}</q-btn>
     <HeaderToolBtn :icon='bellIcon' />
     <Avatar v-if='logined' />
     <q-separator vertical color='white' class='separator' />
