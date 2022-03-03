@@ -19,6 +19,9 @@ export const useLangStore = defineStore('lang', {
         (resp: GetLangsResponse): void => {
           this.Languages = []
           resp.Infos.forEach((lang) => {
+            if (!this.CurLang) {
+              this.CurLang = lang.Lang
+            }
             this.Languages.push(lang.Lang)
           })
         })
