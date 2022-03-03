@@ -9,7 +9,6 @@ interface Notification {
 }
 
 interface ReqMessage {
-  Waiting?: Notification
   Info?: Notification
   Error?: Notification
 }

@@ -20,25 +20,24 @@ interface AppLangInfo {
   Lang: Language
 }
 
-interface GetLanguagesRequest {
+interface GetLangsRequest {
   Message: ReqMessage
 }
 
-interface GetLanguagesResponse {
-  Infos: ReadonlyArray<AppLangInfo>
+interface GetLangsResponse {
+  Infos: Array<AppLangInfo>
 }
 
 interface LanguageState {
-  Languages: Map<string, Language>
+  Languages: Array<Language>
   Messages?: Map<string, LocaleMessages<VueMessageType>>
-  AppLangInfos:Array<AppLangInfo>
   CurLang?: Language
 }
 
 export {
   Language,
-  GetLanguagesRequest,
-  GetLanguagesResponse,
   AppLangInfo,
-  LanguageState
+  LanguageState,
+  GetLangsRequest,
+  GetLangsResponse
 }
