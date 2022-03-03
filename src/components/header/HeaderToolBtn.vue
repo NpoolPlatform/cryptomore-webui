@@ -27,8 +27,3 @@ const onClick = () => {
 }
 
 </script>
-
-<style lang='sass' scoped>
-.btn-icon
-  background-color: red
-</style>

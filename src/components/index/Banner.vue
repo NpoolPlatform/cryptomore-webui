@@ -1,7 +1,7 @@
 <template>
   <div class='banner background-main'>
     <Announcement />
-    <MainHeader />
+    <MainHeader class='header' />
   </div>
 </template>
 
@@ -20,4 +20,7 @@ const Announcement = defineAsyncComponent(() => import('src/components/announcem
   background-size: 100% 660px
   min-height: 660px
   width: 100%
+
+.header
+  margin-top: 20px
 </style>
