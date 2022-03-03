@@ -1,21 +1,35 @@
 <script setup lang='ts'>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useLangStore } from 'src/store/langs'
 import { useI18n } from 'vue-i18n'
 import { Type as NotificationType } from 'src/store/notifications/const'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
+const i18n = useI18n()
 
 const lang = useLangStore()
 
+const updateLocaleMessage = () => {
+  const oldMessages = i18n.getLocaleMessage(lang.CurLang?.Lang as string)
+  const newMessages = lang.Messages[lang.CurLang?.Lang as string]
+
+  if (!newMessages) {
+    return
+  }
+
+  Object.keys(newMessages).forEach((key) => {
+    oldMessages[key] = newMessages[key]
+  })
+
+  i18n.setLocaleMessage(lang.CurLang?.Lang as string, oldMessages)
+}
+
+const oldLangID = ref(lang.CurLang?.ID)
+
 onMounted(() => {
   lang.$subscribe((_, state) => {
-    if (state.CurLang) {
-      const messages = state.Messages[state.CurLang.Lang]
-      if (messages) {
-        return
-      }
+    if (state.CurLang && oldLangID.value !== state.CurLang.ID) {
       lang.getLangMessages({
         LangID: state.CurLang.ID,
         Message: {
@@ -28,6 +42,7 @@ onMounted(() => {
         }
       })
     }
+    updateLocaleMessage()
   })
 
   lang.getLangs({

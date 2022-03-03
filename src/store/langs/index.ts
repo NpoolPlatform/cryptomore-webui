@@ -30,7 +30,6 @@ export const useLangStore = defineStore('lang', {
             }
             this.Languages.push(lang.Lang)
           })
-          console.log(this.CurLang)
         })
     },
     getLangMessages (req: GetLangMessagesRequest) {
