@@ -1,13 +1,19 @@
 import { defineStore } from 'pinia'
-import { GetLangsRequest, GetLangsResponse, LanguageState } from './types'
-import { LocaleMessages, VueMessageType } from 'vue-i18n'
+import {
+  GetLangMessagesRequest,
+  GetLangMessagesResponse,
+  GetLangsRequest,
+  GetLangsResponse,
+  LanguageState
+} from './types'
 import { doAction } from '../action'
 import { API } from './const'
 
 export const useLangStore = defineStore('lang', {
   state: (): LanguageState => ({
     Languages: [],
-    Messages: new Map<string, LocaleMessages<VueMessageType>>()
+    Messages: {},
+    CurLang: undefined
   }),
   getters: {},
   actions: {
@@ -24,6 +30,23 @@ export const useLangStore = defineStore('lang', {
             }
             this.Languages.push(lang.Lang)
           })
+          console.log(this.CurLang)
+        })
+    },
+    getLangMessages (req: GetLangMessagesRequest) {
+      doAction<GetLangMessagesRequest, GetLangMessagesResponse>(
+        API.GET_LANG_MESSAGES,
+        req,
+        req.Message,
+        (resp: GetLangMessagesResponse): void => {
+          let messages = this.Messages[this.CurLang?.Lang as string]
+          if (!messages) {
+            messages = {}
+          }
+          resp.Infos.forEach((msg) => {
+            messages[msg.MessageID] = msg.Message
+          })
+          this.Messages[this.CurLang?.Lang as string] = messages
         })
     }
   }
