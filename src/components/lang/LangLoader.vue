@@ -19,6 +19,7 @@ const updateLocaleMessage = () => {
   }
 
   Object.keys(newMessages).forEach((key) => {
+    console.log(key, newMessages[key])
     oldMessages[key] = newMessages[key]
   })
 

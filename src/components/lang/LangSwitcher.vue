@@ -37,6 +37,7 @@
 import { ref, computed } from 'vue'
 import { Language } from 'src/store/langs/types'
 import { useLangStore } from 'src/store/langs'
+import { useI18n } from 'vue-i18n'
 
 const downArrow = ref('img: icons/DownArrow.svg')
 const internet = ref('img: icons/Internet.svg')
@@ -45,8 +46,11 @@ const lang = useLangStore()
 const langs = computed(() => lang.Languages)
 const langLabel = computed(() => lang.CurLang?.Short !== '' ? lang.CurLang?.Short : lang.CurLang.Lang)
 
+const i18n = useI18n()
+
 const onLangItemClick = (myLang: Language) => {
   lang.CurLang = myLang
+  i18n.locale.value = lang.CurLang.Lang
 }
 
 </script>
