@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "start": "quasar dev",
+    "build": "quasar build",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "test:unit": "jest --updateSnapshot",
     "test:ci": "yarn run lint && yarn run test:unit",
@@ -25,13 +26,14 @@
   ],
   "dependencies": {
     "@quasar/extras": "^1.0.0",
-    "axios": "^0.21.1",
+    "axios": "^0.26.1",
     "core-js": "^3.6.5",
-    "pinia": "^2.0.11",
+    "npool-cli-v2": "0.0.85",
+    "pinia": "^2.0.13",
     "quasar": "^2.0.0",
     "vue": "^3.0.0",
     "vue-i18n": "^9.0.0",
-    "vue-router": "^4.0.0"
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

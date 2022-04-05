@@ -1,10 +1,9 @@
 import { RouteRecordRaw } from 'vue-router'
+import { RouteMetaImpl } from 'npool-cli-v2/utils'
 
 declare module 'vue-router' {
-  interface RouteMeta {
-    ShowHeaderAnnouncement: boolean
-    ShowMainHeader: boolean
-    ShowBigLogo: boolean
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface RouteMeta extends RouteMetaImpl {
   }
 }
 
@@ -19,7 +18,11 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowHeaderAnnouncement: true,
           ShowMainHeader: false,
-          ShowBigLogo: true
+          ShowBigLogo: true,
+          ShowFooterTop: true,
+          ShowSignHelper: true,
+          ShowTopTip: false,
+          NeedLogined: false
         }
       }
     ]

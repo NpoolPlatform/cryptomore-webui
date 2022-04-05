@@ -1,8 +1,7 @@
 <script setup lang='ts'>
 import { onMounted, ref } from 'vue'
-import { useLangStore } from 'src/store/langs'
+import { useLangStore, NotificationType } from 'npool-cli-v2'
 import { useI18n } from 'vue-i18n'
-import { Type as NotificationType } from 'src/store/notifications/const'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })

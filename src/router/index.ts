@@ -1,5 +1,4 @@
 import { route } from 'quasar/wrappers'
-import { useSettingStore } from 'src/store/setting'
 import {
   createMemoryHistory,
   createRouter,
@@ -7,6 +6,8 @@ import {
   createWebHistory
 } from 'vue-router'
 import routes from './routes'
+import { loginInterceptor } from 'npool-cli-v2/utils'
+import { api } from 'src/boot/axios'
 
 /*
  * If not building with SSR mode, you can
@@ -36,11 +37,7 @@ export default route(function (/* { store, ssrContext } */) {
   })
 
   router.beforeEach((to, _, next) => {
-    const setting = useSettingStore()
-    setting.ShowHeaderAnnouncement = to.meta.ShowHeaderAnnouncement
-    setting.ShowMainHeader = to.meta.ShowMainHeader
-    setting.ShowBigLogo = to.meta.ShowBigLogo
-    next()
+    loginInterceptor(api, '/signin', to, next)
   })
 
   return router

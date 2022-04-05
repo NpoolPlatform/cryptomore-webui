@@ -12,9 +12,7 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, onMounted } from 'vue'
-import { useSettingStore } from 'src/store/setting'
-import { useNotificationStore } from 'src/store/notifications'
-import { notify } from 'src/store/notifications/helper'
+import { useSettingStore, useNotificationStore, notify } from 'npool-cli-v2'
 
 const MainHeader = defineAsyncComponent(() => import('src/components/header/MainHeader.vue'))
 const LangLoader = defineAsyncComponent(() => import('src/components/lang/LangLoader.vue'))

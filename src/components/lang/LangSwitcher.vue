@@ -35,8 +35,7 @@
 
 <script setup lang='ts'>
 import { ref, computed } from 'vue'
-import { Language } from 'src/store/langs/types'
-import { useLangStore } from 'src/store/langs'
+import { Language, useLangStore } from 'npool-cli-v2'
 import { useI18n } from 'vue-i18n'
 
 const downArrow = ref('img: icons/DownArrow.svg')

@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang='ts'>
-import { useSettingStore } from 'src/store/setting'
+import { useSettingStore } from 'npool-cli-v2'
 import { defineAsyncComponent } from 'vue'
 
 const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))
