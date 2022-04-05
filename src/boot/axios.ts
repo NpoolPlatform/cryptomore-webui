@@ -1,6 +1,7 @@
 import { boot } from 'quasar/wrappers'
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios'
 import { AppID } from 'src/const/const'
+import { createAPI } from 'npool-cli-v2/api'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
@@ -14,17 +15,7 @@ declare module '@vue/runtime-core' {
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({
-  method: 'POST',
-  baseURL: '/api',
-  headers: {
-    'Content-Type': 'application/json',
-    'X-App-ID': AppID
-  },
-  withCredentials: true,
-  responseType: 'json',
-  timeout: 10000
-})
+const api = createAPI('/api', AppID) as AxiosInstance
 
 // define common response handle
 interface CommonError {
