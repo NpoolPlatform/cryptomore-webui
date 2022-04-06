@@ -13,8 +13,9 @@
           {{ langLabel }}
         </div>
       </template>
-      <q-list>
+      <q-list class='langs'>
         <q-item
+          class='item'
           dense
           v-close-popup
           v-for='myLang in langs'
@@ -23,9 +24,12 @@
           @click='onLangItemClick(myLang)'
         >
           <q-item-section>
-            <q-item-label dense>
-              {{ myLang.Name }}
-            </q-item-label>
+            <div class='row'>
+              <q-img fit='contain' class='icon' :src='myLang.Logo' />
+              <q-item-label dense>
+                {{ myLang.Name }}
+              </q-item-label>
+            </div>
           </q-item-section>
         </q-item>
       </q-list>
@@ -36,7 +40,6 @@
 <script setup lang='ts'>
 import { ref, computed } from 'vue'
 import { Language, useLangStore } from 'npool-cli-v2'
-import { useI18n } from 'vue-i18n'
 
 const downArrow = ref('img: icons/DownArrow.svg')
 const internet = ref('img: icons/Internet.svg')
@@ -45,11 +48,8 @@ const lang = useLangStore()
 const langs = computed(() => lang.Languages)
 const langLabel = computed(() => lang.CurLang?.Short !== '' ? lang.CurLang?.Short : lang.CurLang.Lang)
 
-const i18n = useI18n()
-
 const onLangItemClick = (myLang: Language) => {
-  lang.CurLang = myLang
-  i18n.locale.value = lang.CurLang.Lang
+  lang.setLang(myLang)
 }
 
 </script>
@@ -58,4 +58,15 @@ const onLangItemClick = (myLang: Language) => {
 .label
   font-size: 18px
   margin-left: 6px
+  line-height: 24px
+
+.langs
+  background-color: $dark
+
+.item:hover
+  background-color: $lightdark
+
+.icon
+  width: 24px
+  margin-right: 10px
 </style>
