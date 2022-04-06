@@ -61,10 +61,10 @@ const onLangItemClick = (myLang: Language) => {
   line-height: 24px
 
 .langs
-  background-color: $dark
+  background-color: $primary
 
 .item:hover
-  background-color: $lightdark
+  background-color: $secondary
 
 .icon
   width: 24px
