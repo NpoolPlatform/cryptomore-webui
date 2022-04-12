@@ -157,8 +157,8 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: 'ohash webui',
-        short_name: 'ohash webui',
+        name: 'webui template',
+        short_name: 'webui template',
         description: 'vue3 framework use quasar ui and pinia manage store',
         display: 'standalone',
         orientation: 'portrait',
@@ -224,7 +224,7 @@ module.exports = configure(function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'ohash-webui'
+        appId: 'webui-template'
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain

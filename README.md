@@ -1,6 +1,6 @@
-<a href="https://github.com/NpoolPlatform/ohash-webui/actions/workflows/ci.yml"><img src="https://github.com/NpoolPlatform/ohash-webui/workflows/test/badge.svg" alt="build status"></a>
+<a href="https://github.com/NpoolPlatform/webui-template/actions/workflows/ci.yml"><img src="https://github.com/NpoolPlatform/webui-template/workflows/test/badge.svg" alt="build status"></a>
 
-# ohash webui (ohash-webui)
+# webui template (webui-template)
 
 vue3 framework use quasar ui and pinia manage store
 
