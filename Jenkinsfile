@@ -29,6 +29,15 @@ pipeline {
         '''.stripIndent())
 
         withCredentials([gitUsernamePassword(credentialsId: 'KK-github-key', gitToolName: 'git-tool')]) {
+          sh (returnStdout: false, script: '''
+            set +e
+            git add package.json
+            git commit -m "update package version"
+            git push origin $BRANCH_NAME
+            set -e
+          '''.stripIndent())
+        }
+        
         sh (returnStdout: false, script: '''
           set +e
           PATH=/usr/local/bin:$PATH:./node_modules/@quasar/app/bin command quasar
