@@ -18,7 +18,7 @@ pipeline {
           rc=$?
           set -e
           if [ ! $rc -eq 0 ]; then
-            n latest
+            n v16.14.0
             PATH=/usr/local/bin:$PATH npm i -g mirror-config-china --registry=https://registry.npm.taobao.org
             PATH=/usr/local/bin:$PATH npm install --global --registry https://registry.npm.taobao.org yarn
             PATH=/usr/local/bin:$PATH yarn config set registry 'https://registry.npm.taobao.org'
@@ -165,7 +165,7 @@ pipeline {
           rc=$?
           set -e
           if [ ! $rc -eq 0 ]; then
-            n latest
+            n v16.14.0
             PATH=/usr/local/bin:$PATH npm i -g mirror-config-china --registry=https://registry.npm.taobao.org
             PATH=/usr/local/bin:$PATH npm install --global --registry https://registry.npm.taobao.org yarn
             PATH=/usr/local/bin:$PATH yarn config set registry 'https://registry.npm.taobao.org'
