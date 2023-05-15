@@ -1,72 +1,65 @@
 <template>
-  <div class='row'>
-    <q-btn-dropdown
-      dense
-      flat
-      :icon='internet'
-      :dropdown-icon='downArrow'
-      text-color='white'
-      size='12px'
+  <ul class='language-picker'>
+    <li
+      v-for='language in langs'
+      :class='[ curLang === language.Lang ? "selected" : "" ]'
+      :key='language.ID'
+      @click='onLangClick(language)'
     >
-      <template #label>
-        <div class='label'>
-          {{ langLabel }}
-        </div>
-      </template>
-      <q-list class='langs'>
-        <q-item
-          class='item'
-          dense
-          v-close-popup
-          v-for='myLang in langs'
-          :key='myLang.ID'
-          clickable
-          @click='onLangItemClick(myLang)'
-        >
-          <q-item-section>
-            <div class='row'>
-              <q-img fit='contain' class='icon' :src='myLang.Logo' />
-              <q-item-label dense>
-                {{ myLang.Name }}
-              </q-item-label>
-            </div>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-btn-dropdown>
-  </div>
+      <a class='language'>
+        {{ language.Short?.length > 0 ? language.Short : language.Lang }}
+      </a>
+    </li>
+  </ul>
 </template>
 
 <script setup lang='ts'>
-import { ref, computed } from 'vue'
-import { Language, useLangStore } from 'npool-cli-v2'
 
-const downArrow = ref('img: icons/DownArrow.svg')
-const internet = ref('img: icons/Internet.svg')
+import { useLocaleStore, AppLang, useLocalUserStore, NotifyType } from 'npool-cli-v4'
+import { g11n, notif } from 'src/store'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const lang = useLangStore()
-const langs = computed(() => lang.Languages)
-const langLabel = computed(() => lang.CurLang?.Short !== '' ? lang.CurLang?.Short : lang.CurLang.Lang)
+// eslint-disable-next-line @typescript-eslint/unbound-method
+const { t } = useI18n({ useScope: 'global' })
 
-const onLangItemClick = (myLang: Language) => {
-  lang.setLang(myLang)
+const lang = g11n.AppLang.useG11nAppLangStore()
+const langs = computed(() => lang.Langs)
+
+const locale = useLocaleStore()
+const curLang = computed(() => locale.AppLang?.Lang)
+
+const logined = useLocalUserStore()
+const _notif = notif.Notif.useNotifNotifStore()
+
+const getNotifs = (offset: number, limit: number) => {
+  _notif.getNotifs({
+    Offset: offset,
+    Limit: limit,
+    Message: {
+      Error: {
+        Title: t('MSG_GET_WITHDRAW_ACCOUNTS_FAIL'),
+        Popup: true,
+        Type: NotifyType.Error
+      }
+    }
+  }, (error: boolean, rows: Array<notif.Notif.NotifTypes.Notif>) => {
+    if (error) {
+      return
+    }
+    if (rows.length === 0) {
+      return
+    }
+    getNotifs(offset + limit, limit)
+  })
+}
+
+const onLangClick = (language: AppLang) => {
+  locale.setLang(language)
+  if (logined.logined) {
+    _notif.$reset()
+    getNotifs(0, 100)
+  }
 }
 
 </script>
-
-<style lang='sass' scoped>
-.label
-  font-size: 18px
-  margin-left: 6px
-  line-height: 24px
-
-.langs
-  background-color: $primary
-
-.item:hover
-  background-color: $secondary
-
-.icon
-  width: 24px
-  margin-right: 10px
-</style>

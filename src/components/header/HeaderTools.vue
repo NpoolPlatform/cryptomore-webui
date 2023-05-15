@@ -3,14 +3,14 @@
     <q-btn>{{ $t('MSG_HOME') }}</q-btn>
     <q-btn>{{ $t('MSG_MARKET_PLACE') }}</q-btn>
     <HeaderToolBtn :icon='bellIcon' />
-    <Avatar v-if='logined' />
+    <Avatar v-if='logined.User !== undefined' />
     <q-separator vertical color='white' class='separator' />
     <LangSwitcher />
   </div>
 </template>
 
 <script setup lang='ts'>
-import { useLoginedUserStore, useMailboxStore } from 'npool-cli-v2'
+import { useFrontendNotifStore, useLocalUserStore } from 'npool-cli-v4'
 import { defineAsyncComponent, computed } from 'vue'
 
 import bellNoMsg from '../../assets/BellNoMsg.svg'
@@ -20,11 +20,9 @@ const Avatar = defineAsyncComponent(() => import('src/components/avatar/Avatar.v
 const HeaderToolBtn = defineAsyncComponent(() => import('src/components/header/HeaderToolBtn.vue'))
 const LangSwitcher = defineAsyncComponent(() => import('src/components/lang/LangSwitcher.vue'))
 
-const loginedUsed = useLoginedUserStore()
-const logined = loginedUsed.getLogined
-
-const mailbox = useMailboxStore()
-const bellIcon = computed(() => mailbox.Notifications.length > 0 ? bellMsg : bellNoMsg)
+const logined = useLocalUserStore()
+const notif = useFrontendNotifStore()
+const bellIcon = computed(() => notif.Notifs.Notifs.length > 0 ? bellMsg : bellNoMsg)
 
 </script>
 
