@@ -1,4 +1,4 @@
-import { basetypes } from 'src/store'
+import * as basetypes from '../../basetypes'
 import { BaseRequest } from '../../notification'
 
 export interface Notif {

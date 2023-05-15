@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang='ts'>
-import { g11n, notif, _locale, user, notification } from 'src/store'
+import { g11n, notif, _locale, user, notification } from 'src/mystore'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 

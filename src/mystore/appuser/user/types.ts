@@ -1,4 +1,4 @@
-import { doRequest } from 'src/store'
+import * as doRequest from '../../request'
 import { UserConsts, UserTypes } from './base'
 
 export interface SignupRequest extends doRequest.BaseRequest{

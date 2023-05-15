@@ -8,7 +8,7 @@ import {
 import { doActionWithError } from '../../action'
 import { useLocaleStore } from '../../locale'
 
-export const useFrontendMessageStore = defineStore('message', {
+export const useMessageStore = defineStore('message', {
   state: () => ({
     Messages: {
       Messages: new Map<string, Array<Message>>(),

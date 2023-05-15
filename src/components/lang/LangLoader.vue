@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { onMounted, computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { _locale, g11n, notification } from 'src/store'
+import { _locale, g11n, notification } from 'src/mystore'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
@@ -9,7 +9,7 @@ const { t } = useI18n({ useScope: 'global' })
 const locale = _locale.useLocaleStore()
 const langID = computed(() => locale.AppLang?.LangID)
 
-const message = g11n.Message.useFrontendMessageStore()
+const message = g11n.Message.useMessageStore()
 const messages = computed(() => message.getMessagesByLangID(langID.value))
 watch(langID, () => {
   if (messages.value.length === 0) {

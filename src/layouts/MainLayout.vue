@@ -12,7 +12,7 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, onMounted } from 'vue'
-import { setting, notification } from 'src/store'
+import { setting, notification } from 'src/mystore'
 
 const MainHeader = defineAsyncComponent(() => import('src/components/header/MainHeader.vue'))
 const LangLoader = defineAsyncComponent(() => import('src/components/lang/LangLoader.vue'))

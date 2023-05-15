@@ -11,7 +11,7 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, computed } from 'vue'
-import { notif, user } from 'src/store'
+import { notif, user } from 'src/mystore'
 
 import bellNoMsg from '../../assets/BellNoMsg.svg'
 import bellMsg from '../../assets/BellMsg.svg'

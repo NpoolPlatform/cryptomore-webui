@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang='ts'>
-import { setting } from 'src/store'
+import { setting } from 'src/mystore'
 import { defineAsyncComponent } from 'vue'
 
 const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))

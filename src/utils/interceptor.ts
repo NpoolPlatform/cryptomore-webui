@@ -1,14 +1,14 @@
 import { AxiosInstance, AxiosResponse } from 'axios'
 import { Cookies } from 'quasar'
-import { useLocalUserStore } from '../store/appuser/user/local'
-import { useSettingStore } from '../store/setting'
-import { API as LoginedAPI } from '../store/appuser/user/const'
-import { LoginedResponse } from '../store/appuser/user/types'
+import { useLocalUserStore } from '../mystore/appuser/user/local'
+import { useSettingStore } from '../mystore/setting'
+import { API as LoginedAPI } from '../mystore/appuser/user/const'
+import { LoginedResponse } from '../mystore/appuser/user/types'
 import {
   NavigationGuardNext,
   RouteLocationNormalized
 } from 'vue-router'
-import { createAPI } from '../store/request'
+import { createAPI } from '../mystore/request'
 
 interface RouteMetaImpl {
   ShowHeaderAnnouncement: boolean
