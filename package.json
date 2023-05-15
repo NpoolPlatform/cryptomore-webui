@@ -1,8 +1,8 @@
 {
-  "name": "webui-template",
+  "name": "cryptomore-webui",
   "version": "0.0.1",
   "description": "vue3 framework use quasar ui and pinia manage store",
-  "productName": "WebUI Template",
+  "productName": "Crypto More WebUI",
   "author": "Entropy Pool Team <kikakkz@hotmail.com>",
   "private": true,
   "scripts": {

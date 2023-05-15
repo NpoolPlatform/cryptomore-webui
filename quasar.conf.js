@@ -158,8 +158,8 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: 'webui template',
-        short_name: 'webui template',
+        name: 'Crypto More WebUI',
+        short_name: 'Crypto More WebUI',
         description: 'vue3 framework use quasar ui and pinia manage store',
         display: 'standalone',
         orientation: 'portrait',
@@ -225,7 +225,7 @@ module.exports = configure(function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'webui-template'
+        appId: 'cryptomore-webui'
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain

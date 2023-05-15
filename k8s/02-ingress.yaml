@@ -1,11 +1,11 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: webui-template-ingress
+  name: cryptomore-webui-ingress
   namespace: kube-system
   annotations:
-    k8s.kuboard.cn/displayName: webui-template
-    k8s.kuboard.cn/workload: webui-template
+    k8s.kuboard.cn/displayName: cryptomore-webui
+    k8s.kuboard.cn/workload: cryptomore-webui
     kubernetes.io/ingress.class: "devops-vpn-nginx-internal"
     nginx.com/sticky-cookie-services: "serviceName=kuboard srv_id expires=1h path=/"
 
@@ -16,7 +16,7 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: webui-template
+              serviceName: cryptomore-webui
               servicePort: 80
     - host: vue-template.xpool.top
       http: *http_rules

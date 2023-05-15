@@ -1,6 +1,6 @@
 commonLabels:
-  # app: webui-template
+  # app: cryptomore-webui
 
 resources:
-  - 01-webui-template.yaml
+  - 01-cryptomore-webui.yaml
   - 02-ingress.yaml
