@@ -1,40 +1,40 @@
 import * as doRequest from '../../request'
-import { UserConsts, UserTypes } from './base'
+import * as userbase from './base'
 
 export interface SignupRequest extends doRequest.BaseRequest{
   Account: string;
   PasswordHash: string;
-  AccountType: UserConsts.SignMethodType;
+  AccountType: userbase.SignMethodType;
   VerificationCode: string;
   InvitationCode: string;
 }
 
 export interface SignupResponse {
-  Info: UserTypes.User
+  Info: userbase.User
 }
 
 export interface LoginRequest extends doRequest.BaseRequest {
   Account: string;
   PasswordHash: string;
-  AccountType: UserConsts.SignMethodType;
+  AccountType: userbase.SignMethodType;
   ManMachineSpec: string;
   EnvironmentSpec?: string;
 }
 
 export interface LoginResponse {
-  Info: UserTypes.User;
+  Info: userbase.User;
 }
 
 export interface LoginVerifyRequest extends doRequest.BaseRequest {
   UserID: string;
   Account: string;
-  AccountType: UserConsts.SignMethodType,
+  AccountType: userbase.SignMethodType,
   Token: string;
   VerificationCode: string;
 }
 
 export interface LoginVerifyResponse {
-  Info: UserTypes.User;
+  Info: userbase.User;
 }
 
 export interface LogoutRequest extends doRequest.BaseRequest {
@@ -42,14 +42,14 @@ export interface LogoutRequest extends doRequest.BaseRequest {
 }
 
 export interface LogoutResponse {
-  Info: UserTypes.User;
+  Info: userbase.User;
 }
 
 export interface UpdateUserRequest extends doRequest.BaseRequest {
   Account?: string;
   NewAccount?:string;
-  AccountType?: UserConsts.SignMethodType;
-  NewAccountType?: UserConsts.SignMethodType;
+  AccountType?: userbase.SignMethodType;
+  NewAccountType?: userbase.SignMethodType;
   VerificationCode?: string;
   NewVerificationCode?:string;
   EmailAddress?: string;
@@ -65,7 +65,7 @@ export interface UpdateUserRequest extends doRequest.BaseRequest {
   FirstName?: string;
   LastName?: string;
   IDNumber?: string;
-  SigninVerifyType?: UserConsts.SigninVerifyType;
+  SigninVerifyType?: userbase.SigninVerifyType;
   PasswordHash?: string;
   OldPasswordHash?:string;
   SigninVerifyByGoogleAuth?: boolean;
@@ -76,12 +76,12 @@ export interface UpdateUserRequest extends doRequest.BaseRequest {
 }
 
 export interface UpdateUserResponse {
-  Info: UserTypes.User;
+  Info: userbase.User;
 }
 
 export interface ResetUserRequest extends doRequest.BaseRequest {
   Account: string
-  AccountType: UserConsts.SignMethodType
+  AccountType: userbase.SignMethodType
   VerificationCode: string
   PasswordHash?: string
   RecoveryCode?: string
@@ -97,9 +97,9 @@ export interface UpdateUserKolRequest extends doRequest.BaseRequest {
 }
 
 export interface UpdateUserKolResponse {
-  Info: UserTypes.User
+  Info: userbase.User
 }
 
 export interface LoginedResponse {
-  Info: UserTypes.User
+  Info: userbase.User
 }

@@ -18,13 +18,13 @@ import {
   UpdateUserRequest,
   UpdateUserResponse
 } from './types'
-import { UserTypes } from './base'
+import * as userbase from './base'
 
 export const useUserStore = defineStore('user', {
   state: () => ({}),
   getters: {},
   actions: {
-    login (req: LoginRequest, done: (error: boolean, user?: UserTypes.User) => void) {
+    login (req: LoginRequest, done: (error: boolean, user?: userbase.User) => void) {
       doActionWithError<LoginRequest, LoginResponse>(
         API.LOGIN,
         req,
@@ -37,7 +37,7 @@ export const useUserStore = defineStore('user', {
           done(true)
         })
     },
-    loginVerify (req: LoginVerifyRequest, done: (error: boolean, user?: UserTypes.User) => void) {
+    loginVerify (req: LoginVerifyRequest, done: (error: boolean, user?: userbase.User) => void) {
       doActionWithError<LoginVerifyRequest, LoginVerifyResponse>(
         API.LOGIN_VERIFY,
         req,
@@ -72,7 +72,7 @@ export const useUserStore = defineStore('user', {
           done(true)
         })
     },
-    updateUser (req: UpdateUserRequest, done: (error: boolean, user?: UserTypes.User) => void) {
+    updateUser (req: UpdateUserRequest, done: (error: boolean, user?: userbase.User) => void) {
       doActionWithError<UpdateUserRequest, UpdateUserResponse>(
         API.UPDATE_USER,
         req,
@@ -96,7 +96,7 @@ export const useUserStore = defineStore('user', {
           done(true)
         })
     },
-    updateUserKol (req: UpdateUserKolRequest, done: (error: boolean, user?: UserTypes.User) => void) {
+    updateUserKol (req: UpdateUserKolRequest, done: (error: boolean, user?: userbase.User) => void) {
       doActionWithError<UpdateUserKolRequest, UpdateUserKolResponse>(
         API.UPDATE_USERKOL,
         req,
@@ -111,6 +111,6 @@ export const useUserStore = defineStore('user', {
   }
 })
 
-export * as UserBase from './base'
-export * as UserLocal from './local'
-export * as UserTypes from './types'
+export * from './base'
+export * from './local'
+export * from './types'

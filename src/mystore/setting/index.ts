@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { SettingState } from './types'
+import { SettingState } from './state'
 
 export const useSettingStore = defineStore('setting', {
   state: (): SettingState => ({

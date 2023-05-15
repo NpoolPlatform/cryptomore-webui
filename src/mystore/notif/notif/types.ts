@@ -11,11 +11,11 @@ export interface Notif {
   Username: string
   LangID: string
   Lang: string
-  EventType: basetypes.UsedFor.UsedFor
+  EventType: basetypes.UsedFor
   UseTemplate: boolean
   Title: string
   Content: string
-  Channel: basetypes.NotifChannel.NotifChannel
+  Channel: basetypes.NotifChannel
   Notified: boolean
   CreatedAt: number
   UpdatedAt: number

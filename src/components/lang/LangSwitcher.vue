@@ -27,7 +27,7 @@ const langs = computed(() => lang.Langs)
 const locale = _locale.useLocaleStore()
 const curLang = computed(() => locale.AppLang?.Lang)
 
-const logined = user.UserLocal.useLocalUserStore()
+const logined = user.useLocalUserStore()
 const _notif = notif.Notif.useNotifNotifStore()
 
 const getNotifs = (offset: number, limit: number) => {

@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
 import { Cookies } from 'quasar'
-import { UserTypes } from '../base'
+import * as userbase from '../base'
 
 export const useLocalUserStore = defineStore('local-user', {
   state: () => ({
-    User: undefined as unknown as UserTypes.User
+    User: undefined as unknown as userbase.User
   }),
   getters: {
     logined (): boolean {
@@ -24,7 +24,7 @@ export const useLocalUserStore = defineStore('local-user', {
     }
   },
   actions: {
-    setUser (user: UserTypes.User) {
+    setUser (user: userbase.User) {
       this.User = user
       if (user) {
         Cookies.set('X-User-ID', user.ID, { expires: '4h', secure: true })
@@ -34,7 +34,7 @@ export const useLocalUserStore = defineStore('local-user', {
     restUser () {
       Cookies.remove('X-User-ID')
       Cookies.remove('X-AppLogin-Token')
-      this.User = undefined as unknown as UserTypes.User
+      this.User = undefined as unknown as userbase.User
     }
   }
 })
