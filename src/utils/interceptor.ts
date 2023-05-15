@@ -13,7 +13,6 @@ import { createAPI } from '../mystore/request'
 interface RouteMetaImpl {
   ShowHeaderAnnouncement: boolean
   ShowMainHeader: boolean
-  ShowBigLogo: boolean
   ShowSignHelper: boolean
   ShowFooterTop: boolean
   ShowTopTip: boolean
@@ -30,7 +29,6 @@ const loginInterceptor = (signInPath: string, to: RouteLocationNormalized, next:
   const setting = useSettingStore()
   setting.ShowHeaderAnnouncement = to.meta.ShowHeaderAnnouncement
   setting.ShowMainHeader = to.meta.ShowMainHeader
-  setting.ShowBigLogo = to.meta.ShowBigLogo
   setting.ShowSignHelper = to.meta.ShowSignHelper
   setting.ShowFooterTop = to.meta.ShowFooterTop
   setting.ShowTopTip = to.meta.ShowTopTip

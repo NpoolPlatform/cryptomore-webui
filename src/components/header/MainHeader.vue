@@ -1,32 +1,26 @@
 <template>
-  <q-toolbar class='header'>
-    <Logo :class='[_setting.ShowBigLogo ? "big-logo" : "small-logo"]' />
-    <q-space />
-    <HeaderTools />
+  <q-toolbar class='header full-width'>
+    <div class='content-width row'>
+      <Logo height='40px' img-width='35px' class='logo' />
+      <q-space />
+      <HeaderTools />
+    </div>
   </q-toolbar>
 </template>
 
 <script setup lang='ts'>
-import { setting } from 'src/mystore'
 import { defineAsyncComponent } from 'vue'
 
 const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))
 const HeaderTools = defineAsyncComponent(() => import('src/components/header/HeaderTools.vue'))
 
-const _setting = setting.useSettingStore()
-
 </script>
 
 <style lang='sass' scoped>
 .header
-  height: 80px
-  padding: 0 80px
+  height: 76px
+  justify-content: center
 
-.small-logo
-  max-height: 40px
-  max-width: 71px
-
-.big-logo
-  max-height: 60px
-  max-width: 106px
+.logo
+  margin: 18px 0 18px 0
 </style>
