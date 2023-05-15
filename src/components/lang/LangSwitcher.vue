@@ -14,9 +14,7 @@
 </template>
 
 <script setup lang='ts'>
-
-import { useLocaleStore, AppLang, useLocalUserStore, NotifyType } from 'npool-cli-v4'
-import { g11n, notif } from 'src/store'
+import { g11n, notif, _locale, user, notification } from 'src/store'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -26,10 +24,10 @@ const { t } = useI18n({ useScope: 'global' })
 const lang = g11n.AppLang.useG11nAppLangStore()
 const langs = computed(() => lang.Langs)
 
-const locale = useLocaleStore()
+const locale = _locale.useLocaleStore()
 const curLang = computed(() => locale.AppLang?.Lang)
 
-const logined = useLocalUserStore()
+const logined = user.UserLocal.useLocalUserStore()
 const _notif = notif.Notif.useNotifNotifStore()
 
 const getNotifs = (offset: number, limit: number) => {
@@ -40,10 +38,10 @@ const getNotifs = (offset: number, limit: number) => {
       Error: {
         Title: t('MSG_GET_WITHDRAW_ACCOUNTS_FAIL'),
         Popup: true,
-        Type: NotifyType.Error
+        Type: notification.NotifyType.Error
       }
     }
-  }, (error: boolean, rows: Array<notif.Notif.NotifTypes.Notif>) => {
+  }, (error: boolean, rows: Array<notif.Notif.Notif>) => {
     if (error) {
       return
     }
@@ -54,7 +52,7 @@ const getNotifs = (offset: number, limit: number) => {
   })
 }
 
-const onLangClick = (language: AppLang) => {
+const onLangClick = (language: g11n.AppLang.Lang) => {
   locale.setLang(language)
   if (logined.logined) {
     _notif.$reset()

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import * as NotifTypes from './types'
 import { NotifState } from './state'
-import { doActionWithError } from 'npool-cli-v4'
+import { doActionWithError } from '../../action'
 import { API } from './const'
 
 export const useNotifNotifStore = defineStore('notif-notif', {
@@ -28,4 +28,4 @@ export const useNotifNotifStore = defineStore('notif-notif', {
   }
 })
 
-export * as NotifTypes from './types'
+export * from './types'

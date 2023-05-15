@@ -1,4 +1,4 @@
-import { BaseRequest } from 'npool-cli-v4'
+import { BaseRequest } from '../../../notification'
 
 export interface Lang {
   ID: string

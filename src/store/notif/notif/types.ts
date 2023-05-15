@@ -1,5 +1,5 @@
-import { NotifChannel, UsedFor } from 'src/store/basetypes'
-import { BaseRequest } from 'npool-cli-v4'
+import { basetypes } from 'src/store'
+import { BaseRequest } from '../../notification'
 
 export interface Notif {
   ID: string
@@ -11,11 +11,11 @@ export interface Notif {
   Username: string
   LangID: string
   Lang: string
-  EventType: UsedFor.UsedFor
+  EventType: basetypes.UsedFor.UsedFor
   UseTemplate: boolean
   Title: string
   Content: string
-  Channel: NotifChannel.NotifChannel
+  Channel: basetypes.NotifChannel.NotifChannel
   Notified: boolean
   CreatedAt: number
   UpdatedAt: number

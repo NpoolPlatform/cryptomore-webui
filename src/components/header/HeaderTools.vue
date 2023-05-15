@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang='ts'>
-import { useFrontendNotifStore, useLocalUserStore } from 'npool-cli-v4'
 import { defineAsyncComponent, computed } from 'vue'
+import { notif, user } from 'src/store'
 
 import bellNoMsg from '../../assets/BellNoMsg.svg'
 import bellMsg from '../../assets/BellMsg.svg'
@@ -20,9 +20,9 @@ const Avatar = defineAsyncComponent(() => import('src/components/avatar/Avatar.v
 const HeaderToolBtn = defineAsyncComponent(() => import('src/components/header/HeaderToolBtn.vue'))
 const LangSwitcher = defineAsyncComponent(() => import('src/components/lang/LangSwitcher.vue'))
 
-const logined = useLocalUserStore()
-const notif = useFrontendNotifStore()
-const bellIcon = computed(() => notif.Notifs.Notifs.length > 0 ? bellMsg : bellNoMsg)
+const logined = user.UserLocal.useLocalUserStore()
+const _notif = notif.Notif.useNotifNotifStore()
+const bellIcon = computed(() => _notif.Notifs.length > 0 ? bellMsg : bellNoMsg)
 
 </script>
 

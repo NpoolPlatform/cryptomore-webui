@@ -1,15 +1,15 @@
 <script setup lang='ts'>
 import { onMounted, computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useLocaleStore, useAdminAppLangStore, AppLang, NotifyType, useFrontendMessageStore, Message } from 'npool-cli-v4'
+import { _locale, g11n, notification } from 'src/store'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
 
-const locale = useLocaleStore()
+const locale = _locale.useLocaleStore()
 const langID = computed(() => locale.AppLang?.LangID)
 
-const message = useFrontendMessageStore()
+const message = g11n.Message.useFrontendMessageStore()
 const messages = computed(() => message.getMessagesByLangID(langID.value))
 watch(langID, () => {
   if (messages.value.length === 0) {
@@ -17,16 +17,16 @@ watch(langID, () => {
   }
 })
 
-const lang = useAdminAppLangStore()
+const lang = g11n.AppLang.useG11nAppLangStore()
 
 onMounted(() => {
-  if (lang.AppLangs.AppLangs.length === 0) {
-    getAppLangs(0, 100)
+  if (lang.Langs.length === 0) {
+    getLangs(0, 100)
   }
 })
 
-const getAppLangs = (offset: number, limit: number) => {
-  lang.getAppLangs({
+const getLangs = (offset: number, limit: number) => {
+  lang.getLangs({
     Offset: offset,
     Limit: limit,
     Message: {
@@ -34,14 +34,14 @@ const getAppLangs = (offset: number, limit: number) => {
         Title: t('MSG_GET_LANG_MESSAGES'),
         Message: t('MSG_GET_LANG_MESSAGES_FAIL'),
         Popup: true,
-        Type: NotifyType.Error
+        Type: notification.NotifyType.Error
       }
     }
-  }, (error: boolean, rows: Array<AppLang>) => {
-    if (error || rows.length === 0) {
+  }, (error: boolean, rows?: Array<g11n.AppLang.Lang>) => {
+    if (error || !rows?.length) {
       return
     }
-    getAppLangs(offset + limit, limit)
+    getLangs(offset + limit, limit)
   })
 }
 
@@ -56,10 +56,10 @@ const getMessages = (offset: number, limit: number) => {
         Title: t('MSG_GET_LANG_MESSAGES'),
         Message: t('MSG_GET_LANG_MESSAGES_FAIL'),
         Popup: true,
-        Type: NotifyType.Error
+        Type: notification.NotifyType.Error
       }
     }
-  }, (error: boolean, rows: Array<Message>) => {
+  }, (error: boolean, rows: Array<g11n.Message.Message>) => {
     if (error || rows.length === 0) {
       return
     }

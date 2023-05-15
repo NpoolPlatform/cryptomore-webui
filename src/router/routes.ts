@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router'
-import { RouteMetaImpl } from 'npool-cli-v4/utils'
+import { RouteMetaImpl } from '../utils'
 
 declare module 'vue-router' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
