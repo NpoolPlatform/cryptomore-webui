@@ -1,8 +1,8 @@
 <template>
-  <div class='announcement color-main'>
+  <q-banner dense class='announcement color-main'>
     <q-img :src='logoImg' class='logo' fit='contain' />
-    <span>TODO: A brown fox jump over a white rabbit!</span>
-  </div>
+    <q-label>TODO: A brown fox jump over a white rabbit!</q-label>
+  </q-banner>
 </template>
 
 <script setup lang='ts'>
@@ -14,11 +14,10 @@ import logoImg from '../../assets/Logo.svg'
   background: #D4FFE8
   width: 100%
   text-align: center
-  font-size: 14px
-  padding: 5px 0
+  min-height: 36px
 
 .logo
-  height: 26px
+  height: 24px
   width: 18px
-  margin: 0 6px 0 0
+  margin-right: 6px
 </style>
