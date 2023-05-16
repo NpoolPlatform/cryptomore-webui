@@ -1,11 +1,20 @@
 <template>
-  <HeaderToolDropdown>
-    <div>HHHHHHHHHHHHHHH</div>
-  </HeaderToolDropdown>
+  <q-btn
+    flat
+    dense
+    class='btn btn-small'
+    :icon='"img:" + avatar'
+    size='16px'
+  >
+    <q-menu>
+      HHHHHHHHHHHHHHHHHHH
+    </q-menu>
+  </q-btn>
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent } from 'vue'
+import { ref } from 'vue'
 
-const HeaderToolDropdown = defineAsyncComponent(() => import('src/components/header/HeaderToolDropdown.vue'))
+const avatar = ref('https://cdn.quasar.dev/img/avatar.png')
+
 </script>

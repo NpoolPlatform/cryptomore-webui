@@ -1,16 +1,29 @@
 <template>
-  <ul class='language-picker'>
-    <li
-      v-for='language in langs'
-      :class='[ curLang === language.Lang ? "selected" : "" ]'
-      :key='language.ID'
-      @click='onLangClick(language)'
-    >
-      <a class='language'>
-        {{ language.Short?.length > 0 ? language.Short : language.Lang }}
-      </a>
-    </li>
-  </ul>
+  <q-btn-dropdown
+    flat
+    class='btn btn-small'
+    icon='language'
+    dropdown-icon='expand_more'
+    :label='curLang'
+  >
+    <q-list class='menu'>
+      <q-item
+        dense
+        clickable
+        v-close-popup
+        v-for='_lang in langs'
+        :class='[ curLang === _lang.Short ? "highlight-transparent-10" : "" ]'
+        :key='_lang.ID'
+        @click='onLangClick(_lang)'
+      >
+        <div class='row item'>
+          <q-img class='logo' :src='_lang.Logo' />
+          <q-item-label>{{ _lang.Name }}</q-item-label>
+        </div>
+        <q-separator class='highlight-transparent-10' />
+      </q-item>
+    </q-list>
+  </q-btn-dropdown>
 </template>
 
 <script setup lang='ts'>
@@ -25,7 +38,7 @@ const lang = g11n.AppLang.useG11nAppLangStore()
 const langs = computed(() => lang.Langs)
 
 const locale = _locale.useLocaleStore()
-const curLang = computed(() => locale.AppLang?.Lang)
+const curLang = computed(() => locale.AppLang?.Short)
 
 const logined = user.useLocalUserStore()
 const _notif = notif.Notif.useNotifNotifStore()
@@ -61,3 +74,17 @@ const onLangClick = (language: g11n.AppLang.Lang) => {
 }
 
 </script>
+
+<style lang='sass' scoped>
+.menu
+  min-width: 160px
+
+.menu .logo
+  width: 32px
+  height: 16px
+  margin-right: 6px
+
+.menu .item
+  height: 32px
+  padding: 8px 0
+</style>

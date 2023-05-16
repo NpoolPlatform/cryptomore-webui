@@ -1,37 +1,23 @@
 <template>
   <q-tabs
     v-model='tab'
-    inline-label
     class='color-main menu'
-    indicator-color='main'
-    :narrow-indicator='false'
+    indicator-color='primary'
   >
-    <q-tab dense :name='menu.Menu.MenuProducts'>
-      <q-btn
-        stretch
-        flat
-        :label='$t("MSG_PRODUCTS")'
-        size='16px'
-        icon-right='expand_more'
-      >
+    <q-tab :name='menu.Menu.MenuProducts'>
+      <div class='inline cursor-pointer'>
+        <div class='fit flex flex-center text-center non-selectable'>
+          {{ $t('MSG_PRODUCTS') }}
+          <q-icon name='expand_more' class='text-primary icon' size='24px' />
+        </div>
         <q-menu>
           HHHHHHHHHHHHHHHHHHHHHHHHHHH
         </q-menu>
-      </q-btn>
+      </div>
     </q-tab>
-    <q-tab :name='menu.Menu.MenuPricing'>
-      <q-btn
-        stretch
-        flat
-        :label='$t("MSG_PRICING")'
-        size='16px'
-        icon-right='expand_more'
-      >
-        <q-menu>
-          HHHHHHHHHHHHHHHHHHHHHHHHHHH
-        </q-menu>
-      </q-btn>
-    </q-tab>
+    <q-tab :name='menu.Menu.MenuPricing' :label='$t("MSG_PRICING")' />
+    <q-tab :name='menu.Menu.MenuPartners' :label='$t("MSG_PARTNERS")' />
+    <q-tab :name='menu.Menu.MenuDocs' :label='$t("MSG_DOCS")' />
   </q-tabs>
 </template>
 
@@ -44,6 +30,12 @@ const tab = ref(menu.Menu.MenuProducts)
 </script>
 
 <style lang='sass' scoped>
-.menu .q-tab
+.menu .q-tab-1
   padding: 0
+
+::v-deep .q-tab__indicator
+  height: 3px
+
+.menu .icon
+  margin-left: 12px
 </style>

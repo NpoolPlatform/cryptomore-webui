@@ -1,5 +1,7 @@
 <template>
   <q-btn
+    class='btn btn-small'
+    color='primary'
     flat
     dense
     round

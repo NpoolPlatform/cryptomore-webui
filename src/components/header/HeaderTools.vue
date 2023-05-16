@@ -1,27 +1,12 @@
 <template>
   <div class='row'>
-    <HeaderToolBtn :icon='bellIcon' />
-    <Avatar v-if='logined.User !== undefined' />
-    <q-separator vertical color='white' class='separator' />
     <LangSwitcher />
   </div>
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent, computed } from 'vue'
-import { notif, user } from 'src/mystore'
-
-import bellNoMsg from '../../assets/BellNoMsg.svg'
-import bellMsg from '../../assets/BellMsg.svg'
-
-const Avatar = defineAsyncComponent(() => import('src/components/avatar/Avatar.vue'))
-const HeaderToolBtn = defineAsyncComponent(() => import('src/components/header/HeaderToolBtn.vue'))
+import { defineAsyncComponent } from 'vue'
 const LangSwitcher = defineAsyncComponent(() => import('src/components/lang/LangSwitcher.vue'))
-
-const logined = user.useLocalUserStore()
-const _notif = notif.Notif.useNotifNotifStore()
-const bellIcon = computed(() => _notif.Notifs.length > 0 ? bellMsg : bellNoMsg)
-
 </script>
 
 <style lang='sass' scoped>
