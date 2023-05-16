@@ -12,7 +12,6 @@ import { createAPI } from '../mystore/request'
 
 interface RouteMetaImpl {
   ShowHeaderAnnouncement: boolean
-  ShowMainHeader: boolean
   ShowSignHelper: boolean
   ShowFooterTop: boolean
   ShowTopTip: boolean
@@ -28,7 +27,6 @@ declare module 'vue-router' {
 const loginInterceptor = (signInPath: string, to: RouteLocationNormalized, next: NavigationGuardNext) => {
   const setting = useSettingStore()
   setting.ShowHeaderAnnouncement = to.meta.ShowHeaderAnnouncement
-  setting.ShowMainHeader = to.meta.ShowMainHeader
   setting.ShowSignHelper = to.meta.ShowSignHelper
   setting.ShowFooterTop = to.meta.ShowFooterTop
   setting.ShowTopTip = to.meta.ShowTopTip

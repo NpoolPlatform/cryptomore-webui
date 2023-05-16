@@ -1,12 +1,12 @@
 <template>
   <q-banner v-if='notifyHead !== undefined' dense class='notification color-main'>
     <q-img :src='logoImg' class='logo' fit='contain' />
-    <q-label>{{ notifyHead?.Message }} </q-label>
+    <q-label>{{ notifyHead?.Message }}</q-label>
   </q-banner>
 </template>
 
 <script setup lang='ts'>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onMounted } from 'vue'
 import { notification } from 'src/mystore'
 
 import logoImg from '../../assets/Logo.svg'
@@ -23,9 +23,23 @@ watch(notifications, () => {
     return
   }
   notifyHead.value = _notification.Notifications[0]
+  if (notifyHead.value.Popup) {
+    return
+  }
   setTimeout(() => {
     _notification.Notifications.splice(0, 1)
     notifyHead.value = undefined as unknown as notification.Notification
+  })
+})
+
+onMounted(() => {
+  _notification.$subscribe((_, state) => {
+    state.Notifications.forEach((notif, index) => {
+      if (notif.Popup) {
+        state.Notifications.splice(index, 1)
+        notification.notify(notif)
+      }
+    })
   })
 })
 
