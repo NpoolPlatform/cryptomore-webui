@@ -1,7 +1,7 @@
 <template>
   <q-layout view='hHh Lpr lFf background-main body-main'>
     <MainHeader v-if='_setting.ShowMainHeader' />
-    <Announcement />
+    <Notification />
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -15,7 +15,7 @@ import { setting, notification } from 'src/mystore'
 
 const MainHeader = defineAsyncComponent(() => import('src/components/header/MainHeader.vue'))
 const LangLoader = defineAsyncComponent(() => import('src/components/lang/LangLoader.vue'))
-const Announcement = defineAsyncComponent(() => import('src/components/announcement/Announcement.vue'))
+const Notification = defineAsyncComponent(() => import('src/components/notification/Notification.vue'))
 
 const _setting = setting.useSettingStore()
 const _notification = notification.useNotificationStore()
