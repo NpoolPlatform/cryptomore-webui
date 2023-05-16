@@ -1,7 +1,7 @@
 <template>
   <div :style='{height: height}' class='row'>
     <q-img :src='logoImg' class='full-height logo-img' :style='{width: imgWidth}' />
-    <div>
+    <div class='micro-hide'>
       <q-img :src='logoTextImg' :stype='{height: textHeight}' />
       <br>
       <span :style='{fontSize: subtitleFontSize}' class='font-small color-main-transparent-60'>Your Reliable Crypto+ Partner</span>

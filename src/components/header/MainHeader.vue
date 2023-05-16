@@ -5,10 +5,10 @@
         <Logo height='40px' img-width='35px' />
       </div>
       <q-space />
-      <HeaderMenu />
+      <HeaderMenu class='mobile-hide' />
       <q-space />
-      <SignHelper />
-      <q-separator color='secondary' class='separator' vertical />
+      <SignHelper class='mini-hide' />
+      <q-separator color='secondary' class='separator mini-hide' vertical />
       <HeaderTools />
     </div>
   </q-toolbar>
