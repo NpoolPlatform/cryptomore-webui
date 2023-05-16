@@ -22,7 +22,7 @@
             <q-img class='icon not-first micro-hide' :src='solana' />
             <q-img class='icon not-first atomic-hide' :src='litecoin' />
             <q-img class='icon not-first' :src='filecoin' />
-            <q-img class='icon not-first atomic-hide' :src='aptos' />
+            <q-img class='icon not-first micro-hide' :src='aptos' />
           </div>
         </div>
         <div class='right scale-hide'>
