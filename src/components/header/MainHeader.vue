@@ -1,7 +1,7 @@
 <template>
   <q-toolbar class='header full-width'>
     <div class='content-width row'>
-      <div class='logo'>
+      <div class='logo cursor-pointer'>
         <Logo height='40px' img-width='35px' />
       </div>
       <q-space />
@@ -28,6 +28,7 @@ const SignHelper = defineAsyncComponent(() => import('src/components/header/Sign
 .header
   height: 76px
   justify-content: center
+  background: white
 
 .header .logo
   margin: 18px 0 18px 0

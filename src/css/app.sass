@@ -8,6 +8,11 @@ body
   @media (min-width: 1280px)
     width: 1280px
 
+.horizontal-center
+  margin: 0 auto
+  @media (max-width: 1280px)
+    margin: 0 6px
+
 .mobile-hide
   @media (max-width: 1160px)
     display: none
@@ -37,6 +42,9 @@ body
 .color-main-transparent-60
   color: rgba(0, 71, 55, 0.6)
 
+.color-main-transparent-80
+  color: rgba(0, 71, 55, 0.8)
+
 .color-main
   color: $primary
 
@@ -48,11 +56,19 @@ body
   background: linear-gradient(96.62deg, #56F09F 0%, #A3FFE5 100%)
 
 .btn-alt
-  border: 2px solid #56F09F
+  border: 1px solid transparent
+  background: linear-gradient(white, white) padding-box, linear-gradient(98.89deg, #56F09F 0%, #A3FFE5 100%) border-box
 
 .btn-small
   height: 36px
   border-radius: 18px
+
+.btn-large
+  height: 64px
+  border-radius: 32px
+  padding: 0 36px 0 36px
+  font-size: 20px
+  font-weight: 500
 
 .highlight-transparent-10
   background: rgba(61, 187, 119, 0.1)
