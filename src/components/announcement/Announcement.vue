@@ -1,7 +1,8 @@
 <template>
   <q-banner dense class='announcement color-main'>
     <q-img :src='logoImg' class='logo' fit='contain' />
-    <q-label>TODO: A brown fox jump over a white rabbit!</q-label>
+    <q-label>TODO: A brown fox jump over a white rabbit ! </q-label>
+    <a href='#'>Jump</a>
   </q-banner>
 </template>
 
