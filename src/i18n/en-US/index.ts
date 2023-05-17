@@ -78,5 +78,7 @@ export default {
                           'and Filecoin Pool Prize at ETHGlobal\'s 2022 HackFEVM hackathon.',
   MSG_SUBSCRIBE_TO_NEWS: 'Subscribe to Crypto More News',
   MSG_SUBSCRIBE: 'Subscribe',
-  MSG_SUBSCRIBE_WITH_EMAIL: 'Subscribe with email address'
+  MSG_SUBSCRIBE_WITH_EMAIL: 'Subscribe with email address',
+  MSG_CONTACT_US: 'Contact Us',
+  MSG_PRODUCT_BY_WEB3EYE_TEAM: '© A product by <a href="https://web3eye.io">web3eye.io</a> team'
 }

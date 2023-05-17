@@ -11,38 +11,52 @@
       <div class='content-width row flow-chart horizontal-center'>
         <div class='flow-chart-item'>
           <q-img :src='requirement' width='60px' height='60px' />
-          <div class='name'>{{ $t('MSG_REQUIREMENT') }}</div>
+          <div class='name'>
+            {{ $t('MSG_REQUIREMENT') }}
+          </div>
         </div>
         <div class='separator' />
         <div class='flow-chart-item'>
           <q-img :src='solution' width='60px' height='60px' />
-          <div class='name'>{{ $t('MSG_SOLUTION') }}</div>
+          <div class='name'>
+            {{ $t('MSG_SOLUTION') }}
+          </div>
         </div>
         <div class='separator' />
         <div class='flow-chart-item'>
           <q-img :src='purchase' width='60px' height='60px' />
-          <div class='name'>{{ $t('MSG_PURCHASE') }}</div>
+          <div class='name'>
+            {{ $t('MSG_PURCHASE') }}
+          </div>
         </div>
         <div class='separator' />
         <div class='flow-chart-item'>
           <q-img :src='logistics' width='60px' height='60px' />
-          <div class='name'>{{ $t('MSG_LOGISTICS') }}</div>
+          <div class='name'>
+            {{ $t('MSG_LOGISTICS') }}
+          </div>
         </div>
         <div class='separator' />
         <div class='flow-chart-item'>
           <q-img :src='deployment' width='60px' height='60px' />
-          <div class='name'>{{ $t('MSG_DEPLOYMENT') }}</div>
+          <div class='name'>
+            {{ $t('MSG_DEPLOYMENT') }}
+          </div>
         </div>
         <div class='separator' />
         <div class='flow-chart-item'>
           <q-img :src='reward' width='60px' height='60px' />
-          <div class='name'>{{ $t('MSG_REWARD') }}</div>
+          <div class='name'>
+            {{ $t('MSG_REWARD') }}
+          </div>
         </div>
       </div>
     </div>
     <div class='description'>
       <div class='row content-width horizontal-center'>
-        <div class='left'>{{ $t('MSG_LEADERSHIP_DESCRIPTION') }}</div>
+        <div class='left'>
+          {{ $t('MSG_LEADERSHIP_DESCRIPTION') }}
+        </div>
         <div class='btns'>
           <q-btn
             flat

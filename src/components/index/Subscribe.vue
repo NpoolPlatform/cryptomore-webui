@@ -1,6 +1,8 @@
 <template>
   <div class='subscribe content-width horizontal-center'>
-    <div class='title text-center text-primary'>{{ $t('MSG_SUBSCRIBE_TO_NEWS') }}</div>
+    <div class='title text-center text-primary'>
+      {{ $t('MSG_SUBSCRIBE_TO_NEWS') }}
+    </div>
     <div class='row horizontal-center input'>
       <q-input
         class='input-box'
@@ -30,6 +32,7 @@ const emailAddress = ref('')
 <style lang='sass' scoped>
 .subscribe
   padding-top: 120px
+  padding-bottom: 120px
 
 .subscribe .title
   font-size: 54px
