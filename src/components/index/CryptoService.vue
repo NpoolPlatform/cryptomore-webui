@@ -69,6 +69,7 @@ import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 <style lang='sass' scoped>
 .crypto-service .title
   font-size: 54px
+  line-height: 60px
   color: $primary
   font-weight: 600
 

@@ -75,5 +75,8 @@ export default {
                           'specified storage provider, the storage provider owner is the only role that has the total power of the ' +
                           'node. FIL Peggy lets storage provider custody of their node to a smart contract instance, then the smart ' +
                           'contract will be in charge of the whole process of third-party investment. FIL Peggy wins the finalist ' +
-                          'and Filecoin Pool Prize at ETHGlobal\'s 2022 HackFEVM hackathon.'
+                          'and Filecoin Pool Prize at ETHGlobal\'s 2022 HackFEVM hackathon.',
+  MSG_SUBSCRIBE_TO_NEWS: 'Subscribe to Crypto More News',
+  MSG_SUBSCRIBE: 'Subscribe',
+  MSG_SUBSCRIBE_WITH_EMAIL: 'Subscribe with email address'
 }
