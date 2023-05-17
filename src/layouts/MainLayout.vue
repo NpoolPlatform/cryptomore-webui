@@ -6,6 +6,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+    <Footer />
     <LangLoader />
   </q-layout>
 </template>
@@ -17,5 +18,6 @@ const MainHeader = defineAsyncComponent(() => import('src/components/header/Main
 const LangLoader = defineAsyncComponent(() => import('src/components/lang/LangLoader.vue'))
 const Notification = defineAsyncComponent(() => import('src/components/notification/Notification.vue'))
 const Announcement = defineAsyncComponent(() => import('src/components/announcement/Announcement.vue'))
+const Footer = defineAsyncComponent(() => import('src/components/footer/Footer.vue'))
 
 </script>

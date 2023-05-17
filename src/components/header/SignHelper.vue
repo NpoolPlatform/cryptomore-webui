@@ -3,7 +3,7 @@
     <q-btn flat class='btn btn-small btn-main'>
       {{ $t('MSG_SIGNIN') }}
     </q-btn>
-    <q-btn flat class='btn btn-small btn-alt'>
+    <q-btn flat class='btn btn-small btn-alt btn-left-8'>
       {{ $t('MSG_SIGNUP') }}
     </q-btn>
     <q-btn
