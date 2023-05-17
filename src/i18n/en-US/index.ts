@@ -37,5 +37,26 @@ export default {
   MSG_CUSTOMIZABLE_PRIVATE_DEPLOYMENT_TITLE: 'Customizable private deployment',
   MSG_CUSTOMIZABLE_PRIVATE_DEPLOYMENT_SUBTITLE: 'Besides subscribing to Crypto More s open crypto+ services, Crypto More also provides ' +
                                                 'enterprise-level support to the organization that has advance crypto+ scenario, helping ' +
-                                                'them build their owner crypto infrastructure with Crypto More\'s open-source infrastructure.'
+                                                'them build their owner crypto infrastructure with Crypto More\'s open-source infrastructure.',
+  MSG_LEADERSHIP_TITLE: 'Worldwide Leadership of <span class="text-secondary">Crypto Mining/Staking</span> Infrastructure',
+  MSG_LEADERSHIP_SUBTITLE: 'Crypto More is the top vendor of several crypto mining infrastructures, including <span class="text-secondary">Bitcoin</span>' +
+                           ', <span class="text-secondary">Litecoin</span>, <span class="text-secondary">Filecoin</span>, ' +
+                           '<span class="text-secondary">Aptos</span>, <span class="text-secondary">Chia</span>, etc. ' +
+                           'Crypto More also invests a lot in new types of crypto mining infrastructure, such as ' +
+                           '<span class="text-secondary">Aleo</span>, <span class="text-secondary">Iron Fish</span>, and ' +
+                           '<span class="text-secondary">Sui</span>. Crypto More is one of <span class="text-secondary">Aptos</span>\'s ' +
+                           'organization partners in Asia.',
+  MSG_REQUIREMENT: 'Requirement',
+  MSG_SOLUTION: 'Solution',
+  MSG_PURCHASE: 'Purchase',
+  MSG_LOGISTICS: 'Logistics',
+  MSG_DEPLOYMENT: 'Deployment',
+  MSG_REWARD: 'Reward',
+  MSG_LEADERSHIP_DESCRIPTION: 'Crypto More provides a variety of crypto mining/staking infrastructures. Power is always the basement ' +
+                              'of crypto application. Besides the management of our own crypto mining/staking power basement, Crypto ' +
+                              'More also provides enterprise service to users who would like to invest crypto industry. The One-Stop ' +
+                              'crypto mining/staking service can help users to build their crypto investment assets quickly. Moreover, ' +
+                              'users can choose to reward from crypto mining/staking itself or rent their interval reward to users from ' +
+                              'Crypto More hashrate shop to promote assets liquidity.',
+  MSG_BUSINESS_CONTACT: 'Business Contact'
 }

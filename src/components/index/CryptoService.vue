@@ -19,10 +19,10 @@
           <q-img width='48px' height='48px' :src='cryptoServiceStack' />
           <div class='caption'>
             <div class='title'>
-              {{ $t('MSG_FULL_CRYPTO_SERVICE_STACK_TITLE') }}
+              {{ $t('MSG_EASY_APPLICATION_INTEGRATION_TITLE') }}
             </div>
             <div class='subtitle color-main-transparent-80'>
-              {{ $t('MSG_FULL_CRYPTO_SERVICE_STACK_SUBTITLE') }}
+              {{ $t('MSG_EASY_APPLICATION_INTEGRATION_SUBTITLE') }}
             </div>
           </div>
         </div>
@@ -30,10 +30,10 @@
           <q-img width='48px' height='48px' :src='cryptoServiceStack' />
           <div class='caption'>
             <div class='title'>
-              {{ $t('MSG_FULL_CRYPTO_SERVICE_STACK_TITLE') }}
+              {{ $t('MSG_CUSTOMIZABLE_PRIVATE_DEPLOYMENT_TITLE') }}
             </div>
             <div class='subtitle color-main-transparent-80'>
-              {{ $t('MSG_FULL_CRYPTO_SERVICE_STACK_SUBTITLE') }}
+              {{ $t('MSG_CUSTOMIZABLE_PRIVATE_DEPLOYMENT_SUBTITLE') }}
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@
           />
         </div>
       </div>
-      <div class='right mobile-hide'>
+      <div class='right scale-hide'>
         <q-img class='img' :src='buildApplication' />
       </div>
     </div>
