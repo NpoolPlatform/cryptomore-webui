@@ -58,5 +58,22 @@ export default {
                               'crypto mining/staking service can help users to build their crypto investment assets quickly. Moreover, ' +
                               'users can choose to reward from crypto mining/staking itself or rent their interval reward to users from ' +
                               'Crypto More hashrate shop to promote assets liquidity.',
-  MSG_BUSINESS_CONTACT: 'Business Contact'
+  MSG_BUSINESS_CONTACT: 'Business Contact',
+  MSG_ACTIVE_DEVELOPER_TITLE: 'Active Protocol/dApp Developer of <span class="text-secondary">Crypto/Web3</span> Industry',
+  MSG_ACTIVE_DEVELOPER_SUBTITLE: 'Crypto More is an active participator in the Crypto/Web3 industry and develops a series of tools, ' +
+                                 'protocols, and applications to help traditional miners and normal users to be involved.',
+  MSG_WEB3_0_EYE: 'Web 3.0 Eye',
+  MSG_WEB3EYE_SUBTITLE: 'Web3 Eye is a cross-chain indexer engine and application. It collects content including NFTs, transactions, ' +
+                        'account information, etc from all blockchains including Ethereum, Solana, Aptos, Filecoin, etc of the world. ' +
+                        'It provides an easy-to-use user interface to end users. Users can drag an image or a screenshot, or an NFT ' +
+                        'link to search its likelihood of crypto/web3 world. Moreover, Web3Eye maintains a snapshot of the content and ' +
+                        'stores the snapshot in Filecoin network storage, then even if the original source of the content is stored at ' +
+                        'some centralized server and loses access forever, we still can recover the content from the decentralized world.',
+  MSG_FIL_PEGGY: 'FIL-Peggy',
+  MSG_FIL_PEGGY_SUBTITLE: 'FIL Peggy is a series of tools and protocols built on the F(E)VM. In traditional Filecoin mining, storage ' +
+                          'provider has to maintain their owner account private key by themselves. If somebody wants to invest in a ' +
+                          'specified storage provider, the storage provider owner is the only role that has the total power of the ' +
+                          'node. FIL Peggy lets storage provider custody of their node to a smart contract instance, then the smart ' +
+                          'contract will be in charge of the whole process of third-party investment. FIL Peggy wins the finalist ' +
+                          'and Filecoin Pool Prize at ETHGlobal\'s 2022 HackFEVM hackathon.'
 }
