@@ -38,21 +38,24 @@
             </div>
             <div class='right'>
               <div class='top'>
-                <div class='icon' />
-                <div class='color-main-transparent-80 text'>
-                  <span v-html='$t("MSG_BANNER_VERIFIED")' />
+                <div class='icon color-main-transparent-80'>
+                  <div class='text'>
+                    <span v-html='$t("MSG_BANNER_VERIFIED")' />
+                  </div>
                 </div>
               </div>
               <div class='center'>
-                <div class='icon' />
-                <div class='color-main-transparent-80 text'>
-                  <span v-html='$t("MSG_BANNER_DIRECT_REWARD")' />
+                <div class='icon color-main-transparent-80'>
+                  <div class='text'>
+                    <span v-html='$t("MSG_BANNER_DIRECT_REWARD")' />
+                  </div>
                 </div>
               </div>
               <div class='bottom'>
-                <div class='icon' />
-                <div class='color-main-transparent-80 text'>
-                  <span v-html='$t("MSG_BANNER_LIVELY_ASSETS")' />
+                <div class='icon color-main-transparent-80'>
+                  <div class='text'>
+                    <span v-html='$t("MSG_BANNER_LIVELY_ASSETS")' />
+                  </div>
                 </div>
               </div>
             </div>
@@ -189,26 +192,31 @@ import aptos from 'src/assets/Aptos.svg'
   position: absolute
   margin-left: 136px
   background: url('src/assets/Verified.svg')
+  background-size: contain
   width: 54px
   height: 67px
-  margin-top: 7px
+  margin-top: 4px
 
 .banner .right .content .right .center .icon
   position: absolute
   margin-left: 136px
   background: url('src/assets/DirectReward.svg')
+  background-size: contain
   width: 54px
   height: 67px
-  margin-top: 7px
+  margin-top: 4px
 
 .banner .right .content .right .bottom .icon
   position: absolute
   margin-left: 136px
   background: url('src/assets/LivelyAssets.svg')
+  background-size: contain
   width: 54px
   height: 67px
-  margin-top: 7px
+  margin-top: 4px
 
 .banner .right .content .right .text
   padding: 16px
+  margin-left: -134px
+  margin-top: -8px
 </style>
