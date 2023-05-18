@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class='row not-first'>
-          <q-img width='48px' height='48px' :src='cryptoServiceStack' />
+          <q-img width='48px' height='48px' :src='easyIntegration' />
           <div class='caption'>
             <div class='title'>
               {{ $t('MSG_EASY_APPLICATION_INTEGRATION_TITLE') }}
@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class='row not-first'>
-          <q-img width='48px' height='48px' :src='cryptoServiceStack' />
+          <q-img width='48px' height='48px' :src='customization' />
           <div class='caption'>
             <div class='title'>
               {{ $t('MSG_CUSTOMIZABLE_PRIVATE_DEPLOYMENT_TITLE') }}
@@ -63,6 +63,8 @@
 <script setup lang='ts'>
 import buildApplication from 'src/assets/BuildApplication.png'
 import cryptoServiceStack from 'src/assets/CryptoServiceStack.svg'
+import easyIntegration from 'src/assets/EasyIntegration.svg'
+import customization from 'src/assets/Customizable.svg'
 import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 </script>
 
