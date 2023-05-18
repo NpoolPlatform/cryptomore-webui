@@ -2,7 +2,7 @@
   <div :style='{height: height}' class='row'>
     <q-img :src='logoImg' class='full-height logo-img' :style='{width: imgWidth}' />
     <div class='micro-hide' :style='{marginTop: marginTop}'>
-      <q-img :height='textHeight' :src='logoTextImg' />
+      <q-img :height='textHeight' fit='contain' :src='logoTextImg' />
       <span :style='{fontSize: subtitleFontSize}' class='font-small color-main-transparent-60'>{{ $t('MSG_BANNER_SLOGAN') }}</span>
     </div>
   </div>
