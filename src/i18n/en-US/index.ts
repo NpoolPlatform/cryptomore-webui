@@ -114,5 +114,6 @@ export default {
   MSG_CRYPTO_MORE: 'Crypto More',
   MSG_CAREER: 'Career',
   MSG_TERMS_OF_USE: 'Terms of Use',
-  MSG_PRIVACY_POLICY: 'Privacy Policy'
+  MSG_PRIVACY_POLICY: 'Privacy Policy',
+  MSG_CONTACT: 'Contact'
 }
