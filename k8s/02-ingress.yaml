@@ -10,6 +10,11 @@ metadata:
     nginx.com/sticky-cookie-services: "serviceName=kuboard srv_id expires=1h path=/"
 
 spec:
+  tls:
+    - hosts:
+        - '*.cryptomore.io'
+        - cryptomore.io
+      secretName: cryptomore-io-tls
   rules:
     - host: cryptomore.io
       http: &http_ruless
@@ -18,3 +23,5 @@ spec:
             backend:
               serviceName: cryptomore-webui
               servicePort: 80
+    - host: www.cryptomore.io
+      http: *http_rules
