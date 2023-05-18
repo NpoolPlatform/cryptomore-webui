@@ -16,7 +16,7 @@
       </div>
     </q-tab>
     <q-tab :name='menu.Menu.MenuPricing' :label='$t("MSG_PRICING")' />
-    <q-tab :name='menu.Menu.MenuPartners' :label='$t("MSG_PARTNERS")' />
+    <q-tab v-if='false' :name='menu.Menu.MenuPartners' :label='$t("MSG_PARTNERS")' />
     <q-tab :name='menu.Menu.MenuDocs' :label='$t("MSG_DOCS")' />
   </q-tabs>
 </template>

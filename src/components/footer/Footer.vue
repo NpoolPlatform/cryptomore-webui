@@ -109,7 +109,7 @@
             <div class='menu-list-item cursor-pointer'>
               {{ $t('MSG_CRYPTO_MORE') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div v-if='false' class='menu-list-item cursor-pointer'>
               {{ $t('MSG_PARTNERS') }}
             </div>
             <div class='menu-list-item cursor-pointer'>
