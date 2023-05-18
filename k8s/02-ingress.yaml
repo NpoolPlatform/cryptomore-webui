@@ -11,16 +11,10 @@ metadata:
 
 spec:
   rules:
-    - host: vue-template.npool.top
+    - host: cryptomore.io
       http: &http_ruless
         paths:
           - path: /
             backend:
               serviceName: cryptomore-webui
               servicePort: 80
-    - host: vue-template.xpool.top
-      http: *http_rules
-    - host: www.vue-template.npool.top
-      http: *http_rules
-    - host: www.vue-template.xpool.top
-      http: *http_rules
