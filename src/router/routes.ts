@@ -16,11 +16,17 @@ const routes: RouteRecordRaw[] = [
         path: '',
         component: () => import('pages/Index.vue'),
         meta: {
-          ShowHeaderAnnouncement: true,
-          ShowMainHeader: true,
-          ShowFooterTop: true,
+          ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          ShowTopTip: false,
+          NeedLogined: false
+        }
+      },
+      {
+        path: 'signup',
+        component: () => import('pages/Signup.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
           NeedLogined: false
         }
       }

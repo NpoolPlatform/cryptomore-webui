@@ -17,6 +17,10 @@ export enum SignMethodType {
 }
 
 export const SignMethodTypes = Object.values(SignMethodType)
+export const SignupMethodTypes = [
+  SignMethodType.Email,
+  SignMethodType.Mobile
+]
 
 export enum KYCState {
   DefaultState = 'DefaultState',

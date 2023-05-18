@@ -3,10 +3,8 @@ import { SettingState } from './state'
 
 export const useSettingStore = defineStore('setting', {
   state: (): SettingState => ({
-    ShowHeaderAnnouncement: true,
-    ShowSignHelper: true,
-    ShowFooterTop: true,
-    ShowTopTip: false
+    ShowBannerAnnouncement: true,
+    ShowSignHelper: true
   }),
   getters: {},
   actions: {}

@@ -3,7 +3,7 @@
     <q-btn flat class='btn btn-small btn-main'>
       {{ $t('MSG_SIGNIN') }}
     </q-btn>
-    <q-btn flat class='btn btn-small btn-alt btn-left-8'>
+    <q-btn flat class='btn btn-small btn-alt btn-left-8' @click='onSignupClick'>
       {{ $t('MSG_SIGNUP') }}
     </q-btn>
     <q-btn
@@ -23,6 +23,7 @@
 <script setup lang='ts'>
 import { defineAsyncComponent, computed } from 'vue'
 import { notif, user } from 'src/mystore'
+import { useRouter } from 'vue-router'
 
 import metamaskLogo from '../../assets/Metamask.svg'
 import bellNoMsg from '../../assets/BellNoMsg.svg'
@@ -34,4 +35,11 @@ const HeaderToolBtn = defineAsyncComponent(() => import('src/components/header/H
 const logined = user.useLocalUserStore()
 const _notif = notif.Notif.useNotifNotifStore()
 const bellIcon = computed(() => _notif.Notifs.length > 0 ? bellMsg : bellNoMsg)
+
+const router = useRouter()
+
+const onSignupClick = () => {
+  void router.push({ path: '/signup' })
+}
+
 </script>

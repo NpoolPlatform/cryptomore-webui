@@ -1,8 +1,6 @@
 interface SettingState {
-  ShowHeaderAnnouncement: boolean
+  ShowBannerAnnouncement: boolean
   ShowSignHelper: boolean
-  ShowFooterTop: boolean
-  ShowTopTip: boolean
 }
 
 export {

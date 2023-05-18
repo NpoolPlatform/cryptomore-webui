@@ -11,10 +11,8 @@ import {
 import { createAPI } from '../mystore/request'
 
 interface RouteMetaImpl {
-  ShowHeaderAnnouncement: boolean
+  ShowBannerAnnouncement: boolean
   ShowSignHelper: boolean
-  ShowFooterTop: boolean
-  ShowTopTip: boolean
   NeedLogined: boolean
 }
 
@@ -26,10 +24,8 @@ declare module 'vue-router' {
 
 const loginInterceptor = (signInPath: string, to: RouteLocationNormalized, next: NavigationGuardNext) => {
   const setting = useSettingStore()
-  setting.ShowHeaderAnnouncement = to.meta.ShowHeaderAnnouncement
+  setting.ShowBannerAnnouncement = to.meta.ShowBannerAnnouncement
   setting.ShowSignHelper = to.meta.ShowSignHelper
-  setting.ShowFooterTop = to.meta.ShowFooterTop
-  setting.ShowTopTip = to.meta.ShowTopTip
 
   const user = useLocalUserStore()
   if (user.User) {

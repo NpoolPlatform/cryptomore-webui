@@ -115,5 +115,9 @@ export default {
   MSG_CAREER: 'Career',
   MSG_TERMS_OF_USE: 'Terms of Use',
   MSG_PRIVACY_POLICY: 'Privacy Policy',
-  MSG_CONTACT: 'Contact'
+  MSG_CONTACT: 'Contact',
+  MSG_SIGNUP: 'Sign Up',
+  MSG_SIGNIN: 'Sign In',
+  MSG_MOBILE: 'Mobile',
+  MSG_EMAIL: 'Email'
 }
