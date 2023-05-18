@@ -193,8 +193,24 @@ const onFirstLevelMenuClick = (menu: menu.Menu) => {
 }
 
 const secondLevelMenu = ref(menu.Menu.MenuFilPeggy)
-const onSecondLevelMenuClick = (menu: menu.Menu) => {
-  secondLevelMenu.value = menu
+const onSecondLevelMenuClick = (_menu: menu.Menu) => {
+  secondLevelMenu.value = _menu
+  switch (_menu) {
+    case menu.Menu.MenuFilPeggy:
+      window.open('https://github.com/NpoolFilecoin/fil-peggy.git')
+      break
+    case menu.Menu.MenuWeb3Eye:
+      window.open('https://testnet.web3eye.io')
+      break
+    case menu.Menu.MenuProcyon:
+      window.open('https://procyon.vip')
+      break
+    case menu.Menu.MenuLPSecretBase:
+      window.open('https://lpsecretbase.com')
+      break
+    case menu.Menu.MenuHashage:
+      break
+  }
 }
 
 </script>
