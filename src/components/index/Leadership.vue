@@ -104,11 +104,11 @@ import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
     margin-left: 6px
 
 .leadership .workflow .caption .banner
-  width: 546px
-  height: 346px
+  width: 476px
+  height: 302px
 
 .leadership .workflow .caption .text
-  max-width: 620px
+  max-width: 690px
   margin-left: 114px
   margin-top: 16px
   @media (max-width: 1280px)

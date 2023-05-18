@@ -64,6 +64,7 @@ export default {
                                  'protocols, and applications to help traditional miners and normal users to be involved.',
   MSG_WEB3_0_EYE: 'Web 3.0 Eye',
   MSG_WEB3EYE: 'Web3Eye',
+  MSG_WEB3EYE_ONE_WORD: 'Crosschain indexer and aggregrator for NFT and other web3.0 content',
   MSG_WEB3EYE_SUBTITLE: 'Web3 Eye is a cross-chain indexer engine and application. It collects content including NFTs, transactions, ' +
                         'account information, etc from all blockchains including Ethereum, Solana, Aptos, Filecoin, etc of the world. ' +
                         'It provides an easy-to-use user interface to end users. Users can drag an image or a screenshot, or an NFT ' +
@@ -71,6 +72,7 @@ export default {
                         'stores the snapshot in Filecoin network storage, then even if the original source of the content is stored at ' +
                         'some centralized server and loses access forever, we still can recover the content from the decentralized world.',
   MSG_FIL_PEGGY: 'FIL Peggy',
+  MSG_FIL_PEGGY_ONE_WORD: 'Manage Filecoin storage provider with F(E)VM smart contract, invest and reward directly',
   MSG_FIL_PEGGY_SUBTITLE: 'FIL Peggy is a series of tools and protocols built on the F(E)VM. In traditional Filecoin mining, storage ' +
                           'provider has to maintain their owner account private key by themselves. If somebody wants to invest in a ' +
                           'specified storage provider, the storage provider owner is the only role that has the total power of the ' +
@@ -88,10 +90,17 @@ export default {
   MSG_COMPANY: 'COMPANY',
   MSG_RESOURCES: 'RESOURCES',
   MSG_CRYPTO_PLUS_SERVICE: 'Crypto+ Service',
+  MSG_READY_TO_USE_CRYPTO_PLUS_SERVICE: 'Ready-to-use Crypto+ service for application integration',
   MSG_CRYPTO_ENTERPRISE: 'Crypto Enterprise',
+  MSG_DEDICATED_ENTERPRISE_SOLUTION: 'Dedicated solution for crypto organization',
   MSG_MINING_STAKING: 'Mining/Staking',
+  MSG_ONE_STOP_MINING_STAKING: 'One-Stop mining/staking infrastructure and solution',
   MSG_PROCYON: 'Procyon',
+  MSG_PROCYON_ONE_WORD: 'Crypto services including hashrate shop, academy, wallet, etc. dedicated to Japan market with a variety types of First Batch Mining',
   MSG_LP_SECRET_BASE: 'LP Secret Base',
+  MSG_LP_SECRET_BASE_ONE_WORD: 'Hashrate shop application dedicated to Osaka, Japan market  with a variety types of First Batch Mining',
+  MSG_HASHAGE: 'HashAge',
+  MSG_HASHAGE_ONE_WORD: 'Global crypto service with Hashrate shop, Wallet, Borrow and Loan, etc',
   MSG_FILECOIN: 'Filecoin',
   MSG_BITCOIN: 'Bitcoin',
   MSG_ETHEREUM: 'Ethereum',

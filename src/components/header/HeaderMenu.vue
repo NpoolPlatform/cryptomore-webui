@@ -10,8 +10,8 @@
           {{ $t('MSG_PRODUCTS') }}
           <q-icon name='expand_more' class='text-primary icon' size='24px' />
         </div>
-        <q-menu>
-          HHHHHHHHHHHHHHHHHHHHHHHHHHH
+        <q-menu flat :offset='[0, 28]' width='100%'>
+          <ProductsMenu />
         </q-menu>
       </div>
     </q-tab>
@@ -22,8 +22,10 @@
 </template>
 
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { ref, defineAsyncComponent } from 'vue'
 import { menu } from 'src/menu'
+
+const ProductsMenu = defineAsyncComponent(() => import('src/components/header/ProductsMenu.vue'))
 
 const tab = ref(menu.Menu.MenuProducts)
 

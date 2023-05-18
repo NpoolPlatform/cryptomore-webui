@@ -9,13 +9,15 @@
     size='16px'
   >
     <q-menu>
-      TODO: mobile menu
+      <ProductsMenu />
     </q-menu>
   </q-btn>
 </template>
 
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { ref, defineAsyncComponent } from 'vue'
+
+const ProductsMenu = defineAsyncComponent(() => import('src/components/header/ProductsMenu.vue'))
 
 const collapsed = ref(true)
 const onMenuFoldClick = () => {

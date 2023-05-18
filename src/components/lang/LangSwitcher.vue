@@ -5,6 +5,7 @@
     icon='language'
     dropdown-icon='expand_more'
     :label='curLang'
+    :menu-offset='[0, 22]'
   >
     <q-list class='menu'>
       <q-item
