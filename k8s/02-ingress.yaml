@@ -6,8 +6,12 @@ metadata:
   annotations:
     k8s.kuboard.cn/displayName: cryptomore-webui
     k8s.kuboard.cn/workload: cryptomore-webui
-    kubernetes.io/ingress.class: "devops-vpn-nginx-internal"
-    nginx.com/sticky-cookie-services: "serviceName=kuboard srv_id expires=1h path=/"
+    kubernetes.io/ingress.class: "traefik-internet"
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure, web
+    traefik.ingress.kubernetes.io/router.middlewares:
+      kube-system-http-redirect-https@kubernetescrd,
+      kube-system-http-redirect-https-testing@kubernetescrd,
+      kube-system-common-headers@kubernetescrd
 
 spec:
   tls:
