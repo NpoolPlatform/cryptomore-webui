@@ -1,8 +1,8 @@
 <template>
   <div class='footer full-width'>
     <div class='content-width horizontal-center row'>
-      <div class='cursor-pointer left'>
-        <Logo height='48px' img-width='42px' text-height='16px' />
+      <div class='left'>
+        <Logo class='cursor-pointer' height='48px' img-width='42px' text-height='16px' />
         <q-btn
           flat
           class='btn btn-main btn-here btn-trial'
@@ -17,20 +17,123 @@
           no-caps
         />
         <div class='row social'>
-          <div class='icon'>
+          <div class='icon cursor-pointer'>
             <q-img width='16px' height='16px' :src='github' />
           </div>
-          <div class='icon not-first'>
+          <div class='icon not-first cursor-pointer'>
             <q-img width='16px' height='16px' :src='twitter' />
           </div>
-          <div class='icon not-first'>
+          <div class='icon not-first cursor-pointer'>
             <q-img width='16px' height='16px' :src='discord' />
           </div>
-          <div class='icon not-first'>
+          <div class='icon not-first cursor-pointer'>
             <q-img width='16px' height='16px' :src='medium' />
           </div>
         </div>
-        <div class='copyright text-primary' v-html='$t("MSG_PRODUCT_BY_WEB3EYE_TEAM")' />
+        <div class='copyright text-primary cursor-pointer' v-html='$t("MSG_PRODUCT_BY_WEB3EYE_TEAM")' />
+      </div>
+      <q-space />
+      <div class='row right'>
+        <div class='menu text-primary'>
+          <span class='title'>{{ $t('MSG_SERVICES') }}</span>
+          <div class='menu-list color-main-transparent-60'>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_CRYPTO_PLUS_SERVICE') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_CRYPTO_ENTERPRISE') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_MINING_STAKING') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_PRICING') }}
+            </div>
+          </div>
+        </div>
+        <q-space />
+        <div class='menu text-primary'>
+          <span class='title'>{{ $t('MSG_APPLICATIONS') }}</span>
+          <div class='menu-list color-main-transparent-60'>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_FIL_PEGGY') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_WEB3EYE') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_PROCYON') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_LP_SECRET_BASE') }}
+            </div>
+          </div>
+        </div>
+        <q-space />
+        <div class='menu text-primary'>
+          <span class='title'>{{ $t('MSG_CHAINS') }}</span>
+          <div class='menu-list color-main-transparent-60'>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_FILECOIN') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_BITCOIN') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_ETHEREUM') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_SOLANA') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_TRON') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_BSC') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_IRON_FISH') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_APTOS') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_SUI') }}
+            </div>
+          </div>
+        </div>
+        <q-space />
+        <div class='menu text-primary'>
+          <span class='title'>{{ $t('MSG_COMPANY') }}</span>
+          <div class='menu-list color-main-transparent-60'>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_CRYPTO_MORE') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_PARTNERS') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_CAREER') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_TERMS_OF_USE') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_PRIVACY_POLICY') }}
+            </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_CONTACT') }}
+            </div>
+          </div>
+        </div>
+        <div class='menu text-primary'>
+          <span class='title'>{{ $t('MSG_RESOURCES') }}</span>
+          <div class='menu-list color-main-transparent-60'>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_DOCS') }}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -60,6 +163,7 @@ const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))
 
 .footer .left
   width: 230px
+  margin-bottom: 16px
 
 .btn-here
   height: 42px
@@ -92,4 +196,24 @@ const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))
 
 .footer .left .social .not-first
   margin-left: calc((100% - 128px) / 3)
+
+.footer
+  .right
+    max-width: 919px
+    .menu
+      width: calc(100% / 4)
+      min-width: 160px
+      @media (max-width: 1058px)
+        margin-top: 32px
+      .title
+        font-size: 18px
+        font-weight: 600
+        line-height: 28px
+      .menu-list
+        font-size: 14px
+        line-height: 24px
+        font-weight: 400px
+        margin-top: 16px
+        .menu-list-item
+          margin-top: 4px
 </style>

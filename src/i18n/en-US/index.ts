@@ -6,10 +6,10 @@ export default {
   MSG_GET_LANGS_FAIL: 'You failed to get languages',
   MSG_GET_LANG_MESSAGES: 'Get lang messages',
   MSG_GET_LANG_MESSAGES_FAIL: 'Get lang messages fails',
-  MSG_PRODUCTS: 'PRODUCTS',
-  MSG_PRICING: 'PRICING',
-  MSG_PARTNERS: 'PARTNETS',
-  MSG_DOCS: 'DOCS',
+  MSG_PRODUCTS: 'Products',
+  MSG_PRICING: 'Pricing',
+  MSG_PARTNERS: 'Partners',
+  MSG_DOCS: 'Docs',
   MSG_BANNER_SLOGAN: 'Your Reliable Crypto+ Partner',
   MSG_BANNER_SUBTITLE: 'Build crypto+ business based on our verified infrastructure',
   MSG_FREE_TRIAL: 'Free Trial',
@@ -63,13 +63,14 @@ export default {
   MSG_ACTIVE_DEVELOPER_SUBTITLE: 'Crypto More is an active participator in the Crypto/Web3 industry and develops a series of tools, ' +
                                  'protocols, and applications to help traditional miners and normal users to be involved.',
   MSG_WEB3_0_EYE: 'Web 3.0 Eye',
+  MSG_WEB3EYE: 'Web3Eye',
   MSG_WEB3EYE_SUBTITLE: 'Web3 Eye is a cross-chain indexer engine and application. It collects content including NFTs, transactions, ' +
                         'account information, etc from all blockchains including Ethereum, Solana, Aptos, Filecoin, etc of the world. ' +
                         'It provides an easy-to-use user interface to end users. Users can drag an image or a screenshot, or an NFT ' +
                         'link to search its likelihood of crypto/web3 world. Moreover, Web3Eye maintains a snapshot of the content and ' +
                         'stores the snapshot in Filecoin network storage, then even if the original source of the content is stored at ' +
                         'some centralized server and loses access forever, we still can recover the content from the decentralized world.',
-  MSG_FIL_PEGGY: 'FIL-Peggy',
+  MSG_FIL_PEGGY: 'FIL Peggy',
   MSG_FIL_PEGGY_SUBTITLE: 'FIL Peggy is a series of tools and protocols built on the F(E)VM. In traditional Filecoin mining, storage ' +
                           'provider has to maintain their owner account private key by themselves. If somebody wants to invest in a ' +
                           'specified storage provider, the storage provider owner is the only role that has the total power of the ' +
@@ -80,5 +81,29 @@ export default {
   MSG_SUBSCRIBE: 'Subscribe',
   MSG_SUBSCRIBE_WITH_EMAIL: 'Subscribe with email address',
   MSG_CONTACT_US: 'Contact Us',
-  MSG_PRODUCT_BY_WEB3EYE_TEAM: '© A product by <a href="https://web3eye.io">web3eye.io</a> team'
+  MSG_PRODUCT_BY_WEB3EYE_TEAM: '© A product by <a href="https://web3eye.io">web3eye.io</a> team',
+  MSG_SERVICES: 'SERVICES',
+  MSG_APPLICATIONS: 'APPLICATIONS',
+  MSG_CHAINS: 'CHAINS',
+  MSG_COMPANY: 'COMPANY',
+  MSG_RESOURCES: 'RESOURCES',
+  MSG_CRYPTO_PLUS_SERVICE: 'Crypto+ Service',
+  MSG_CRYPTO_ENTERPRISE: 'Crypto Enterprise',
+  MSG_MINING_STAKING: 'Mining/Staking',
+  MSG_PROCYON: 'Procyon',
+  MSG_LP_SECRET_BASE: 'LP Secret Base',
+  MSG_FILECOIN: 'Filecoin',
+  MSG_BITCOIN: 'Bitcoin',
+  MSG_ETHEREUM: 'Ethereum',
+  MSG_SOLANA: 'Solana',
+  MSG_TRON: 'Tron',
+  MSG_BINANCE_SMART_CHAIN: 'Binance Smart Chain',
+  MSG_IRON_FISH: 'Iron Fish',
+  MSG_APTOS: 'Aptos',
+  MSG_SUI: 'Sui',
+  MSG_LINERA: 'Linera',
+  MSG_CRYPTO_MORE: 'Crypto More',
+  MSG_CAREER: 'Career',
+  MSG_TERMS_OF_USE: 'Terms of Use',
+  MSG_PRIVACY_POLICY: 'Privacy Policy'
 }

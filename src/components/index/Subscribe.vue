@@ -43,8 +43,6 @@ const emailAddress = ref('')
   max-width: 854px
   margin-top: 100px
   height: 64px
-  @media (max-width: 1160px)
-    max-width: 100%
 
 .subscribe .input .subscribe-btn
   width: 166px
