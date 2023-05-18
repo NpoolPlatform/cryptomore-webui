@@ -89,7 +89,7 @@
               {{ $t('MSG_TRON') }}
             </div>
             <div class='menu-list-item cursor-pointer'>
-              {{ $t('MSG_BSC') }}
+              {{ $t('MSG_BINANCE_SMART_CHAIN') }}
             </div>
             <div class='menu-list-item cursor-pointer'>
               {{ $t('MSG_IRON_FISH') }}
