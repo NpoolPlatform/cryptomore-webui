@@ -17,7 +17,7 @@ spec:
       secretName: cryptomore-io-tls
   rules:
     - host: cryptomore.io
-      http: &http_ruless
+      http: &http_rules
         paths:
           - path: /
             backend:
