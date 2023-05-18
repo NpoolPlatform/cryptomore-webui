@@ -25,3 +25,9 @@ spec:
               servicePort: 80
     - host: www.cryptomore.io
       http: *http_rules
+    - host: cryptomore.xpool.top
+      http: *http_rules
+    - host: cryptomore.npool.top
+      http: *http_rules
+    - host: testnet.cryptomore.io
+      http: *http_rules
