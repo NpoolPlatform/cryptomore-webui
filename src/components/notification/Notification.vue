@@ -1,4 +1,5 @@
 <template>
+  <div>{{ notifyHead }}</div>
   <q-banner v-if='notifyHead !== undefined' dense class='notification color-main'>
     <q-img :src='logoImg' class='logo' fit='contain' />
     <q-label>{{ notifyHead?.Message }}</q-label>
@@ -22,14 +23,14 @@ watch(notifications, () => {
   if (notifyHead.value !== undefined) {
     return
   }
-  notifyHead.value = _notification.Notifications[0]
-  if (notifyHead.value.Popup) {
+  if (_notification.Notifications[0].Popup) {
     return
   }
+  notifyHead.value = _notification.Notifications[0]
   setTimeout(() => {
     _notification.Notifications.splice(0, 1)
     notifyHead.value = undefined as unknown as notification.Notification
-  })
+  }, 3000)
 })
 
 onMounted(() => {
