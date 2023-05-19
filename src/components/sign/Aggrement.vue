@@ -8,7 +8,7 @@
     <div
       :style='{lineHeight: "28px", fontSize: "14px", fontWeight: 400}'
       class='color-main-transparent-60'
-      v-html='$t("MSG_READ_AGREEMENT", { TERMS_URI: "/terms", PRIVACY_URI: "/privacy" })'
+      v-html='$t("MSG_READ_AGREEMENT", { TERMS_URI: "#/terms", PRIVACY_URI: "#/privacy" })'
     />
   </div>
 </template>
