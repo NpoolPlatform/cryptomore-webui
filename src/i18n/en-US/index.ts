@@ -120,5 +120,8 @@ export default {
   MSG_SIGNIN: 'Sign In',
   MSG_MOBILE: 'Mobile',
   MSG_EMAIL: 'Email',
-  MSG_READ_AGREEMENT: 'Agree to our <a href="{TERMS_URI}">Terms of use</a> and <a href="{PRIVACY_URI}">Privacy Policy</a>'
+  MSG_READ_AGREEMENT: 'Agree to our <a href="{TERMS_URI}">Terms of use</a> and <a href="{PRIVACY_URI}">Privacy Policy</a>',
+  MSG_AGREEMENT_TO_TERMS: 'Agreement to Terms',
+  MSG_LAST_UPDATED: 'Last updated: {DATE}',
+  MSG_PRIVACY_NOTICE: 'Privacy Notice'
 }
