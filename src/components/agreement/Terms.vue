@@ -68,9 +68,6 @@
         Privacy
       </h4>
       <p>We collect information that you provide to us, the information we obtain automatically when you use our Services, and the information from other sources such as third-party services and organizations, as described below.</p>
-      <h4 class='text-primary title title-1' id='Term and Termination'>
-        Term and Termination
-      </h4>
       <p><strong class='text-primary'>Personal Information You Provide to Us Directly.</strong> We may collect personal information that you provide to us, including the following as applicable:</p>
       <ul>
         <li>
@@ -96,7 +93,7 @@
       <p>We may use cookies, local storage, or similar technologies to analyze trends, administer the Sites, track users' movements around the Sites, and gather demographic information about our user base as a whole. Users can control the use of cookies and local storage at the individual browser level. For more information, please see our Cookies Policy.</p>
       <p>We also may use Google Analytics to help us offer you an optimized user experience. You can find more information about Google Analytics' use of your personal data here: https://www.google.com/analytics/terms/us.html. Please note that Metamask does not use Google Analytics in its wallet.</p>
       <p><strong class='text-primary'>Third-Party Services and Sources.We may obtain personal information about you from other sources, including through third-party services and organizations. For example, if you access our Services through a third-party application, such as an app store, a third-party login service, or a social networking site, we may collect personal information about you from that third-party application that you have made available via your privacy settings.</strong></p>
-      <h4 class='text-primary title title-1' id='Intellectual Property'>
+      <h4 class='text-primary title title-1' id='Term and Termination'>
         Term and Termination
       </h4>
       <p>These Terms of Use shall remain in full force and effect while you use the Site or Services.</p>
@@ -153,7 +150,9 @@
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent, ref } from 'vue'
+import { defineAsyncComponent, ref, watch } from 'vue'
+import { scroll } from 'quasar'
+const { getScrollTarget, setVerticalScrollPosition } = scroll
 
 const Header = defineAsyncComponent(() => import('src/components/agreement/Header.vue'))
 const Title = defineAsyncComponent(() => import('src/components/agreement/Title.vue'))
@@ -182,16 +181,29 @@ const entries = ref([
   'Contact Us'
 ])
 
+watch(selected, () => {
+  const el = document.getElementById(selected.value)
+  if (!el) {
+    return
+  }
+  const target = getScrollTarget(el)
+  const offset = el.offsetTop - el.scrollHeight
+  const duration = 1000
+  setVerticalScrollPosition(target, offset, duration)
+})
+
 </script>
 
 <style lang='sass' scoped>
 .left
+  position: fixed
+  top: 128px
   width: 278px
   @media (max-width: 1280px)
     display: none
 
 .right
-  margin-left: 40px
+  margin-left: 318px
   font-size: 16px
   font-weight: 500
   line-height: 26px
@@ -205,8 +217,8 @@ const entries = ref([
   .title
     font-weight: 700
     line-height: 32px
-  .title-h1
+  .title-1
     font-size: 24px
-  .title-h2
+  .title-2
     font-size: 16px
 </style>
