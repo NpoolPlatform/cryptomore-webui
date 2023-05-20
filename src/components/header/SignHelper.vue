@@ -1,6 +1,6 @@
 <template>
   <div v-if='logined.User === undefined' class='row'>
-    <q-btn flat class='btn btn-small btn-main'>
+    <q-btn flat class='btn btn-small btn-main' @click='onSigninClick'>
       {{ $t('MSG_SIGNIN') }}
     </q-btn>
     <q-btn flat class='btn btn-small btn-alt btn-left-8' @click='onSignupClick'>
@@ -40,6 +40,10 @@ const router = useRouter()
 
 const onSignupClick = () => {
   void router.push({ path: '/signup' })
+}
+
+const onSigninClick = () => {
+  void router.push({ path: '/signin' })
 }
 
 </script>
