@@ -24,7 +24,7 @@
         {{ notifs }}
       </div>
     </div>
-    <Avatar />
+    <Avatar :style='{marginRight: "16px"}' />
   </div>
 </template>
 
