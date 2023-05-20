@@ -12,3 +12,8 @@ export const validatePassword = (password: string) => {
   const reg1 = /^[A-Za-z0-9](?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]){7,31}$/
   return reg1.test(password)
 }
+
+export const validatePhoneNO = (phoneNO: string) => {
+  const reg1 = /^[0-9]{7,16}$/
+  return reg1.test(phoneNO)
+}

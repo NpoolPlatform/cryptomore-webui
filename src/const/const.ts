@@ -1,4 +1,5 @@
-export const AppID = '8bff7570-f554-11ed-bf85-8fc53e66d1b4'
+// export const AppID = '8bff7570-f554-11ed-bf85-8fc53e66d1b4'
+export const AppID = 'ff2c5d50-be56-413e-aba5-9c7ad888a769'
 
 const NotSet = 'NOT SET'
 

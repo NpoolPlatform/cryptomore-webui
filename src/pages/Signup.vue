@@ -1,19 +1,21 @@
 <template>
-  <div :style='{marginTop: "100px", marginBottom: "120px", maxWidth: "400px"}' class='horizontal-center'>
-    <Title :text='$t("MSG_SIGNUP")' />
+  <div :style='{marginTop: "40px", marginBottom: "120px", maxWidth: "400px"}' class='horizontal-center'>
+    <Title :text='$t("MSG_CREATE_ACCOUNT")' />
     <Switcher :style='{marginTop: "48px"}' v-model:account-type='accountType' />
+    <CountryCode v-if='accountType === user.SignMethodType.Mobile' v-model:country='country' :style='{width: "100", marginTop: "48px"}' />
     <q-input
       v-model='account'
-      :style='{width: "100", marginTop: "24px"}'
-      label='Email address'
+      :style='{width: "100%", marginTop: accountType === user.SignMethodType.Email ? "24px" : "12px"}'
+      :label='accountType === user.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
       ref='accountInput'
-      :rules='[val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")]'
+      :rules='accountType === user.SignMethodType.Email ? [val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")] : [val => validator.validatePhoneNO(val) || $t("MSG_INVALID_PHONE_NO")]'
       lazy-rules='ondemand'
       @blur='onAccountInputBlur'
       @focus='onAccountInputFocus'
     >
       <template #prepend>
-        <q-icon color='primary' name='contact_mail' />
+        <q-icon v-if='accountType === user.SignMethodType.Email' color='primary' name='contact_mail' />
+        <q-icon v-if='accountType === user.SignMethodType.Mobile' color='primary' name='contact_phone' />
       </template>
       <template #append>
         <q-btn
@@ -67,8 +69,8 @@
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent, ref, computed } from 'vue'
-import { user } from 'src/mystore'
+import { defineAsyncComponent, ref, computed, watch } from 'vue'
+import { user, g11n } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
 import { validator } from 'src/utils'
 import { QInput } from 'quasar'
@@ -79,11 +81,13 @@ const { t } = useI18n({ useScope: 'global' })
 const Title = defineAsyncComponent(() => import('src/components/sign/Title.vue'))
 const Switcher = defineAsyncComponent(() => import('src/components/sign/Switcher.vue'))
 const Agreement = defineAsyncComponent(() => import('src/components/sign/Agreement.vue'))
+const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
 
 const accountType = ref(user.SignMethodType.Email)
 const account = ref('')
 const verificationCode = ref('')
 const password = ref('')
+const country = ref(undefined as unknown as g11n.AppCountry.AppCountry)
 
 const sending = ref(false)
 const timeout = ref(60)
@@ -93,6 +97,10 @@ const resetValidation = () => {
   void (accountInput.value as unknown as QInput).resetValidation()
   void (passwordInput.value as unknown as QInput).resetValidation()
 }
+
+watch(accountType, () => {
+  resetValidation()
+})
 
 const accountInput = ref(QInput)
 const onAccountInputBlur = () => {
@@ -131,18 +139,23 @@ const sendPhoneCode = () => {
 
 const onSendClick = () => {
   let sent = false
+  let _account = account.value
+
   switch (accountType.value) {
     case user.SignMethodType.Email:
       sent = sendEmailCode()
       break
     case user.SignMethodType.Mobile:
       sent = sendPhoneCode()
+      _account = country.value?.Code + account.value
       break
   }
 
   if (!sent) {
     return
   }
+
+  console.log('send code to', _account)
 
   sending.value = true
   timeout.value = 60
