@@ -67,6 +67,11 @@
         {{ $t('MSG_SIGNUP') }}
       </q-btn>
     </div>
+    <div
+      class='text-center horizontal-center color-main-transparent-60'
+      v-html='$t("MSG_ALREADY_HAVE_ACCOUNT", { SIGNIN_URI: "#/signin" })'
+      :style='{fontSize: "16px", fontWeight: 500, lineHeight: "26px", marginTop: "12px"}'
+    />
   </div>
 </template>
 
@@ -75,6 +80,7 @@ import { defineAsyncComponent, ref, computed, watch } from 'vue'
 import { user, g11n, basetypes, notif, notification } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
 import { validator, entropy } from 'src/utils'
+import { useRouter } from 'vue-router'
 import { QInput } from 'quasar'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -210,6 +216,7 @@ const sendBtnText = computed(() => {
 })
 
 const _user = user.useUserStore()
+const router = useRouter()
 
 const onSignupClick = () => {
   if (!validate()) {
@@ -230,7 +237,7 @@ const onSignupClick = () => {
       }
     }
   }, () => {
-    // TODO
+    void router.push({ path: '/signin' })
   })
 }
 

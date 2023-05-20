@@ -133,5 +133,6 @@ export default {
   MSG_GET_COUNTRIES_FAIL: 'Fail get countries',
   MSG_CREATE_ACCOUNT: 'Create Account',
   MSG_INVALID_PHONE_NO: 'Phone number is invalid',
-  MSG_VERIFICATION_CODE: '{ACCOUNT_TYPE} verification code'
+  MSG_VERIFICATION_CODE: '{ACCOUNT_TYPE} verification code',
+  MSG_ALREADY_HAVE_ACCOUNT: 'Already have an account? <a href="{SIGNIN_URI}">Sign in</a>'
 }
