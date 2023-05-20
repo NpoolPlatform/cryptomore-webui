@@ -114,14 +114,16 @@ export default {
   MSG_CRYPTO_MORE: 'Crypto More',
   MSG_CAREER: 'Career',
   MSG_TERMS_OF_USE: 'Terms of Use',
-  MSG_PRIVACY_POLICY: 'Privacy Policy',
   MSG_CONTACT: 'Contact',
   MSG_SIGNUP: 'Sign Up',
   MSG_SIGNIN: 'Sign In',
   MSG_MOBILE: 'Mobile',
   MSG_EMAIL: 'Email',
-  MSG_READ_AGREEMENT: 'Agree to our <a href="{TERMS_URI}">Terms of use</a> and <a href="{PRIVACY_URI}">Privacy Policy</a>',
+  MSG_READ_AGREEMENT: 'By continuing, I understand and agree to Crypto More\'s <a target="_blank" href="{PRIVACY_URI}">Privacy Notice</a> and <a target="_blank" href="{TERMS_URI}">Terms of Use</a> for creating a Crypto More account',
   MSG_AGREEMENT_TO_TERMS: 'Agreement to Terms',
   MSG_LAST_UPDATED: 'Last updated: {DATE}',
-  MSG_PRIVACY_NOTICE: 'Privacy Notice'
+  MSG_PRIVACY_NOTICE: 'Privacy Notice',
+  MSG_SEND: 'Send',
+  MSG_SECOND_SHORT: 's',
+  MSG_INVALID_EMAIL: 'Email address should be like user{\'@\'}hotmail.com'
 }

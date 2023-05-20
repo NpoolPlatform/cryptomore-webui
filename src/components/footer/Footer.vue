@@ -119,7 +119,7 @@
               {{ $t('MSG_TERMS_OF_USE') }}
             </div>
             <div class='menu-list-item cursor-pointer'>
-              {{ $t('MSG_PRIVACY_POLICY') }}
+              {{ $t('MSG_PRIVACY_NOTICE') }}
             </div>
             <div class='menu-list-item cursor-pointer'>
               {{ $t('MSG_CONTACT') }}
