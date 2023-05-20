@@ -1,5 +1,6 @@
 <template>
   <q-select
+    dense
     filled
     v-model='_country'
     :options='countries'

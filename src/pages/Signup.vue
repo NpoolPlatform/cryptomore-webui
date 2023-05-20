@@ -1,9 +1,10 @@
 <template>
   <div :style='{marginTop: "40px", marginBottom: "120px", maxWidth: "400px"}' class='horizontal-center'>
     <Title :text='$t("MSG_CREATE_ACCOUNT")' />
-    <Switcher :style='{marginTop: "48px"}' v-model:account-type='accountType' />
-    <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100", marginTop: "48px"}' />
+    <Switcher :style='{marginTop: "32px"}' v-model:account-type='accountType' />
+    <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
     <q-input
+      dense
       v-model='account'
       :style='{width: "100%", marginTop: accountType === basetypes.SignMethodType.Email ? "24px" : "12px"}'
       :label='accountType === basetypes.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
@@ -29,6 +30,7 @@
       </template>
     </q-input>
     <q-input
+      dense
       v-model='verificationCode'
       :style='{width: "100%"}'
       :label='$t("MSG_VERIFICATION_CODE", { ACCOUNT_TYPE: accountType })'
@@ -43,6 +45,7 @@
       </template>
     </q-input>
     <q-input
+      dense
       v-model='password'
       :style='{width: "100%"}'
       label='Password'
@@ -56,10 +59,10 @@
         <q-icon color='primary' name='password' />
       </template>
     </q-input>
-    <div class='text-center horizontal-center' :style='{marginTop: "37px"}'>
+    <div class='text-center horizontal-center' :style='{marginTop: "12px"}'>
       <Agreement />
     </div>
-    <div class='text-center' :style='{marginTop: "40px"}'>
+    <div class='text-center' :style='{marginTop: "24px"}'>
       <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}' @click='onSignupClick'>
         {{ $t('MSG_SIGNUP') }}
       </q-btn>
@@ -114,9 +117,15 @@ const validate = () => {
   return valid
 }
 
+const resetAccount = () => {
+  account.value = ''
+  password.value = ''
+  verificationCode.value = ''
+}
+
 watch(accountType, () => {
   resetValidation()
-  account.value = ''
+  resetAccount()
 })
 
 const accountInput = ref(QInput)
