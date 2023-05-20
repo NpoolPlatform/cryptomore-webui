@@ -144,7 +144,10 @@ const onSignupClick = () => {
         Type: notification.NotifyType.Error
       }
     }
-  }, () => {
+  }, (error: boolean) => {
+    if (error) {
+      return
+    }
     void router.push({ path: '/' })
   })
 }
