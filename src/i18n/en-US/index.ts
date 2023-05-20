@@ -123,7 +123,7 @@ export default {
   MSG_AGREEMENT_TO_TERMS: 'Agreement to Terms',
   MSG_LAST_UPDATED: 'Last updated: {DATE}',
   MSG_PRIVACY_NOTICE: 'Privacy Notice',
-  MSG_SEND: 'Send',
+  MSG_SEND_CODE: 'SEND CODE',
   MSG_SECOND_SHORT: 's',
   MSG_INVALID_EMAIL: 'Email address should be like user{\'@\'}hotmail.com',
   MSG_INVALID_VERIFICATION_CODE: 'Verification code should be 6 digital number',
@@ -131,5 +131,6 @@ export default {
   MSG_EMAIL_ADDRESS: 'Email address',
   MSG_PHONE_NO: 'Phone number',
   MSG_GET_COUNTRIES_FAIL: 'Fail get countries',
-  MSG_CREATE_ACCOUNT: 'Create Account'
+  MSG_CREATE_ACCOUNT: 'Create Account',
+  MSG_INVALID_PHONE_NO: 'Phone number is invalid'
 }

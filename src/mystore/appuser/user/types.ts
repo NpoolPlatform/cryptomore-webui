@@ -1,10 +1,11 @@
-import * as doRequest from '../../request'
+import { BaseRequest } from '../../notification'
 import * as userbase from './base'
+import * as basetypes from '../../basetypes'
 
-export interface SignupRequest extends doRequest.BaseRequest{
+export interface SignupRequest extends BaseRequest{
   Account: string;
   PasswordHash: string;
-  AccountType: userbase.SignMethodType;
+  AccountType: basetypes.SignMethodType;
   VerificationCode: string;
   InvitationCode: string;
 }
@@ -13,10 +14,10 @@ export interface SignupResponse {
   Info: userbase.User
 }
 
-export interface LoginRequest extends doRequest.BaseRequest {
+export interface LoginRequest extends BaseRequest {
   Account: string;
   PasswordHash: string;
-  AccountType: userbase.SignMethodType;
+  AccountType: basetypes.SignMethodType;
   ManMachineSpec: string;
   EnvironmentSpec?: string;
 }
@@ -25,10 +26,10 @@ export interface LoginResponse {
   Info: userbase.User;
 }
 
-export interface LoginVerifyRequest extends doRequest.BaseRequest {
+export interface LoginVerifyRequest extends BaseRequest {
   UserID: string;
   Account: string;
-  AccountType: userbase.SignMethodType,
+  AccountType: basetypes.SignMethodType,
   Token: string;
   VerificationCode: string;
 }
@@ -37,7 +38,7 @@ export interface LoginVerifyResponse {
   Info: userbase.User;
 }
 
-export interface LogoutRequest extends doRequest.BaseRequest {
+export interface LogoutRequest extends BaseRequest {
   Token?: string;
 }
 
@@ -45,11 +46,11 @@ export interface LogoutResponse {
   Info: userbase.User;
 }
 
-export interface UpdateUserRequest extends doRequest.BaseRequest {
+export interface UpdateUserRequest extends BaseRequest {
   Account?: string;
   NewAccount?:string;
-  AccountType?: userbase.SignMethodType;
-  NewAccountType?: userbase.SignMethodType;
+  AccountType?: basetypes.SignMethodType;
+  NewAccountType?: basetypes.SignMethodType;
   VerificationCode?: string;
   NewVerificationCode?:string;
   EmailAddress?: string;
@@ -65,7 +66,7 @@ export interface UpdateUserRequest extends doRequest.BaseRequest {
   FirstName?: string;
   LastName?: string;
   IDNumber?: string;
-  SigninVerifyType?: userbase.SigninVerifyType;
+  SigninVerifyType?: basetypes.SignMethodType;
   PasswordHash?: string;
   OldPasswordHash?:string;
   SigninVerifyByGoogleAuth?: boolean;
@@ -79,9 +80,9 @@ export interface UpdateUserResponse {
   Info: userbase.User;
 }
 
-export interface ResetUserRequest extends doRequest.BaseRequest {
+export interface ResetUserRequest extends BaseRequest {
   Account: string
-  AccountType: userbase.SignMethodType
+  AccountType: basetypes.SignMethodType
   VerificationCode: string
   PasswordHash?: string
   RecoveryCode?: string
@@ -91,7 +92,7 @@ export interface ResetUserRequest extends doRequest.BaseRequest {
 export interface ResetUserResponse {
 }
 
-export interface UpdateUserKolRequest extends doRequest.BaseRequest {
+export interface UpdateUserKolRequest extends BaseRequest {
   TargetUserID: string
   Kol: boolean
 }

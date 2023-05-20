@@ -1,9 +1,3 @@
-export enum SigninVerifyType {
-  Mobile = 'Mobile',
-  Email = 'Email',
-  Google = 'Google'
-}
-
 export enum SignMethodType {
   Mobile = 'Mobile',
   Email = 'Email',
@@ -21,10 +15,3 @@ export const SignupMethodTypes = [
   SignMethodType.Email,
   SignMethodType.Mobile
 ]
-
-export enum KYCState {
-  DefaultState = 'DefaultState',
-  Approved = 'Approved',
-  Reviewing = 'Reviewing',
-  Rejected = 'Rejected'
-}

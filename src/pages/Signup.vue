@@ -2,20 +2,20 @@
   <div :style='{marginTop: "40px", marginBottom: "120px", maxWidth: "400px"}' class='horizontal-center'>
     <Title :text='$t("MSG_CREATE_ACCOUNT")' />
     <Switcher :style='{marginTop: "48px"}' v-model:account-type='accountType' />
-    <CountryCode v-if='accountType === user.SignMethodType.Mobile' v-model:country='country' :style='{width: "100", marginTop: "48px"}' />
+    <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100", marginTop: "48px"}' />
     <q-input
       v-model='account'
-      :style='{width: "100%", marginTop: accountType === user.SignMethodType.Email ? "24px" : "12px"}'
-      :label='accountType === user.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
+      :style='{width: "100%", marginTop: accountType === basetypes.SignMethodType.Email ? "24px" : "12px"}'
+      :label='accountType === basetypes.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
       ref='accountInput'
-      :rules='accountType === user.SignMethodType.Email ? [val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")] : [val => validator.validatePhoneNO(val) || $t("MSG_INVALID_PHONE_NO")]'
+      :rules='accountType === basetypes.SignMethodType.Email ? [val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")] : [val => validator.validatePhoneNO(val) || $t("MSG_INVALID_PHONE_NO")]'
       lazy-rules='ondemand'
       @blur='onAccountInputBlur'
       @focus='onAccountInputFocus'
     >
       <template #prepend>
-        <q-icon v-if='accountType === user.SignMethodType.Email' color='primary' name='contact_mail' />
-        <q-icon v-if='accountType === user.SignMethodType.Mobile' color='primary' name='contact_phone' />
+        <q-icon v-if='accountType === basetypes.SignMethodType.Email' color='primary' name='contact_mail' />
+        <q-icon v-if='accountType === basetypes.SignMethodType.Mobile' color='primary' name='contact_phone' />
       </template>
       <template #append>
         <q-btn
@@ -23,7 +23,6 @@
           size='12px'
           class='btn btn-mini'
           :label='sendBtnText'
-          no-caps
           @click='onSendClick'
           :disabled='sending'
         />
@@ -70,7 +69,7 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, ref, computed, watch } from 'vue'
-import { user, g11n } from 'src/mystore'
+import { g11n, basetypes, notif, notification } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
 import { validator } from 'src/utils'
 import { QInput } from 'quasar'
@@ -83,7 +82,7 @@ const Switcher = defineAsyncComponent(() => import('src/components/sign/Switcher
 const Agreement = defineAsyncComponent(() => import('src/components/sign/Agreement.vue'))
 const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
 
-const accountType = ref(user.SignMethodType.Email)
+const accountType = ref(basetypes.SignMethodType.Email)
 const account = ref('')
 const verificationCode = ref('')
 const password = ref('')
@@ -100,6 +99,7 @@ const resetValidation = () => {
 
 watch(accountType, () => {
   resetValidation()
+  account.value = ''
 })
 
 const accountInput = ref(QInput)
@@ -126,42 +126,72 @@ const onPasswordInputFocus = () => {
   resetValidation()
 }
 
+const userCode = notif.UserCode.useNotifUserCodeStore()
+const sendInterval = ref(-1)
+
+const sendAccountCode = (msgTitle: string, msg: string, account: string) => {
+  userCode.sendCode({
+    Account: account,
+    AccountType: accountType.value,
+    UsedFor: basetypes.UsedFor.Signup,
+    ToUsername: account,
+    Message: {
+      Error: {
+        Title: msgTitle,
+        Message: msg,
+        Popup: true,
+        Type: notification.NotifyType.Error
+      }
+    }
+  }, (error: boolean) => {
+    if (error) {
+      sending.value = false
+      if (sendInterval.value >= 0) {
+        window.clearInterval(sendInterval.value)
+      }
+    }
+  })
+}
+
 const sendEmailCode = () => {
   if (!(accountInput.value as unknown as QInput).validate(account.value)) {
     return false
   }
+  sendAccountCode(t('MSG_SEND_EMAIL_CODE'), t('MSG_SEND_EMAIL_CODE_FAIL'), account.value)
   return true
 }
 
 const sendPhoneCode = () => {
-  return false
+  if (!(accountInput.value as unknown as QInput).validate(account.value)) {
+    return false
+  }
+  sendAccountCode(t('MSG_SEND_SMS_CODE'), t('MSG_SEND_SMS_CODE_FAIL'), country.value?.Code + account.value)
+  return true
 }
 
 const onSendClick = () => {
   let sent = false
-  let _account = account.value
-
+  if (!(accountInput.value as unknown as QInput).validate(account.value)) {
+    return false
+  }
   switch (accountType.value) {
-    case user.SignMethodType.Email:
+    case basetypes.SignMethodType.Email:
       sent = sendEmailCode()
       break
-    case user.SignMethodType.Mobile:
+    case basetypes.SignMethodType.Mobile:
       sent = sendPhoneCode()
-      _account = country.value?.Code + account.value
       break
   }
-
   if (!sent) {
     return
   }
 
-  console.log('send code to', _account)
-
   sending.value = true
   timeout.value = 60
-  const interval = setInterval(() => {
+  sendInterval.value = window.setInterval(() => {
     if (timeout.value === 0) {
-      clearInterval(interval)
+      window.clearInterval(sendInterval.value)
+      sendInterval.value = -1
       sending.value = false
       return
     }
@@ -170,7 +200,7 @@ const onSendClick = () => {
 }
 
 const sendBtnText = computed(() => {
-  return sending.value ? timeout.value.toFixed(0) + t('MSG_SECOND_SHORT') : t('MSG_SEND')
+  return sending.value ? timeout.value.toFixed(0) + t('MSG_SECOND_SHORT') : t('MSG_SEND_CODE')
 })
 
 </script>

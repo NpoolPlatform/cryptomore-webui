@@ -1,8 +1,4 @@
-import {
-  SignMethodType,
-  SigninVerifyType,
-  KYCState
-} from './const'
+import * as basetypes from './../../../basetypes'
 
 export interface User {
   ID: string
@@ -29,7 +25,7 @@ export interface User {
   LastName: string
   IDNumber: string
 
-  SigninVerifyType: SigninVerifyType
+  SigninVerifyType: basetypes.SignMethodType
   SigninVerifyTypeStr: string
   GoogleAuthVerified: boolean
   GoogleAuthVerifiedInt: number
@@ -47,7 +43,7 @@ export interface User {
 
   Logined: boolean
   LoginAccount: string
-  LoginAccountType: SignMethodType
+  LoginAccountType: basetypes.SignMethodType
   LoginToken: string
   LoginClientIP: string
   LoginClientUserAgent: string
@@ -62,6 +58,6 @@ export interface User {
 
   LoginVerified: boolean
 
-  State: KYCState
+  State: basetypes.KYCState
   KycStateStr: string
 }
