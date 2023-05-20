@@ -100,6 +100,9 @@
             <div class='menu-list-item cursor-pointer'>
               {{ $t('MSG_SUI') }}
             </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_LINERA') }}
+            </div>
           </div>
         </div>
         <q-space />
@@ -216,4 +219,7 @@ const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))
         margin-top: 16px
         .menu-list-item
           margin-top: 4px
+        .menu-list-item:hover
+          color: $primary
+          text-shadow: 2px 2px $secondary
 </style>
