@@ -4,12 +4,12 @@ export const validateEmail = (email: string) => {
 }
 
 export const validateVerficationCode = (code: string) => {
-  const reg1 = /^[0-9]{6}$/
+  const reg1 = /^[0-9]{6,6}$/
   return reg1.test(code)
 }
 
 export const validatePassword = (password: string) => {
-  const reg1 = /^[A-Za-z0-9](?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]){7,31}$/
+  const reg1 = /^[A-Za-z0-9](?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^?&*()_+])[A-Za-z0-9!@#$%^?&*()_+]{7,31}$/
   return reg1.test(password)
 }
 

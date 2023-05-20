@@ -1,6 +1,5 @@
 <template>
   <div class='row text-primary text-center horizontal-center'>
-    <q-space class='micro-hide' />
     <q-btn
       flat
       :class='[accountType === basetypes.SignMethodType.Email ? "btn-main" : "btn-alt", "btn btn-small btn-left btn-switcher"]'
@@ -15,7 +14,6 @@
     >
       {{ $t('MSG_MOBILE') }}
     </q-btn>
-    <q-space class='micro-hide' />
   </div>
 </template>
 
@@ -47,11 +45,11 @@ const onSwitchClick = (_method: basetypes.SignMethodType) => {
   border-radius: 0 8px 8px 0
 
 .btn-switcher
-  min-width: 200px
+  width: 50%
   font-size: 16px
   font-weight: 500
   @media (max-width: 428px)
-    min-width: 100%
+    width: 100%
     border-radius: 8px
     margin-bottom: 8px
 </style>

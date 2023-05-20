@@ -60,7 +60,7 @@
       <Agreement />
     </div>
     <div class='text-center' :style='{marginTop: "40px"}'>
-      <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}'>
+      <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}' @click='onSignupClick'>
         {{ $t('MSG_SIGNUP') }}
       </q-btn>
     </div>
@@ -69,9 +69,9 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, ref, computed, watch } from 'vue'
-import { g11n, basetypes, notif, notification } from 'src/mystore'
+import { user, g11n, basetypes, notif, notification } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
-import { validator } from 'src/utils'
+import { validator, entropy } from 'src/utils'
 import { QInput } from 'quasar'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -87,6 +87,15 @@ const account = ref('')
 const verificationCode = ref('')
 const password = ref('')
 const country = ref(undefined as unknown as g11n.AppCountry.AppCountry)
+const realAccount = computed(() => {
+  switch (accountType.value) {
+    case basetypes.SignMethodType.Email:
+      return account.value
+    case basetypes.SignMethodType.Mobile:
+      return country.value?.Code + account.value
+  }
+  return account.value
+})
 
 const sending = ref(false)
 const timeout = ref(60)
@@ -95,6 +104,14 @@ const resetValidation = () => {
   void (verificationCodeInput.value as unknown as QInput).resetValidation()
   void (accountInput.value as unknown as QInput).resetValidation()
   void (passwordInput.value as unknown as QInput).resetValidation()
+}
+
+const validate = () => {
+  let valid = true
+  valid &&= (verificationCodeInput.value as unknown as QInput).validate(verificationCode.value) as boolean
+  valid &&= (accountInput.value as unknown as QInput).validate(account.value) as boolean
+  valid &&= (passwordInput.value as unknown as QInput).validate(password.value) as boolean
+  return valid
 }
 
 watch(accountType, () => {
@@ -112,7 +129,7 @@ const onAccountInputFocus = () => {
 
 const verificationCodeInput = ref(QInput)
 const onVerificationCodeInputBlur = () => {
-  void (verificationCodeInput.value as unknown as QInput).validate(account.value)
+  void (verificationCodeInput.value as unknown as QInput).validate(verificationCode.value)
 }
 const onVerificationCodeInputFocus = () => {
   resetValidation()
@@ -120,7 +137,7 @@ const onVerificationCodeInputFocus = () => {
 
 const passwordInput = ref(QInput)
 const onPasswordInputBlur = () => {
-  void (passwordInput.value as unknown as QInput).validate(account.value)
+  void (passwordInput.value as unknown as QInput).validate(password.value)
 }
 const onPasswordInputFocus = () => {
   resetValidation()
@@ -153,37 +170,17 @@ const sendAccountCode = (msgTitle: string, msg: string, account: string) => {
   })
 }
 
-const sendEmailCode = () => {
-  if (!(accountInput.value as unknown as QInput).validate(account.value)) {
-    return false
-  }
-  sendAccountCode(t('MSG_SEND_EMAIL_CODE'), t('MSG_SEND_EMAIL_CODE_FAIL'), account.value)
-  return true
-}
-
-const sendPhoneCode = () => {
-  if (!(accountInput.value as unknown as QInput).validate(account.value)) {
-    return false
-  }
-  sendAccountCode(t('MSG_SEND_SMS_CODE'), t('MSG_SEND_SMS_CODE_FAIL'), country.value?.Code + account.value)
-  return true
-}
-
 const onSendClick = () => {
-  let sent = false
   if (!(accountInput.value as unknown as QInput).validate(account.value)) {
     return false
   }
   switch (accountType.value) {
     case basetypes.SignMethodType.Email:
-      sent = sendEmailCode()
+      sendAccountCode(t('MSG_SEND_EMAIL_CODE'), t('MSG_SEND_EMAIL_CODE_FAIL'), realAccount.value)
       break
     case basetypes.SignMethodType.Mobile:
-      sent = sendPhoneCode()
+      sendAccountCode(t('MSG_SEND_SMS_CODE'), t('MSG_SEND_SMS_CODE_FAIL'), realAccount.value)
       break
-  }
-  if (!sent) {
-    return
   }
 
   sending.value = true
@@ -202,6 +199,31 @@ const onSendClick = () => {
 const sendBtnText = computed(() => {
   return sending.value ? timeout.value.toFixed(0) + t('MSG_SECOND_SHORT') : t('MSG_SEND_CODE')
 })
+
+const _user = user.useUserStore()
+
+const onSignupClick = () => {
+  if (!validate()) {
+    return
+  }
+
+  _user.signup({
+    Account: realAccount.value,
+    AccountType: accountType.value,
+    PasswordHash: entropy.encryptPassword(password.value),
+    VerificationCode: verificationCode.value,
+    Message: {
+      Error: {
+        Title: t('MSG_SIGNUP'),
+        Message: t('MSG_SIGNUP_FAIL'),
+        Popup: true,
+        Type: notification.NotifyType.Error
+      }
+    }
+  }, () => {
+    // TODO
+  })
+}
 
 </script>
 

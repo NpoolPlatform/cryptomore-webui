@@ -127,7 +127,7 @@ export default {
   MSG_SECOND_SHORT: 's',
   MSG_INVALID_EMAIL: 'Email address should be like user{\'@\'}hotmail.com',
   MSG_INVALID_VERIFICATION_CODE: 'Verification code should be 6 digital number',
-  MSG_INVALID_PASSWORD: 'Password should start with letter or digital number, followed with 7-31 letter, digital number, and !@#$%^&*()_+',
+  MSG_INVALID_PASSWORD: 'Password should start with letter or digital number, followed with 7-31 letter, digital number, and !{\'@\'}#$%^?&*()_+',
   MSG_EMAIL_ADDRESS: 'Email address',
   MSG_PHONE_NO: 'Phone number',
   MSG_GET_COUNTRIES_FAIL: 'Fail get countries',

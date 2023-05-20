@@ -7,7 +7,7 @@ export interface SignupRequest extends BaseRequest{
   PasswordHash: string;
   AccountType: basetypes.SignMethodType;
   VerificationCode: string;
-  InvitationCode: string;
+  InvitationCode?: string;
 }
 
 export interface SignupResponse {
