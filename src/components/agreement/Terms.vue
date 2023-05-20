@@ -2,10 +2,11 @@
   <Header />
   <Title class='horizontal-center' :title='$t("MSG_AGREEMENT_TO_TERMS")' />
   <div class='content-width row horizontal-center'>
-    <div class='left'>
+    <div class='left' :style='{marginTop: tableOfContentMarginTop}'>
       <TableOfContent v-model:selected='selected' :entries='entries' />
     </div>
     <div class='right text-primary'>
+      <q-scroll-observer @scroll='onScroll' />
       <p>These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you" or "User") and, CRYPTO MORE LTD. ("Crypto More," "we," "us," or "our"), concerning your access to and use of the https://cryptomore.io/ website (the "Site") as well as any other media form, media channel, mobile website digital service, Validator Services, Direct Route transaction services, Meganode service or mobile application related, linked, or otherwise connected thereto or provided by us (collectively, the "Services"). You agree that by accessing the Site or using any of the Services, you have read, understood, and agreed to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ANY OR ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY. The information provided on the Site and our Services are not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site or Services from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable. Our Services are intended for users who are at least 18 years old. Persons under the age of 18 are not permitted to use our Services or our Site.</p>
       <h4 class='text-primary title title-1' id='Registration and Account'>
         Registration and Account
@@ -150,8 +151,9 @@
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent, ref, watch } from 'vue'
+import { defineAsyncComponent, ref, watch, computed } from 'vue'
 import { scroll } from 'quasar'
+
 const { getScrollTarget, setVerticalScrollPosition } = scroll
 
 const Header = defineAsyncComponent(() => import('src/components/agreement/Header.vue'))
@@ -192,18 +194,34 @@ watch(selected, () => {
   setVerticalScrollPosition(target, offset, duration)
 })
 
+const scrollDistance = ref(0)
+const tableOfContentMarginTop = computed(() => {
+  const fixedVal = 400
+  if (scrollDistance.value <= fixedVal) {
+    return
+  }
+  return (scrollDistance.value - fixedVal).toFixed(0) + 'px'
+})
+
+const onScroll = (ev: unknown) => {
+  const _ev = ev as Record<string, unknown>
+  if (!_ev.position) {
+    return
+  }
+  const pos = _ev.position as Record<string, number>
+  scrollDistance.value = Number(pos.top)
+}
+
 </script>
 
 <style lang='sass' scoped>
 .left
-  position: fixed
-  top: 128px
   width: 278px
   @media (max-width: 1280px)
     display: none
 
 .right
-  margin-left: 318px
+  margin-left: 40px
   font-size: 16px
   font-weight: 500
   line-height: 26px

@@ -13,6 +13,11 @@
       </q-btn>
     </div>
   </div>
+  <q-dialog
+    v-model='showing'
+  >
+    HHHHHHHHHHHHHHHHHH
+  </q-dialog>
 </template>
 
 <script setup lang='ts'>
@@ -26,6 +31,7 @@ const Aggrement = defineAsyncComponent(() => import('src/components/sign/Aggreme
 const accountType = ref(user.SignMethodType.Email)
 const account = ref('')
 const password = ref('')
+const showing = ref(false)
 
 </script>
 
