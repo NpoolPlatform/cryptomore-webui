@@ -31,7 +31,7 @@
     <q-input
       v-model='verificationCode'
       :style='{width: "100%"}'
-      label='Email verification code'
+      :label='$t("MSG_VERIFICATION_CODE", { ACCOUNT_TYPE: accountType })'
       ref='verificationCodeInput'
       :rules='[val => validator.validateVerficationCode(val) || $t("MSG_INVALID_VERIFICATION_CODE")]'
       lazy-rules='ondemand'
