@@ -125,5 +125,7 @@ export default {
   MSG_PRIVACY_NOTICE: 'Privacy Notice',
   MSG_SEND: 'Send',
   MSG_SECOND_SHORT: 's',
-  MSG_INVALID_EMAIL: 'Email address should be like user{\'@\'}hotmail.com'
+  MSG_INVALID_EMAIL: 'Email address should be like user{\'@\'}hotmail.com',
+  MSG_INVALID_VERIFICATION_CODE: 'Verification code should be 6 digital number',
+  MSG_INVALID_PASSWORD: 'Password should start with letter or digital number, followed with 7-31 letter, digital number, and !@#$%^&*()_+'
 }

@@ -5,7 +5,8 @@
     <q-input
       v-model='account'
       :style='{width: "100", marginTop: "24px"}'
-      label='Email address' ref='accountInput'
+      label='Email address'
+      ref='accountInput'
       :rules='[val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")]'
       lazy-rules='ondemand'
       @blur='onAccountInputBlur'
@@ -26,12 +27,30 @@
         />
       </template>
     </q-input>
-    <q-input v-model='verificationCode' :style='{width: "100%"}' label='Email verification code'>
+    <q-input
+      v-model='verificationCode'
+      :style='{width: "100%"}'
+      label='Email verification code'
+      ref='verificationCodeInput'
+      :rules='[val => validator.validateVerficationCode(val) || $t("MSG_INVALID_VERIFICATION_CODE")]'
+      lazy-rules='ondemand'
+      @blur='onVerificationCodeInputBlur'
+      @focus='onVerificationCodeInputFocus'
+    >
       <template #prepend>
         <q-icon color='primary' name='domain_verification' />
       </template>
     </q-input>
-    <q-input v-model='password' :style='{width: "100%"}' label='Password'>
+    <q-input
+      v-model='password'
+      :style='{width: "100%"}'
+      label='Password'
+      ref='passwordInput'
+      :rules='[val => validator.validatePassword(val) || $t("MSG_INVALID_PASSWORD")]'
+      lazy-rules='ondemand'
+      @blur='onPasswordInputBlur'
+      @focus='onPasswordInputFocus'
+    >
       <template #prepend>
         <q-icon color='primary' name='password' />
       </template>
@@ -69,12 +88,34 @@ const password = ref('')
 const sending = ref(false)
 const timeout = ref(60)
 
+const resetValidation = () => {
+  void (verificationCodeInput.value as unknown as QInput).resetValidation()
+  void (accountInput.value as unknown as QInput).resetValidation()
+  void (passwordInput.value as unknown as QInput).resetValidation()
+}
+
 const accountInput = ref(QInput)
 const onAccountInputBlur = () => {
   void (accountInput.value as unknown as QInput).validate(account.value)
 }
 const onAccountInputFocus = () => {
-  (accountInput.value as unknown as QInput).resetValidation()
+  resetValidation()
+}
+
+const verificationCodeInput = ref(QInput)
+const onVerificationCodeInputBlur = () => {
+  void (verificationCodeInput.value as unknown as QInput).validate(account.value)
+}
+const onVerificationCodeInputFocus = () => {
+  resetValidation()
+}
+
+const passwordInput = ref(QInput)
+const onPasswordInputBlur = () => {
+  void (passwordInput.value as unknown as QInput).validate(account.value)
+}
+const onPasswordInputFocus = () => {
+  resetValidation()
 }
 
 const sendEmailCode = () => {
