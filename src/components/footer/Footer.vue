@@ -221,5 +221,5 @@ const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))
           margin-top: 4px
         .menu-list-item:hover
           color: $primary
-          text-shadow: 2px 2px $secondary
+          text-shadow: 1px 1px $secondary
 </style>
