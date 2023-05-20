@@ -15,26 +15,33 @@
     />
   </div>
   <div v-else class='row'>
-    <HeaderToolBtn :icon='bellIcon' />
+    <div v-if='notifs > 0' class='veritical-center row' :style='{marginLeft: "8px", marginRight: "8px"}'>
+      <HeaderToolBtn :icon='bellIcon' />
+      <div
+        class='notifs text-white bg-red veritical-center text-center'
+        :style='{marginLeft: "-18px", marginTop: "4px", borderRadius: "8px", fontSize: "8px", height: "12px", minWidth: "12px", lineHeight: "12px", paddingLeft: "4px", paddingRight: "4px"}'
+      >
+        {{ notifs }}
+      </div>
+    </div>
     <Avatar />
   </div>
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent, computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { notif, user } from 'src/mystore'
 import { useRouter } from 'vue-router'
 
 import metamaskLogo from '../../assets/Metamask.svg'
-import bellNoMsg from '../../assets/BellNoMsg.svg'
-import bellMsg from '../../assets/BellMsg.svg'
+import bellIcon from '../../assets/Bell.svg'
 
 const Avatar = defineAsyncComponent(() => import('src/components/avatar/Avatar.vue'))
 const HeaderToolBtn = defineAsyncComponent(() => import('src/components/header/HeaderToolBtn.vue'))
 
 const logined = user.useLocalUserStore()
 const _notif = notif.Notif.useNotifNotifStore()
-const bellIcon = computed(() => _notif.Notifs.length > 0 ? bellMsg : bellNoMsg)
+const notifs = computed(() => _notif.Notifs.filter((el) => !el.Notified).length)
 
 const router = useRouter()
 
