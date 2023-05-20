@@ -134,5 +134,6 @@ export default {
   MSG_CREATE_ACCOUNT: 'Create Account',
   MSG_INVALID_PHONE_NO: 'Phone number is invalid',
   MSG_VERIFICATION_CODE: '{ACCOUNT_TYPE} verification code',
-  MSG_ALREADY_HAVE_ACCOUNT: 'Already have an account? <a href="{SIGNIN_URI}">Sign in</a>'
+  MSG_ALREADY_HAVE_ACCOUNT: 'Already have an account? <a href="{SIGNIN_URI}">Sign in</a>',
+  MSG_NOT_A_MEMBER: 'Not a member? <a href="{SIGNUP_URI}">Sign up</a>'
 }

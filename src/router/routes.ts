@@ -31,6 +31,15 @@ const routes: RouteRecordRaw[] = [
         }
       },
       {
+        path: 'signin',
+        component: () => import('pages/Signin.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false
+        }
+      },
+      {
         path: 'terms',
         component: () => import('pages/Terms.vue'),
         meta: {
