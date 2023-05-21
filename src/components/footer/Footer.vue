@@ -46,7 +46,7 @@
             <div class='menu-list-item cursor-pointer'>
               {{ $t('MSG_MINING_STAKING') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing")'>
               {{ $t('MSG_PRICING') }}
             </div>
           </div>

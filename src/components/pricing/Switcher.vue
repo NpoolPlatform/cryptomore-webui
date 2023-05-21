@@ -67,11 +67,17 @@ const onServiceTypeSwitch = (_serviceType: constants.ServiceType) => {
 .switcher
   border: 1px solid #EAEAEA
   background: #FAFAFA
-  height: 54px
+  min-height: 54px
   border-radius: 27px
   max-width: 644px
   padding: 2px
   margin-top: 100px
+  @media (max-width: 672px)
+    margin-left: 6px
+    margin-right: 6px
+  .btn
+    @media (max-width: 1160px)
+      width: 100%
 
 .label
   font-size: 72px
