@@ -74,6 +74,15 @@ const routes: RouteRecordRaw[] = [
           ShowSignHelper: true,
           NeedLogined: false
         }
+      },
+      {
+        path: 'pricing',
+        component: () => import('pages/Pricing.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false
+        }
       }
     ]
   },

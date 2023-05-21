@@ -148,5 +148,8 @@ export default {
   MSG_ABOUT_US: 'About us',
   MSG_WHO_WE_ARE: 'Who we are',
   MSG_INVESTOR: 'Investor',
-  MSG_OUR_INVESTOR: 'Our Investor'
+  MSG_OUR_INVESTOR: 'Our Investor',
+  MSG_ONE_STOP_CRYPTO_SERVICES: 'One-Stop <span class="text-secondary">Crypto+ Subscription</span> Services',
+  MSG_DEDICATED_CRYPTO_ENTERPRISE_SOLUTION: 'Dedicated <span class="text-secondary">Enterprise Crypto+</span> Solution',
+  MSG_LEADER_MINING_STAKING_OPERATOR: 'Leader <span class="text-secondary">Mining/Staking Solution</span> Operator'
 }

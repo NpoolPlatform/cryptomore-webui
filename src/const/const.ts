@@ -16,6 +16,12 @@ enum GoogleTokenType {
   Login = 'login'
 }
 
+enum ServiceType {
+  CryptoPlusService = 'CryptoPlusService',
+  CryptoEnterprise = 'CryptoEnterprise',
+  MiningStaking = 'MiningStaking'
+}
+
 export {
   NotSet,
   VerificationCodeLength,
@@ -24,5 +30,6 @@ export {
   InvalidID,
   GoogleRecaptchaKey,
   GoogleTokenType,
-  SecondsEachDay
+  SecondsEachDay,
+  ServiceType
 }
