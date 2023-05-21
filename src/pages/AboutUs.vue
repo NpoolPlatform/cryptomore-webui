@@ -11,6 +11,7 @@
           <span class='banner-text banner-main'>
             {{ $t('MSG_CRYPTO_MORE') }}
           </span>
+          <q-space />
           <span class='banner-text banner-alt'>
             {{ $t('MSG_CRYPTO_MORE') }}
           </span>
@@ -90,7 +91,6 @@ const Title = defineAsyncComponent(() => import('src/components/common/Title1.vu
   width: 100%
   margin-top: 64px
   .banner-area
-    overflow: hidden
     flex-wrap: nowrap
     .banner-text
       font-size: 100px
