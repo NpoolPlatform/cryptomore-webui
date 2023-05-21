@@ -74,7 +74,7 @@ const onPositionClick = (position: Position) => {
   margin-bottom: 142px
   .position
     width: 840px
-    height: 114px
+    min-height: 114px
     border-bottom: 1px solid #EAEAEA
     padding: 24px
     .title

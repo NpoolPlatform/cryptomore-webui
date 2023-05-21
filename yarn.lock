@@ -9687,6 +9687,11 @@ vue-demi@*:
   resolved "https://registry.npmmirror.com/vue-demi/-/vue-demi-0.12.1.tgz"
   integrity sha512-QL3ny+wX8c6Xm1/EZylbgzdoDolye+VpCXRhI2hug9dJTP3OUJ3lmiKN3CsVV3mOJKwFi0nsstbgob0vG7aoIw==
 
+vue-demi@latest:
+  version "0.14.5"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.14.5.tgz#676d0463d1a1266d5ab5cba932e043d8f5f2fbd9"
+  integrity sha512-o9NUVpl/YlsGJ7t+xuqJKx8EBGf1quRhCiT6D/J0pfwmk9zUwYkC7yrF4SZCe6fETvSM3UNL2edcbYrSyc4QHA==
+
 vue-eslint-parser@^7.10.0:
   version "7.11.0"
   resolved "https://registry.npmmirror.com/vue-eslint-parser/-/vue-eslint-parser-7.11.0.tgz"
@@ -9721,6 +9726,13 @@ vue-jest@^5.0.0-alpha.10:
     extract-from-css "^0.4.4"
     source-map "0.5.6"
     tsconfig "^7.0.0"
+
+vue-lite-youtube-embed@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vue-lite-youtube-embed/-/vue-lite-youtube-embed-1.2.0.tgz#1dfc43478fcf9d74ebbf352e75a85496a15afd24"
+  integrity sha512-XJxuvxldm5AuX/OzVUECd1MVE+QMFGk4sDIMtruETFVPZDnnXWXdq+hZtqAtgWUpmKxX9MCOObCvxNwVZ5uArQ==
+  dependencies:
+    vue-demi latest
 
 vue-loader@17.0.0:
   version "17.0.0"

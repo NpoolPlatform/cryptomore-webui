@@ -109,7 +109,7 @@
         <div class='menu text-primary'>
           <span class='title'>{{ $t('MSG_COMPANY') }}</span>
           <div class='menu-list color-main-transparent-60'>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/aboutus")'>
               {{ $t('MSG_CRYPTO_MORE') }}
             </div>
             <div v-if='false' class='menu-list-item cursor-pointer'>

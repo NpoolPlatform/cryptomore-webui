@@ -143,5 +143,10 @@ export default {
   MSG_PRODUCT_MANAGER: 'Product Manager',
   MSG_TEST_ENGINEER: 'Test Engineer',
   MSG_APPLY: 'Apply',
-  MSG_ASIA: 'Asia'
+  MSG_ASIA: 'Asia',
+  MSG_MAKE_WEB3_REAL: 'Make Your Web3 Real',
+  MSG_ABOUT_US: 'About us',
+  MSG_WHO_WE_ARE: 'Who we are',
+  MSG_INVESTOR: 'Investor',
+  MSG_OUR_INVESTOR: 'Our Investor'
 }
