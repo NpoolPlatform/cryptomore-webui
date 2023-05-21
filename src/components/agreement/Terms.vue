@@ -1,6 +1,6 @@
 <template>
-  <Header />
-  <Title class='horizontal-center' :title='$t("MSG_AGREEMENT_TO_TERMS")' />
+  <HeadBackground />
+  <Title class='horizontal-center' :title='$t("MSG_AGREEMENT_TO_TERMS")' :subtitle='$t("MSG_LAST_UPDATED", { DATE: new Date() })' />
   <div class='content-width row horizontal-center'>
     <div class='left' :style='{marginTop: tableOfContentMarginTop}'>
       <TableOfContent v-model:selected='selected' :entries='entries' />
@@ -156,8 +156,8 @@ import { scroll } from 'quasar'
 
 const { getScrollTarget, setVerticalScrollPosition } = scroll
 
-const Header = defineAsyncComponent(() => import('src/components/agreement/Header.vue'))
-const Title = defineAsyncComponent(() => import('src/components/agreement/Title.vue'))
+const HeadBackground = defineAsyncComponent(() => import('src/components/common/HeadBackground.vue'))
+const Title = defineAsyncComponent(() => import('src/components/common/Title1.vue'))
 const TableOfContent = defineAsyncComponent(() => import('src/components/agreement/TableOfContent.vue'))
 
 const selected = ref('Registration and Account')

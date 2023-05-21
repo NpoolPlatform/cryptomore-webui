@@ -7,7 +7,7 @@
       {{ title }}
     </div>
     <div class='text-center updated color-main-transparent-80'>
-      {{ $t('MSG_LAST_UPDATED', { DATE: updatedAt }) }}
+      {{ subtitle }}
     </div>
   </div>
 </template>
@@ -17,14 +17,14 @@ import { withDefaults, defineProps, toRef } from 'vue'
 
 interface Props {
   title: string
-  updatedAt: Date
+  subtitle: string
 }
 const props = withDefaults(defineProps<Props>(), {
   title: '',
-  updatedAt: () => new Date()
+  subtitle: ''
 })
 const title = toRef(props, 'title')
-const updatedAt = toRef(props, 'updatedAt').value.toDateString()
+const subtitle = toRef(props, 'subtitle')
 </script>
 
 <style lang='sass' scoped>

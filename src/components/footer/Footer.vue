@@ -115,10 +115,10 @@
             <div v-if='false' class='menu-list-item cursor-pointer'>
               {{ $t('MSG_PARTNERS') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/career")'>
               {{ $t('MSG_CAREER') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/terms")'>
               {{ $t('MSG_TERMS_OF_USE') }}
             </div>
             <div class='menu-list-item cursor-pointer' @click='onMenuClick("/policy")'>
