@@ -121,7 +121,7 @@
             <div class='menu-list-item cursor-pointer'>
               {{ $t('MSG_TERMS_OF_USE') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/policy")'>
               {{ $t('MSG_PRIVACY_NOTICE') }}
             </div>
             <div class='menu-list-item cursor-pointer'>
@@ -144,6 +144,7 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent } from 'vue'
+import { useRouter } from 'vue-router'
 
 import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 import github from 'src/assets/Github.svg'
@@ -152,6 +153,12 @@ import discord from 'src/assets/Discord.svg'
 import medium from 'src/assets/Medium.svg'
 
 const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))
+
+const router = useRouter()
+const onMenuClick = (target: string) => {
+  void router.push({ path: target })
+}
+
 </script>
 
 <style lang='sass' scoped>
