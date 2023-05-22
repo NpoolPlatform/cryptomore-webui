@@ -157,5 +157,6 @@ export default {
   MSG_MONTHLY_PRICE: '{\'$\'}{AMOUNT} / mo',
   MSG_GET_STARTED: 'Get Started',
   MSG_GROWTH: 'Growth',
-  MSG_ENTERPRISE: 'Enterprise'
+  MSG_ENTERPRISE: 'Enterprise',
+  MSG_INTEGRATE_50PLUS_BLOCKCHAINS: 'Integrate 50+ Blockchains to your Application'
 }
