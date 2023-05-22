@@ -12,6 +12,7 @@ export default {
   MSG_DOCS: 'Docs',
   MSG_BANNER_SLOGAN: 'Your Reliable Crypto+ Partner',
   MSG_BANNER_SUBTITLE: 'Build crypto+ business based on our verified infrastructure',
+  MSG_CRYPTO_PLUS_BUSINESS_FOR_FREE: 'Build crypto+ business with verified infrastructure for free',
   MSG_FREE_TRIAL: 'Free Trial',
   MSG_VIEW_MORE: 'View More',
   MSG_BANNER_VERIFIED: '<strong>Verified</strong> by several online crypto applications at different market',
@@ -151,5 +152,10 @@ export default {
   MSG_OUR_INVESTOR: 'Our Investor',
   MSG_ONE_STOP_CRYPTO_SERVICES: 'One-Stop <span class="text-secondary">Crypto+ Subscription</span> Services',
   MSG_DEDICATED_CRYPTO_ENTERPRISE_SOLUTION: 'Dedicated <span class="text-secondary">Enterprise Crypto+</span> Solution',
-  MSG_LEADER_MINING_STAKING_OPERATOR: 'Leader <span class="text-secondary">Mining/Staking Solution</span> Operator'
+  MSG_LEADER_MINING_STAKING_OPERATOR: 'Leader <span class="text-secondary">Mining/Staking Solution</span> Operator',
+  MSG_FREE: 'Free',
+  MSG_MONTHLY_PRICE: '{\'$\'}{AMOUNT} / mo',
+  MSG_GET_STARTED: 'Get Started',
+  MSG_GROWTH: 'Growth',
+  MSG_ENTERPRISE: 'Enterprise'
 }
