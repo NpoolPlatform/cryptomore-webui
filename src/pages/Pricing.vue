@@ -1,7 +1,7 @@
 <template>
   <HeadBackground />
   <Switcher v-model:service-type='serviceType' />
-  <div class='section-start-magin'>
+  <div class='section-start-margin'>
     <CryptoPlusService v-if='serviceType === constants.ServiceType.CryptoPlusService' />
     <CryptoEnterprise v-else-if='serviceType === constants.ServiceType.CryptoEnterprise' />
     <MiningStaking v-else-if='serviceType === constants.ServiceType.MiningStaking' />
