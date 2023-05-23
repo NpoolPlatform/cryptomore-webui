@@ -170,6 +170,7 @@ const onMenuClick = (target: string) => {
   border-radius: 0 40px 0 0
   padding-top: 80px
   padding-bottom: 120px
+  z-index: 2000
 
 .footer .left
   width: 230px
