@@ -416,7 +416,7 @@
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='negative' size='23px' />
+              <q-icon name='check_circle' color='secondary' size='23px' />
             </div>
             <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
@@ -499,7 +499,7 @@
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='negative' size='23px' />
+              <q-icon name='check_circle' color='secondary' size='23px' />
             </div>
             <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
