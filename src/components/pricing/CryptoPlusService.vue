@@ -721,35 +721,11 @@ const faqTitle = ref('What is Application System ?')
       line-height: 26px
       width: calc(100% - 40px)
 
-@keyframes hoverscale
-  0%
-    height: 640px
-  25%
-    height: 648px
-    margin-top: -4px
-    margin-bottom: 12px
-    padding-top: 32px
-  50%
-    height: 656px
-    margin-top: -8px
-    margin-bottom: 8px
-    padding-top: 36px
-  75%
-    height: 664px
-    margin-top: -12px
-    margin-bottom: 4px
-    padding-top: 40px
-  100%
-    height: 672px
-    top: -16px
-    margin-bottom: 0
-    padding-top: 44px
-
 .card:hover
   background: linear-gradient(180deg, rgba(86, 240, 159, 0.6) 0%, rgba(250, 250, 250, 0) 100%)
   height: 672px
-  animation-name: hoverscale
-  animation-duration: 1000ms
+  transform: scale(1, 1.03)
+  transition: all 500ms
   margin-top: -16px
   margin-bottom: 0
   padding-top: 44px
@@ -776,6 +752,8 @@ const faqTitle = ref('What is Application System ?')
   padding-top: 120px
   padding-bottom: 120px
   background: rgba(255, 249, 222, 0.5)
+  @media (min-width: 1280px)
+    height: 700px
   .title
     font-size: 54px
     font-weight: 600
@@ -784,6 +762,10 @@ const faqTitle = ref('What is Application System ?')
   .faq-content
     margin-left: 268px
     width: calc(100% - 282px - 268px)
+    @media (max-width: 1280px)
+      width: 100%
+      margin-left: 0
+      margin-top: 24px
     .faq-text
       width: calc(100% - 48px)
     .faq-title
