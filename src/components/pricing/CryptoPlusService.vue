@@ -795,6 +795,8 @@ const faqTitle = ref('What is Application System ?')
     line-height: 26px
     padding: 16px 0
     border-bottom: 1px solid rgba(86, 240, 159, 0.6)
+    overflow: hidden
+    white-space: nowrap
 
 .plan
   font-size: 18px
