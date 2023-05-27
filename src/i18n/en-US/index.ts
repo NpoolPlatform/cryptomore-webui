@@ -159,5 +159,6 @@ export default {
   MSG_GROWTH: 'Growth',
   MSG_ENTERPRISE: 'Enterprise',
   MSG_INTEGRATE_50PLUS_BLOCKCHAINS: 'Integrate 50+ Blockchains to your Application',
-  MSG_FREQUENTLY_ASKED_QUESTIONS: 'Frequently Asked Questions'
+  MSG_FREQUENTLY_ASKED_QUESTIONS: 'Frequently Asked Questions',
+  MSG_LETS_TALK: 'Let\'s Talk'
 }

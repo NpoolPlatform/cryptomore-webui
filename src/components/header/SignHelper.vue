@@ -15,10 +15,10 @@
     />
   </div>
   <div v-else class='row'>
-    <div v-if='notifs > 0' class='veritical-center row' :style='{marginLeft: "8px", marginRight: "8px"}'>
+    <div v-if='notifs > 0' class='vertical-center row' :style='{marginLeft: "8px", marginRight: "8px"}'>
       <HeaderToolBtn :icon='bellIcon' />
       <div
-        class='notifs text-white bg-red veritical-center text-center'
+        class='notifs text-white bg-red vertical-center text-center'
         :style='{marginLeft: "-18px", marginTop: "4px", borderRadius: "8px", fontSize: "8px", height: "12px", minWidth: "12px", lineHeight: "12px", paddingLeft: "4px", paddingRight: "4px"}'
       >
         {{ notifs }}
