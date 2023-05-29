@@ -179,7 +179,7 @@
                 </div>
                 <q-space />
                 <div class='text-primary'>
-                  1 FIL
+                  20 FIL
                 </div>
               </div>
               <div class='row'>
