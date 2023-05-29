@@ -103,6 +103,9 @@
             <div class='menu-list-item cursor-pointer'>
               {{ $t('MSG_LINERA') }}
             </div>
+            <div class='menu-list-item cursor-pointer'>
+              {{ $t('MSG_CHIA') }}
+            </div>
           </div>
         </div>
         <q-space />
