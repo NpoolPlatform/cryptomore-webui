@@ -71,9 +71,49 @@
         </div>
         <div class='project cursor-pointer'>
           <q-img :src='aleoWithBg' />
+          <div class='text'>
+            <div class='row'>
+              <div class='label'>
+                Incentive Testnet:
+              </div>
+              <q-space />
+              <div class='text-secondary'>
+                2022/9/31 - 2022/12/31
+              </div>
+            </div>
+            <div class='row'>
+              <div class='label'>
+                Mainnet:
+              </div>
+              <q-space />
+              <div class='text-secondary'>
+                2022/9/31 - 2022/12/31
+              </div>
+            </div>
+            <div class='row'>
+              <div class='label'>
+                Performance:
+              </div>
+              <q-space />
+              <div class='text-secondary'>
+                4G H/s, Single 3080
+              </div>
+            </div>
+          </div>
         </div>
         <div class='project cursor-pointer'>
           <q-img :src='lineraWithBg' />
+          <div class='text'>
+            <div class='row'>
+              <div class='label'>
+                Progress:
+              </div>
+              <q-space />
+              <div class='text-secondary'>
+                Very Early (Rust SDK Development)
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -85,18 +125,132 @@
         <div class='row'>
           <div class='project cursor-pointer'>
             <q-img :src='aptosWithBg' />
+            <div class='text'>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  Fee:
+                </div>
+                <q-space />
+                <div class='text-primary'>
+                  12%
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  Validator Minimum Staking:
+                </div>
+                <q-space />
+                <div class='text-primary'>
+                  1,000,000 APT
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  User Minimum Staking:
+                </div>
+                <q-space />
+                <div class='text-primary'>
+                  200 APT
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  <a :style='{fontSize: "14px"}' href='#'>Check our APTOS Validator</a>
+                </div>
+              </div>
+            </div>
           </div>
           <q-space />
           <div class='project cursor-pointer'>
             <q-img :src='filecoinWithBg' />
+            <div class='text'>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  Fee:
+                </div>
+                <q-space />
+                <div class='text-primary'>
+                  20%
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  Minimum Staking:
+                </div>
+                <q-space />
+                <div class='text-primary'>
+                  1 FIL
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  <a :style='{fontSize: "14px"}' href='#'>Check our Filecoin Storage Provider Nodes</a>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  <a :style='{fontSize: "14px"}' href='#'>Check our Filecoin Storage Provider Contracts</a>
+                </div>
+              </div>
+            </div>
           </div>
           <q-space />
           <div class='project cursor-pointer'>
             <q-img :src='ironfishWithBg' />
+            <div class='text'>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  Incentive Testnet:
+                </div>
+                <q-space />
+                <div class='text-primary'>
+                  2022/9/31 - 2022/12/31
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  Mainnet:
+                </div>
+                <q-space />
+                <div class='text-primary'>
+                  2022/9/31 - 2022/12/31
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  Performance:
+                </div>
+                <q-space />
+                <div class='text-primary'>
+                  4G H/s, Single 3080
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  <a :style='{fontSize: "14px"}' href='#'>Contact Crypto More for IronFish Business</a>
+                </div>
+              </div>
+            </div>
           </div>
           <q-space />
           <div class='project cursor-pointer'>
             <q-img :src='chiaWithBg' />
+            <div class='text'>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  Mainnet:
+                </div>
+                <q-space />
+                <div class='text-primary'>
+                  2022/9/31 - 2022/12/31
+                </div>
+              </div>
+              <div class='row'>
+                <div class='color-main-transparent-60'>
+                  <a :style='{fontSize: "14px"}' href='#'>Contact Crypto More for Chia Business</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -279,6 +433,14 @@ const faqTitle = ref('What is Mining ?')
     border-radius: 16px
     width: 400px
     height: 350px
+    .text
+      padding: 18px
+      .row
+        margin-bottom: 8px
+        font-size: 16px
+        line-height: 26px
+        .label
+          color: rgba(254, 251, 237, 0.6)
 
 .ready-deploy
   background: rgba(212, 255, 232, 0.4)
@@ -295,6 +457,12 @@ const faqTitle = ref('What is Mining ?')
     border: 1px solid $secondary
     border-radius: 16px
     width: 400px
-    height: 350px
+    max-height: 400px
     margin-bottom: 24px
+    .text
+      padding: 18px
+      .row
+        margin-bottom: 8px
+        font-size: 16px
+        line-height: 26px
 </style>
