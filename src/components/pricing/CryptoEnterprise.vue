@@ -55,86 +55,53 @@
         </div>
       </div>
     </div>
-    <div class='section-start-margin faqs'>
+    <div class='workflow section-start-margin text-center'>
+      <div class='title'>
+        Invest and Reward from Blockchain Directly
+      </div>
+      <q-img :src='workflowBg' width='852px' height='347px' />
+    </div>
+    <div class='faqs'>
       <div class='content-width horizontal-center row'>
         <div class='title'>
           {{ $t('MSG_FREQUENTLY_ASKED_QUESTIONS') }}
         </div>
         <div class='faq-content'>
           <div class='row'>
-            <q-icon :name='faqTitle === "What is Application System ?" ? "expand_more" : "chevron_right"' size='32px' />
+            <q-icon :name='faqTitle === "When will you need enterprise plan ?" ? "expand_more" : "chevron_right"' size='32px' />
             <div class='faq-text'>
-              <div class='faq-title text-primary cursor-pointer' @click='faqTitle = "What is Application System ?"'>
-                What is Application System ?
+              <div class='faq-title text-primary cursor-pointer' @click='faqTitle = "When will you need enterprise plan ?"'>
+                When will you need enterprise plan ?
               </div>
               <q-slide-transition>
-                <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "What is Application System ?"'>
-                  Crypto More's crypto+ infrastructure is a multi-tenancy system. It supports multiple applications with one backend system. Application system let user to create their application with a base capacity of Crypto More.
+                <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "When will you need enterprise plan ?"'>
+                  An organization that wants to construct its crypto+ infrastructure backbone is suitable for an enterprise plan. With an enterprise plan, they need to invest whole cloud production cluster and data center integration infrastructure before they can launch their business.
                 </div>
               </q-slide-transition>
             </div>
           </div>
           <div class='row'>
-            <q-icon :name='faqTitle === "What is User System ?" ? "expand_more" : "chevron_right"' size='32px' />
+            <q-icon :name='faqTitle === "What is benefit of enterprise plan ?" ? "expand_more" : "chevron_right"' size='32px' />
             <div class='faq-text'>
-              <div class='faq-title text-primary cursor-pointer' @click='faqTitle = "What is User System ?"'>
-                What is User System ?
+              <div class='faq-title text-primary cursor-pointer' @click='faqTitle = "What is benefit of enterprise plan ?"'>
+                What is benefit of enterprise plan ?
               </div>
               <q-slide-transition>
-                <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "What is User System ?"'>
-                  Crypto More's crypto+ infrastructure is a multi-tenancy system. It supports multiple applications with one backend system. Application system let user to create their application with a base capacity of Crypto More.
+                <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "What is benefit of enterprise plan ?"'>
+                  The requirement of a mature organization is normally different from a startup organization, they may want to custody data such as order book, hot wallet private key, etc in their own network for several reasons. With an enterprise plan, they will construct the whole crypto+ infrastructure backbone in their own private network, in which they can control everything.
                 </div>
               </q-slide-transition>
             </div>
           </div>
           <div class='row'>
-            <q-icon :name='faqTitle === "What is Product System ?" ? "expand_more" : "chevron_right"' size='32px' />
+            <q-icon :name='faqTitle === "How will the enterprise plan be deployed ?" ? "expand_more" : "chevron_right"' size='32px' />
             <div class='faq-text'>
-              <div class='faq-title text-primary cursor-pointer' @click='faqTitle = "What is Product System ?"'>
-                What is Product System ?
+              <div class='faq-title text-primary cursor-pointer' @click='faqTitle = "How will the enterprise plan be deployed ?"'>
+                How will the enterprise plan be deployed ?
               </div>
               <q-slide-transition>
-                <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "What is Product System ?"'>
-                  Product system is used to manage products custodied on the platform. It holds information of the product, such as vendor location, stock, benefit type, benefit interval, etc. User who has their own channel can wholesale products from platform then retail sale with higher price, then they can earn the price gap as profit.
-                </div>
-              </q-slide-transition>
-            </div>
-          </div>
-          <div class='row'>
-            <q-icon :name='faqTitle === "What is Product Ledger System ?" ? "expand_more" : "chevron_right"' size='32px' />
-            <div class='faq-text'>
-              <div class='faq-title text-primary cursor-pointer' @click='faqTitle = "What is Product Ledger System ?"'>
-                What is Product Ledger System ?
-              </div>
-              <q-slide-transition>
-                <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "What is Product Ledger System ?"'>
-                  After sale the product to users, there will be two types currency generated: user pay to platform to buy the product, blockchain reward to the product. For clear accounting job, product ledger system will record incoming/outcoming history of the products.
-                </div>
-              </q-slide-transition>
-            </div>
-          </div>
-          <div class='row'>
-            <q-icon :name='faqTitle === "What is User Ledger System ?" ? "expand_more" : "chevron_right"' size='32px' />
-            <div class='faq-text'>
-              <div class='faq-title text-primary cursor-pointer' @click='faqTitle = "What is User Ledger System ?"'>
-                What is User Ledger System ?
-              </div>
-              <q-slide-transition>
-                <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "What is User Ledger System ?"'>
-                  For end user who purchase the product, blockchain reward will go to their wallet directly. But we still need to record the reward history for clear accounting job. User ledger system will keep such informations. Even more, for users who is not willing to deposit token to their own address directly, user ledger system will play as a wallet to keep users balance.
-                </div>
-              </q-slide-transition>
-            </div>
-          </div>
-          <div class='row'>
-            <q-icon :name='faqTitle === "What is Data Center System ?" ? "expand_more" : "chevron_right"' size='32px' />
-            <div class='faq-text'>
-              <div class='faq-title text-primary cursor-pointer' @click='faqTitle = "What is Data Center System ?"'>
-                What is Data Center System ?
-              </div>
-              <q-slide-transition>
-                <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "What is Data Center System ?"'>
-                  For each product, we manage low-level assets in different data centers. Such low-level hardwares will take part in blockchain mining, get rewards then send to user who purchase specified product. Data center system integrates offline data center with cloud service infrastructure, let user who purchase product can access their low-level assets, provides reliable product experience for users.
+                <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "How will the enterprise plan be deployed ?"'>
+                  Basically, the cloud infrastructure is constructed based on Kubernetes. It integrates the offline ability to manage low-level assets from different data centers located in different countries and cities. Communication between data centers and cloud services is built in a secure and certified method to ensure channel security. We will deploy the whole cloud infrastructure / low-level assets management solution in the enterprise plan to the customer’s network.
                 </div>
               </q-slide-transition>
             </div>
@@ -148,7 +115,10 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 
-const faqTitle = ref('What is Application System ?')
+import workflowBg from 'src/assets/WorkflowBg.png'
+
+const faqTitle = ref('When will you need enterprise plan ?')
+
 </script>
 
 <style lang='sass' scoped>
@@ -223,4 +193,14 @@ const faqTitle = ref('What is Application System ?')
     background: linear-gradient(180deg, rgba(61, 187, 119, 0.04) 0%, rgba(255, 255, 255, 0) 100%)
     @media (max-width: 700px)
       width: 100%
+
+.workflow
+  padding-top: 120px
+  padding-bottom: 120px
+  background: rgba(212, 255, 232, 0.4)
+  .title
+    font-weight: 600
+    font-size: 54px
+    line-height: 60px
+    margin-bottom: 100px
 </style>
