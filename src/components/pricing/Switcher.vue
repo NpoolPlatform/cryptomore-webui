@@ -22,24 +22,30 @@
       @click='onServiceTypeSwitch(constants.ServiceType.MiningStaking)'
     />
   </div>
-  <div
-    v-if='serviceType === constants.ServiceType.CryptoPlusService'
-    :style='{marginTop: "64px"}'
-    v-html='$t("MSG_ONE_STOP_CRYPTO_SERVICES")'
-    class='text-primary label text-center horizontal-center'
-  />
-  <div
-    v-else-if='serviceType === constants.ServiceType.CryptoEnterprise'
-    :style='{marginTop: "64px"}'
-    v-html='$t("MSG_DEDICATED_CRYPTO_ENTERPRISE_SOLUTION")'
-    class='text-primary label text-center horizontal-center'
-  />
-  <div
-    v-else-if='serviceType === constants.ServiceType.MiningStaking'
-    :style='{marginTop: "64px"}'
-    v-html='$t("MSG_LEADER_MINING_STAKING_OPERATOR")'
-    class='text-primary label text-center horizontal-center'
-  />
+  <transition name='q-transition--slide-left' :duration='500' appear>
+    <div
+      v-if='serviceType === constants.ServiceType.CryptoPlusService'
+      :style='{marginTop: "64px"}'
+      v-html='$t("MSG_ONE_STOP_CRYPTO_SERVICES")'
+      class='text-primary label text-center horizontal-center'
+    />
+  </transition>
+  <transition name='q-transition--slide-left' :duration='500' appear>
+    <div
+      v-if='serviceType === constants.ServiceType.CryptoEnterprise'
+      :style='{marginTop: "64px"}'
+      v-html='$t("MSG_DEDICATED_CRYPTO_ENTERPRISE_SOLUTION")'
+      class='text-primary label text-center horizontal-center'
+    />
+  </transition>
+  <transition name='q-transition--slide-left' :duration='500' appear>
+    <div
+      v-if='serviceType === constants.ServiceType.MiningStaking'
+      :style='{marginTop: "64px"}'
+      v-html='$t("MSG_LEADER_MINING_STAKING_OPERATOR")'
+      class='text-primary label text-center horizontal-center'
+    />
+  </transition>
 </template>
 
 <script setup lang='ts'>

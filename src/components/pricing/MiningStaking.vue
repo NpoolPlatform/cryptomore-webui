@@ -69,12 +69,35 @@
         <div class='title'>
           Coming First Batch Mining
         </div>
+        <div class='project cursor-pointer'>
+          <q-img :src='aleoWithBg' />
+        </div>
+        <div class='project cursor-pointer'>
+          <q-img :src='lineraWithBg' />
+        </div>
       </div>
     </div>
     <div class='ready-deploy'>
-      <div class='content-width horizontal-center row'>
+      <div class='content-width horizontal-center'>
         <div class='title'>
           Ready to Deploy Mining/Staking Infrastructure
+        </div>
+        <div class='row'>
+          <div class='project cursor-pointer'>
+            <q-img :src='aptosWithBg' />
+          </div>
+          <q-space />
+          <div class='project cursor-pointer'>
+            <q-img :src='filecoinWithBg' />
+          </div>
+          <q-space />
+          <div class='project cursor-pointer'>
+            <q-img :src='ironfishWithBg' />
+          </div>
+          <q-space />
+          <div class='project cursor-pointer'>
+            <q-img :src='chiaWithBg' />
+          </div>
         </div>
       </div>
     </div>
@@ -144,6 +167,13 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
+
+import aleoWithBg from 'src/assets/AleoWithBg.png'
+import lineraWithBg from 'src/assets/LineraWithBg.png'
+import aptosWithBg from 'src/assets/AptosWithBg.png'
+import filecoinWithBg from 'src/assets/FilecoinWithBg.png'
+import ironfishWithBg from 'src/assets/IronFishWithBg.png'
+import chiaWithBg from 'src/assets/ChiaWithBg.png'
 
 const faqTitle = ref('What is Mining ?')
 
@@ -242,6 +272,13 @@ const faqTitle = ref('What is Mining ?')
     font-size: 54px
     line-height: 60px
     width: 290px
+    margin-right: 52px
+  .project
+    margin-right: 24px
+    border: 1px solid $secondary
+    border-radius: 16px
+    width: 400px
+    height: 350px
 
 .ready-deploy
   background: rgba(212, 255, 232, 0.4)
@@ -251,4 +288,13 @@ const faqTitle = ref('What is Mining ?')
     font-weight: 600
     font-size: 54px
     line-height: 60px
+    margin-bottom: 100px
+  .project
+    margin-right: 24px
+    margin-right: 24px
+    border: 1px solid $secondary
+    border-radius: 16px
+    width: 400px
+    height: 350px
+    margin-bottom: 24px
 </style>
