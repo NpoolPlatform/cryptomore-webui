@@ -29,13 +29,13 @@
     class='text-primary label text-center horizontal-center'
   />
   <div
-    v-if='serviceType === constants.ServiceType.CryptoEnterprise'
+    v-else-if='serviceType === constants.ServiceType.CryptoEnterprise'
     :style='{marginTop: "64px"}'
     v-html='$t("MSG_DEDICATED_CRYPTO_ENTERPRISE_SOLUTION")'
     class='text-primary label text-center horizontal-center'
   />
   <div
-    v-if='serviceType === constants.ServiceType.MiningStaking'
+    v-else-if='serviceType === constants.ServiceType.MiningStaking'
     :style='{marginTop: "64px"}'
     v-html='$t("MSG_LEADER_MINING_STAKING_OPERATOR")'
     class='text-primary label text-center horizontal-center'
