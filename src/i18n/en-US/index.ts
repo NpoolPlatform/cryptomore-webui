@@ -161,5 +161,8 @@ export default {
   MSG_INTEGRATE_50PLUS_BLOCKCHAINS: 'Integrate 50+ Blockchains to your Application',
   MSG_FREQUENTLY_ASKED_QUESTIONS: 'Frequently Asked Questions',
   MSG_LETS_TALK: 'Let\'s Talk',
-  MSG_CHIA: 'Chia'
+  MSG_CHIA: 'Chia',
+  MSG_READY_TO_DEPLOY: 'Ready to Deploy',
+  MSG_FIRST_BATCH_MINING: 'First Batch Mining',
+  MSG_CONTACT_CRYPTO_MORE_FILECOIN: 'Contact Crypto More for Filecoin Business'
 }
