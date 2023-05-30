@@ -96,7 +96,7 @@
               </div>
               <q-space />
               <div class='text-secondary'>
-                4G H/s, Single 3080
+                10000 C/s, Single 3080
               </div>
             </div>
           </div>
@@ -222,7 +222,7 @@
                 </div>
                 <q-space />
                 <div class='text-primary'>
-                  18 GH/s, Single 3080
+                  15 GH/s, Single 3080
                 </div>
               </div>
               <div class='row'>
