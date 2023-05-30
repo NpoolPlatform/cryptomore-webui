@@ -87,7 +87,7 @@
               </div>
               <q-space />
               <div class='text-secondary'>
-                2022/9/31 - 2022/12/31
+                2023/7 (Planned Time)
               </div>
             </div>
             <div class='row'>
@@ -204,7 +204,7 @@
                 </div>
                 <q-space />
                 <div class='text-primary'>
-                  2022/9/31 - 2022/12/31
+                  2021/04/08 - 2023/02/18
                 </div>
               </div>
               <div class='row'>
@@ -213,7 +213,7 @@
                 </div>
                 <q-space />
                 <div class='text-primary'>
-                  2022/9/31 - 2022/12/31
+                  2023-04-20
                 </div>
               </div>
               <div class='row'>
@@ -222,7 +222,7 @@
                 </div>
                 <q-space />
                 <div class='text-primary'>
-                  4G H/s, Single 3080
+                  18 GH/s, Single 3080
                 </div>
               </div>
               <div class='row'>
