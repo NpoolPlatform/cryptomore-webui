@@ -320,6 +320,52 @@
             Links
           </div>
         </div>
+        <div class='inner'>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
+            <a href='https://filfox.info'>Filecoin Explorer</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/GithubDark.svg' />
+            <a href='https://github.com/filecoin-project/lotus'>Github</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/InternetDark.svg' />
+            <a href='https://filecoin.io'>Official Website</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
+            <a href='https://filecoin.io/build/#community'>Blog</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
+            <a href='https://filecoin.io/slack'>Community</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/SlackDark.svg' />
+            <a href='https://twitter.com/Filecoin'>Slack</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/TwitterDark.svg' />
+            <a href='#'>Twitter</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/DiscordDark.svg' />
+            <a href='https://discord.gg/ipfs'>IPFS Discord</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
+            <a href='https://docs.filecoin.io'>Docs</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/GithubDark.svg' />
+            <a href='https://github.com/filecoin-project/community#forums'>Github Community</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/WechatDark.svg' />
+            <a href='https://weixin.qq.com/r/1xz54Y-EctINrcuC90nF'>Wechat</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -492,4 +538,10 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
 
 .links
   margin-top: 64px
+  .inner
+    margin-top: 36px
+    .line
+      margin-bottom: 16px
+      .icon
+        margin-right: 12px
 </style>
