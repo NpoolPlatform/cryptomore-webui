@@ -92,6 +92,15 @@ const routes: RouteRecordRaw[] = [
           ShowSignHelper: true,
           NeedLogined: false
         }
+      },
+      {
+        path: 'bitcoin',
+        component: () => import('pages/Bitcoin.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false
+        }
       }
     ]
   },
