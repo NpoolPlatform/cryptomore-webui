@@ -8,7 +8,7 @@
       {{ current }}
     </div>
     <q-space />
-    <div class='row cursor-pointer'>
+    <div class='row cursor-pointer' @click='void router.back()'>
       <q-icon name='chevron_left' class='indicator' />
       <div class='current'>
         Back
@@ -19,6 +19,9 @@
 
 <script setup lang='ts'>
 import { defineProps, toRef } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 interface Props {
   parent: string

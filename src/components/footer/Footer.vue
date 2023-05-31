@@ -73,7 +73,7 @@
         <div class='menu text-primary'>
           <span class='title'>{{ $t('MSG_CHAINS') }}</span>
           <div class='menu-list color-main-transparent-60'>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/filecoin" })'>
               {{ $t('MSG_FILECOIN') }}
             </div>
             <div class='menu-list-item cursor-pointer'>
