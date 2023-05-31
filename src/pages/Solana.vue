@@ -333,7 +333,7 @@
             <a href='https://solana.com'>Official Website</a>
           </div>
           <div class='row line'>
-            <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
+            <q-img class='icon' width='24px' height='24px' src='~assets/TwitterDark.svg' />
             <a href='https://solana.com/twitter'>Twitter</a>
           </div>
           <div class='row line'>
@@ -345,7 +345,7 @@
             <a href='https://docs.solana.com'>Docs</a>
           </div>
           <div class='row line'>
-            <q-img class='icon' width='24px' height='24px' src='~assets/GithubDark.svg' />
+            <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
             <a href='https://solana.com/news/proof-of-history'>Proof of History</a>
           </div>
         </div>
