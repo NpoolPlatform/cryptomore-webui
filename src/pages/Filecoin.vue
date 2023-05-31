@@ -132,7 +132,7 @@
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/IOSGVentures.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Bossanova.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/JuneFund.png' />
-      <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/PlaceHolder.png' />
+      <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Placeholder.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/MintVentures.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/TheArkFund.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/BlueYard.png' />
