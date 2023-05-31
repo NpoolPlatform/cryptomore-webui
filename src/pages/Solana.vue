@@ -1,74 +1,24 @@
 <template>
   <HeadBackground />
-  <Header :parent='$t("MSG_READY_TO_DEPLOY")' current='Filecoin' />
+  <Header :parent='$t("MSG_READY_TO_DEPLOY")' current='Solana' />
   <div class='content-width banner horizontal-center text-center'>
     <div class='text'>
-      Filecoin:  Turns cloud storage into an algorithmic market
+      Solana: A new architecture for a high performance blockchain
     </div>
   </div>
   <div class='content-width horizontal-center row' :style='{marginTop: "40px"}'>
-    <q-img width='36px' height='36px' src='~assets/Filecoin.svg' :style='{marginRight: "12px"}' />
-    <div :style='{fontWeight: 600, fontSize: "36px", lineHeight: "40px", color: "#3791F7"}'>
-      Filecoin
+    <q-img width='36px' height='36px' src='~assets/Solana.svg' :style='{marginRight: "12px"}' />
+    <div :style='{fontWeight: 600, fontSize: "36px", lineHeight: "40px", color: "#A962FF"}'>
+      Solana
     </div>
   </div>
   <div
     class='content-width horizontal-center'
     :style='{fontWeight: 400, fontSize: "16px", lineHeight: "26px", color: "rgba(10, 11, 26, 0.8)", marginTop: "24px"}'
   >
-    Filecoin is a decentralized storage network designed to store humanity's most important information.
+    Bring blockchain to the people. Solana supports experiences for power users, new consumers, and everyone in between. Solana is a blockchain built for mass adoption. It's a high-performance network that is utilized for a range of use cases, including finance, NFTs, payments, and gaming. Solana operates as a single global state machine and is open, interoperable,and decentralized.
   </div>
   <div class='content-width horizontal-center row' :style='{marginTop: "24px"}'>
-    <div>
-      <div class='row schedule' :style='{fontWeight: 400, fontSize: "16px", lineHeight: "26px"}'>
-        <div class='col-1' :style='{color: "rgba(10, 11, 26, 0.8)"}'>
-          Alphanet:
-        </div>
-        <div class='col-2' :style='{color: "#3791F7"}'>
-          2019-09-25
-        </div>
-      </div>
-      <div class='row schedule' :style='{fontWeight: 400, fontSize: "16px", lineHeight: "26px", marginTop: "8px"}'>
-        <div class='col-1' :style='{color: "rgba(10, 11, 26, 0.8)"}'>
-          Testnet:
-        </div>
-        <div class='col-2' :style='{color: "#3791F7"}'>
-          2019-12-12
-        </div>
-        <div class='col-3' />
-        <div class='col-4' :style='{color: "#3791F7"}'>
-          10+ PiB
-        </div>
-      </div>
-      <div class='row schedule' :style='{fontWeight: 400, fontSize: "16px", lineHeight: "26px", marginTop: "8px"}'>
-        <div class='col-1' :style='{color: "rgba(10, 11, 26, 0.8)"}'>
-          Space Race:
-        </div>
-        <div class='col-2' :style='{color: "#3791F7"}'>
-          2020-08-24
-        </div>
-        <div class='col-3' :style='{color: "#3791F7"}'>
-          4M FIL
-        </div>
-        <div class='col-4' :style='{color: "#3791F7"}'>
-          100+ PiB
-        </div>
-      </div>
-      <div class='row schedule' :style='{fontWeight: 400, fontSize: "16px", lineHeight: "26px", marginTop: "8px"}'>
-        <div class='col-1' :style='{color: "rgba(10, 11, 26, 0.8)"}'>
-          Mainnet:
-        </div>
-        <div class='col-2' :style='{color: "#3791F7"}'>
-          2020-12-15
-        </div>
-        <div class='col-3' :style='{color: "#3791F7"}'>
-          2B FIL
-        </div>
-        <div class='col-4' :style='{color: "#3791F7"}'>
-          18.8 EiB
-        </div>
-      </div>
-    </div>
     <div class='funding text-center'>
       <div class='inner'>
         <table>
@@ -79,48 +29,51 @@
               </td>
             </tr>
             <tr>
-              <td>Seed</td>
-              <td>$ 120K</td>
-              <td>2014-07-16</td>
+              <td>Serias A</td>
+              <td>$ 20M</td>
+              <td>2018-09</td>
             </tr>
             <tr>
-              <td>Seed</td>
-              <td>$ 300K</td>
-              <td>2017-08-08</td>
+              <td>ICO</td>
+              <td>$ 1.8M</td>
+              <td>2020-03-26</td>
             </tr>
             <tr>
-              <td>Seed</td>
-              <td>$ 52M</td>
-              <td>2017-08-10</td>
+              <td>ICO</td>
+              <td>$ 40M</td>
+              <td>2021-03-25</td>
             </tr>
             <tr>
-              <td>Seed</td>
-              <td>$ 205.8M</td>
-              <td>2017-09-07</td>
+              <td>ICO</td>
+              <td>$ 2314M</td>
+              <td>2021-06-09</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <q-btn
-        flat
-        class='btn btn-medium contact-btn'
-        :label='$t("MSG_CONTACT_CRYPTO_MORE_FILECOIN")'
-        no-caps
-        :icon-right='"img:" + arrowUpRight'
-      />
+    </div>
+    <div>
+      <div class='row schedule' :style='{fontWeight: 400, fontSize: "16px", lineHeight: "26px"}'>
+        <div class='col-1' :style='{color: "rgba(10, 11, 26, 0.8)"}'>
+          Mainnet:
+        </div>
+        <div class='col-2' :style='{color: "#A962FF"}'>
+          22020-03-16
+        </div>
+      </div>
     </div>
   </div>
   <div class='investor section content-width horizontal-center'>
     <div class='row'>
       <div class='icon'>
-        <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+        <LabelIcon color='rgba(169, 98, 255, 0.4)' />
       </div>
       <div class='label'>
-        Filecoin backed by
+        Solana backed by
       </div>
     </div>
     <div class='row logos'>
-      <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/DigitalCurrencyGroup.png' />
+      <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/AlamedaResearch.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Combinator.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/UnionSquareVentures.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/AndreessenHorowitz.png' />
@@ -147,7 +100,7 @@
     <div class='content-width horizontal-center'>
       <div class='row'>
         <div class='icon'>
-          <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+          <LabelIcon color='rgba(169, 98, 255, 0.4)' />
         </div>
         <div class='label'>
           Protocol Labs and Jurn Benet
@@ -165,7 +118,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+              <LabelIcon color='rgba(169, 98, 255, 0.4)' />
             </div>
             <div class='label'>
               Introduction
@@ -179,7 +132,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+              <LabelIcon color='rgba(169, 98, 255, 0.4)' />
             </div>
             <div class='label'>
               Highlight
@@ -198,7 +151,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+              <LabelIcon color='rgba(169, 98, 255, 0.4)' />
             </div>
             <div class='label'>
               Exchange Listing
@@ -227,7 +180,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+              <LabelIcon color='rgba(169, 98, 255, 0.4)' />
             </div>
             <div class='label'>
               Price
@@ -240,7 +193,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+              <LabelIcon color='rgba(169, 98, 255, 0.4)' />
             </div>
             <div class='label'>
               Performance
@@ -253,7 +206,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+              <LabelIcon color='rgba(169, 98, 255, 0.4)' />
             </div>
             <div class='label'>
               Token Economics
@@ -285,7 +238,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+              <LabelIcon color='rgba(169, 98, 255, 0.4)' />
             </div>
             <div class='label'>
               PoRep and PoSt
@@ -300,7 +253,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+              <LabelIcon color='rgba(169, 98, 255, 0.4)' />
             </div>
             <div class='label'>
               Disclaimer
@@ -314,7 +267,7 @@
       <div class='scale-hide links'>
         <div class='row'>
           <div class='icon'>
-            <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+            <LabelIcon color='rgba(169, 98, 255, 0.4)' />
           </div>
           <div class='label'>
             Links
@@ -397,7 +350,7 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
     font-size: 54px
 
 .schedule
-  background: linear-gradient(90deg, rgba(55, 145, 247, 0.4) 0%, rgba(0, 192, 249, 0) 100%)
+  background: linear-gradient(90deg, rgba(169, 98, 255, 0.4) 0%, rgba(169, 98, 255, 0) 100%)
   width: 620px
   padding: 7px
   .col-1
@@ -410,7 +363,7 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
     width: 120px
 
 .funding
-  width: calc(100% - 620px)
+  width: calc(100% - 660px)
   .inner
     border-radius: 8px
     table
@@ -419,12 +372,12 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
       border: 1px solid #EAEAEA
       border-radius: 8px
       border-spacing: 0
-      color: #3791F7
+      color: #A962FF
       font-weight: 600
       font-size: 16px
       line-height: 26px
       margin-bottom: 24px
-      margin-left: 40px
+      margin-right: 40px
     th, td
       text-align: left
       padding: 8px
@@ -508,7 +461,7 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
       padding-inline-start: 16px
     li
       list-style-type: square
-      color: #3791F7
+      color: #A962FF
       padding-left: 0
       span
         color: rgba(10, 11, 26, 0.8)
