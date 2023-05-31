@@ -204,14 +204,110 @@
               Exchange Listing
             </div>
           </div>
+          <div class='row logos'>
+            <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Binance.png' />
+            <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Huobi.png' />
+            <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Kucoin.png' />
+            <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Okx.png' />
+            <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Kraken.png' />
+            <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Gateio.png' />
+            <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Coinbase.png' />
+            <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/CoinEx.png' />
+            <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Upbit.png' />
+            <q-btn
+              flat
+              class='btn btn-view-more'
+              :icon-right='"img:" + arrowUpRight'
+              size='1rem'
+              no-caps
+              label='View More'
+            />
+          </div>
+        </div>
+        <div class='proj-main'>
+          <div class='row'>
+            <div class='icon'>
+              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+            </div>
+            <div class='label'>
+              Price
+            </div>
+          </div>
+          <div class='row logos'>
+            TODO: implemented with backend service
+          </div>
+        </div>
+        <div class='proj-main'>
+          <div class='row'>
+            <div class='icon'>
+              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+            </div>
+            <div class='label'>
+              Performance
+            </div>
+          </div>
+          <div class='row logos'>
+            TODO: implemented with backend service
+          </div>
+        </div>
+        <div class='proj-main'>
+          <div class='row'>
+            <div class='icon'>
+              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+            </div>
+            <div class='label'>
+              Token Economics
+            </div>
+          </div>
           <div class='text'>
+            <q-img src='~assets/FilecoinTokenEconomics.png' />
+            <br><br><br>
+            <p>The vesting schedule for each participating group is as follows:</p>
             <ul>
-              <li><span>Largest storage network of the world, more than 18EiB storage space is landed</span></li>
-              <li><span>First use case of storage and smart contract</span></li>
-              <li><span>Basement of Web 3.0 application</span></li>
-              <li><span>The team is constructed with the best experts in cryptographic, decentralized storage, zero-knowledge of the world</span></li>
-              <li><span>Raise more than 250 million dollars within 30 minutes at Initial Coin Offering</span></li>
+              <li><span>Investors: 1 year minimum (advisor pre-sale), 6-month minimum (public sale)</span></li>
+              <li><span>Protocol Labs: 6 years, linear vesting</span></li>
+              <li><span>Foundation: 6 years, linear vesting</span></li>
+              <li><span>Miners: Release half-life of 6 years</span></li>
             </ul>
+            <br>
+            <p>For investors, the following vesting periods and discounts are available:</p>
+            <ul>
+              <li><span>6-month vesting, 0% discount</span></li>
+              <li><span>1-year vesting, 7.5% discount</span></li>
+              <li><span>2-year vesting, 15% discount</span></li>
+              <li><span>3-year vesting, 20% discount</span></li>
+            </ul>
+            <q-img src='~assets/FilecoinInvestorVestingSchedule.png' />
+            <q-img src='~assets/FilecoinCoinSupply.png' />
+            <q-img src='~assets/FilecoinMarketCap.png' />
+          </div>
+        </div>
+        <div class='proj-main'>
+          <div class='row'>
+            <div class='icon'>
+              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+            </div>
+            <div class='label'>
+              PoRep and PoSt
+            </div>
+            <div class='text'>
+              <p>In quite a long history of blockchain, the only way to reach consensus is Proof of Work, or called PoW. Blockchain nodes take part in blockchain activity with computing resources, help to keep ledger information of the transactions, then get rewards. Some technique pioneers had thought about if the consensus could be reached with resources other than computing units. As we know, the modern computer contains computing resources, storage resources, and network resources. Other than computing resources, could storage resources and network resources be the source of the consensus? Before Filecoin, some projects do quite important and beneficial jobs for that, but all of them are blocked by engineering mass adoption. In other words, they can create a network that proves the concept of prove by storage space or prove by network bandwidth, but they cannot provide a real implementation that can be scalable from a small prototype cluster in which only less than 100 nodes could take part in the consensus to a large production cluster in which may be more than 100,000 nodes need to take part in the consensus. Both security and performance won't reach a production-level scenario.</p>
+              <p>Filecoin introduced concepts named Proof of Replication, abbreviated as PoRep, and Proof of Space Time, abbreviated as PoSt. The basic question that needs to be answered is: if a node announces that it stores a piece of data, how can the network verify that it really stores the data, but not only store the digest of the data, or not only store the proof of the data? And how can the network verify data is not re-generated by the node when the data owner is accessing it? The core concept of PoRep is a process named sealing, in which data will be processed by a series of serial algorithms to generate the final stored result piece. After that, when the client wants to access the data, the storage provider must recover data from the result piece with the same process of sealing which need quite a long time to run the process named unseal. This seems lower the usability of the storage, but it let the storage provider must select to store the resulting piece honestly, and let the upper layer such as Saturn  provide  better data accessibility. If the cache data of the upper layer is lost, we still can recover the original data from the sealed piece. After sealing is done, the storage provider will commit a proof of the piece, called a sector, to Filecoin network which will be used in future challenges. For all committed storage power, they will be separated into 48 deadlines in one day. That to say, one deadline will occupy 30 minutes of a day. And within one deadline, it introduced partition to manage the sectors to let storage providers be able to manage large storage power. The network will challenge all deadlines one time every day with different challenges. Storage provider has to generate the right proof with the challenge provided by the network, then commit to the Filecoin network. the storage provider who wins the block will verify the proof, and includes it in the next block then let all network node to verify it. If the proof is invalid, the storage provider will be punished.</p>
+              <p>The low-level implementation of PoRep and PoSt is zero-knowledge, in which the verifier does not need to get the data piece from the storage provider to verify. The network has proof that was committed by the storage provider when the storage provider decide to store the data piece. After that, the verifier only needs to get the committed proof and the challenge, then verify (note that here we do not use compare, due to zero-knowledge proving one thing with some mathematical method but not content compares) with the initial proof. We won't over-describe detail about zero-knowledge, but we have to admit Filecoin is a great practice of mass adoption of zero-knowledge.</p>
+            </div>
+          </div>
+        </div>
+        <div class='proj-main'>
+          <div class='row'>
+            <div class='icon'>
+              <LabelIcon color='rgba(55, 145, 247, 0.4)' />
+            </div>
+            <div class='label'>
+              Disclaimer
+            </div>
+            <div class='text'>
+              <p>We can confirm all of the above data and the original materials from which we get the data are from reliable media channels. But we also would like to remind our users that we do not give any investment suggestions based on the above data. Investment risk in the Filecoin project, including mining, staking, or buying tokens is out of our control.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -371,6 +467,28 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
       padding-left: 0
       span
         color: rgba(10, 11, 26, 0.8)
+  .logos
+    margin-top: 36px
+    flex-shrink: 0
+    flex-grow: 1
+    .logo
+      width: 180px
+      height: 64px
+      margin-bottom: 28px
+      margin-right: 40px
+    .btn-view-more
+      width: 180px
+      height: 64px
+      background: #F3F3F3
+      margin: 0
+  .logos > div:first-child
+    margin-left: 0
+  .logos > div:nth-child(4n)
+    @media (min-width: 1280px)
+      margin-right: 0
+  .logos > div:last-child(4n+1)
+    @media (min-width: 1280px)
+      margin-left: 0
 
 .links
   margin-top: 64px
