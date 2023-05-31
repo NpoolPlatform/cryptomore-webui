@@ -1,6 +1,6 @@
 <template>
   <HeadBackground />
-  <Header :parent='$t("MSG_READY_TO_DEPLOY")' current='Filecoin' />
+  <Header :parent='$t("MSG_READY_TO_DEPLOY")' current='Bitcoin' />
   <div class='content-width banner horizontal-center text-center'>
     <div class='text'>
       Bitcoin: Open source P2P money
@@ -300,8 +300,6 @@
             </div>
           </div>
           <div class='text'>
-            <q-img src='~assets/FilecoinTokenEconomics.png' />
-            <br><br><br>
             <p>Total circulation will be 21,000,000 coins. It'll be distributed to network nodes when they make blocks, with the amount cut in half every 4 years.</p>
             <ul>
               <li><span>First 4 years: 10,500,000 coins</span></li>
