@@ -32,7 +32,7 @@ pipeline {
           sh (returnStdout: false, script: '''
             set +e
             git add package.json
-            git commit -m "update package version"
+            git commit -m "update package version" -n
             git push origin $BRANCH_NAME
             set -e
           '''.stripIndent())
@@ -108,7 +108,7 @@ pipeline {
           sed -ri "s#\\\"version(.*)#\\\"version\\\": \\\"$tag\\\",#" package.json
           set +e
           git add package.json
-          git commit -m "Bump version to $tag"
+          git commit -m "Bump version to $tag" -n
           set -e
           git tag -a $tag -m "Bump version to $tag"
         '''.stripIndent())
@@ -143,7 +143,7 @@ pipeline {
           sed -ri "s#\\\"version(.*)#\\\"version\\\": \\\"$tag\\\",#" package.json
           set +e
           git add package.json
-          git commit -m "Bump version to $tag"
+          git commit -m "Bump version to $tag" -n
           set -e
           git tag -a $tag -m "Bump version to $tag"
         '''.stripIndent())
@@ -179,7 +179,7 @@ pipeline {
           sed -ri "s#\\\"version(.*)#\\\"version\\\": \\\"$tag\\\",#" package.json
           set +e
           git add package.json
-          git commit -m "Bump version to $tag"
+          git commit -m "Bump version to $tag" -n
           set -e
           git tag -a $tag -m "Bump version to $tag"
         '''.stripIndent())
