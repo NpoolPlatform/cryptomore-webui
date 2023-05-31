@@ -386,7 +386,7 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
 
 <style lang='sass' scoped>
 .banner
-  background: url('src/assets/FilecoinBannerBg.png')
+  background: url('src/assets/BitcoinBannerBg.png')
   background-size: cover
   backdrop-filter: blur(5px)
   border-radius: 16px

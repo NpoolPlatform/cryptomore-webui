@@ -79,7 +79,7 @@
             <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/bitcoin" })'>
               {{ $t('MSG_BITCOIN') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/ethereum" })'>
               {{ $t('MSG_ETHEREUM') }}
             </div>
             <div class='menu-list-item cursor-pointer'>
