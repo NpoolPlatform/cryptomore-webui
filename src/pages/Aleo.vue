@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class='content-width horizontal-center row' :style='{marginTop: "40px"}'>
-    <q-img width='36px' height='36px' src='~assets/Filecoin.svg' :style='{marginRight: "12px"}' />
+    <q-img width='36px' height='36px' src='~assets/Aleo.svg' :style='{marginRight: "12px"}' />
     <div :style='{fontWeight: 600, fontSize: "36px", lineHeight: "40px", color: "#00C0F9"}'>
       Aleo
     </div>
