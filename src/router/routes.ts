@@ -146,6 +146,15 @@ const routes: RouteRecordRaw[] = [
           ShowSignHelper: true,
           NeedLogined: false
         }
+      },
+      {
+        path: 'sui',
+        component: () => import('pages/Sui.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false
+        }
       }
     ]
   },

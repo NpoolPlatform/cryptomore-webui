@@ -402,6 +402,7 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
   backdrop-filter: blur(5px)
   border-radius: 16px
   color: #FFFFFF
+  padding: 0 48px
   .text
     padding-top: 98px
     padding-bottom: 98px
@@ -497,8 +498,9 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
   padding-top: 64px
   padding-bottom: 64px
   .member
-    background: url('src/assets/SolanaCardBg.png')
-    background-size: cover
+    background: url('src/assets/AptosCardBg.png')
+    background-repeat: no-repeat
+    background-size: auto
     width: 620px
     min-height: 410px
     padding: 24px
