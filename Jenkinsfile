@@ -293,7 +293,7 @@ pipeline {
     stage('Deploy for testing') {
       when {
         expression { DEPLOY_TARGET == 'true' }
-        expression { TARGET_ENV ==~ /.*'testing.*/' }
+        expression { TARGET_ENV ==~ /.*testing.*/ }
       }
       steps {
         sh(returnStdout: true, script: '''
