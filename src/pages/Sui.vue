@@ -324,20 +324,12 @@
         </div>
         <div class='inner'>
           <div class='row line'>
-            <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
-            <a href='https://explorer.aptoslabs.com'>Aptos Explorer</a>
-          </div>
-          <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/GithubDark.svg' />
-            <a href='https://github.com/aptos-labs/aptos-core.git '>Github</a>
+            <a href='https://github.com/MystenLabs/sui.git'>Github</a>
           </div>
           <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/InternetDark.svg' />
-            <a href='https://aptoslabs.com'>Official Website</a>
-          </div>
-          <div class='row line'>
-            <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
-            <a href='https://aptos.dev'>Docs</a>
+            <a href='https://sui.io'>Official Website</a>
           </div>
         </div>
       </div>
