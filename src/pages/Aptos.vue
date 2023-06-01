@@ -136,7 +136,7 @@
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/SuperScript.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/TessVentures.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/TigerGlobal.png' />
-      <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Varant.png' />
+      <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Variant.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Apollo.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Matic.png' />
       <q-img class='logo cursor-pointer' width='180px' height='64px' src='~assets/Bixin.png' />
