@@ -50,7 +50,7 @@
         <LabelIcon color='rgba(255, 42, 0, 0.4)' />
       </div>
       <div class='label'>
-        Aptos backed by
+        Linera backed by
       </div>
     </div>
     <div class='row logos'>
@@ -231,21 +231,8 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
     font-weight: 600
     font-size: 54px
 
-.schedule
-  background: linear-gradient(90deg, rgba(255, 42, 0, 0.4) 0%, rgba(76, 163, 255, 0) 100%)
-  width: 620px
-  padding: 7px
-  .col-1
-    width: 180px
-  .col-2
-    width: 120px
-  .col-3
-    width: 120px
-  .col-4
-    width: 120px
-
 .funding
-  width: calc(100% - 620px)
+  width: 80%
   .inner
     border-radius: 8px
     table
