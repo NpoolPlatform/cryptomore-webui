@@ -164,5 +164,6 @@ export default {
   MSG_CHIA: 'Chia',
   MSG_READY_TO_DEPLOY: 'Ready to Deploy',
   MSG_FIRST_BATCH_MINING: 'First Batch Mining',
-  MSG_CONTACT_CRYPTO_MORE_FILECOIN: 'Contact Crypto More for Filecoin Business'
+  MSG_CONTACT_CRYPTO_MORE_FILECOIN: 'Contact Crypto More for Filecoin Business',
+  MSG_STAKE_APT_TO_CRYPTO_MORE_VALIDATOR: 'Stake APT to Crypto More\'s Aptos Validator to get Reward'
 }

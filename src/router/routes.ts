@@ -119,6 +119,33 @@ const routes: RouteRecordRaw[] = [
           ShowSignHelper: true,
           NeedLogined: false
         }
+      },
+      {
+        path: 'aleo',
+        component: () => import('pages/Aleo.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false
+        }
+      },
+      {
+        path: 'ironfish',
+        component: () => import('pages/Ironfish.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false
+        }
+      },
+      {
+        path: 'aptos',
+        component: () => import('pages/Aptos.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false
+        }
       }
     ]
   },

@@ -288,7 +288,7 @@
             <div class='text'>
               <p>Proof of History is a sequence of computations that can provide a way to cryptographically verify the passage of time between two events. It uses a cryptographically secure function written so that output cannot be predicted from the input, and must be completely executed to generate the output. The function is run in a sequence on a single core, its previous output as the 3 current input, periodically recording the current output, and how many times its been called. The output can then be re-computed and verified by external computers in parallel by checking each sequence segment on a separate core.</p>
               <p>Data can be timestamped into this sequence by appending the data (or a hash of some data) into the state of the function. The recording of the state, index, and data as it was appended into the sequences provides a timestamp that can guarantee that the data was created sometime before the next hash was generated in the sequence. This design also supports horizontal scaling as multiple generators can synchronize amongst each other by mixing their state into each other's sequences.</p>
-              <p>In the implementation of Solana, Proof of History won’t help to generate blocks directly, it cooperates with Proof of Stake to let Solana to be one of the most performant blockchains of the world.</p>
+              <p>In the implementation of Solana, Proof of History won't help to generate blocks directly, it cooperates with Proof of Stake to let Solana to be one of the most performant blockchains of the world.</p>
             </div>
           </div>
         </div>
