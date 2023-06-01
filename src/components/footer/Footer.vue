@@ -82,28 +82,31 @@
             <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/ethereum" })'>
               {{ $t('MSG_ETHEREUM') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/solana" })'>
               {{ $t('MSG_SOLANA') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://tron.network/")'>
               {{ $t('MSG_TRON') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://www.bnbchain.org/en/smartChain")'>
               {{ $t('MSG_BINANCE_SMART_CHAIN') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/aleo" })'>
+              {{ $t('MSG_ALEO') }}
+            </div>
+            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/ironfish" })'>
               {{ $t('MSG_IRON_FISH') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/aptos" })'>
               {{ $t('MSG_APTOS') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/sui" })'>
               {{ $t('MSG_SUI') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/linera" })'>
               {{ $t('MSG_LINERA') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://www.chia.net/")'>
               {{ $t('MSG_CHIA') }}
             </div>
           </div>
@@ -160,6 +163,10 @@ const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))
 const router = useRouter()
 const onMenuClick = (target: string) => {
   void router.push({ path: target })
+}
+
+const onGotoUrl = (url: string) => {
+  window.open(url)
 }
 
 </script>

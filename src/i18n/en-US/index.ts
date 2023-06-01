@@ -166,5 +166,6 @@ export default {
   MSG_FIRST_BATCH_MINING: 'First Batch Mining',
   MSG_CONTACT_CRYPTO_MORE_FILECOIN: 'Contact Crypto More for Filecoin Business',
   MSG_STAKE_APT_TO_CRYPTO_MORE_VALIDATOR: 'Stake APT to Crypto More\'s Aptos Validator to get Reward',
-  MSG_FIRST_BATCH_STAKING: 'First Batch Staking'
+  MSG_FIRST_BATCH_STAKING: 'First Batch Staking',
+  MSG_ALEO: 'Aleo'
 }
