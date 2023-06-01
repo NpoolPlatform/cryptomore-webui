@@ -47,7 +47,7 @@
   <div class='investor section content-width horizontal-center'>
     <div class='row'>
       <div class='icon'>
-        <LabelIcon color='rgba(76, 163, 255, 0.4)' />
+        <LabelIcon color='rgba(255, 42, 0, 0.4)' />
       </div>
       <div class='label'>
         Aptos backed by
@@ -66,7 +66,7 @@
     <div class='content-width horizontal-center'>
       <div class='row'>
         <div class='icon'>
-          <LabelIcon color='rgba(76, 163, 255, 0.4)' />
+          <LabelIcon color='rgba(255, 42, 0, 0.4)' />
         </div>
         <div class='label'>
           Team
@@ -99,7 +99,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(76, 163, 255, 0.4)' />
+              <LabelIcon color='rgba(255, 42, 0, 0.4)' />
             </div>
             <div class='label'>
               Introduction
@@ -113,7 +113,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(76, 163, 255, 0.4)' />
+              <LabelIcon color='rgba(255, 42, 0, 0.4)' />
             </div>
             <div class='label'>
               Highlight
@@ -130,7 +130,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(76, 163, 255, 0.4)' />
+              <LabelIcon color='rgba(255, 42, 0, 0.4)' />
             </div>
             <div class='label'>
               Microchain
@@ -156,7 +156,7 @@
         <div class='proj-main'>
           <div class='row'>
             <div class='icon'>
-              <LabelIcon color='rgba(76, 163, 255, 0.4)' />
+              <LabelIcon color='rgba(255, 42, 0, 0.4)' />
             </div>
             <div class='label'>
               Disclaimer
@@ -170,7 +170,7 @@
       <div class='scale-hide links'>
         <div class='row'>
           <div class='icon'>
-            <LabelIcon color='rgba(76, 163, 255, 0.4)' />
+            <LabelIcon color='rgba(255, 42, 0, 0.4)' />
           </div>
           <div class='label'>
             Links
@@ -178,12 +178,28 @@
         </div>
         <div class='inner'>
           <div class='row line'>
-            <q-img class='icon' width='24px' height='24px' src='~assets/GithubDark.svg' />
-            <a href='https://github.com/MystenLabs/sui.git'>Github</a>
+            <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
+            <a href='https://static1.squarespace.com/static/62d6e9b8bf6051136f934527/t/63a0b9041c1f491f5b3a9d30/1671477510830/Linera_whitepaper_v1.pdf'>Whitepaper</a>
           </div>
           <div class='row line'>
-            <q-img class='icon' width='24px' height='24px' src='~assets/InternetDark.svg' />
-            <a href='https://sui.io'>Official Website</a>
+            <q-img class='icon' width='24px' height='24px' src='~assets/GithubDark.svg' />
+            <a href='https://github.com/linera-io'>Github</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/TwitterDark.svg' />
+            <a href='https://twitter.com/linera_io'>Twitter</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/MediumDark.svg' />
+            <a href='https://medium.com/@linera'>Medium</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/TelegramDark.svg' />
+            <a href='https://t.me/linera_official'>Telegram</a>
+          </div>
+          <div class='row line'>
+            <q-img class='icon' width='24px' height='24px' src='~assets/DiscordDark.svg' />
+            <a href='https://discord.gg/linera'>Discord</a>
           </div>
         </div>
       </div>
@@ -216,7 +232,7 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
     font-size: 54px
 
 .schedule
-  background: linear-gradient(90deg, rgba(76, 163, 255, 0.4) 0%, rgba(76, 163, 255, 0) 100%)
+  background: linear-gradient(90deg, rgba(255, 42, 0, 0.4) 0%, rgba(76, 163, 255, 0) 100%)
   width: 620px
   padding: 7px
   .col-1
