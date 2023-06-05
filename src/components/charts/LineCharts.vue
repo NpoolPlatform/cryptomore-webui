@@ -48,6 +48,8 @@ const title = toRef(props, 'title')
 const xdatas = toRef(props, 'xdatas')
 const ydatas = toRef(props, 'ydatas')
 
+const ymin = computed(() => Math.ceil(Math.min(...ydatas.value) - 1))
+
 const option = computed(() => {
   return {
     title: {
@@ -65,10 +67,12 @@ const option = computed(() => {
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: xdatas.value
+      data: xdatas.value,
+      min: xdatas.value.length - 20
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
+      min: ymin.value
     },
     series: [
       {
@@ -82,17 +86,13 @@ const option = computed(() => {
       {
         show: false,
         type: 'continuous',
-        seriesIndex: 0,
-        min: 0,
-        max: 400
+        seriesIndex: 0
       },
       {
         show: false,
         type: 'continuous',
         seriesIndex: 1,
-        dimension: 0,
-        min: 0,
-        max: xdatas.value.length - 1
+        dimension: 0
       }
     ]
   }
