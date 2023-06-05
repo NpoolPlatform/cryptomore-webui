@@ -77,6 +77,23 @@ const option = computed(() => {
         smooth: true,
         data: ydatas.value
       }
+    ],
+    visualMap: [
+      {
+        show: false,
+        type: 'continuous',
+        seriesIndex: 0,
+        min: 0,
+        max: 400
+      },
+      {
+        show: false,
+        type: 'continuous',
+        seriesIndex: 1,
+        dimension: 0,
+        min: 0,
+        max: xdatas.value.length - 1
+      }
     ]
   }
 })

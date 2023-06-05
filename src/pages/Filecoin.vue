@@ -398,8 +398,8 @@ const fetchCurrencies = (offset: number, limit: number) => {
     Limit: limit,
     Message: {
       Error: {
-        Title: t('MSG_SIGNIN'),
-        Message: t('MSG_SIGNIN_FAIL'),
+        Title: t('MSG_GET_CURRENCIES'),
+        Message: t('MSG_GET_CURRENCIES_FAIL'),
         Popup: true,
         Type: notification.NotifyType.Error
       }
