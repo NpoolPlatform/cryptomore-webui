@@ -49,6 +49,7 @@ const xdatas = toRef(props, 'xdatas')
 const ydatas = toRef(props, 'ydatas')
 
 const ymin = computed(() => Math.min(...ydatas.value) * 0.95)
+const ymax = computed(() => Math.min(...ydatas.value) * 1.05)
 
 const option = computed(() => {
   return {
@@ -72,7 +73,8 @@ const option = computed(() => {
     },
     yAxis: {
       type: 'value',
-      min: ymin.value
+      min: ymin.value,
+      max: ymax.value
     },
     series: [
       {
