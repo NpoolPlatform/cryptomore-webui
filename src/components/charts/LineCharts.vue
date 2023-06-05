@@ -48,7 +48,7 @@ const title = toRef(props, 'title')
 const xdatas = toRef(props, 'xdatas')
 const ydatas = toRef(props, 'ydatas')
 
-const ymin = computed(() => Math.ceil(Math.min(...ydatas.value) - 1))
+const ymin = computed(() => Math.min(...ydatas.value) * 0.95)
 
 const option = computed(() => {
   return {
