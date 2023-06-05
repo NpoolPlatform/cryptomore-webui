@@ -234,8 +234,7 @@
             </div>
           </div>
           <div class='row logos'>
-            TODO: implemented with backend service
-            {{ currencies }}
+            <LineCharts :style='{height: "240px"}' title='Filecoin Price' :xdatas='xdatas' :ydatas='ydatas' />
           </div>
         </div>
         <div class='proj-main' v-if='false'>
@@ -385,9 +384,12 @@ import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 const Header = defineAsyncComponent(() => import('src/components/product/Header.vue'))
 const HeadBackground = defineAsyncComponent(() => import('src/components/common/HeadBackground.vue'))
 const LabelIcon = defineAsyncComponent(() => import('src/components/product/LabelIcon.vue'))
+const LineCharts = defineAsyncComponent(() => import('src/components/charts/LineCharts.vue'))
 
 const chainStore = chain.CoinCurrency.useHistoryStore()
 const currencies = computed(() => chainStore.currencies('bitcoin'))
+const xdatas = computed(() => Array.from(currencies.value).map((el) => el.CreatedAt))
+const ydatas = computed(() => Array.from(currencies.value).map((el) => Number(el.MarketValueHigh)))
 
 const fetchCurrencies = (offset: number, limit: number) => {
   chainStore.getCurrencies({
