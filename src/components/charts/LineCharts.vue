@@ -68,7 +68,7 @@ const option = computed(() => {
       type: 'category',
       boundaryGap: false,
       data: xdatas.value,
-      min: xdatas.value.length - 20
+      min: Math.max(xdatas.value.length - 6000, 0)
     },
     yAxis: {
       type: 'value',
