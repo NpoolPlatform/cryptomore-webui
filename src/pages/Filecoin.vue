@@ -387,13 +387,13 @@ const LabelIcon = defineAsyncComponent(() => import('src/components/product/Labe
 const LineCharts = defineAsyncComponent(() => import('src/components/charts/LineCharts.vue'))
 
 const chainStore = chain.CoinCurrency.useHistoryStore()
-const currencies = computed(() => chainStore.currencies('bitcoin'))
+const currencies = computed(() => chainStore.currencies('filecoin'))
 const xdatas = computed(() => Array.from(currencies.value).map((el) => el.CreatedAt))
 const ydatas = computed(() => Array.from(currencies.value).map((el) => Number(el.MarketValueHigh)))
 
 const fetchCurrencies = (offset: number, limit: number) => {
   chainStore.getCurrencies({
-    CoinNames: ['bitcoin'],
+    CoinNames: ['filecoin'],
     Offset: offset,
     Limit: limit,
     Message: {
