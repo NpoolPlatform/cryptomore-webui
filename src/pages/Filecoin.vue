@@ -235,9 +235,10 @@
           </div>
           <div class='row logos'>
             TODO: implemented with backend service
+            {{ currencies }}
           </div>
         </div>
-        <div class='proj-main'>
+        <div class='proj-main' v-if='false'>
           <div class='row'>
             <div class='icon'>
               <LabelIcon color='rgba(55, 145, 247, 0.4)' />
@@ -372,13 +373,49 @@
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, computed, onMounted } from 'vue'
+import { chain, notification } from 'src/mystore'
+import { useI18n } from 'vue-i18n'
+
+// eslint-disable-next-line @typescript-eslint/unbound-method
+const { t } = useI18n({ useScope: 'global' })
 
 import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 
 const Header = defineAsyncComponent(() => import('src/components/product/Header.vue'))
 const HeadBackground = defineAsyncComponent(() => import('src/components/common/HeadBackground.vue'))
 const LabelIcon = defineAsyncComponent(() => import('src/components/product/LabelIcon.vue'))
+
+const chainStore = chain.CoinCurrency.useHistoryStore()
+const currencies = computed(() => chainStore.currencies('bitcoin'))
+
+const fetchCurrencies = (offset: number, limit: number) => {
+  chainStore.getCurrencies({
+    CoinNames: ['bitcoin'],
+    Offset: offset,
+    Limit: limit,
+    Message: {
+      Error: {
+        Title: t('MSG_SIGNIN'),
+        Message: t('MSG_SIGNIN_FAIL'),
+        Popup: true,
+        Type: notification.NotifyType.Error
+      }
+    }
+  }, (error: boolean, rows: Array<chain.CoinCurrency.Currency>) => {
+    if (error) {
+      return
+    }
+    if (rows.length === 0) {
+      return
+    }
+    fetchCurrencies(offset + limit, limit)
+  })
+}
+
+onMounted(() => {
+  fetchCurrencies(0, 100)
+})
 
 </script>
 
