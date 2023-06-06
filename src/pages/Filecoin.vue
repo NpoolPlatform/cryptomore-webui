@@ -396,6 +396,7 @@ const fetchCurrencies = (offset: number, limit: number) => {
     CoinNames: ['filecoin'],
     Offset: offset,
     Limit: limit,
+    StartAt: Math.floor(Date.now() / 1000 - 7 * 24 * 60 * 60),
     Message: {
       Error: {
         Title: t('MSG_GET_CURRENCIES'),

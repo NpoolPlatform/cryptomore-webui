@@ -10,8 +10,10 @@
       flat
       class='btn btn-small'
       :icon='"img:" + metamaskLogo'
+      label='0.0274 ETH'
       icon-right='expand_more'
       size='1rem'
+      @click='onWalletLoginClick'
     />
   </div>
   <div v-else class='row'>
@@ -32,6 +34,7 @@
 import { computed, defineAsyncComponent } from 'vue'
 import { notif, user } from 'src/mystore'
 import { useRouter } from 'vue-router'
+import Web3 from 'web3'
 
 import metamaskLogo from '../../assets/Metamask.svg'
 import bellIcon from '../../assets/Bell.svg'
@@ -51,6 +54,13 @@ const onSignupClick = () => {
 
 const onSigninClick = () => {
   void router.push({ path: '/signin' })
+}
+
+const onWalletLoginClick = () => {
+  const web3 = new Web3(
+    new Web3.providers.HttpProvider('http://localhost:7545')
+  )
+  console.log(web3.eth.getBlockNumber())
 }
 
 </script>
