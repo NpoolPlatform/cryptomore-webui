@@ -10,8 +10,7 @@
       flat
       class='btn btn-small'
       :icon='"img:" + metamaskLogo'
-      label='0.0274 ETH'
-      icon-right='expand_more'
+      :label='balance'
       size='1rem'
       @click='onWalletLoginClick'
     />
@@ -31,13 +30,14 @@
 </template>
 
 <script setup lang='ts'>
-import { computed, defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent, ref, onMounted } from 'vue'
 import { notif, user } from 'src/mystore'
 import { useRouter } from 'vue-router'
 import Web3 from 'web3'
 
 import metamaskLogo from '../../assets/Metamask.svg'
 import bellIcon from '../../assets/Bell.svg'
+import { Cookies } from 'quasar'
 
 const Avatar = defineAsyncComponent(() => import('src/components/avatar/Avatar.vue'))
 const HeaderToolBtn = defineAsyncComponent(() => import('src/components/header/HeaderToolBtn.vue'))
@@ -47,6 +47,7 @@ const _notif = notif.Notif.useNotifNotifStore()
 const notifs = computed(() => _notif.Notifs.filter((el) => !el.Notified).length)
 
 const router = useRouter()
+const balance = ref('N/A')
 
 const onSignupClick = () => {
   void router.push({ path: '/signup' })
@@ -56,11 +57,35 @@ const onSigninClick = () => {
   void router.push({ path: '/signin' })
 }
 
+const web3 = new Web3(window.ethereum)
+
 const onWalletLoginClick = () => {
-  const web3 = new Web3(
-    new Web3.providers.HttpProvider('http://localhost:7545')
-  )
-  console.log(web3.eth.getBlockNumber())
+  void web3.eth.requestAccounts()
+    .then((res) => {
+      if (res.length === 0) {
+        return
+      }
+      Cookies.set('active_wallet', 'MetaMask')
+      Cookies.set('viewer_address', res[0])
+      void web3.eth.getBalance(res[0])
+        .then((res) => {
+          balance.value = Number(web3.utils.fromWei(res, 'ether')).toFixed(4) + ' ETH'
+        })
+    })
 }
+
+onMounted(() => {
+  const viewerAddress = Cookies.get('viewer_address')
+  if (!viewerAddress) {
+    return
+  }
+  if (typeof window.ethereum === 'undefined') {
+    return
+  }
+  void web3.eth.getBalance(viewerAddress)
+    .then((res) => {
+      balance.value = Number(web3.utils.fromWei(res, 'ether')).toFixed(4) + ' ETH'
+    })
+})
 
 </script>
