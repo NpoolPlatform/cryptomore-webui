@@ -39,13 +39,13 @@
         <div class='menu text-primary'>
           <span class='title'>{{ $t('MSG_SERVICES') }}</span>
           <div class='menu-list color-main-transparent-60'>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing")'>
               {{ $t('MSG_CRYPTO_PLUS_SERVICE') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing")'>
               {{ $t('MSG_CRYPTO_ENTERPRISE') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing")'>
               {{ $t('MSG_MINING_STAKING') }}
             </div>
             <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing")'>
@@ -57,16 +57,16 @@
         <div class='menu text-primary'>
           <span class='title'>{{ $t('MSG_APPLICATIONS') }}</span>
           <div class='menu-list color-main-transparent-60'>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://github.com/NpoolFilecoin/fil-peggy")'>
               {{ $t('MSG_FIL_PEGGY') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://github.com/web3eye-io/Web3Eye")'>
               {{ $t('MSG_WEB3EYE') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://procyon.vip")'>
               {{ $t('MSG_PROCYON') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://lpsecretbase.com")'>
               {{ $t('MSG_LP_SECRET_BASE') }}
             </div>
           </div>
@@ -132,7 +132,7 @@
             <div class='menu-list-item cursor-pointer' @click='onMenuClick("/policy")'>
               {{ $t('MSG_PRIVACY_NOTICE') }}
             </div>
-            <div class='menu-list-item cursor-pointer'>
+            <div class='menu-list-item cursor-pointer' @click='onContactUsClick'>
               {{ $t('MSG_CONTACT') }}
             </div>
           </div>
@@ -176,7 +176,7 @@ const onFreeTrialClick = () => {
 }
 
 const onContactUsClick = () => {
-  window.open('mainto:support@cryptomore.io')
+  window.open('mailto:support@cryptomore.io')
 }
 
 </script>
