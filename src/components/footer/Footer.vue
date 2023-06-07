@@ -9,12 +9,14 @@
           :label='$t("MSG_FREE_TRIAL")'
           no-caps
           :icon-right='"img:" + arrowUpRight'
+          @click='onFreeTrialClick'
         />
         <q-btn
           flat
           class='btn btn-alt btn-here btn-contact'
           :label='$t("MSG_CONTACT_US")'
           no-caps
+          @click='onContactUsClick'
         />
         <div class='row social'>
           <div class='icon cursor-pointer'>
@@ -167,6 +169,14 @@ const onMenuClick = (target: string) => {
 
 const onGotoUrl = (url: string) => {
   window.open(url)
+}
+
+const onFreeTrialClick = () => {
+  void router.push({ path: '/pricing' })
+}
+
+const onContactUsClick = () => {
+  window.open('mainto:support@cryptomore.io')
 }
 
 </script>
