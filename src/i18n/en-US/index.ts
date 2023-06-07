@@ -168,5 +168,6 @@ export default {
   MSG_STAKE_APT_TO_CRYPTO_MORE_VALIDATOR: 'Stake APT to Crypto More\'s Aptos Validator to get Reward',
   MSG_FIRST_BATCH_STAKING: 'First Batch Staking',
   MSG_ALEO: 'Aleo',
-  MSG_DOWNLOAD_OPTIMIZED_EXECUTION: 'Download optimized execution from Crypto More'
+  MSG_DOWNLOAD_OPTIMIZED_EXECUTION: 'Download optimized execution from Crypto More',
+  MSG_FORGET_PASSWORD: 'Forget Password'
 }

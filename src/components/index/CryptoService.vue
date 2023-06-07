@@ -44,12 +44,14 @@
             :label='$t("MSG_FREE_TRIAL")'
             no-caps
             :icon-right='"img:" + arrowUpRight'
+            @click='onFreeTrialClick'
           />
           <q-btn
             flat
             class='btn btn-alt btn-medium mini-hide btn-left-8'
             :label='$t("MSG_VIEW_MORE")'
             no-caps
+            @click='onViewMoreClick'
           />
         </div>
       </div>
@@ -61,11 +63,24 @@
 </template>
 
 <script setup lang='ts'>
+import { useRouter } from 'vue-router'
+
 import buildApplication from 'src/assets/BuildApplication.png'
 import cryptoServiceStack from 'src/assets/CryptoServiceStack.svg'
 import easyIntegration from 'src/assets/EasyIntegration.svg'
 import customization from 'src/assets/Customizable.svg'
 import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
+
+const router = useRouter()
+
+const onFreeTrialClick = () => {
+  void router.push({ path: '/pricing' })
+}
+
+const onViewMoreClick = () => {
+  void router.push({ path: '/pricing' })
+}
+
 </script>
 
 <style lang='sass' scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div :style='{marginTop: "40px", marginBottom: "120px", maxWidth: "400px"}' class='horizontal-center'>
+  <div :style='{marginTop: "80px", marginBottom: "120px", maxWidth: "400px"}' class='horizontal-center'>
     <Title :text='$t("MSG_CREATE_ACCOUNT")' />
     <Switcher :style='{marginTop: "32px"}' v-model:account-type='accountType' />
     <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />

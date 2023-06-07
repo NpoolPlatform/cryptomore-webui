@@ -15,6 +15,7 @@
             :label='$t("MSG_FREE_TRIAL")'
             no-caps
             :icon-right='"img:" + arrowUpRight'
+            @click='onFreeTrialClick'
           />
           <div class='row coin-list'>
             <q-img class='icon' :src='bitcoin' />
@@ -67,6 +68,8 @@
 </template>
 
 <script setup lang='ts'>
+import { useRouter } from 'vue-router'
+
 import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 import bitcoin from 'src/assets/Bitcoin.svg'
 import ethereum from 'src/assets/Ethereum.svg'
@@ -74,6 +77,13 @@ import solana from 'src/assets/Solana.svg'
 import litecoin from 'src/assets/Litecoin.svg'
 import filecoin from 'src/assets/Filecoin.svg'
 import aptos from 'src/assets/Aptos.svg'
+
+const router = useRouter()
+
+const onFreeTrialClick = () => {
+  void router.push({ path: '/pricing' })
+}
+
 </script>
 
 <style lang='sass' scoped>

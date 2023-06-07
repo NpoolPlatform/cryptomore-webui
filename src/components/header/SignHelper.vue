@@ -1,5 +1,5 @@
 <template>
-  <div v-if='logined.User === undefined' class='row'>
+  <div v-if='_logined' class='row'>
     <q-btn flat class='btn btn-small btn-main' @click='onSigninClick'>
       {{ $t('MSG_SIGNIN') }}
     </q-btn>
@@ -48,6 +48,8 @@ const notifs = computed(() => _notif.Notifs.filter((el) => !el.Notified).length)
 
 const router = useRouter()
 const balance = ref('N/A')
+const viewerAddress = computed(() => Cookies.get('viewer_address'))
+const _logined = computed(() => logined.User || viewerAddress.value)
 
 const onSignupClick = () => {
   void router.push({ path: '/signup' })

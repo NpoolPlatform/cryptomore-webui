@@ -30,6 +30,7 @@
       lazy-rules='ondemand'
       @blur='onPasswordInputBlur'
       @focus='onPasswordInputFocus'
+      :hide-bottom-space='true'
     >
       <template #prepend>
         <q-icon color='primary' name='password' />
@@ -42,6 +43,14 @@
         />
       </template>
     </q-input>
+    <div class='row'>
+      <div :style='{marginTop: "8px", color: "#3DBB77", fontSize: "14px"}' class='cursor-pointer'>
+        {{ $t('MSG_FORGET_PASSWORD') }}
+      </div>
+    </div>
+    <div class='text-center horizontal-center' :style='{marginTop: "12px"}'>
+      <Agreement />
+    </div>
     <div class='text-center' :style='{marginTop: "24px"}'>
       <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}' @click='onSignupClick'>
         {{ $t('MSG_SIGNIN') }}
@@ -68,6 +77,7 @@ const { t } = useI18n({ useScope: 'global' })
 
 const Title = defineAsyncComponent(() => import('src/components/sign/Title.vue'))
 const Switcher = defineAsyncComponent(() => import('src/components/sign/Switcher.vue'))
+const Agreement = defineAsyncComponent(() => import('src/components/sign/Agreement.vue'))
 const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
 
 const accountType = ref(basetypes.SignMethodType.Email)

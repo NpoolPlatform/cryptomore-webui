@@ -64,12 +64,14 @@
             :label='$t("MSG_BUSINESS_CONTACT")'
             no-caps
             :icon-right='"img:" + arrowUpRight'
+            @click='onBusinessContactClick'
           />
           <q-btn
             flat
             class='btn btn-alt btn-medium contact-btn'
             :label='$t("MSG_VIEW_MORE")'
             no-caps
+            @click='onViewMoreClick'
           />
         </div>
       </div>
@@ -78,6 +80,8 @@
 </template>
 
 <script setup lang='ts'>
+import { useRouter } from 'vue-router'
+
 import banner from 'src/assets/LeadershipBanner.png'
 import requirement from 'src/assets/Requirement.svg'
 import solution from 'src/assets/Solution.svg'
@@ -86,6 +90,17 @@ import logistics from 'src/assets/Logistics.svg'
 import deployment from 'src/assets/Deployment.svg'
 import reward from 'src/assets/Reward.svg'
 import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
+
+const router = useRouter()
+
+const onBusinessContactClick = () => {
+  window.open('mailto:support@cryptomore.io')
+}
+
+const onViewMoreClick = () => {
+  void router.push({ path: '/pricing' })
+}
+
 </script>
 
 <style lang='sass' scoped>
