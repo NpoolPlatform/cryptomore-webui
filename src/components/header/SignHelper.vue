@@ -6,14 +6,6 @@
     <q-btn flat class='btn btn-small btn-alt btn-left-8' @click='onSignupClick'>
       {{ $t('MSG_SIGNUP') }}
     </q-btn>
-    <q-btn
-      flat
-      class='btn btn-small'
-      :icon='"img:" + metamaskLogo'
-      :label='balance'
-      size='1rem'
-      @click='onWalletLoginClick'
-    />
   </div>
   <div v-else class='row'>
     <div v-if='notifs > 0' class='vertical-center row' :style='{marginLeft: "8px", marginRight: "8px"}'>
@@ -27,6 +19,14 @@
     </div>
     <Avatar :style='{marginRight: "16px"}' />
   </div>
+  <q-btn
+    flat
+    class='btn btn-small'
+    :icon='"img:" + metamaskLogo'
+    :label='balance'
+    size='1rem'
+    @click='onWalletLoginClick'
+  />
 </template>
 
 <script setup lang='ts'>
