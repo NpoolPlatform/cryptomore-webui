@@ -169,5 +169,16 @@ export default {
   MSG_FIRST_BATCH_STAKING: 'First Batch Staking',
   MSG_ALEO: 'Aleo',
   MSG_DOWNLOAD_OPTIMIZED_EXECUTION: 'Download optimized execution from Crypto More',
-  MSG_FORGET_PASSWORD: 'Forget Password'
+  MSG_FORGET_PASSWORD: 'Forget Password',
+  MSG_HASHAGE_WAITLIST: 'HashAge Waitlist',
+  MSG_HOT: 'Hot',
+  MSG_JOIN_HASHAGE_WAITLIST: 'Join the waitlist of<br>Hashage!',
+  MSG_HASHAGE_WAITLIST_SUBTITLE: '<p>HashAge (backed by <a href="https://hpool.in">Hpool - Leading PoC Mining pool of the world</a>) aims to be one of the leading player in the digital currency market, making waves with its sophisticated crypto solutions and mining farm operations.</p><p>The company\'s experience and excellence are evident not only through its exceptional service but also in its development and implementation of innovative crypto platforms and applications.</p><p>Joining the HashAge waitlist unlocks exclusive access to the latest crypto news, including early announcements regarding new mining operations and advanced platform releases. Members of the waitlist enjoy priority service and superior customer support, receiving guidance from HashAge\'s team of experts.</p><p>With its active participation in the market and commitment to excellence, HashAge will be the perfect partner for anyone seeking success in the world of cryptocurrencies.</p>',
+  MSG_HASHAGE_STYLE_1: '<div style="font-weight: 600; font-size: 24px"><span style="color: #1D1E20">Hash</span><span style="color: #F5841F">Age</span></div>',
+  MSG_RELIABLE_INNOVATIVE: 'Reliable Innovative',
+  MSG_HASHAGE_WAITLIST_BANNER_TITLE: '# HashAge — Reliable crypto mining operator #',
+  MSG_HASHAGE_WAITLIST_BANNER_SLOGAN: '<span style="font-weight: 800; font-size: 80px; line-height: 100px; color: #31373D;">JOIN THE<br>WAITLIST FOR<br><span class="hashage-1">HASHAGE!</span></span>',
+  MSG_GET_EARLY_ACCESS: 'GET EARLY ACCESS',
+  MSG_WAITLIST_SUBSCRIBE_CAPTION: 'Provide your Email address for early access and a chance to get early bird bonus',
+  MSG_JOIN_THE_WAITLIST: 'Join the Waitlist'
 }

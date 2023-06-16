@@ -18,7 +18,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -27,7 +29,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -36,7 +40,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -45,7 +51,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -54,7 +62,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -63,7 +73,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -72,7 +84,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -81,7 +95,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -90,7 +106,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -99,7 +117,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -108,7 +128,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -117,7 +139,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -126,7 +150,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -135,7 +161,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -144,7 +172,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -153,7 +183,9 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
         }
       },
       {
@@ -162,7 +194,20 @@ const routes: RouteRecordRaw[] = [
         meta: {
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
-          NeedLogined: false
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
+        }
+      },
+      {
+        path: 'hashage',
+        component: () => import('pages/Hashage.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false,
+          ShowHeader: false,
+          ShowFooter: false
         }
       }
     ]

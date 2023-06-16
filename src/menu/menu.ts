@@ -3,6 +3,7 @@ export enum Menu {
   MenuPricing = 'MenuPricing',
   MenuPartners = 'MenuPartners',
   MenuDocs = 'MenuDocs',
+  MenuHashageWaitlist = 'MenuHashageWaitlist',
 
   MenuCryptoPlusService = 'MenuCryptoPlusService',
   MenuCryptoEnterprise = 'MenuCryptoEnterprise',

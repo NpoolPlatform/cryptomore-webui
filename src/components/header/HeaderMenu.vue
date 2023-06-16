@@ -4,6 +4,7 @@
     class='color-main menu'
     indicator-color='primary'
     @update:model-value='(val) => onSwitchMenu(val)'
+    inline-label
   >
     <q-tab :name='menu.Menu.MenuProducts'>
       <div class='inline cursor-pointer'>
@@ -18,7 +19,12 @@
     </q-tab>
     <q-tab :name='menu.Menu.MenuPricing' :label='$t("MSG_PRICING")' />
     <q-tab v-if='false' :name='menu.Menu.MenuPartners' :label='$t("MSG_PARTNERS")' />
-    <q-tab :name='menu.Menu.MenuDocs' :label='$t("MSG_DOCS")' />
+    <q-tab v-if='false' :name='menu.Menu.MenuDocs' :label='$t("MSG_DOCS")' />
+    <q-tab :name='menu.Menu.MenuHashageWaitlist' :label='$t("MSG_HASHAGE_WAITLIST")'>
+      <q-badge color='red' floating :style='{marginTop: "16px"}'>
+        {{ $t('MSG_HOT') }}
+      </q-badge>
+    </q-tab>
   </q-tabs>
 </template>
 
@@ -42,6 +48,9 @@ const onSwitchMenu = (_menu: menu.Menu) => {
       break
     case menu.Menu.MenuDocs:
       window.open('https://docs.cryptomore.io')
+      break
+    case menu.Menu.MenuHashageWaitlist:
+      void router.push({ path: '/hashage' })
       break
   }
 }

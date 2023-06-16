@@ -14,6 +14,8 @@ interface RouteMetaImpl {
   ShowBannerAnnouncement: boolean
   ShowSignHelper: boolean
   NeedLogined: boolean
+  ShowHeader: boolean
+  ShowFooter: boolean
 }
 
 declare module 'vue-router' {
@@ -26,6 +28,8 @@ const loginInterceptor = (signInPath: string, to: RouteLocationNormalized, next:
   const setting = useSettingStore()
   setting.ShowBannerAnnouncement = to.meta.ShowBannerAnnouncement
   setting.ShowSignHelper = to.meta.ShowSignHelper
+  setting.ShowHeader = to.meta.ShowHeader
+  setting.ShowFooter = to.meta.ShowFooter
 
   const user = useLocalUserStore()
   if (user.User) {

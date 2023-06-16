@@ -174,6 +174,7 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { menu } from '../../menu'
 
 import cryptoPlusServiceIcon from 'src/assets/CryptoPlusServiceIcon.svg'
@@ -193,6 +194,8 @@ const onFirstLevelMenuClick = (menu: menu.Menu) => {
 }
 
 const secondLevelMenu = ref(menu.Menu.MenuFilPeggy)
+const router = useRouter()
+
 const onSecondLevelMenuClick = (_menu: menu.Menu) => {
   secondLevelMenu.value = _menu
   switch (_menu) {
@@ -209,6 +212,7 @@ const onSecondLevelMenuClick = (_menu: menu.Menu) => {
       window.open('https://lpsecretbase.com')
       break
     case menu.Menu.MenuHashage:
+      void router.push({ path: '/hashage' })
       break
   }
 }
