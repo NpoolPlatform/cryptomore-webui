@@ -7,21 +7,25 @@
     size='16px'
   >
     <q-menu :offset='[120, 22]'>
-      <q-list class='text-primary'>
+      <q-list class='text-primary' :style='{minWidth: "240px"}'>
         <q-item>
           <q-space />
           <q-icon name='account_circle' size='80px' />
           <q-space />
         </q-item>
         <q-item v-if='_user.User?.EmailAddress?.length'>
+          <q-space />
           <span>{{ _user.User?.EmailAddress }}</span>
+          <q-space />
         </q-item>
         <q-item v-if='_viewerAddress?.length'>
+          <q-space />
           <span
             :style='{whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"}'
           >
             {{ _viewerAddress }}
           </span>
+          <q-space />
         </q-item>
         <q-item v-if='!_user.User?.EmailAddress?.length && _viewerAddress?.length'>
           <div class='row' :style='{width: "100%"}'>
