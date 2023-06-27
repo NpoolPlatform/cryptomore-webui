@@ -18,6 +18,6 @@ const CryptoPlusService = defineAsyncComponent(() => import('src/components/pric
 const CryptoEnterprise = defineAsyncComponent(() => import('src/components/pricing/CryptoEnterprise.vue'))
 const MiningStaking = defineAsyncComponent(() => import('src/components/pricing/MiningStaking.vue'))
 
-const serviceType = ref(constants.ServiceType.CryptoPlusService)
+const serviceType = ref(constants.ServiceType.CryptoEnterprise)
 
 </script>
