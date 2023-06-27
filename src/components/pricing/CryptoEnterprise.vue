@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class='price'>
-          <div class='vertical-center'>
+          <div class='vertical-center' :style='{height: "100%"}'>
             <div class='text-center'>
               <div class='amount'>
                 $100000 initialize

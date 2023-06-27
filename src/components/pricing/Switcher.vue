@@ -57,7 +57,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  serviceType: constants.ServiceType.CryptoPlusService
+  serviceType: constants.ServiceType.CryptoEnterprise
 })
 const serviceType = toRef(props, 'serviceType')
 
