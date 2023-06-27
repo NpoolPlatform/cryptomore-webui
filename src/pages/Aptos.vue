@@ -267,7 +267,7 @@
             />
           </div>
         </div>
-        <div class='proj-main'>
+        <div v-if='false' class='proj-main'>
           <div class='row'>
             <div class='icon'>
               <LabelIcon color='rgba(46, 216, 167, 0.4)' />
