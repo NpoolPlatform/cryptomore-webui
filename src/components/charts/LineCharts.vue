@@ -48,8 +48,8 @@ const title = toRef(props, 'title')
 const xdatas = toRef(props, 'xdatas')
 const ydatas = toRef(props, 'ydatas')
 
-const ymin = computed(() => Math.min(...ydatas.value) * 0.95)
-const ymax = computed(() => Math.min(...ydatas.value) * 1.05)
+const ymin = computed(() => Number((Math.min(...ydatas.value) * 0.95).toFixed(1)))
+const ymax = computed(() => Number((Math.max(...ydatas.value) * 1.05).toFixed(1)))
 
 const option = computed(() => {
   return {
