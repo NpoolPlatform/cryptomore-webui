@@ -180,5 +180,6 @@ export default {
   MSG_HASHAGE_WAITLIST_BANNER_SLOGAN: '<span style="font-weight: 800; font-size: 80px; line-height: 100px; color: #31373D;">JOIN THE<br>WAITLIST FOR<br><span class="hashage-1">HASHAGE!</span></span>',
   MSG_GET_EARLY_ACCESS: 'GET EARLY ACCESS',
   MSG_WAITLIST_SUBSCRIBE_CAPTION: 'Provide your Email address for early access and a chance to get early bird bonus',
-  MSG_JOIN_THE_WAITLIST: 'Join the Waitlist'
+  MSG_JOIN_THE_WAITLIST: 'Join the Waitlist',
+  MSG_BIND_EMAIL_ADDRESS: 'Bind Email'
 }

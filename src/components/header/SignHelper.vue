@@ -1,5 +1,5 @@
 <template>
-  <div v-if='_logined' class='row'>
+  <div v-if='!_logined' class='row'>
     <q-btn flat class='btn btn-small btn-main' @click='onSigninClick'>
       {{ $t('MSG_SIGNIN') }}
     </q-btn>
@@ -49,7 +49,8 @@ const notifs = computed(() => _notif.Notifs.filter((el) => !el.Notified).length)
 const router = useRouter()
 const balance = ref('N/A')
 const viewerAddress = computed(() => Cookies.get('viewer_address'))
-const _logined = computed(() => logined.User || viewerAddress.value)
+const walletLogin = computed(() => viewerAddress.value && viewerAddress.value.length > 0)
+const _logined = computed(() => logined.User || walletLogin.value)
 
 const onSignupClick = () => {
   void router.push({ path: '/signup' })
@@ -77,14 +78,13 @@ const onWalletLoginClick = () => {
 }
 
 onMounted(() => {
-  const viewerAddress = Cookies.get('viewer_address')
-  if (!viewerAddress) {
+  if (!viewerAddress.value) {
     return
   }
   if (typeof window.ethereum === 'undefined') {
     return
   }
-  void web3.eth.getBalance(viewerAddress)
+  void web3.eth.getBalance(viewerAddress.value)
     .then((res) => {
       balance.value = Number(web3.utils.fromWei(res, 'ether')).toFixed(4) + ' ETH'
     })
