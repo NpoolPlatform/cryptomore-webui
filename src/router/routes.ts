@@ -217,8 +217,8 @@ const routes: RouteRecordRaw[] = [
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
-          ShowHeader: false,
-          ShowFooter: false
+          ShowHeader: true,
+          ShowFooter: true
         }
       }
     ]

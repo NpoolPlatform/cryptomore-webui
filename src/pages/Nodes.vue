@@ -27,6 +27,7 @@
       v-for='miner in filecoinMiners'
       :key='miner.miner'
       class='cursor-pointer'
+      @click='onBrowserNodeClick(miner.url)'
     >
       <td>{{ miner.miner }}</td>
       <td>{{ miner.power }}</td>
@@ -58,6 +59,7 @@
       v-for='validator in aptosValidators'
       :key='validator.name'
       class='cursor-pointer'
+      @click='onBrowserNodeClick(validator.url)'
     >
       <td>{{ validator.name }}</td>
       <td>{{ validator.votePower }}</td>
@@ -69,6 +71,7 @@
       </td>
     </tr>
   </table>
+  <div :style='{height: "180px"}' />
 </template>
 
 <script setup lang='ts'>
@@ -82,6 +85,7 @@ interface FilecoinMiner {
   reward: string
   colletral: string
   yearLucky: string
+  url: string
 }
 
 const filecoinMiners = ref([
@@ -90,7 +94,8 @@ const filecoinMiners = ref([
     power: '101 TiB',
     reward: '1008 FIL',
     colletral: '1898 FIL',
-    yearLucky: '88%'
+    yearLucky: '88%',
+    url: 'https://filscan.io/miner/f07824'
   }
 ] as Array<FilecoinMiner>)
 
@@ -101,18 +106,24 @@ interface AptosValidator {
   rewardPerf: string
   location: string
   apy: string
+  url: string
 }
 
 const aptosValidators = ref([
   {
     name: 'metahash.apt',
     poolAddress: '0x6c8a3474cb49202515d121fea0f3217d303e41f6bdc43e615f1cd90855118089',
-    votePower: '15480714 APT',
+    votePower: '15480467 APT',
     rewardPerf: '99.99%',
     location: 'Tokyo, Japan',
-    apy: '7%'
+    apy: '7%',
+    url: 'https://explorer.aptoslabs.com/account/0x6c8a3474cb49202515d121fea0f3217d303e41f6bdc43e615f1cd90855118089/resources?network=mainnet'
   }
 ] as Array<AptosValidator>)
+
+const onBrowserNodeClick = (url: string) => {
+  window.open(url)
+}
 
 </script>
 
