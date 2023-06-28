@@ -10,8 +10,8 @@
   >
     <tr>
       <td>Crypto More Storage</td>
-      <td>50 PiB</td>
-      <td>1231823 FIL</td>
+      <td>{{ bytesReadable(totalFilecoinPower.toFixed(0)) }}</td>
+      <td>{{ totalFilecoinReward.toFixed(2) }} FIL</td>
       <td />
       <td />
     </tr>
@@ -81,7 +81,8 @@
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent, ref } from 'vue'
+import { defineAsyncComponent, onMounted, ref } from 'vue'
+import { node } from 'src/mystore'
 
 import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 
@@ -99,13 +100,52 @@ interface FilecoinMiner {
 const filecoinMiners = ref([
   {
     miner: 'f07824',
-    power: '101 TiB',
-    reward: '1008 FIL',
-    colletral: '1898 FIL',
-    yearLucky: '88%',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
+    url: 'https://filscan.io/miner/f07824'
+  },
+  {
+    miner: 'f07824',
     url: 'https://filscan.io/miner/f07824'
   }
 ] as Array<FilecoinMiner>)
+
+const totalFilecoinPower = ref(0)
+const totalFilecoinReward = ref(0)
 
 interface AptosValidator {
   name: string,
@@ -132,6 +172,56 @@ const aptosValidators = ref([
 const onBrowserNodeClick = (url: string) => {
   window.open(url)
 }
+
+const filecoin = node.filecoin.useFilecoinMinerStore()
+
+const fetchFilecoinMiner = (index: number) => {
+  if (index >= filecoinMiners.value.length) {
+    return
+  }
+  filecoin.getMiner(filecoinMiners.value[index].miner, (error: boolean, _miner?: node.filecoin.MinerStat) => {
+    if (error) {
+      return
+    }
+    if (!_miner) {
+      return
+    }
+    filecoinMiners.value[index].colletral = Number(_miner.initPledge).toFixed(2) + ' FIL'
+    filecoinMiners.value[index].power = bytesReadable(_miner.qualityAdjustPower)
+    filecoinMiners.value[index].reward = Number(_miner.rewards).toFixed(2) + ' FIL'
+    filecoinMiners.value[index].yearLucky = (Number(_miner.lucky) * 100).toFixed(2) + '%'
+    totalFilecoinPower.value += Number(_miner.qualityAdjustPower)
+    totalFilecoinReward.value += Number(_miner.rewards)
+    fetchFilecoinMiner(index + 1)
+  })
+}
+
+const bytesReadable = (n: string) => {
+  const bytes = Number(n)
+  if (bytes <= 1024) {
+    return n
+  }
+  if (bytes <= 1024 * 1024) {
+    return (bytes / 1024).toFixed(2) + ' KiB'
+  }
+  if (bytes <= 1024 * 1024 * 1024) {
+    return (bytes / 1024 / 1024).toFixed(2) + ' MiB'
+  }
+  if (bytes <= 1024 * 1024 * 1024 * 1024) {
+    return (bytes / 1024 / 1024 / 1024).toFixed(2) + ' GiB'
+  }
+  if (bytes <= 1024 * 1024 * 1024 * 1024 * 1024) {
+    return (bytes / 1024 / 1024 / 1024 / 1024).toFixed(2) + ' TiB'
+  }
+  if (bytes <= 1024 * 1024 * 1024 * 1024 * 1024 * 1024) {
+    return (bytes / 1024 / 1024 / 1024 / 1024 / 1024).toFixed(2) + ' PiB'
+  }
+  return (bytes / 1024 / 1024 / 1024 / 1024 / 1024 / 1024).toFixed(2) + ' EiB'
+}
+
+onMounted(() => {
+  fetchFilecoinMiner(0)
+})
 
 </script>
 
