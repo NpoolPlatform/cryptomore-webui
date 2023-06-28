@@ -42,7 +42,7 @@
           </div>
         </q-item>
         <q-separator />
-        <q-item>
+        <q-item clickable @click='onLogoutClick'>
           <q-icon name='logout' size='24px' :style='{marginRight: "10px"}' />
           <span>{{ $t('MSG_LOGOUT') }}</span>
           <q-space />
@@ -71,6 +71,10 @@ const _viewerAddress = computed(() => {
 })
 
 const onBindEmailAddressClick = () => {
+  // TODO
+}
+
+const onLogoutClick = () => {
   // TODO
 }
 

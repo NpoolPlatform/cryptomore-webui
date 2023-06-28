@@ -25,6 +25,7 @@
     "test:unit:ci"
   ],
   "dependencies": {
+    "@productdevbook/chatwoot": "^1.1.0",
     "@quasar/extras": "^1.0.0",
     "@types/web3": "^1.2.2",
     "axios": "^0.26.1",

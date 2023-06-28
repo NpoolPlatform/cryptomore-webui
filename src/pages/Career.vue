@@ -13,7 +13,7 @@
           {{ position.title }}
         </div>
         <q-space />
-        <div class='info'>
+        <div class='info cursor-not-allowed text-grey'>
           {{ $t('MSG_APPLY') }}
         </div>
       </div>
