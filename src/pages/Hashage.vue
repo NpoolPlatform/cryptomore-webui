@@ -20,6 +20,7 @@
           </div>
           <div v-html='$t("MSG_HASHAGE_WAITLIST_BANNER_SLOGAN")' :style='{marginTop: "24px"}' />
         </div>
+        <q-space />
         <div class='waitlist-input'>
           <div class='text-center' :style='{fontWeight: 600, fontSize: "20px", lineHeight: "24px", color: "#31373D"}'>
             {{ $t('MSG_GET_EARLY_ACCESS') }}
