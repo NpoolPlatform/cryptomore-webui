@@ -228,7 +228,7 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='javascript:void(0)' @click='onLetsTalkClick'>Contact Crypto More for IronFish Business</a>
+                  <a :style='{fontSize: "14px"}' target='_blank' @click='onLetsTalkClick'>Contact Crypto More for IronFish Business</a>
                 </div>
               </div>
             </div>
@@ -248,7 +248,7 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='javascript:void(0)' @click='onLetsTalkClick'>Contact Crypto More for Chia Business</a>
+                  <a :style='{fontSize: "14px"}' target='_blank' @click='onLetsTalkClick'>Contact Crypto More for Chia Business</a>
                 </div>
               </div>
             </div>
