@@ -49,6 +49,12 @@ const onSubscribeClick = () => {
         Message: t('MSG_SUBSCRIBE_FAIL'),
         Popup: true,
         Type: notification.NotifyType.Error
+      },
+      Info: {
+        Title: t('MSG_SUBSCRIBE'),
+        Message: t('MSG_SUBSCRIBE_SUCCESS'),
+        Popup: true,
+        Type: notification.NotifyType.Success
       }
     }
   }, () => {
