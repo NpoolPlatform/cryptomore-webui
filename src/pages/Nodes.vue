@@ -34,8 +34,11 @@
       <td>{{ miner.reward }}</td>
       <td>{{ miner.yearLucky }}</td>
       <td>{{ miner.colletral }}</td>
-      <td>
-        <q-img src='~assets/ArrowUpRightLargeMargin.svg' width='36px' height='36px' />
+      <td :style='{lineHeight: "64px"}'>
+        <q-icon
+          :name='"img:" + arrowUpRight'
+          size='32px'
+        />
       </td>
     </tr>
   </table>
@@ -67,7 +70,10 @@
       <td>{{ validator.location }}</td>
       <td>{{ validator.apy }}</td>
       <td>
-        <q-img src='~assets/ArrowUpRightLargeMargin.svg' width='36px' height='36px' />
+        <q-icon
+          :name='"img:" + arrowUpRight'
+          size='32px'
+        />
       </td>
     </tr>
   </table>
@@ -76,6 +82,8 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, ref } from 'vue'
+
+import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 
 const HeadBackground = defineAsyncComponent(() => import('src/components/common/HeadBackground.vue'))
 
@@ -114,7 +122,7 @@ const aptosValidators = ref([
     name: 'metahash.apt',
     poolAddress: '0x6c8a3474cb49202515d121fea0f3217d303e41f6bdc43e615f1cd90855118089',
     votePower: '15480467 APT',
-    rewardPerf: '99.99%',
+    rewardPerf: '100%',
     location: 'Tokyo, Japan',
     apy: '7%',
     url: 'https://explorer.aptoslabs.com/account/0x6c8a3474cb49202515d121fea0f3217d303e41f6bdc43e615f1cd90855118089/resources?network=mainnet'
