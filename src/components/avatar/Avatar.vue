@@ -6,7 +6,7 @@
     icon='account_circle'
     size='16px'
   >
-    <q-menu :offset='[200, 22]'>
+    <q-menu v-model='showing' :offset='[200, 22]'>
       <q-list class='text-primary' :style='{minWidth: "240px"}'>
         <q-item>
           <q-space />
@@ -34,9 +34,9 @@
             {{ _user.User?.EmailAddress?.length ? _user.User?.EmailAddress : ' - ' }}
           </div>
           <q-space />
-          <div class='row cursor-pointer' @click='onBindEmailAddressClick'>
+          <div class='row cursor-pointer' @click='onSignupClick'>
             <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
-              {{ $t('MSG_BIND_EMAIL_ADDRESS') }}
+              {{ $t('MSG_SIGNUP') }}
             </div>
             <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
           </div>
@@ -55,7 +55,8 @@
 <script setup lang='ts'>
 import { Cookies } from 'quasar'
 import { user } from 'src/mystore'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const _user = user.useLocalUserStore()
 
@@ -70,12 +71,16 @@ const _viewerAddress = computed(() => {
   return viewerAddress.value?.substring(0, 8) + '...' + viewerAddress.value?.substring(viewerAddress.value.length - 6)
 })
 
-const onBindEmailAddressClick = () => {
-  // TODO
+const showing = ref(false)
+const router = useRouter()
+const onSignupClick = () => {
+  void router.push({ path: '/signup' })
+  showing.value = false
 }
 
 const onLogoutClick = () => {
-  // TODO
+  Cookies.set('viewer_address', null as unknown as string)
+  showing.value = false
 }
 
 </script>
