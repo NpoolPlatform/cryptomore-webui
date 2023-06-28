@@ -103,44 +103,76 @@ const filecoinMiners = ref([
     url: 'https://filscan.io/miner/f07824'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f01970622',
+    url: 'https://filscan.io/miner/f01970622'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f01970625',
+    url: 'https://filscan.io/miner/f01970625'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f01970630',
+    url: 'https://filscan.io/miner/f01970630'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f0705704',
+    url: 'https://filscan.io/miner/f0705704'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f0422266',
+    url: 'https://filscan.io/miner/f0422266'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f01735897',
+    url: 'https://filscan.io/miner/f01735897'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f071664',
+    url: 'https://filscan.io/miner/f071664'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f023152',
+    url: 'https://filscan.io/miner/f023152'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f01876488',
+    url: 'https://filscan.io/miner/f01876488'
   },
   {
-    miner: 'f07824',
-    url: 'https://filscan.io/miner/f07824'
+    miner: 'f0159883',
+    url: 'https://filscan.io/miner/f0159883'
+  },
+  {
+    miner: 'f01953944',
+    url: 'https://filscan.io/miner/f01953944'
+  },
+  {
+    miner: 'f01953959',
+    url: 'https://filscan.io/miner/f01953959'
+  },
+  {
+    miner: 'f0111584',
+    url: 'https://filscan.io/miner/f0111584'
+  },
+  {
+    miner: 'f079426',
+    url: 'https://filscan.io/miner/f079426'
+  },
+  {
+    miner: 'f01713152',
+    url: 'https://filscan.io/miner/f01713152'
+  },
+  {
+    miner: 'f01146045',
+    url: 'https://filscan.io/miner/f01146045'
+  },
+  {
+    miner: 'f01211859',
+    url: 'https://filscan.io/miner/f01211859'
+  },
+  {
+    miner: 'f0832131',
+    url: 'https://filscan.io/miner/f0832131'
   }
 ] as Array<FilecoinMiner>)
 
