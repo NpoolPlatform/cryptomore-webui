@@ -45,8 +45,11 @@
           />
         </div>
       </div>
-      <div class='text-center' :style='{paddingTop: "40px", paddingBottom: "64px"}'>
-        <q-img width='100px' height='100px' src='~assets/HashageIndicator.png' />
+      <div
+        class='text-center'
+        :style='{paddingTop: "40px", paddingBottom: "64px"}'
+      >
+        <q-img class='indicator' width='100px' height='100px' src='~assets/HashageIndicator.png' />
       </div>
     </div>
   </div>
@@ -236,7 +239,7 @@
       </div>
     </div>
     <div class='infos-content'>
-      <div class='faq-subtitle color-main-transparent-80' :style='{color: "rgba(49, 55, 61, 0.6) !important", fontSize: "14px"}'>
+      <div class='faq-subtitle color-main-transparent-80' :style='{color: "rgba(49, 55, 61, 0.6) !important", fontSize: "16px"}'>
         Althrough HashAge is intimate parter of Crypto More and Crypto More believes that all product provided by HashAge is reliable and real, Crypto More still want to let our users to know about that all product provided by HashAge is not relevant to Crypto More. We encourage our users to understand deeply of what HashAge provides, then make their decision. But the deal between HashAge and user is out of Crypto More's control, even the user subscribe HashAge through this link.
       </div>
     </div>
@@ -342,4 +345,19 @@ const faqTitle = ref('Who is HashAge ?')
     margin-left: 16px
     margin-bottom: 24px
 
+.indicator
+  animation: indicator 20s linear 1s infinite
+  -webkit-animation: indicator 20s linear 1s infinite
+
+@-wenkit-keyframes indicator
+  from
+    -webkit-transform: rotate(0deg)
+  to
+    -webkit-transform: rotate(360deg)
+
+@keyframes indicator
+  from
+    -webkit-transform: rotate(0deg)
+  to
+    -webkit-transform: rotate(360deg)
 </style>
