@@ -58,6 +58,7 @@
                 size='1rem'
                 :label='$t("MSG_LETS_TALK")'
                 no-caps
+                @click='onLetsTalkClick'
               />
             </div>
           </div>
@@ -321,6 +322,7 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
+import { useChatWoot } from '@productdevbook/chatwoot/vue'
 
 import aleoWithBg from 'src/assets/AleoWithBg.png'
 import lineraWithBg from 'src/assets/LineraWithBg.png'
@@ -330,6 +332,11 @@ import ironfishWithBg from 'src/assets/IronFishWithBg.png'
 import chiaWithBg from 'src/assets/ChiaWithBg.png'
 
 const faqTitle = ref('What is Mining ?')
+
+const chatwoot = useChatWoot()
+const onLetsTalkClick = () => {
+  chatwoot.toggle('open')
+}
 
 </script>
 

@@ -18,6 +18,7 @@
             :class='["btn btn-medium", servicePlan === ServicePlan.Free ? "btn-main" : "btn-alt"]'
             :label='$t("MSG_GET_STARTED")'
             no-caps
+            @click='onGetStartedClick'
           />
         </div>
         <div class='row info'>
@@ -81,6 +82,7 @@
             :class='["btn btn-medium", servicePlan === ServicePlan.Growth ? "btn-main" : "btn-alt"]'
             :label='$t("MSG_GET_STARTED")'
             no-caps
+            @click='onGetStartedClick'
           />
         </div>
         <div class='row info'>
@@ -144,6 +146,7 @@
             :class='["btn btn-medium", servicePlan === ServicePlan.Enterprise ? "btn-main" : "btn-alt"]'
             :label='$t("MSG_GET_STARTED")'
             no-caps
+            @click='onGetStartedClick'
           />
         </div>
         <div class='row info'>
@@ -657,6 +660,8 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
+import { useChatWoot } from '@productdevbook/chatwoot/vue'
+
 enum ServicePlan {
   Free = 'Free',
   Growth = 'Growth',
@@ -678,6 +683,11 @@ import ironfish from 'src/assets/IronfishRectBg.png'
 import sui from 'src/assets/SuiRectBg.png'
 
 const faqTitle = ref('What is Application System ?')
+
+const chatwoot = useChatWoot()
+const onGetStartedClick = () => {
+  chatwoot.toggle('open')
+}
 
 </script>
 

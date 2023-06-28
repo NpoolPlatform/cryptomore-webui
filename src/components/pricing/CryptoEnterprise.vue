@@ -49,6 +49,7 @@
                 size='1rem'
                 :label='$t("MSG_LETS_TALK")'
                 no-caps
+                @click='onLetsTalkClick'
               />
             </div>
           </div>
@@ -114,10 +115,16 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
+import { useChatWoot } from '@productdevbook/chatwoot/vue'
 
 import workflowBg from 'src/assets/WorkflowBg.png'
 
 const faqTitle = ref('When will you need enterprise plan ?')
+
+const chatwoot = useChatWoot()
+const onLetsTalkClick = () => {
+  chatwoot.toggle('open')
+}
 
 </script>
 

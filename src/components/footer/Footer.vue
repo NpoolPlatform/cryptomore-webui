@@ -153,6 +153,7 @@
 <script setup lang='ts'>
 import { defineAsyncComponent } from 'vue'
 import { useRouter } from 'vue-router'
+import { useChatWoot } from '@productdevbook/chatwoot/vue'
 
 import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 import github from 'src/assets/Github.svg'
@@ -175,8 +176,9 @@ const onFreeTrialClick = () => {
   void router.push({ path: '/pricing' })
 }
 
+const chatwoot = useChatWoot()
 const onContactUsClick = () => {
-  window.open('mailto:support@cryptomore.io')
+  chatwoot.toggle('open')
 }
 
 </script>

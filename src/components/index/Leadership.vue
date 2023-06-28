@@ -81,6 +81,7 @@
 
 <script setup lang='ts'>
 import { useRouter } from 'vue-router'
+import { useChatWoot } from '@productdevbook/chatwoot/vue'
 
 import banner from 'src/assets/LeadershipBanner.png'
 import requirement from 'src/assets/Requirement.svg'
@@ -93,8 +94,9 @@ import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 
 const router = useRouter()
 
+const chatwoot = useChatWoot()
 const onBusinessContactClick = () => {
-  window.open('mailto:support@cryptomore.io')
+  chatwoot.toggle('open')
 }
 
 const onViewMoreClick = () => {
