@@ -70,7 +70,7 @@
         <div class='title'>
           Coming First Batch Mining
         </div>
-        <div class='project cursor-pointer'>
+        <div class='project cursor-pointer' @click='router.push({ path: "/aleo" })'>
           <q-img :src='aleoWithBg' />
           <div class='text'>
             <div class='row'>
@@ -102,7 +102,7 @@
             </div>
           </div>
         </div>
-        <div class='project cursor-pointer'>
+        <div class='project cursor-pointer' @click='router.push({ path: "/linera" })'>
           <q-img :src='lineraWithBg' />
           <div class='text'>
             <div class='row'>
@@ -124,7 +124,7 @@
           Ready to Deploy Mining/Staking Infrastructure
         </div>
         <div class='row'>
-          <div class='project cursor-pointer'>
+          <div class='project cursor-pointer' @click='router.push({ path: "/aptos" })'>
             <q-img :src='aptosWithBg' />
             <div class='text'>
               <div class='row'>
@@ -156,13 +156,13 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='#'>Check our APTOS Validator</a>
+                  <a :style='{fontSize: "14px"}' href='#/nodes'>Check our APTOS Validator</a>
                 </div>
               </div>
             </div>
           </div>
           <q-space />
-          <div class='project cursor-pointer'>
+          <div class='project cursor-pointer' @click='router.push({ path: "/filecoin" })'>
             <q-img :src='filecoinWithBg' />
             <div class='text'>
               <div class='row'>
@@ -185,10 +185,10 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='#'>Check our Filecoin Storage Provider Nodes</a>
+                  <a :style='{fontSize: "14px"}' href='#/nodes'>Check our Filecoin Storage Provider Nodes</a>
                 </div>
               </div>
-              <div class='row'>
+              <div v-if='false' class='row'>
                 <div class='color-main-transparent-60'>
                   <a :style='{fontSize: "14px"}' href='#'>Check our Filecoin Storage Provider Contracts</a>
                 </div>
@@ -196,7 +196,7 @@
             </div>
           </div>
           <q-space />
-          <div class='project cursor-pointer'>
+          <div class='project cursor-pointer' @click='router.push({ path: "/ironfish" })'>
             <q-img :src='ironfishWithBg' />
             <div class='text'>
               <div class='row'>
@@ -228,7 +228,7 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='#'>Contact Crypto More for IronFish Business</a>
+                  <a :style='{fontSize: "14px"}' href='javascript:void(0)' @click='onLetsTalkClick'>Contact Crypto More for IronFish Business</a>
                 </div>
               </div>
             </div>
@@ -248,7 +248,7 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='#'>Contact Crypto More for Chia Business</a>
+                  <a :style='{fontSize: "14px"}' href='javascript:void(0)' @click='onLetsTalkClick'>Contact Crypto More for Chia Business</a>
                 </div>
               </div>
             </div>
@@ -323,6 +323,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import { useChatWoot } from '@productdevbook/chatwoot/vue'
+import { useRouter } from 'vue-router'
 
 import aleoWithBg from 'src/assets/AleoWithBg.png'
 import lineraWithBg from 'src/assets/LineraWithBg.png'
@@ -332,6 +333,7 @@ import ironfishWithBg from 'src/assets/IronFishWithBg.png'
 import chiaWithBg from 'src/assets/ChiaWithBg.png'
 
 const faqTitle = ref('What is Mining ?')
+const router = useRouter()
 
 const chatwoot = useChatWoot()
 const onLetsTalkClick = () => {

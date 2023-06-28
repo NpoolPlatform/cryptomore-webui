@@ -9,8 +9,9 @@
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent, ref } from 'vue'
+import { defineAsyncComponent, ref, watch } from 'vue'
 import { constants } from 'src/const'
+import { useSettingStore } from 'src/mystore/setting'
 
 const HeadBackground = defineAsyncComponent(() => import('src/components/common/HeadBackground.vue'))
 const Switcher = defineAsyncComponent(() => import('src/components/pricing/Switcher.vue'))
@@ -18,6 +19,11 @@ const CryptoPlusService = defineAsyncComponent(() => import('src/components/pric
 const CryptoEnterprise = defineAsyncComponent(() => import('src/components/pricing/CryptoEnterprise.vue'))
 const MiningStaking = defineAsyncComponent(() => import('src/components/pricing/MiningStaking.vue'))
 
-const serviceType = ref(constants.ServiceType.CryptoEnterprise)
+const setting = useSettingStore()
+const serviceType = ref(setting.PricingMenu)
+
+watch(serviceType, () => {
+  setting.PricingMenu = serviceType.value
+})
 
 </script>

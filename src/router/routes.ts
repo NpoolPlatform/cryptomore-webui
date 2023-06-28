@@ -209,6 +209,17 @@ const routes: RouteRecordRaw[] = [
           ShowHeader: false,
           ShowFooter: false
         }
+      },
+      {
+        path: 'nodes',
+        component: () => import('pages/Nodes.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false,
+          ShowHeader: false,
+          ShowFooter: false
+        }
       }
     ]
   },
