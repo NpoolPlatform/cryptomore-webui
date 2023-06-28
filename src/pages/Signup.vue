@@ -77,7 +77,7 @@
     </div>
     <div
       class='text-center horizontal-center color-main-transparent-60'
-      v-html='$t("MSG_ALREADY_HAVE_ACCOUNT", { SIGNIN_URI: "#/signin" })'
+      v-html='$t("MSG_ALREADY_HAVE_ACCOUNT", { SIGNIN_URI: "signin" })'
       :style='{fontSize: "16px", fontWeight: 500, lineHeight: "26px", marginTop: "12px"}'
     />
   </div>

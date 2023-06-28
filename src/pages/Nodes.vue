@@ -42,7 +42,7 @@
       </td>
     </tr>
   </table>
-  <div :style='{fontSize: "54px", fontWeight: 600, marginTop: "120px"}' class='text-primary content-width horizontal-center'>
+  <div id='aptos-nodes' :style='{fontSize: "54px", fontWeight: 600, marginTop: "120px"}' class='text-primary content-width horizontal-center'>
     <span :style='{color: "#000000"}'>Aptos</span>
     <span> Validator</span>
   </div>

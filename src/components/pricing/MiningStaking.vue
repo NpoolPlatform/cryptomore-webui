@@ -156,7 +156,7 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='#/nodes'>Check our APTOS Validator</a>
+                  <a :style='{fontSize: "14px"}' href='nodes'>Check our APTOS Validator</a>
                 </div>
               </div>
             </div>
@@ -185,7 +185,7 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='#/nodes'>Check our Filecoin Storage Provider Nodes</a>
+                  <a :style='{fontSize: "14px"}' href='nodes'>Check our Filecoin Storage Provider Nodes</a>
                 </div>
               </div>
               <div v-if='false' class='row'>

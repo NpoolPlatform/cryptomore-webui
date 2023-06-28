@@ -58,7 +58,7 @@
     </div>
     <div
       class='text-center horizontal-center color-main-transparent-60'
-      v-html='$t("MSG_NOT_A_MEMBER", { SIGNUP_URI: "#/signup" })'
+      v-html='$t("MSG_NOT_A_MEMBER", { SIGNUP_URI: "signup" })'
       :style='{fontSize: "16px", fontWeight: 500, lineHeight: "26px", marginTop: "12px"}'
     />
   </div>
