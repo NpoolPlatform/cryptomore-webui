@@ -43,6 +43,8 @@
             :style='{marginTop: "36px", width: "100%", height: "48px", background: "#1D1E20", borderRadius: "8px"}'
             color='#EDEEF0'
             :label='$t("MSG_JOIN_THE_WAITLIST")'
+            @click='onJoinTheWaitlistClick'
+            :disable='!validateEmail(emailAddress)'
           />
         </div>
       </div>
@@ -254,9 +256,40 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
+import { subscriber, notification } from 'src/mystore'
+import { useI18n } from 'vue-i18n'
+import { HashAgeAppID } from 'src/const/const'
+import { validateEmail } from 'src/utils/validator'
+
+// eslint-disable-next-line @typescript-eslint/unbound-method
+const { t } = useI18n({ useScope: 'global' })
 
 const emailAddress = ref('')
+const _subscriber = subscriber.useSubscriberStore()
 const faqTitle = ref('Who is HashAge ?')
+
+const onJoinTheWaitlistClick = () => {
+  _subscriber.createSubscriber({
+    EmailAddress: emailAddress.value,
+    SubscribeAppID: HashAgeAppID,
+    Message: {
+      Error: {
+        Title: t('MSG_SUBSCRIBE'),
+        Message: t('MSG_SUBSCRIBE_FAIL'),
+        Popup: true,
+        Type: notification.NotifyType.Error
+      },
+      Info: {
+        Title: t('MSG_SUBSCRIBE'),
+        Message: t('MSG_SUBSCRIBE_SUCCESS'),
+        Popup: true,
+        Type: notification.NotifyType.Success
+      }
+    }
+  }, () => {
+    // TODO
+  })
+}
 
 </script>
 

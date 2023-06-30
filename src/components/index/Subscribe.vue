@@ -29,19 +29,16 @@
 import { ref } from 'vue'
 import { validator } from 'src/utils'
 import { subscriber, notification } from 'src/mystore'
-import { AppID } from 'src/const/const'
 import { useI18n } from 'vue-i18n'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
 
 const emailAddress = ref('')
-
 const _subscriber = subscriber.useSubscriberStore()
 
 const onSubscribeClick = () => {
   _subscriber.createSubscriber({
-    AppID: AppID,
     EmailAddress: emailAddress.value,
     Message: {
       Error: {
