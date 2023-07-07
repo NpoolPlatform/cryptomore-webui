@@ -58,7 +58,7 @@
           Mainnet:
         </div>
         <div class='col-2' :style='{color: "#A962FF"}'>
-          22020-03-16
+          2020-03-16
         </div>
       </div>
     </div>
@@ -168,7 +168,7 @@
           <div
             :style='{fontSize: "14px", fontWeight: 400, lineHeight: "24px", marginTop: "12px", color: "rgba(10, 11, 26, 0.8)"}'
           >
-            <p>Greg is the principal architect of Solana. Formerly of Qualcomm’s Office of the Chief Scientist, Greg has explored the full landscape of embedded systems. He created a bidirectional RPC bridge between C and Lua for the BREW operating system, helped launch the ARM backend for the LLVM compiler toolchain, and published a variety of open-source projects including a streaming LLVM optimizer in Haskell, license analysis tooling in Python, and a reactive web framework in TypeScript.</p>
+            <p>Greg is the principal architect of Solana. Formerly of Qualcomm's Office of the Chief Scientist, Greg has explored the full landscape of embedded systems. He created a bidirectional RPC bridge between C and Lua for the BREW operating system, helped launch the ARM backend for the LLVM compiler toolchain, and published a variety of open-source projects including a streaming LLVM optimizer in Haskell, license analysis tooling in Python, and a reactive web framework in TypeScript.</p>
           </div>
         </div>
       </div>
@@ -187,7 +187,7 @@
             </div>
           </div>
           <div class='text'>
-            <p>Solana is a performant, permissionless blockchain boasting fast transactions and low fees. The team that’s building Solana is very strong and the ecosystem has attracted dedicated investors: Jump, Multicoin, etc. Solana has also drawn in a community of passionate users, builders, and validators, establishing itself as one of the most popular blockchains in 2022.</p>
+            <p>Solana is a performant, permissionless blockchain boasting fast transactions and low fees. The team that's building Solana is very strong and the ecosystem has attracted dedicated investors: Jump, Multicoin, etc. Solana has also drawn in a community of passionate users, builders, and validators, establishing itself as one of the most popular blockchains in 2022.</p>
             <p>We have Bitcoin and Ethereum, but when comes to Transactions Per Second, abbreviated as TPS, both Bitcoin and Ethereum are quite low (less than 30). In the real world, we need to process transactions much faster in the transaction system of a bank, or stake exchange. Solana is built for that. It posts a new consensus method named Proof of History, PoH, in which a system clock is used to automate the transaction ordering process for blockchains. Today, more than 1740 validators with high-performance machines help Solana to be one of the fastest blockchains in the world.</p>
           </div>
         </div>

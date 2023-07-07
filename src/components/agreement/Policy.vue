@@ -7,7 +7,7 @@
     </div>
     <div class='right text-primary'>
       <q-scroll-observer @scroll='onScroll' />
-      <p>Crypto More Ltd. ("Crypto More," "we," "us," or "our") we are a one-stop blockchain infrastructure and services provider. This Privacy Notice is designed to help you understand how we collect, use, process, and share your personal information, and to help you understand and exercise your privacy rights.</p>
+      <p>Crypto More Ltd. ("Crypto More", "we", "us", or "our") we are a one-stop blockchain infrastructure and services provider. This Privacy Notice is designed to help you understand how we collect, use, process, and share your personal information, and to help you understand and exercise your privacy rights.</p>
       <h4 class='text-primary title title-1' id='About this privacy notice'>
         1. ABOUT THIS PRIVACY NOTICE
       </h4>
