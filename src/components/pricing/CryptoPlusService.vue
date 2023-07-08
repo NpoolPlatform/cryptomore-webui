@@ -595,7 +595,7 @@
               </div>
               <q-slide-transition>
                 <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "What is User System ?"'>
-                  Crypto More's crypto+ infrastructure is a multi-tenancy system. It supports multiple applications with one backend system. Application system let user to create their application with a base capacity of Crypto More.
+                  When we create an application, normally we want to let user access our application with some account and password. User system is used to manage users who access to our application.
                 </div>
               </q-slide-transition>
             </div>
