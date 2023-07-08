@@ -96,6 +96,7 @@
               size='1rem'
               no-caps
               label='View More'
+              @click='onViewMoreClick'
             />
           </div>
         </div>
@@ -226,6 +227,10 @@ const fetchCurrencies = (offset: number, limit: number) => {
 onMounted(() => {
   fetchCurrencies(0, 100)
 })
+
+const onViewMoreClick = () => {
+  window.open('https://coinmarketcap.com/currencies/ethereum/')
+}
 
 </script>
 

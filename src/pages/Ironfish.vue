@@ -210,6 +210,7 @@
               size='1rem'
               no-caps
               label='View More'
+              @click='onViewMoreClick'
             />
           </div>
         </div>
@@ -362,6 +363,10 @@ import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 const Header = defineAsyncComponent(() => import('src/components/product/Header.vue'))
 const HeadBackground = defineAsyncComponent(() => import('src/components/common/HeadBackground.vue'))
 const LabelIcon = defineAsyncComponent(() => import('src/components/product/LabelIcon.vue'))
+
+const onViewMoreClick = () => {
+  window.open('https://coinmarketcap.com/currencies/iron-fish/')
+}
 
 </script>
 
