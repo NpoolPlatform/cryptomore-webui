@@ -156,7 +156,7 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60' @click.stop=''>
-                  <a :style='{fontSize: "14px", borderBottom: "solid 1px blue", color: "blue"}' target='_blank' @click='onCheckNodesClick'>Check our APTOS Validator</a>
+                  <a :style='{fontSize: "14px", borderBottom: "solid 1px blue", color: "blue"}' target='_blank' @click='onCheckNodesClick("#aptos-nodes")'>Check our APTOS Validator</a>
                 </div>
               </div>
             </div>
@@ -185,7 +185,7 @@
               </div>
               <div class='row'>
                 <div class='color-main-transparent-60' @click.stop=''>
-                  <a :style='{fontSize: "14px", borderBottom: "solid 1px blue", color: "blue"}' target='_blank' @click='onCheckNodesClick'>Check our Filecoin Storage Provider Nodes</a>
+                  <a :style='{fontSize: "14px", borderBottom: "solid 1px blue", color: "blue"}' target='_blank' @click='onCheckNodesClick("#filecoin-storage-providers")'>Check our Filecoin Storage Provider Nodes</a>
                 </div>
               </div>
               <div v-if='false' class='row'>
@@ -341,8 +341,8 @@ const onLetsTalkClick = () => {
   return true
 }
 
-const onCheckNodesClick = () => {
-  void router.push({ path: '/nodes' })
+const onCheckNodesClick = (hash: string) => {
+  void router.push({ path: '/nodes', hash: hash })
   return true
 }
 

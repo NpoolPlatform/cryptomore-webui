@@ -39,16 +39,16 @@
         <div class='menu text-primary'>
           <span class='title'>{{ $t('MSG_SERVICES') }}</span>
           <div class='menu-list color-main-transparent-60'>
-            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing")'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing", ServiceType.CryptoPlusService)'>
               {{ $t('MSG_CRYPTO_PLUS_SERVICE') }}
             </div>
-            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing")'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing", ServiceType.CryptoEnterprise)'>
               {{ $t('MSG_CRYPTO_ENTERPRISE') }}
             </div>
-            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing")'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing", ServiceType.MiningStaking)'>
               {{ $t('MSG_MINING_STAKING') }}
             </div>
-            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing")'>
+            <div class='menu-list-item cursor-pointer' @click='onMenuClick("/pricing", ServiceType.CryptoEnterprise)'>
               {{ $t('MSG_PRICING') }}
             </div>
           </div>
@@ -160,11 +160,18 @@ import github from 'src/assets/Github.svg'
 import twitter from 'src/assets/Twitter.svg'
 import discord from 'src/assets/Discord.svg'
 import medium from 'src/assets/Medium.svg'
+import { useSettingStore } from 'src/mystore/setting'
+import { ServiceType } from 'src/const/const'
 
 const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))
 
+const setting = useSettingStore()
+
 const router = useRouter()
-const onMenuClick = (target: string) => {
+const onMenuClick = (target: string, serviceType?: ServiceType) => {
+  if (serviceType) {
+    setting.PricingMenu = serviceType
+  }
   void router.push({ path: target })
 }
 

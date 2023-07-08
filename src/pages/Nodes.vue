@@ -1,6 +1,6 @@
 <template>
   <HeadBackground />
-  <div :style='{fontSize: "54px", fontWeight: 600, marginTop: "120px"}' class='text-primary content-width horizontal-center'>
+  <div id='filecoin-storage-providers' :style='{fontSize: "54px", fontWeight: 600, marginTop: "120px"}' class='text-primary content-width horizontal-center'>
     <span :style='{color: "#0190FF"}'>Filecoin</span>
     <span> Storage Provider</span>
   </div>
@@ -13,7 +13,7 @@
       <td>{{ bytesReadable(totalFilecoinPower.toFixed(0)) }}</td>
       <td>{{ totalFilecoinReward.toFixed(2) }} FIL</td>
       <td />
-      <td />
+      <td>{{ totalFilecoinColleteral.toFixed(2) }} FIL</td>
     </tr>
     <tr class='table-head'>
       <th>Miner</th>
@@ -178,6 +178,7 @@ const filecoinMiners = ref([
 
 const totalFilecoinPower = ref(0)
 const totalFilecoinReward = ref(0)
+const totalFilecoinColleteral = ref(0)
 
 interface AptosValidator {
   name: string,
@@ -213,6 +214,9 @@ const fetchFilecoinMiner = (index: number) => {
   }
   filecoin.getMiner(filecoinMiners.value[index].miner, (error: boolean, _miner?: node.filecoin.MinerStat) => {
     if (error) {
+      setTimeout(() => {
+        fetchFilecoinMiner(index)
+      }, 60000)
       return
     }
     if (!_miner) {
@@ -224,6 +228,7 @@ const fetchFilecoinMiner = (index: number) => {
     filecoinMiners.value[index].yearLucky = (Number(_miner.lucky) * 100).toFixed(2) + '%'
     totalFilecoinPower.value += Number(_miner.qualityAdjustPower)
     totalFilecoinReward.value += Number(_miner.rewards)
+    totalFilecoinColleteral.value += Number(_miner.initPledge)
     fetchFilecoinMiner(index + 1)
   })
 }
