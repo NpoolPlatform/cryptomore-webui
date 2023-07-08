@@ -13,5 +13,6 @@ export enum Menu {
   MenuWeb3Eye = 'MenuWeb3Eye',
   MenuProcyon = 'MenuProcyon',
   MenuLPSecretBase = 'MenuLPSecretBase',
-  MenuHashage = 'MenuHashage'
+  MenuHashage = 'MenuHashage',
+  MenuResPeer = 'MenuResPeer'
 }

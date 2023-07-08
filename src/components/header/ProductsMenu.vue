@@ -89,6 +89,7 @@
                 clickable
                 :class='["cursor-pointer menu-item not-first", secondLevelMenu === menu.Menu.MenuLPSecretBase ? "highlight-transparent-10" : ""]'
                 @click='onSecondLevelMenuClick(menu.Menu.MenuLPSecretBase)'
+                v-if='false'
               >
                 <div class='row'>
                   <q-img :src='lbSecretBaseIcon' width='28px' height='28px' />
@@ -119,6 +120,26 @@
                       </div>
                       <div class='subtitle color-main-transparent-60'>
                         {{ $t('MSG_HASHAGE_ONE_WORD') }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </q-item>
+              <q-item
+                dense
+                clickable
+                :class='["cursor-pointer menu-item not-first", secondLevelMenu === menu.Menu.MenuResPeer ? "highlight-transparent-10" : ""]'
+                @click='onSecondLevelMenuClick(menu.Menu.MenuResPeer)'
+              >
+                <div class='row'>
+                  <q-img :src='web3eyeIcon' width='28px' height='28px' />
+                  <div class='row'>
+                    <div class='level-2'>
+                      <div class='title text-primary'>
+                        {{ $t('MSG_RES_PEER') }}
+                      </div>
+                      <div class='subtitle color-main-transparent-60'>
+                        {{ $t('MSG_RES_PEER_ONE_WORD') }}
                       </div>
                     </div>
                   </div>
@@ -176,6 +197,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { menu } from '../../menu'
+import { useSettingStore } from 'src/mystore/setting'
 
 import cryptoPlusServiceIcon from 'src/assets/CryptoPlusServiceIcon.svg'
 import cryptoEnterproseIcon from 'src/assets/CryptoEnterprise.svg'
@@ -185,12 +207,23 @@ import web3eyeIcon from 'src/assets/Web3EyeIcon.svg'
 import procyonIcon from 'src/assets/ProcyonIcon.svg'
 import hashageIcon from 'src/assets/HashAgeIcon.svg'
 import rightArrow from 'src/assets/RightArrow.svg'
+import { ServiceType } from 'src/const/const'
 
+const setting = useSettingStore()
 const lbSecretBaseIcon = ref(procyonIcon)
 
 const firstLevelMenu = ref(menu.Menu.MenuCryptoPlusService)
-const onFirstLevelMenuClick = (menu: menu.Menu) => {
-  firstLevelMenu.value = menu
+const onFirstLevelMenuClick = (_menu: menu.Menu) => {
+  firstLevelMenu.value = _menu
+  switch (_menu) {
+    case menu.Menu.MenuCryptoEnterprise:
+      setting.PricingMenu = ServiceType.CryptoEnterprise
+      break
+    case menu.Menu.MenuMiningStaking:
+      setting.PricingMenu = ServiceType.MiningStaking
+      break
+  }
+  void router.push({ path: '/pricing' })
 }
 
 const secondLevelMenu = ref(menu.Menu.MenuFilPeggy)
@@ -213,6 +246,9 @@ const onSecondLevelMenuClick = (_menu: menu.Menu) => {
       break
     case menu.Menu.MenuHashage:
       void router.push({ path: '/hashage' })
+      break
+    case menu.Menu.MenuResPeer:
+      window.open('https://github.com/web3eye-io/res-peer.git')
       break
   }
 }
@@ -243,4 +279,7 @@ const onSecondLevelMenuClick = (_menu: menu.Menu) => {
     max-width: 324px
     margin-left: 16px
     margin-right: 16px
+
+.submenu
+  max-height: 100% !important
 </style>

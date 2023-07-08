@@ -102,6 +102,8 @@ export default {
   MSG_LP_SECRET_BASE_ONE_WORD: 'Hashrate shop application dedicated to Osaka, Japan market  with a variety types of First Batch Mining',
   MSG_HASHAGE: 'HashAge',
   MSG_HASHAGE_ONE_WORD: 'Global crypto service with Hashrate shop, Wallet, Borrow and Loan, etc',
+  MSG_RES_PEER: 'ResPeer',
+  MSG_RES_PEER_ONE_WORD: 'Peer-to-Peer content publishing application on Linera',
   MSG_FILECOIN: 'Filecoin',
   MSG_BITCOIN: 'Bitcoin',
   MSG_ETHEREUM: 'Ethereum',

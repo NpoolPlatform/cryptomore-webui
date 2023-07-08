@@ -57,6 +57,9 @@
         <div class='menu text-primary'>
           <span class='title'>{{ $t('MSG_APPLICATIONS') }}</span>
           <div class='menu-list color-main-transparent-60'>
+            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/hashage" })'>
+              {{ $t('MSG_HASHAGE') }}
+            </div>
             <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://github.com/NpoolFilecoin/fil-peggy")'>
               {{ $t('MSG_FIL_PEGGY') }}
             </div>
@@ -68,6 +71,9 @@
             </div>
             <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://lpsecretbase.com")'>
               {{ $t('MSG_LP_SECRET_BASE') }}
+            </div>
+            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://github.com/web3eye-io/res-peer")'>
+              {{ $t('MSG_RES_PEER') }}
             </div>
           </div>
         </div>
