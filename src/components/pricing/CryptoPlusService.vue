@@ -324,19 +324,7 @@
               Free
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
-            </div>
-            <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
-            </div>
-            <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='24px' />
-            </div>
-            <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='24px' />
-            </div>
-            <div class='icon'>
-              <q-icon name='cancel' color='negative' size='23px' />
             </div>
             <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
@@ -348,7 +336,16 @@
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='cancel' color='negative' size='23px' />
+              <q-icon name='cancel' color='negative' size='24px' />
+            </div>
+            <div class='icon'>
+              <q-icon name='check_circle' color='secondary' size='24px' />
+            </div>
+            <div class='icon'>
+              <q-icon name='check_circle' color='secondary' size='24px' />
+            </div>
+            <div class='icon'>
+              <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
               <q-icon name='cancel' color='negative' size='24px' />
@@ -357,7 +354,10 @@
               <q-icon name='cancel' color='negative' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='cancel' color='negative' size='23px' />
+              <q-icon name='cancel' color='negative' size='24px' />
+            </div>
+            <div class='icon'>
+              <q-icon name='cancel' color='negative' size='24px' />
             </div>
             <div class='label color-main-transparent-80'>
               10
@@ -372,7 +372,7 @@
               99%
             </div>
             <div class='icon'>
-              <q-icon name='cancel' color='negative' size='23px' />
+              <q-icon name='cancel' color='negative' size='24px' />
             </div>
             <div class='icon'>
               <q-icon name='cancel' color='negative' size='24px' />
@@ -387,7 +387,7 @@
               Single
             </div>
             <div class='icon'>
-              <q-icon name='cancel' color='negative' size='23px' />
+              <q-icon name='cancel' color='negative' size='24px' />
             </div>
             <div class='label color-main-transparent-80'>
               3
@@ -407,7 +407,13 @@
               Growth
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
+              <q-icon name='check_circle' color='secondary' size='24px' />
+            </div>
+            <div class='icon'>
+              <q-icon name='check_circle' color='secondary' size='24px' />
+            </div>
+            <div class='icon'>
+              <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
@@ -419,9 +425,6 @@
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
-            </div>
-            <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
@@ -431,16 +434,13 @@
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
-            </div>
-            <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
+              <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='label color-main-transparent-80'>
               300
@@ -455,7 +455,7 @@
               99.9%
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
+              <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
@@ -470,7 +470,7 @@
               Specified
             </div>
             <div class='icon'>
-              <q-icon name='cancel' color='negative' size='23px' />
+              <q-icon name='cancel' color='negative' size='24px' />
             </div>
             <div class='label color-main-transparent-80'>
               20
@@ -490,7 +490,13 @@
               Enterprise
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
+              <q-icon name='check_circle' color='secondary' size='24px' />
+            </div>
+            <div class='icon'>
+              <q-icon name='check_circle' color='secondary' size='24px' />
+            </div>
+            <div class='icon'>
+              <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
@@ -502,9 +508,6 @@
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
-            </div>
-            <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
@@ -514,16 +517,13 @@
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
-            </div>
-            <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
+              <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='label color-main-transparent-80'>
               10000
@@ -538,7 +538,7 @@
               99.9%
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
+              <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='icon'>
               <q-icon name='check_circle' color='secondary' size='24px' />
@@ -553,7 +553,7 @@
               All
             </div>
             <div class='icon'>
-              <q-icon name='check_circle' color='secondary' size='23px' />
+              <q-icon name='check_circle' color='secondary' size='24px' />
             </div>
             <div class='label color-main-transparent-80'>
               100
@@ -801,8 +801,8 @@ const onGetStartedClick = () => {
     margin-bottom: 24px
   .label
     font-size: 16px
-    font-weight: 500
-    line-height: 26px
+    font-weight: 600
+    line-height: 28px
     padding: 16px 0
     border-bottom: 1px solid rgba(86, 240, 159, 0.6)
     overflow: hidden
@@ -818,13 +818,12 @@ const onGetStartedClick = () => {
   .label
     font-size: 16px
     font-weight: 600
-    line-height: 24px
-    padding: 17px 0
-    border-bottom: 1px solid rgba(86, 240, 159, 0.6)
-  .icon
-    line-height: 24px
+    line-height: 28px
     padding: 16px 0
-    border-bottom: 1px solid rgba(86, 240, 159, 0.6)
+    border-bottom: 1px solid rgba(86, 240, 159)
+  .icon
+    padding: 16px 0
+    border-bottom: 1px solid rgba(86, 240, 159)
   .center
     background: linear-gradient(180deg, rgba(86, 240, 159, 0.4) 0%, rgba(86, 240, 159, 0) 100%)
     border-radius: 8px
