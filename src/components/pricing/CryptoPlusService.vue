@@ -809,11 +809,11 @@ const onGetStartedClick = () => {
     white-space: nowrap
 
 .plan
-  font-size: 18px
   font-weight: 600
   line-height: 28px
   width: 20%
   .title
+    font-size: 18px
     margin-bottom: 24px
   .label
     font-size: 16px
