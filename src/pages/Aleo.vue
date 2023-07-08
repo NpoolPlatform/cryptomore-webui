@@ -126,6 +126,7 @@
           :label='$t("MSG_DOWNLOAD_OPTIMIZED_EXECUTION")'
           no-caps
           :icon-right='"img:" + arrowUpRight'
+          disable
         />
       </div>
     </div>
