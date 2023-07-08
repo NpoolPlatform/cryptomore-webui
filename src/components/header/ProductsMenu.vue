@@ -222,6 +222,8 @@ const onFirstLevelMenuClick = (_menu: menu.Menu) => {
     case menu.Menu.MenuMiningStaking:
       setting.PricingMenu = ServiceType.MiningStaking
       break
+    default:
+      return
   }
   void router.push({ path: '/pricing' })
 }
