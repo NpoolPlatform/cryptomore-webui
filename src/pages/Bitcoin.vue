@@ -183,6 +183,7 @@
       :label='$t("MSG_CONTACT_CRYPTO_MORE_FILECOIN")'
       no-caps
       :icon-right='"img:" + arrowUpRight'
+      @click='onLetsTalkClick'
     />
   </div>
   <div class='section team' :style='{background: "rgba(212, 255, 232, 0.4)"}'>
@@ -378,6 +379,7 @@
 import { defineAsyncComponent, computed, onMounted } from 'vue'
 import { chain, notification } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
+import { useChatWoot } from '@productdevbook/chatwoot/vue'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
@@ -425,6 +427,12 @@ onMounted(() => {
 
 const onViewMoreClick = () => {
   window.open('https://coinmarketcap.com/currencies/bitcoin/')
+}
+
+const chatwoot = useChatWoot()
+const onLetsTalkClick = () => {
+  chatwoot.toggle('open')
+  return true
 }
 
 </script>
