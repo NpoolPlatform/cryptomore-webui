@@ -335,19 +335,19 @@
           </div>
           <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
-            <a href='https://filecoin.io/build/#community'>Blog</a>
+            <a href='https://filecoin.io/blog'>Blog</a>
           </div>
           <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/SocialMediaDark.svg' />
-            <a href='https://filecoin.io/slack'>Community</a>
+            <a href='https://filecoin.io/build/#community'>Community</a>
           </div>
           <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/SlackDark.svg' />
-            <a href='https://twitter.com/Filecoin'>Slack</a>
+            <a href='https://filecoin.io/slackn'>Slack</a>
           </div>
           <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/TwitterDark.svg' />
-            <a href='#'>Twitter</a>
+            <a href='https://twitter.com/Filecoin'>Twitter</a>
           </div>
           <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/DiscordDark.svg' />
