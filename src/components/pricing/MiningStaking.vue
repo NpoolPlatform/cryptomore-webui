@@ -155,8 +155,8 @@
                 </div>
               </div>
               <div class='row'>
-                <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='nodes'>Check our APTOS Validator</a>
+                <div class='color-main-transparent-60' @click.stop=''>
+                  <a :style='{fontSize: "14px", borderBottom: "solid 1px blue", color: "blue"}' target='_blank' @click='onCheckNodesClick'>Check our APTOS Validator</a>
                 </div>
               </div>
             </div>
@@ -184,8 +184,8 @@
                 </div>
               </div>
               <div class='row'>
-                <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' href='nodes'>Check our Filecoin Storage Provider Nodes</a>
+                <div class='color-main-transparent-60' @click.stop=''>
+                  <a :style='{fontSize: "14px", borderBottom: "solid 1px blue", color: "blue"}' target='_blank' @click='onCheckNodesClick'>Check our Filecoin Storage Provider Nodes</a>
                 </div>
               </div>
               <div v-if='false' class='row'>
@@ -227,8 +227,8 @@
                 </div>
               </div>
               <div class='row'>
-                <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' target='_blank' @click='onLetsTalkClick'>Contact Crypto More for IronFish Business</a>
+                <div class='color-main-transparent-60' @click.stop=''>
+                  <a :style='{fontSize: "14px", borderBottom: "solid 1px blue", color: "blue"}' target='_blank' @click='onLetsTalkClick'>Contact Crypto More for IronFish Business</a>
                 </div>
               </div>
             </div>
@@ -247,8 +247,8 @@
                 </div>
               </div>
               <div class='row'>
-                <div class='color-main-transparent-60'>
-                  <a :style='{fontSize: "14px"}' target='_blank' @click='onLetsTalkClick'>Contact Crypto More for Chia Business</a>
+                <div class='color-main-transparent-60' @click.stop=''>
+                  <a :style='{fontSize: "14px", borderBottom: "solid 1px blue", color: "blue"}' target='_blank' @click='onLetsTalkClick'>Contact Crypto More for Chia Business</a>
                 </div>
               </div>
             </div>
@@ -338,6 +338,12 @@ const router = useRouter()
 const chatwoot = useChatWoot()
 const onLetsTalkClick = () => {
   chatwoot.toggle('open')
+  return true
+}
+
+const onCheckNodesClick = () => {
+  void router.push({ path: '/nodes' })
+  return true
 }
 
 </script>
