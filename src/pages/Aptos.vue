@@ -55,6 +55,7 @@
         :label='$t("MSG_STAKE_APT_TO_CRYPTO_MORE_VALIDATOR")'
         no-caps
         :icon-right='"img:" + arrowUpRight'
+        disable
       />
     </div>
     <div>
