@@ -418,7 +418,7 @@
               Disclaimer
             </div>
             <div class='text'>
-              <p>We organize the above data from Aleo‘s officially published content, and we rewrite some of the content based on our cognition and knowledge. We can confirm all of the above data and the original materials from which we get the data are from reliable media channels. But we also would like to remind our users that we do not give any investment suggestions based on the above data. Investment risk in Aleo project, including mining, staking ,or buying token is out of our control.</p>
+              <p>We organize the above data from Aleo's officially published content, and we rewrite some of the content based on our cognition and knowledge. We can confirm all of the above data and the original materials from which we get the data are from reliable media channels. But we also would like to remind our users that we do not give any investment suggestions based on the above data. Investment risk in Aleo project, including mining, staking, or buying token is out of our control.</p>
             </div>
           </div>
         </div>

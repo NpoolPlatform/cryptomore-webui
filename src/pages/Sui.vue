@@ -145,7 +145,7 @@
           <div
             :style='{fontSize: "14px", fontWeight: 400, lineHeight: "24px", marginTop: "12px", color: "rgba(10, 11, 26, 0.8)"}'
           >
-            <p>Adeniyi is a product leader with experience spanning from financial services to crypto. Adeniyi has led engineering and product teams across Big Tech companies including Oracle, VMware, and Facebook. Prior to founding Mysten Labs, Adeniyi lead many of Meta’s R&D initiatives in blockchain and cryptocurrency, including Diem (aka. Libra) Network and the Move programming language.</p>
+            <p>Adeniyi is a product leader with experience spanning from financial services to crypto. Adeniyi has led engineering and product teams across Big Tech companies including Oracle, VMware, and Facebook. Prior to founding Mysten Labs, Adeniyi lead many of Meta's R&D initiatives in blockchain and cryptocurrency, including Diem (aka. Libra) Network and the Move programming language.</p>
           </div>
         </div>
         <q-space />

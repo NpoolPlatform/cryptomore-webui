@@ -102,7 +102,7 @@
               </div>
               <q-slide-transition>
                 <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "How will the enterprise plan be deployed ?"'>
-                  Basically, the cloud infrastructure is constructed based on Kubernetes. It integrates the offline ability to manage low-level assets from different data centers located in different countries and cities. Communication between data centers and cloud services is built in a secure and certified method to ensure channel security. We will deploy the whole cloud infrastructure / low-level assets management solution in the enterprise plan to the customer’s network.
+                  Basically, the cloud infrastructure is constructed based on Kubernetes. It integrates the offline ability to manage low-level assets from different data centers located in different countries and cities. Communication between data centers and cloud services is built in a secure and certified method to ensure channel security. We will deploy the whole cloud infrastructure / low-level assets management solution in the enterprise plan to the customer's network.
                 </div>
               </q-slide-transition>
             </div>
