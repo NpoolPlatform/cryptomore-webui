@@ -121,7 +121,7 @@ export default {
   MSG_MOBILE: 'Mobile',
   MSG_EMAIL: 'Email',
   MSG_READ_AGREEMENT: 'By continuing, I understand and agree to Crypto More\'s <a target="_blank" href="{PRIVACY_URI}">Privacy Notice</a> and <a target="_blank" href="{TERMS_URI}">Terms of Use</a> for creating a Crypto More account',
-  MSG_AGREEMENT_TO_TERMS: 'Agreement to Terms',
+  MSG_AGREEMENT_TO_TERMS: 'Terms of use for Crypto More\'s Website',
   MSG_LAST_UPDATED: 'Last updated: {DATE}',
   MSG_PRIVACY_NOTICE: 'Privacy Notice',
   MSG_SEND_CODE: 'SEND CODE',
