@@ -184,5 +184,7 @@ export default {
   MSG_WAITLIST_SUBSCRIBE_CAPTION: 'Provide your Email address for early access and a chance to get early bird bonus',
   MSG_JOIN_THE_WAITLIST: 'Join the Waitlist',
   MSG_BIND_EMAIL_ADDRESS: 'Bind Email',
-  MSG_COMING_SOON: 'Coming Soon'
+  MSG_COMING_SOON: 'Coming Soon',
+  MSG_GET_GOOGLE_TOKEN: 'Get google token',
+  MSG_GET_GOOGLE_TOKEN_FAIL: 'Failed to get google token'
 }

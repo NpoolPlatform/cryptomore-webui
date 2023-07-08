@@ -52,7 +52,7 @@
       <Agreement />
     </div>
     <div class='text-center' :style='{marginTop: "24px"}'>
-      <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}' @click='onSignupClick'>
+      <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}' @click='onSigninClick'>
         {{ $t('MSG_SIGNIN') }}
       </q-btn>
     </div>
@@ -71,6 +71,10 @@ import { useI18n } from 'vue-i18n'
 import { validator, entropy } from 'src/utils'
 import { useRouter } from 'vue-router'
 import { QInput } from 'quasar'
+import { useReCaptcha } from 'vue-recaptcha-v3'
+import { useRecaptchaStore } from 'src/mystore/recaptcha'
+import { constants } from 'src/const'
+import { NotifyType } from 'src/mystore/notification'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
@@ -135,30 +139,45 @@ const onPasswordInputFocus = () => {
 
 const _user = user.useUserStore()
 const router = useRouter()
+const recaptcha = useReCaptcha()
+const _recaptcha = useRecaptchaStore()
 
-const onSignupClick = () => {
+const onSigninClick = () => {
   if (!validate()) {
     return
   }
 
-  _user.login({
-    Account: realAccount.value,
-    AccountType: accountType.value,
-    PasswordHash: entropy.encryptPassword(password.value),
-    ManMachineSpec: '',
+  _recaptcha.getGoogleToken({
+    Recaptcha: recaptcha,
+    Req: constants.GoogleTokenType.Login,
     Message: {
       Error: {
-        Title: t('MSG_SIGNIN'),
-        Message: t('MSG_SIGNIN_FAIL'),
+        Title: t('MSG_GET_GOOGLE_TOKEN'),
+        Message: t('MSG_GET_GOOGLE_TOKEN_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: NotifyType.Error
       }
     }
-  }, (error: boolean) => {
-    if (error) {
-      return
-    }
-    void router.push({ path: '/' })
+  }, (token: string) => {
+    _user.login({
+      Account: realAccount.value,
+      AccountType: accountType.value,
+      PasswordHash: entropy.encryptPassword(password.value),
+      ManMachineSpec: token,
+      Message: {
+        Error: {
+          Title: t('MSG_SIGNIN'),
+          Message: t('MSG_SIGNIN_FAIL'),
+          Popup: true,
+          Type: notification.NotifyType.Error
+        }
+      }
+    }, (error: boolean) => {
+      if (error) {
+        return
+      }
+      void router.push({ path: '/' })
+    })
   })
 }
 
