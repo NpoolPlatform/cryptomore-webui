@@ -7,6 +7,7 @@
     </div>
     <div class='right text-primary'>
       <q-scroll-observer @scroll='onScroll' />
+      <q-resize-observer @resize='(size) => onResize(size)' />
       <div class='text-primary title title-1' :style='{marginBottom: "24px"}'>
         Special notes:
       </div>
@@ -197,12 +198,14 @@ watch(selected, () => {
 
 const scrollDistance = ref(0)
 const tableOfContentMarginTop = computed(() => {
-  const fixedVal = 400
+  const fixedVal = 460
   if (scrollDistance.value <= fixedVal) {
     return
   }
   return (scrollDistance.value - fixedVal).toFixed(0) + 'px'
 })
+
+const bodyHeight = ref(0)
 
 const onScroll = (ev: unknown) => {
   const _ev = ev as Record<string, unknown>
@@ -210,7 +213,14 @@ const onScroll = (ev: unknown) => {
     return
   }
   const pos = _ev.position as Record<string, number>
+  if (pos.top >= bodyHeight.value) {
+    return
+  }
   scrollDistance.value = Number(pos.top)
+}
+
+const onResize = (size: Record<string, number>) => {
+  bodyHeight.value = size.height
 }
 
 </script>
