@@ -84,7 +84,7 @@ export default {
   MSG_SUBSCRIBE: 'Subscribe',
   MSG_SUBSCRIBE_WITH_EMAIL: 'Subscribe with email address',
   MSG_CONTACT_US: 'Contact Us',
-  MSG_PRODUCT_BY_WEB3EYE_TEAM: '© A product by <a href="https://web3eye.io">web3eye.io</a> team',
+  MSG_PRODUCT_BY_WEB3EYE_TEAM: '© A product by <a href="https://testnet.web3eye.io">web3eye.io</a> team',
   MSG_SERVICES: 'SERVICES',
   MSG_APPLICATIONS: 'APPLICATIONS',
   MSG_CHAINS: 'CHAINS',
