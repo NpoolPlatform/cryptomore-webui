@@ -20,7 +20,7 @@
     </q-ribbon>
   </q-banner>
   <div class='row section-start-margin horizontal-center who-we-are'>
-    <div class='content-width horizontal-center'>
+    <div class='content-width horizontal-center row'>
       <div class='common-label row color-main-transparent-80'>
         <div :style='{height: "32px", width: "32px", borderRadius: "16px", lineHeight: "32px"}' class='bg-secondary text-center'>
           01
@@ -123,7 +123,7 @@ const Title = defineAsyncComponent(() => import('src/components/common/Title1.vu
 
 .who-we-are
   background: rgba(212, 255, 232, 0.4)
-  padding-top: 48px
+  padding-top: 120px
   padding-bottom: 120px
 
 .partners
