@@ -31,7 +31,7 @@
           <div class='icon not-first cursor-pointer' @click='onSocialClick("https://medium.com/@media_45020")'>
             <q-img width='16px' height='16px' :src='medium' />
           </div>
-          <div class='icon cursor-pointer' @click='onSocialClick("https://www.youtube.com/@cryptomore_io")'>
+          <div class='icon cursor-pointer' @click='onSocialClick("https://linktr.ee/cryptomore")'>
             <q-img width='16px' height='16px' :src='linktree' />
           </div>
         </div>
