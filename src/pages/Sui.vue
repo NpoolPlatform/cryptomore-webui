@@ -84,7 +84,7 @@
         <LabelIcon color='rgba(76, 163, 255, 0.4)' />
       </div>
       <div class='label'>
-        Aptos backed by
+        Sui backed by
       </div>
     </div>
     <div class='row logos'>
@@ -355,7 +355,7 @@ const onViewMoreClick = () => {
 
 <style lang='sass' scoped>
 .banner
-  background: url('src/assets/FilecoinBannerBg.png')
+  background: url('src/assets/SuiBannerBg.png')
   background-size: cover
   backdrop-filter: blur(5px)
   border-radius: 16px

@@ -180,7 +180,7 @@
     <q-btn
       flat
       class='btn btn-medium contact-btn'
-      :label='$t("MSG_CONTACT_CRYPTO_MORE_FILECOIN")'
+      :label='$t("MSG_CONTACT_CRYPTO_MORE_BITCOIN")'
       no-caps
       :icon-right='"img:" + arrowUpRight'
       @click='onLetsTalkClick'
