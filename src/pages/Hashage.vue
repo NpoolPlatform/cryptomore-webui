@@ -243,7 +243,7 @@
     </div>
     <div class='infos-content'>
       <div class='faq-subtitle color-main-transparent-80' :style='{color: "rgba(49, 55, 61, 0.6) !important", fontSize: "16px"}'>
-        Althrough HashAge is intimate parter of Crypto More and Crypto More believes that all product provided by HashAge is reliable and real, Crypto More still want to let our users to know about that all product provided by HashAge is not relevant to Crypto More. We encourage our users to understand deeply of what HashAge provides, then make their decision. But the deal between HashAge and user is out of Crypto More's control, even the user subscribe HashAge through this link.
+        Althrough HashAge is close parter of Crypto More, all product provided by HashAge is not relevant to Crypto More and the deal between HashAge and user is out of Crypto More's control, even the user subscribes HashAge through this link.
       </div>
     </div>
   </div>

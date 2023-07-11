@@ -34,7 +34,7 @@
           {{ $t('MSG_WHO_WE_ARE') }}
         </div>
         <div class='color-main-transparent-80' :style='{fontSize: "20px", fontWeight: 500, lineHeight: "30px", marginTop: "24px"}'>
-          <p>Crypto More is a Startup founded in 2023, headquartered in Hongkong. We're a leading one-stop solution provider of crypto products including cloud application infrastructure and service which support more than 50 blockchains, mining /staking infrastructure of several layer 1 blockchains, and dedicated enterprise crypto+ solution.</p>
+          <p>Crypto More is a Startup founded in 2023, headquartered in Hong Kong. We're a leading one-stop solution provider of crypto products including cloud application infrastructure and service which support more than 50 blockchains, mining /staking infrastructure of several layer 1 blockchains, and dedicated enterprise crypto+ solution.</p>
           <p>The company's mission is to close the gap between the real world and blockchain /web3.0. A series of ready-to-use crypto+ services and tools will be released to help more and more people to take part in blockchain / web3.0 activities easily.</p>
         </div>
       </div>
