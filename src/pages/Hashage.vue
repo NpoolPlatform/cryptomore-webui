@@ -243,7 +243,7 @@
     </div>
     <div class='infos-content'>
       <div class='faq-subtitle color-main-transparent-80' :style='{color: "rgba(49, 55, 61, 0.6) !important", fontSize: "16px"}'>
-        Althrough HashAge is close parter of Crypto More, all product provided by HashAge is not relevant to Crypto More and the deal between HashAge and user is out of Crypto More's control, even the user subscribes HashAge through this link.
+        Althrough HashAge is close partner of Crypto More, all products provided by HashAge is not relevant to Crypto More and the deal between HashAge and user is out of Crypto More's control, even the user subscribed HashAge through this link.
       </div>
     </div>
   </div>
@@ -265,7 +265,7 @@ import { validateEmail } from 'src/utils/validator'
 const { t } = useI18n({ useScope: 'global' })
 
 const logined = user.useLocalUserStore()
-const emailAddress = ref(logined.User.EmailAddress)
+const emailAddress = ref(logined.User?.EmailAddress)
 const _subscriber = subscriber.useSubscriberStore()
 const faqTitle = ref('Who is HashAge ?')
 
