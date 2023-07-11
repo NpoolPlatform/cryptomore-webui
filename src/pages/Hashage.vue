@@ -249,7 +249,7 @@
   </div>
   <div :style='{background: "#1D1E20", height: "68px"}'>
     <div class='row content-width horizontal-center' :style='{color: "rgba(237, 238, 240, 0.6)", lineHeight: "68px"}'>
-      ©️ 2023 HashAge Ltd. All rights reserved
+      ©️ 2023 HashAge LTD. All rights reserved
     </div>
   </div>
 </template>
