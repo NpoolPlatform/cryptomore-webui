@@ -19,17 +19,20 @@
           @click='onContactUsClick'
         />
         <div class='row social'>
-          <div class='icon cursor-pointer'>
+          <div class='icon cursor-pointer' @click='onSocialClick("https://github.com/NpoolPlatform")'>
             <q-img width='16px' height='16px' :src='github' />
           </div>
-          <div class='icon not-first cursor-pointer'>
+          <div class='icon not-first cursor-pointer' @click='onSocialClick("https://twitter.com/cryptomore74669")'>
             <q-img width='16px' height='16px' :src='twitter' />
           </div>
-          <div class='icon not-first cursor-pointer'>
-            <q-img width='16px' height='16px' :src='discord' />
+          <div class='icon not-first cursor-pointer' @click='onSocialClick("https://www.youtube.com/@cryptomore_io")'>
+            <q-img width='16px' height='16px' :src='youtube' />
           </div>
-          <div class='icon not-first cursor-pointer'>
+          <div class='icon not-first cursor-pointer' @click='onSocialClick("https://medium.com/@media_45020")'>
             <q-img width='16px' height='16px' :src='medium' />
+          </div>
+          <div class='icon cursor-pointer' @click='onSocialClick("https://www.youtube.com/@cryptomore_io")'>
+            <q-img width='16px' height='16px' :src='linktree' />
           </div>
         </div>
         <div class='copyright text-primary cursor-pointer' v-html='$t("MSG_PRODUCT_BY_WEB3EYE_TEAM")' />
@@ -144,8 +147,8 @@
           </div>
         </div>
         <div class='menu text-primary'>
-          <span class='title'>{{ $t('MSG_RESOURCES') }}</span>
-          <div class='menu-list color-main-transparent-60'>
+          <span v-show='false' class='title'>{{ $t('MSG_RESOURCES') }}</span>
+          <div v-show='false' class='menu-list color-main-transparent-60'>
             <div class='menu-list-item cursor-pointer'>
               {{ $t('MSG_DOCS') }}
             </div>
@@ -164,7 +167,8 @@ import { useChatWoot } from '@productdevbook/chatwoot/vue'
 import arrowUpRight from 'src/assets/ArrowUpRightLargeMargin.svg'
 import github from 'src/assets/Github.svg'
 import twitter from 'src/assets/Twitter.svg'
-import discord from 'src/assets/Discord.svg'
+import youtube from 'src/assets/Youtube.svg'
+import linktree from 'src/assets/Linktree.svg'
 import medium from 'src/assets/Medium.svg'
 import { useSettingStore } from 'src/mystore/setting'
 import { ServiceType } from 'src/const/const'
@@ -192,6 +196,10 @@ const onFreeTrialClick = () => {
 const chatwoot = useChatWoot()
 const onContactUsClick = () => {
   chatwoot.toggle('open')
+}
+
+const onSocialClick = (url: string) => {
+  window.open(url)
 }
 
 </script>
@@ -239,6 +247,7 @@ const onContactUsClick = () => {
   padding: 3px 7px 3px 7px
   border-radius: 16px
   border: 1px solid $secondary
+  margin-bottom: 16px
 
 .footer .left .social .not-first
   margin-left: calc((100% - 128px) / 3)
