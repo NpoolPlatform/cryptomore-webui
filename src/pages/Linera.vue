@@ -162,7 +162,7 @@
               Disclaimer
             </div>
             <div class='text'>
-              <p>We organize above data from Sui officially published content, and we rewrite some of the content based on our cognition and knowledge. We can confirm all of the above data and the original marterials which we get the data are from reliable media channel. But we also would like to remind our users that we do not give any investment suggestion based on above data. Investment risk about  Sui project, including mining, staking or buying token is out of our control.</p>
+              <p>We organize above data from Linera officially published content, and we rewrite some of the content based on our cognition and knowledge. We can confirm all of the above data and the original marterials which we get the data are from reliable media channel. But we also would like to remind our users that we do not give any investment suggestion based on above data. Investment risk about  Linera project, including mining, staking or buying token is out of our control.</p>
             </div>
           </div>
         </div>
