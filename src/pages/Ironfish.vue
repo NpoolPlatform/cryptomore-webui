@@ -473,7 +473,7 @@ const onViewMoreClick = () => {
   padding-top: 64px
   padding-bottom: 64px
   .member
-    background: url('src/assets/AleoTeamBg.png')
+    background: url('src/assets/IronfishTeamBg.png')
     background-repeat: no-repeat
     background-size: auto
     width: 290px
