@@ -1,6 +1,6 @@
 <template>
   <HeadBackground />
-  <Title class='horizontal-center' :title='$t("MSG_PRIVACY_NOTICE")' :subtitle='$t("MSG_LAST_UPDATED", { DATE: new Date("2023-07-08").toDateString() })' />
+  <Title class='horizontal-center' :title='$t("MSG_PRIVACY_NOTICE")' :subtitle='$t("MSG_LAST_UPDATED", { DATE: new Date("2023-07-17").toDateString() })' />
   <div class='content-width row horizontal-center'>
     <div class='left' :style='{marginTop: tableOfContentMarginTop}'>
       <TableOfContent v-model:selected='selected' :entries='entries' />

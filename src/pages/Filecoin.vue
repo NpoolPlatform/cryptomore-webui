@@ -345,7 +345,7 @@
           </div>
           <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/SlackDark.svg' />
-            <a href='https://filecoin.io/slackn'>Slack</a>
+            <a href='https://filecoin.io/slack'>Slack</a>
           </div>
           <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/TwitterDark.svg' />
@@ -362,10 +362,6 @@
           <div class='row line'>
             <q-img class='icon' width='24px' height='24px' src='~assets/GithubDark.svg' />
             <a href='https://github.com/filecoin-project/community#forums'>Github Community</a>
-          </div>
-          <div class='row line'>
-            <q-img class='icon' width='24px' height='24px' src='~assets/WechatDark.svg' />
-            <a href='https://weixin.qq.com/r/1xz54Y-EctINrcuC90nF'>Wechat</a>
           </div>
         </div>
       </div>
