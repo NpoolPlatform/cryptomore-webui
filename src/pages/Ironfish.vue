@@ -114,10 +114,10 @@
               <td :style='{color: "rgba(10, 11, 26, 0.8)"}'>
                 Performance
               </td>
+              <td>14.5G H/s</td>
               <td>16G H/s</td>
-              <td>16G H/s</td>
-              <td>16G H/s</td>
-              <td>16G H/s</td>
+              <td>17G H/s</td>
+              <td>26G H/s</td>
             </tr>
           </tbody>
         </table>
