@@ -66,7 +66,7 @@
             <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://github.com/NpoolFilecoin/fil-peggy")'>
               {{ $t('MSG_FIL_PEGGY') }}
             </div>
-            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://github.com/web3eye-io/Web3Eye")'>
+            <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://testnet.web3eye.io")'>
               {{ $t('MSG_WEB3EYE') }}
             </div>
             <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://procyon.vip")'>
@@ -240,6 +240,8 @@ const onSocialClick = (url: string) => {
 
 .footer .left .copyright
   margin-top: 12px
+  text-overflow: ellipsis
+  white-space: nowrap
 
 .footer .left .social .icon
   width: 32px
