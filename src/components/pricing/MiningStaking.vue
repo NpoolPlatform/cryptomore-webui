@@ -6,12 +6,6 @@
           <div class='row info'>
             <q-icon name='check' color='secondary' size='20px' class='icon' />
             <div class='text color-main-transparent-80'>
-              Global data center available at any time over the world
-            </div>
-          </div>
-          <div class='row info'>
-            <q-icon name='check' color='secondary' size='20px' class='icon' />
-            <div class='text color-main-transparent-80'>
               7x24 hours online and data center field support
             </div>
           </div>
