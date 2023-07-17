@@ -96,7 +96,7 @@
         <div
           :style='{marginTop: "12px", color: "rgba(49, 55, 61, 0.8)", fontWeight: 400, fontSize: "14px", lineHeight: "20px"}'
         >
-          Only users within the waitlist are eligible to participate after registration.
+          Only users on the waitlist are eligible to participate after registration.
         </div>
         <div
           :style='{marginTop: "12px", color: "#3187FF", fontWeight: 400, fontSize: "14px", lineHeight: "20px"}'
@@ -126,7 +126,7 @@
         <div
           :style='{marginTop: "12px", color: "rgba(49, 55, 61, 0.8)", fontWeight: 400, fontSize: "14px", lineHeight: "20px"}'
         >
-          Only users within the waitlist are eligible to participate after registration.
+          Only users on the waitlist are eligible to participate after registration.
         </div>
         <div
           :style='{marginTop: "12px", color: "#3187FF", fontWeight: 400, fontSize: "14px", lineHeight: "20px"}'
@@ -156,7 +156,7 @@
         <div
           :style='{marginTop: "12px", color: "rgba(49, 55, 61, 0.8)", fontWeight: 400, fontSize: "14px", lineHeight: "20px"}'
         >
-          Only users within the waitlist are eligible to participate after registration.
+          Only users on the waitlist are eligible to participate after registration.
         </div>
         <div
           :style='{marginTop: "12px", color: "#3187FF", fontWeight: 400, fontSize: "14px", lineHeight: "20px"}'
@@ -186,7 +186,7 @@
         <div
           :style='{marginTop: "12px", color: "rgba(49, 55, 61, 0.8)", fontWeight: 400, fontSize: "14px", lineHeight: "20px"}'
         >
-          Only users within the waitlist are eligible to participate after registration.
+          Only users on the waitlist are eligible to participate after registration.
         </div>
         <div
           :style='{marginTop: "12px", color: "#3187FF", fontWeight: 400, fontSize: "14px", lineHeight: "20px"}'
@@ -213,7 +213,7 @@
             </div>
             <q-slide-transition>
               <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "Who is HashAge ?"' :style='{color: "rgba(49, 55, 61, 0.6) !important"}'>
-                HashAge is a creative crypto platform which is backed by Hpool, the world leading PoC mining pool. HashAge will be online at 2023 Q4. HashAge's founder team members contain Crypto Scientists, Crypto Miners, Software Engineers, Storage Experts, and IDC Holders. HashAge aims to be one of the leading crypto platform of the world with their commitment of the reliability and the security of their service.
+                HashAge is a creative crypto platform that is backed by Hpool, the world leading PoC mining pool. HashAge will be online at 2023 Q4. HashAge's founder team members contain Crypto Scientists, Crypto Miners, Software Engineers, Storage Experts, and IDC Holders. HashAge aims to be one of the leading crypto platforms of the world with its commitment to the reliability and security of its service.
               </div>
             </q-slide-transition>
           </div>
@@ -243,7 +243,7 @@
     </div>
     <div class='infos-content'>
       <div class='faq-subtitle color-main-transparent-80' :style='{color: "rgba(49, 55, 61, 0.6) !important", fontSize: "16px"}'>
-        Althrough HashAge is close partner of Crypto More, all products provided by HashAge is not relevant to Crypto More and the deal between HashAge and user is out of Crypto More's control, even the user subscribed HashAge through this link.
+        Although HashAge is a close partner of Crypto More, all products provided by HashAge are not relevant to Crypto More and the deal between HashAge and the user is out of Crypto More's control, even if the user subscribed HashAge through this link.
       </div>
     </div>
   </div>
