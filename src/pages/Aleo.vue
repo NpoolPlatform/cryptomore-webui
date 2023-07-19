@@ -96,7 +96,7 @@
     </div>
     <div class='funding text-center'>
       <div class='inner performance'>
-        <table>
+        <table v-if="false">
           <tbody>
             <tr>
               <td :style='{borderBottom: "1px solid #EAEAEA"}'>
