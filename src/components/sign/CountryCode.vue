@@ -4,14 +4,28 @@
     filled
     v-model='_country'
     :options='countries'
-    :option-label='val => val.Code'
     dropdown-icon='expand_more'
+    :label='$t("MSG_COUNTRY_CODE")'
+    map-options
     @update:model-value='(val) => onValueUpdated(val)'
   >
     <template #prepend>
-      <q-avatar>
-        <img :src='country?.Flag'>
-      </q-avatar>
+      <q-img width='32px' height='24px' :src='country?.Flag' />
+    </template>
+    <template #selected>
+      {{ _country?.Country }} ({{ _country?.Code }})
+    </template>
+    <template #option='scope'>
+      <q-item v-bind='scope.itemProps'>
+        <q-item-section>
+          <div class='row'>
+            <q-img width='32px' height='24px' :src='scope.opt.Flag' />
+            <span :style='{marginLeft: "12px"}'>
+              {{ scope.opt.Country }} ({{ scope.opt.Code }})
+            </span>
+          </div>
+        </q-item-section>
+      </q-item>
     </template>
   </q-select>
 </template>
