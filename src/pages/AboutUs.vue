@@ -2,7 +2,7 @@
   <HeadBackground />
   <Title class='horizontal-center' :title='$t("MSG_MAKE_WEB3_REAL")' :subtitle='$t("MSG_BANNER_SUBTITLE")' />
   <div class='video horizontal-center'>
-    <LiteYoutubeEmbed id='TcMBFSGVi1c' :title='$t("MSG_OFFICIAL_VIDEO_TITLE")' />
+    <LiteYoutubeEmbed id='EvWI27J6Ee0' :title='$t("MSG_OFFICIAL_VIDEO_TITLE")' />
   </div>
   <q-banner class='banner'>
     <q-ribbon class='q-pb-md' size='full'>

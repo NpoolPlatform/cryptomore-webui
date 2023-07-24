@@ -22,7 +22,7 @@
           <div class='icon cursor-pointer' @click='onSocialClick("https://github.com/NpoolPlatform")'>
             <q-img width='16px' height='16px' :src='github' />
           </div>
-          <div class='icon not-first cursor-pointer' @click='onSocialClick("https://twitter.com/cryptomore74669")'>
+          <div class='icon not-first cursor-pointer' @click='onSocialClick("https://twitter.com/cryptomore_io")'>
             <q-img width='16px' height='16px' :src='twitter' />
           </div>
           <div class='icon not-first cursor-pointer' @click='onSocialClick("https://www.youtube.com/@cryptomore_io")'>
