@@ -28,7 +28,7 @@
           <div class='icon not-first cursor-pointer' @click='onSocialClick("https://www.youtube.com/@cryptomore_io")'>
             <q-img width='16px' height='16px' :src='youtube' />
           </div>
-          <div class='icon not-first cursor-pointer' @click='onSocialClick("https://medium.com/@media_45020")'>
+          <div class='icon not-first cursor-pointer' @click='onSocialClick("https://medium.com/@cryptomore_io")'>
             <q-img width='16px' height='16px' :src='medium' />
           </div>
           <div class='icon cursor-pointer' @click='onSocialClick("https://linktr.ee/cryptomore")'>
