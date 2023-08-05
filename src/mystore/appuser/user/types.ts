@@ -109,7 +109,7 @@ export interface AppOAuthThirdParty {
   ID?: string
   AppID: string
   ThirdPartyID: string
-  ClientName: string
+  ClientName: basetypes.SignMethodType
   ClientLogoURL: string
   ClientOAuthURL: string
   ResponseTypes: string
@@ -133,6 +133,7 @@ export interface GetOAuthLoginURLRequest extends BaseRequest {
 
 export interface GetOAuthLoginURLResponse {
   Info: string
+  OAuthLoginURL: string
 }
 
 export interface OAuthLoginRequest extends BaseRequest {

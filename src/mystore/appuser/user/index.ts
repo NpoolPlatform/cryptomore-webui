@@ -136,7 +136,7 @@ export const useUserStore = defineStore('user', {
         req,
         req.Message,
         (resp: GetOAuthLoginURLResponse): void => {
-          done(false, resp.Info)
+          done(false, resp.OAuthLoginURL)
         }, () => {
           done(true)
         }

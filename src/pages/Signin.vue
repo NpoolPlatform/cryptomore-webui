@@ -83,6 +83,7 @@
         v-for='thirdParty in thirdParties'
         :key='thirdParty.ID'
         class='third-login cursor-pointer'
+        @click='onThirdPartyLoginClick(thirdParty)'
       >
         <q-img :src='thirdParty.ClientLogoURL' width='36px' height='36px' />
       </div>
@@ -225,6 +226,29 @@ onMounted(() => {
     // TODO
   })
 })
+
+const onThirdPartyLoginClick = (_thirdParty: user.AppOAuthThirdParty) => {
+  _user.getOAuthLoginURL({
+    ClientName: _thirdParty.ClientName,
+    Message: {
+      Error: {
+        Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
+        Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
+        Popup: true,
+        Type: notification.NotifyType.Error
+      }
+    }
+  }, (error: boolean, url?: string) => {
+    console.log(error, url)
+    if (error) {
+      return
+    }
+    if (!url) {
+      return
+    }
+    window.open(url)
+  })
+}
 
 </script>
 
