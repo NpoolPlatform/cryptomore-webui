@@ -46,6 +46,17 @@ const routes: RouteRecordRaw[] = [
         }
       },
       {
+        path: 'oauth/callback',
+        component: () => import('pages/OAuthCallback.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
+        }
+      },
+      {
         path: 'terms',
         component: () => import('pages/Terms.vue'),
         meta: {

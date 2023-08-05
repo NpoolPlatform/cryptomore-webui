@@ -101,7 +101,6 @@ import { QInput } from 'quasar'
 import { useReCaptcha } from 'vue-recaptcha-v3'
 import { useRecaptchaStore } from 'src/mystore/recaptcha'
 import { constants } from 'src/const'
-import { NotifyType } from 'src/mystore/notification'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
@@ -184,7 +183,7 @@ const onSigninClick = () => {
         Title: t('MSG_GET_GOOGLE_TOKEN'),
         Message: t('MSG_GET_GOOGLE_TOKEN_FAIL'),
         Popup: true,
-        Type: NotifyType.Error
+        Type: notification.NotifyType.Error
       }
     }
   }, (token: string) => {
@@ -239,14 +238,13 @@ const onThirdPartyLoginClick = (_thirdParty: user.AppOAuthThirdParty) => {
       }
     }
   }, (error: boolean, url?: string) => {
-    console.log(error, url)
     if (error) {
       return
     }
     if (!url) {
       return
     }
-    window.open(url)
+    window.open(url, '_self')
   })
 }
 
