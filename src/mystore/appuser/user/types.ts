@@ -104,3 +104,42 @@ export interface UpdateUserKolResponse {
 export interface LoginedResponse {
   Info: userbase.User
 }
+
+export interface AppOAuthThirdParty {
+  ID?: string
+  AppID: string
+  ThirdPartyID: string
+  ClientName: string
+  ClientLogoURL: string
+  ClientOAuthURL: string
+  ResponseTypes: string
+  Scope: string
+  CreatedAt: number
+  UpdatedAt: number
+}
+
+export interface GetAppOAuthThirdPartiesRequest extends BaseRequest {
+  Offset: number
+  Limit: number
+}
+
+export interface GetAppOAuthThirdPartiesResponse {
+  Infos: Array<AppOAuthThirdParty>
+}
+
+export interface GetOAuthLoginURLRequest extends BaseRequest {
+  ClientName: basetypes.SignMethodType
+}
+
+export interface GetOAuthLoginURLResponse {
+  Info: string
+}
+
+export interface OAuthLoginRequest extends BaseRequest {
+  Code: string
+  State: string
+}
+
+export interface OAuthLoginResponse {
+  Info: userbase.User
+}

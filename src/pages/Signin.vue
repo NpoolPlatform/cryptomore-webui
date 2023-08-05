@@ -1,5 +1,5 @@
 <template>
-  <div :style='{marginTop: "100px", marginBottom: "160px", maxWidth: "400px"}' class='horizontal-center'>
+  <div :style='{marginTop: "80px", maxWidth: "400px", marginBottom: thirdParties.length ? "0px" : "64px"}' class='horizontal-center'>
     <Title :text='$t("MSG_SIGNIN")' />
     <Switcher :style='{marginTop: "32px"}' v-model:account-type='accountType' />
     <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
@@ -62,10 +62,36 @@
       :style='{fontSize: "16px", fontWeight: 500, lineHeight: "26px", marginTop: "12px"}'
     />
   </div>
+  <div v-if='thirdParties.length' :style='{marginTop: "36px", maxWidth: "600px"}' class='horizontal-center'>
+    <div class='row' :style='{width: "100%", height: "100%"}'>
+      <div :style='{width: "35%", height: "100%"}'>
+        <div :style='{height: "12px"}' />
+        <q-separator :style='{backgroundColor: "#56F09F"}' />
+      </div>
+      <q-space />
+      <div :style='{lineHeight: "24px", fontSize: "14px"}' class='color-main-transparent-60'>
+        Or Continue With
+      </div>
+      <q-space />
+      <div :style='{width: "35%", height: "100%"}'>
+        <div :style='{height: "12px"}' />
+        <q-separator :style='{backgroundColor: "#56F09F"}' />
+      </div>
+    </div>
+    <div v-if='thirdParties.length' :style='{marginTop: "24px", maxWidth: "280px", marginBottom: "64px"}' class='horizontal-center row justify-evenly'>
+      <div
+        v-for='thirdParty in thirdParties'
+        :key='thirdParty.ID'
+        class='third-login cursor-pointer'
+      >
+        <q-img :src='thirdParty.ClientLogoURL' width='36px' height='36px' />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent, ref, computed, watch } from 'vue'
+import { defineAsyncComponent, ref, computed, watch, onMounted } from 'vue'
 import { user, g11n, basetypes, notification } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
 import { validator, entropy } from 'src/utils'
@@ -142,6 +168,8 @@ const router = useRouter()
 const recaptcha = useReCaptcha()
 const _recaptcha = useRecaptchaStore()
 
+const thirdParties = computed(() => _user.ThirdParties)
+
 const onSigninClick = () => {
   if (!validate()) {
     return
@@ -181,9 +209,36 @@ const onSigninClick = () => {
   })
 }
 
+onMounted(() => {
+  _user.getAppOAuthThirdParties({
+    Offset: 0,
+    Limit: 10,
+    Message: {
+      Error: {
+        Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
+        Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
+        Popup: true,
+        Type: notification.NotifyType.Error
+      }
+    }
+  }, () => {
+    // TODO
+  })
+})
+
 </script>
 
 <style lang='sass' scoped>
 .btn-sign
   width: 100%
+
+.third-login
+  width: 60px
+  height: 60px
+  border-radius: 8px
+  background: #FFF
+  box-shadow: 0px 4px 20px 0px rgba(61, 187, 119, 0.20)
+  border: 1px solid transparent
+  background: linear-gradient(white, white) padding-box, linear-gradient(98.89deg, #56F09F 0%, #A3FFE5 100%) border-box
+  padding: 12px
 </style>

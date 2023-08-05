@@ -138,7 +138,7 @@ export default {
   MSG_INVALID_PHONE_NO: 'Phone number is invalid',
   MSG_VERIFICATION_CODE: '{ACCOUNT_TYPE} verification code',
   MSG_ALREADY_HAVE_ACCOUNT: 'Already have an account? <a href="{SIGNIN_URI}">Sign in</a>',
-  MSG_NOT_A_MEMBER: 'Not a member? <a href="{SIGNUP_URI}">Sign up</a>',
+  MSG_NOT_A_MEMBER: 'Not a member? <a href="{SIGNUP_URI}">Sign up now</a>',
   MSG_OPEN_POSITIONS: 'Open Positions',
   MSG_OPEN_POSITIONS_SUBTITLE: 'We\'re currently looking for help in the following areas',
   MSG_SOFTWARE_ENGINEER: 'Software Engineer',

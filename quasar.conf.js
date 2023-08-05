@@ -88,7 +88,7 @@ module.exports = configure(function (ctx) {
     devServer: {
       proxy: {
         '/api': {
-          target: 'https://api.cryptomore.io',
+          target: 'https://api.development.npool.top',
           pathRewrite: {
             '^/api': '/api'
           },

@@ -3,12 +3,19 @@ import { useLocalUserStore } from './local'
 import { doAction, doActionWithError } from '../../action'
 import { API } from './const'
 import {
+  AppOAuthThirdParty,
+  GetAppOAuthThirdPartiesRequest,
+  GetAppOAuthThirdPartiesResponse,
+  GetOAuthLoginURLRequest,
+  GetOAuthLoginURLResponse,
   LoginRequest,
   LoginResponse,
   LoginVerifyRequest,
   LoginVerifyResponse,
   LogoutRequest,
   LogoutResponse,
+  OAuthLoginRequest,
+  OAuthLoginResponse,
   ResetUserRequest,
   ResetUserResponse,
   SignupRequest,
@@ -21,7 +28,9 @@ import {
 import * as userbase from './base'
 
 export const useUserStore = defineStore('user', {
-  state: () => ({}),
+  state: () => ({
+    ThirdParties: [] as Array<AppOAuthThirdParty>
+  }),
   getters: {},
   actions: {
     login (req: LoginRequest, done: (error: boolean, user?: userbase.User) => void) {
@@ -102,6 +111,45 @@ export const useUserStore = defineStore('user', {
         req,
         req.Message,
         (resp: UpdateUserKolResponse): void => {
+          done(false, resp.Info)
+        }, () => {
+          done(true)
+        }
+      )
+    },
+    getAppOAuthThirdParties (req: GetAppOAuthThirdPartiesRequest, done: (error: boolean, rows?: Array<AppOAuthThirdParty>) => void) {
+      doActionWithError<GetAppOAuthThirdPartiesRequest, GetAppOAuthThirdPartiesResponse>(
+        API.GET_APP_OAUTH_THIRD_PARTIES,
+        req,
+        req.Message,
+        (resp: GetAppOAuthThirdPartiesResponse): void => {
+          this.ThirdParties = resp.Infos
+          done(false, resp.Infos)
+        }, () => {
+          done(true)
+        }
+      )
+    },
+    getOAuthLoginURL (req: GetOAuthLoginURLRequest, done: (error: boolean, url?: string) => void) {
+      doActionWithError<GetOAuthLoginURLRequest, GetOAuthLoginURLResponse>(
+        API.GET_OAUTH_LOGIN_URL,
+        req,
+        req.Message,
+        (resp: GetOAuthLoginURLResponse): void => {
+          done(false, resp.Info)
+        }, () => {
+          done(true)
+        }
+      )
+    },
+    oauthLogin (req: OAuthLoginRequest, done: (error: boolean, user?: userbase.User) => void) {
+      doActionWithError<OAuthLoginRequest, OAuthLoginResponse>(
+        API.OAUTH_LOGIN,
+        req,
+        req.Message,
+        (resp: OAuthLoginResponse): void => {
+          const user = useLocalUserStore()
+          user.setUser(resp.Info)
           done(false, resp.Info)
         }, () => {
           done(true)

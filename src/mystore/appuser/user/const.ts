@@ -8,5 +8,8 @@ export enum API {
   UPDATE_USER = '/appuser/v1/update/user',
   RESET_USER = '/appuser/v1/reset/user',
   GET_LOGIN_HISTORIES = '/appuser/v1/get/loginhistories',
-  UPDATE_USERKOL = '/appuser/v1/update/userkol'
+  UPDATE_USERKOL = '/appuser/v1/update/userkol',
+  GET_APP_OAUTH_THIRD_PARTIES = '/appuser/v1/get/appoauththirdparties',
+  GET_OAUTH_LOGIN_URL = '/appuser/v1/get/oauthloginurl',
+  OAUTH_LOGIN = '/appuser/v1/oauthlogin'
 }
