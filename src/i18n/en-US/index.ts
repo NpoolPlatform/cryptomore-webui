@@ -188,5 +188,7 @@ export default {
   MSG_COMING_SOON: 'Coming Soon',
   MSG_GET_GOOGLE_TOKEN: 'Get google token',
   MSG_GET_GOOGLE_TOKEN_FAIL: 'Failed to get google token',
-  MSG_COUNTRY_CODE: 'Country Code'
+  MSG_COUNTRY_CODE: 'Country Code',
+  MSG_BIND_ACCOUNT: 'Bind Account',
+  MSG_BIND: 'Bind'
 }

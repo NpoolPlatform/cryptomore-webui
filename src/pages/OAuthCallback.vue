@@ -3,7 +3,7 @@
     :style='{fontSize: "16px", fontWeight: 400, lineHeight: "32px", width: "100%", marginTop: "160px", marginBottom: "160px"}'
     class='text-primary text-center'
   >
-    <span v-if='!logined'>
+    <span v-if='!logined || waiting'>
       Waiting for {{ clientName }}login...
     </span>
     <div v-else>
@@ -63,10 +63,10 @@ const logined = computed(() => _localUser.logined)
 const states = computed(() => query.value.state.split('-'))
 const clientName = computed(() => states.value.length ? states.value[0] + ' ' : '')
 const router = useRouter()
-const showing = ref(false)
+const waiting = ref(true)
 
 const bindAccount = () => {
-  showing.value = true
+  waiting.value = false
 }
 
 onMounted(() => {

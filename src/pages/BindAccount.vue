@@ -145,7 +145,7 @@ const onSigninClick = () => {
     NewAccountType: accountType.value,
     NewAccount: account.value,
     NewVerificationCode: verificationCode.value,
-    Account: _localUser.User.ThirdPartyUserID,
+    Account: _localUser.User.LoginAccount,
     AccountType: _localUser.User.LoginAccountType,
     Message: {
       Error: {
@@ -184,7 +184,7 @@ const sendAccountCode = (msgTitle: string, msg: string, account: string) => {
   userCode.sendCode({
     Account: account,
     AccountType: accountType.value,
-    UsedFor: basetypes.UsedFor.Signup,
+    UsedFor: basetypes.UsedFor.Update,
     ToUsername: account,
     Message: {
       Error: {

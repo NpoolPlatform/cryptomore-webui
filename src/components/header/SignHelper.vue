@@ -50,7 +50,7 @@ const router = useRouter()
 const balance = ref('N/A')
 const viewerAddress = computed(() => Cookies.get('viewer_address'))
 const walletLogin = computed(() => viewerAddress.value && viewerAddress.value.length > 0)
-const _logined = computed(() => logined.User || walletLogin.value)
+const _logined = computed(() => logined.logined || walletLogin.value)
 
 const onSignupClick = () => {
   void router.push({ path: '/signup' })
