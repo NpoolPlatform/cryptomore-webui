@@ -133,7 +133,6 @@ export interface GetOAuthLoginURLRequest extends BaseRequest {
 
 export interface GetOAuthLoginURLResponse {
   Info: string
-  OAuthLoginURL: string
 }
 
 export interface OAuthLoginRequest extends BaseRequest {

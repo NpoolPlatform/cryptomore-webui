@@ -4,11 +4,14 @@
   >
     Waiting for {{ clientName }}login...
   </div>
+  <q-dialog v-model='showing'>
+    <q-card>HHHHHHHHHHH</q-card>
+  </q-dialog>
 </template>
 
 <script setup lang='ts'>
 import { user, notification } from 'src/mystore'
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
@@ -26,6 +29,11 @@ const _user = user.useUserStore()
 const states = computed(() => query.value.state.split('-'))
 const clientName = computed(() => states.value.length ? states.value[0] + ' ' : '')
 const router = useRouter()
+const showing = ref(false)
+
+const bindAccount = () => {
+  showing.value = true
+}
 
 onMounted(() => {
   _user.oauthLogin({
@@ -39,8 +47,16 @@ onMounted(() => {
         Type: notification.NotifyType.Error
       }
     }
-  }, () => {
-    void router.push({ path: '/' })
+  }, (error: boolean, user?: user.User) => {
+    if (error) {
+      void router.push({ path: '/' })
+      return
+    }
+    if (user?.EmailAddress?.length || user?.PhoneNO?.length) {
+      void router.push({ path: '/' })
+      return
+    }
+    bindAccount()
   })
 })
 
