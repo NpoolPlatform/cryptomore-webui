@@ -45,7 +45,7 @@
     </q-input>
     <div class='row'>
       <div :style='{marginTop: "8px", color: "#3DBB77", fontSize: "14px"}' class='cursor-pointer'>
-        {{ $t('MSG_FORGET_PASSWORD') }}
+        <a href='/resetuser'>{{ $t('MSG_FORGET_PASSWORD') }}</a>
       </div>
     </div>
     <div class='text-center horizontal-center' :style='{marginTop: "12px"}'>

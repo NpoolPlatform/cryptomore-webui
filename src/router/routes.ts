@@ -35,6 +35,17 @@ const routes: RouteRecordRaw[] = [
         }
       },
       {
+        path: 'resetuser',
+        component: () => import('pages/ResetUser.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
+        }
+      },
+      {
         path: 'signin',
         component: () => import('pages/Signin.vue'),
         meta: {

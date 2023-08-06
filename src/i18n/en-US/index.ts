@@ -190,5 +190,6 @@ export default {
   MSG_GET_GOOGLE_TOKEN_FAIL: 'Failed to get google token',
   MSG_COUNTRY_CODE: 'Country Code',
   MSG_BIND_ACCOUNT: 'Bind Account',
-  MSG_BIND: 'Bind'
+  MSG_BIND: 'Bind',
+  MSG_NOT_BIND_NOW: 'Not bind now? <a href="{HOMEPAGE_URI}">Goto homepage</a>'
 }
