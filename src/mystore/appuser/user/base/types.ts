@@ -35,6 +35,11 @@ export interface User {
   SigninVerifyByGoogleAuth: boolean
   SigninVerifyByGoogleAuthInt: number
 
+  ThirdPartyID: string
+  ThirdPartyUserID: string
+  ThirdPartyUsername: string
+  ThirdPartyAvatar: string
+
   BanAppUserID: string
   Banned: boolean
   BanMessage: string

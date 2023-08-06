@@ -57,6 +57,17 @@ const routes: RouteRecordRaw[] = [
         }
       },
       {
+        path: 'bindaccount',
+        component: () => import('pages/BindAccount.vue'),
+        meta: {
+          ShowBannerAnnouncement: true,
+          ShowSignHelper: true,
+          NeedLogined: false,
+          ShowHeader: true,
+          ShowFooter: true
+        }
+      },
+      {
         path: 'terms',
         component: () => import('pages/Terms.vue'),
         meta: {

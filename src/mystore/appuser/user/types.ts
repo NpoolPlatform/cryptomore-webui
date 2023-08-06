@@ -143,3 +143,15 @@ export interface OAuthLoginRequest extends BaseRequest {
 export interface OAuthLoginResponse {
   Info: userbase.User
 }
+
+export interface BindUserRequest extends BaseRequest {
+  Account: string
+  AccountType: basetypes.SignMethodType
+  NewVerificationCode: string
+  NewAccount: string
+  NewAccountType: basetypes.SignMethodType
+}
+
+export interface BindUserResponse {
+  Info: userbase.User
+}

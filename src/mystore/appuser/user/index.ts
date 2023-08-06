@@ -4,6 +4,8 @@ import { doAction, doActionWithError } from '../../action'
 import { API } from './const'
 import {
   AppOAuthThirdParty,
+  BindUserRequest,
+  BindUserResponse,
   GetAppOAuthThirdPartiesRequest,
   GetAppOAuthThirdPartiesResponse,
   GetOAuthLoginURLRequest,
@@ -87,6 +89,19 @@ export const useUserStore = defineStore('user', {
         req,
         req.Message,
         (resp: UpdateUserResponse): void => {
+          const user = useLocalUserStore()
+          user.setUser(resp.Info)
+          done(false, resp.Info)
+        }, () => {
+          done(true)
+        })
+    },
+    bindUser (req: BindUserRequest, done: (error: boolean, user?: userbase.User) => void) {
+      doActionWithError<BindUserRequest, BindUserResponse>(
+        API.BIND_USER,
+        req,
+        req.Message,
+        (resp: BindUserResponse): void => {
           const user = useLocalUserStore()
           user.setUser(resp.Info)
           done(false, resp.Info)

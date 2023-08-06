@@ -7,6 +7,7 @@ export enum API {
   LOGOUT = '/appuser/v1/logout',
   UPDATE_USER = '/appuser/v1/update/user',
   RESET_USER = '/appuser/v1/reset/user',
+  BIND_USER = '/appuser/v1/bind/user',
   GET_LOGIN_HISTORIES = '/appuser/v1/get/loginhistories',
   UPDATE_USERKOL = '/appuser/v1/update/userkol',
   GET_APP_OAUTH_THIRD_PARTIES = '/appuser/v1/get/appoauththirdparties',
