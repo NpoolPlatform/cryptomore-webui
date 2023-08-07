@@ -17,7 +17,7 @@
       <div class='row justify-center' :style='{marginTop: "36px"}'>
         <q-btn :style='{width: "240px"}' @click='onBindEmailClick'>
           <div :style='{margin: "16px auto"}'>
-            <q-img src='~assets/BindEmail.png' height='80px' fit='contain' />
+            <q-img src='~assets/BindEmail.svg' height='80px' fit='contain' />
             <div :style='{marginTop: "12px"}'>
               <span>Bind Email</span>
             </div>
@@ -26,7 +26,7 @@
         <div :style='{width: "16px"}' />
         <q-btn :style='{width: "240px"}' @click='onBindMobileClick'>
           <div :style='{margin: "16px auto"}'>
-            <q-img src='~assets/BindMobile.png' height='80px' fit='contain' />
+            <q-img src='~assets/BindMobile.svg' height='80px' fit='contain' />
             <div :style='{marginTop: "12px"}'>
               <span>Bind Phone Number</span>
             </div>
