@@ -62,37 +62,11 @@
       :style='{fontSize: "16px", fontWeight: 500, lineHeight: "26px", marginTop: "12px"}'
     />
   </div>
-  <div v-if='thirdParties.length' :style='{marginTop: "36px", maxWidth: "600px"}' class='horizontal-center'>
-    <div class='row' :style='{width: "100%", height: "100%"}'>
-      <div :style='{width: "35%", height: "100%"}'>
-        <div :style='{height: "12px"}' />
-        <q-separator :style='{backgroundColor: "#56F09F"}' />
-      </div>
-      <q-space />
-      <div :style='{lineHeight: "24px", fontSize: "14px"}' class='color-main-transparent-60'>
-        Or Continue With
-      </div>
-      <q-space />
-      <div :style='{width: "35%", height: "100%"}'>
-        <div :style='{height: "12px"}' />
-        <q-separator :style='{backgroundColor: "#56F09F"}' />
-      </div>
-    </div>
-    <div v-if='thirdParties.length' :style='{marginTop: "24px", maxWidth: "280px", marginBottom: "64px"}' class='horizontal-center row justify-evenly'>
-      <div
-        v-for='thirdParty in thirdParties'
-        :key='thirdParty.ID'
-        class='third-login cursor-pointer'
-        @click='onThirdPartyLoginClick(thirdParty)'
-      >
-        <q-img :src='thirdParty.ClientLogoURL' width='36px' height='36px' />
-      </div>
-    </div>
-  </div>
+  <OAuthLogin />
 </template>
 
 <script setup lang='ts'>
-import { defineAsyncComponent, ref, computed, watch, onMounted } from 'vue'
+import { defineAsyncComponent, ref, computed, watch } from 'vue'
 import { user, g11n, basetypes, notification } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
 import { validator, entropy } from 'src/utils'
@@ -109,6 +83,7 @@ const Title = defineAsyncComponent(() => import('src/components/sign/Title.vue')
 const Switcher = defineAsyncComponent(() => import('src/components/sign/Switcher.vue'))
 const Agreement = defineAsyncComponent(() => import('src/components/sign/Agreement.vue'))
 const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
+const OAuthLogin = defineAsyncComponent(() => import('src/components/sign/OAuthLogin.vue'))
 
 const accountType = ref(basetypes.SignMethodType.Email)
 const account = ref('')
@@ -206,45 +181,6 @@ const onSigninClick = () => {
       }
       void router.push({ path: '/' })
     })
-  })
-}
-
-onMounted(() => {
-  _user.getAppOAuthThirdParties({
-    Offset: 0,
-    Limit: 10,
-    Message: {
-      Error: {
-        Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
-        Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
-        Popup: true,
-        Type: notification.NotifyType.Error
-      }
-    }
-  }, () => {
-    // TODO
-  })
-})
-
-const onThirdPartyLoginClick = (_thirdParty: user.AppOAuthThirdParty) => {
-  _user.getOAuthLoginURL({
-    ClientName: _thirdParty.ClientName,
-    Message: {
-      Error: {
-        Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
-        Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
-        Popup: true,
-        Type: notification.NotifyType.Error
-      }
-    }
-  }, (error: boolean, url?: string) => {
-    if (error) {
-      return
-    }
-    if (!url) {
-      return
-    }
-    window.open(url, '_self')
   })
 }
 

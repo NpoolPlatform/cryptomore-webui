@@ -1,5 +1,5 @@
 <template>
-  <div :style='{marginTop: "80px", marginBottom: "120px", maxWidth: "400px"}' class='horizontal-center'>
+  <div :style='{marginTop: "80px", maxWidth: "400px"}' class='horizontal-center'>
     <Title :text='$t("MSG_CREATE_ACCOUNT")' />
     <Switcher :style='{marginTop: "32px"}' v-model:account-type='accountType' />
     <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
@@ -81,6 +81,7 @@
       :style='{fontSize: "16px", fontWeight: 500, lineHeight: "26px", marginTop: "12px"}'
     />
   </div>
+  <OAuthLogin />
 </template>
 
 <script setup lang='ts'>
@@ -98,6 +99,7 @@ const Title = defineAsyncComponent(() => import('src/components/sign/Title.vue')
 const Switcher = defineAsyncComponent(() => import('src/components/sign/Switcher.vue'))
 const Agreement = defineAsyncComponent(() => import('src/components/sign/Agreement.vue'))
 const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
+const OAuthLogin = defineAsyncComponent(() => import('src/components/sign/OAuthLogin.vue'))
 
 const accountType = ref(basetypes.SignMethodType.Email)
 const account = ref('')
