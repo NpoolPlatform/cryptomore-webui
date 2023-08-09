@@ -143,7 +143,7 @@ const onSigninClick = () => {
 
   _user.bindUser({
     NewAccountType: accountType.value,
-    NewAccount: account.value,
+    NewAccount: realAccount.value,
     NewVerificationCode: verificationCode.value,
     Account: _localUser.User.LoginAccount,
     AccountType: _localUser.User.LoginAccountType,
