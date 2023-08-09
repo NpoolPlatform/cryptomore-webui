@@ -165,7 +165,7 @@ const sendAccountCode = (msgTitle: string, msg: string, account: string) => {
   userCode.sendCode({
     Account: account,
     AccountType: accountType.value,
-    UsedFor: basetypes.UsedFor.Signup,
+    UsedFor: basetypes.UsedFor.Update,
     ToUsername: account,
     Message: {
       Error: {
