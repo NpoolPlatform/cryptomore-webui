@@ -1,5 +1,5 @@
 <template>
-  <div :style='{marginTop: "80px", maxWidth: "400px"}' class='horizontal-center'>
+  <div :style='{marginTop: "80px", maxWidth: "400px", marginBottom: thirdParties.length ? "0px" : "64px"}' class='horizontal-center'>
     <Title :text='$t("MSG_CREATE_ACCOUNT")' />
     <Switcher :style='{marginTop: "32px"}' v-model:account-type='accountType' />
     <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
@@ -228,6 +228,7 @@ const sendBtnText = computed(() => {
 
 const _user = user.useUserStore()
 const router = useRouter()
+const thirdParties = computed(() => _user.ThirdParties)
 
 const onSignupClick = () => {
   if (!validate()) {
