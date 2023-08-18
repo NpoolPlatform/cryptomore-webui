@@ -65,7 +65,7 @@ import { defineAsyncComponent, ref, computed, watch, onMounted } from 'vue'
 import { user, g11n, basetypes, notification, notif, localUser } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
 import { validator } from 'src/utils'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { QInput } from 'quasar'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -76,7 +76,14 @@ const Switcher = defineAsyncComponent(() => import('src/components/sign/Switcher
 const Agreement = defineAsyncComponent(() => import('src/components/sign/Agreement.vue'))
 const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
 
-const accountType = ref(basetypes.SignMethodType.Email)
+interface Query {
+  accountType: basetypes.SignMethodType
+}
+
+const route = useRoute()
+const query = computed(() => route.query as unknown as Query)
+
+const accountType = ref(query.value.accountType)
 const account = ref('')
 const verificationCode = ref('')
 const sending = ref(false)

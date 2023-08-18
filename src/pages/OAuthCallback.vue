@@ -70,6 +70,10 @@ const bindAccount = () => {
 }
 
 onMounted(() => {
+  if (logined.value) {
+    void router.push({ path: '/' })
+    return
+  }
   _user.oauthLogin({
     Code: query.value.code,
     State: query.value.state,

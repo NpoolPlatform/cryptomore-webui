@@ -40,8 +40,8 @@
         </q-item>
         <q-separator />
         <q-item>
-          <q-icon name='email' size='28px' :style='{marginRight: "8px"}' />
-          <div :style='{fontSize: "14px", lineHeight: "28px"}'>
+          <q-icon name='email' size='32px' :style='{marginRight: "8px"}' />
+          <div :style='{fontSize: "14px", lineHeight: "32px"}'>
             {{ _localUser.User?.EmailAddress?.length ? _localUser.User?.EmailAddress : ' - ' }}
           </div>
           <q-space />
@@ -67,10 +67,20 @@
           </div>
         </q-item>
         <q-separator />
-        <q-item clickable @click='onLogoutClick'>
-          <q-icon name='logout' size='24px' :style='{marginRight: "10px"}' />
-          <span>{{ $t('MSG_LOGOUT') }}</span>
+        <q-item v-if='resetUser' clickable @click='onResetPasswordClick'>
+          <q-icon name='security' size='32px' :style='{marginRight: "10px"}' />
+          <span :style='{lineHeight: "32px"}'>
+            {{ $t('MSG_RESET_PASSWORD') }}
+          </span>
           <q-space />
+          <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
+        </q-item>
+        <q-separator />
+        <q-item clickable @click='onLogoutClick'>
+          <q-icon name='logout' size='32px' :style='{marginRight: "10px"}' />
+          <span :style='{lineHeight: "32px"}'>
+            {{ $t('MSG_LOGOUT') }}
+          </span>
         </q-item>
       </q-list>
     </q-menu>
@@ -91,6 +101,7 @@ const { t } = useI18n({ useScope: 'global' })
 const _user = user.useUserStore()
 const _localUser = localUser.useLocalUserStore()
 const logined = computed(() => _localUser.logined)
+const resetUser = computed(() => logined.value && (_localUser.User.EmailAddress?.length || _localUser.User.PhoneNO?.length))
 
 const viewerAddress = computed(() => Cookies.get('viewer_address'))
 const _viewerAddress = computed(() => {
@@ -130,6 +141,10 @@ const onLogoutClick = () => {
     // TODO
   })
   showing.value = false
+}
+
+const onResetPasswordClick = () => {
+  void router.push({ path: '/resetuser' })
 }
 
 </script>

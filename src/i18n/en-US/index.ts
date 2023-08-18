@@ -191,5 +191,6 @@ export default {
   MSG_COUNTRY_CODE: 'Country Code',
   MSG_BIND_ACCOUNT: 'Bind Account',
   MSG_BIND: 'Bind',
-  MSG_NOT_BIND_NOW: 'Not bind now? <a href="{HOMEPAGE_URI}">Goto homepage</a>'
+  MSG_NOT_BIND_NOW: 'Not bind now? <a href="{HOMEPAGE_URI}">Goto homepage</a>',
+  MSG_RESET_PASSWORD: 'Reset Password'
 }
