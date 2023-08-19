@@ -1,6 +1,6 @@
 {
   "name": "cryptomore-webui",
-  "version": "0.1.15",
+  "version": "0.1.17",
   "description": "vue3 framework use quasar ui and pinia manage store",
   "productName": "Crypto More WebUI",
   "author": "Entropy Pool Team <kikakkz@hotmail.com>",
