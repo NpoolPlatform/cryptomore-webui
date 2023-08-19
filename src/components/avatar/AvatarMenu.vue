@@ -38,12 +38,6 @@
           {{ _localUser.User?.EmailAddress?.length ? _localUser.User?.EmailAddress : ' - ' }}
         </div>
         <q-space />
-        <div v-if='!logined' class='row cursor-pointer' @click='onSignupClick(basetypes.SignMethodType.Email)'>
-          <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
-            {{ $t('MSG_SIGNUP') }}
-          </div>
-          <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
-        </div>
         <div
           v-if='logined && !_localUser.User.EmailAddress?.length'
           class='row cursor-pointer'
@@ -62,12 +56,6 @@
           {{ _localUser.User?.PhoneNO?.length ? _localUser.User?.PhoneNO : ' - ' }}
         </div>
         <q-space />
-        <div v-if='!logined' class='row cursor-pointer' @click='onSignupClick(basetypes.SignMethodType.Email)'>
-          <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
-            {{ $t('MSG_SIGNUP') }}
-          </div>
-          <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
-        </div>
         <div
           v-if='logined && !_localUser.User.PhoneNO?.length'
           class='row cursor-pointer'
@@ -127,10 +115,6 @@ const _viewerAddress = computed(() => {
 
 const showing = ref(false)
 const router = useRouter()
-const onSignupClick = (signupMethod: basetypes.SignMethodType) => {
-  void router.push({ path: '/signup', query: { accountType: signupMethod } })
-  showing.value = false
-}
 
 const onBindClick = (signupMethod: basetypes.SignMethodType) => {
   void router.push({ path: '/bindaccount', query: { accountType: signupMethod } })
