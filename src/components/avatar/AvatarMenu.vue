@@ -151,6 +151,7 @@ const onLogoutClick = () => {
       }
     }
   }, (error: boolean) => {
+    _localUser.restUser()
     if (error) {
       return
     }
