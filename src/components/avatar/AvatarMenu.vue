@@ -94,6 +94,8 @@
         <span :style='{lineHeight: "32px"}'>
           {{ $t('MSG_LOGOUT') }}
         </span>
+        <q-space />
+        <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
       </q-item>
     </q-list>
   </q-menu>
