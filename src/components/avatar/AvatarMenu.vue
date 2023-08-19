@@ -114,7 +114,7 @@ const onSignupClick = () => {
 }
 
 const onBindClick = () => {
-  void router.push({ path: '/bindaccount' })
+  void router.push({ path: '/bindaccount', query: { accountType: SignMethodType.Email } })
   showing.value = false
 }
 
