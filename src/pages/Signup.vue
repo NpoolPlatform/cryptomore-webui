@@ -89,11 +89,18 @@ import { defineAsyncComponent, ref, computed, watch } from 'vue'
 import { user, g11n, basetypes, notif, notification } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
 import { validator, entropy } from 'src/utils'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { QInput } from 'quasar'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
+
+interface Query {
+  accountType: basetypes.SignMethodType
+}
+
+const route = useRoute()
+const query = computed(() => route.query as unknown as Query)
 
 const Title = defineAsyncComponent(() => import('src/components/sign/Title.vue'))
 const Switcher = defineAsyncComponent(() => import('src/components/sign/Switcher.vue'))
@@ -101,7 +108,7 @@ const Agreement = defineAsyncComponent(() => import('src/components/sign/Agreeme
 const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
 const OAuthLogin = defineAsyncComponent(() => import('src/components/sign/OAuthLogin.vue'))
 
-const accountType = ref(basetypes.SignMethodType.Email)
+const accountType = ref(query.value.accountType ? query.value.accountType : basetypes.SignMethodType.Email)
 const account = ref('')
 const verificationCode = ref('')
 const password = ref('')

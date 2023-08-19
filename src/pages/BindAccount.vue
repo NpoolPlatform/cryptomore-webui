@@ -48,8 +48,8 @@
       <Agreement />
     </div>
     <div class='text-center' :style='{marginTop: "24px"}'>
-      <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}' @click='onSigninClick'>
-        {{ $t('MSG_SIGNIN') }}
+      <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}' @click='onBindClick'>
+        {{ $t('MSG_BIND_ACCOUNT') }}
       </q-btn>
     </div>
     <div
@@ -83,7 +83,7 @@ interface Query {
 const route = useRoute()
 const query = computed(() => route.query as unknown as Query)
 
-const accountType = ref(query.value.accountType)
+const accountType = ref(query.value.accountType ? query.value.accountType : basetypes.SignMethodType.Email)
 const account = ref('')
 const verificationCode = ref('')
 const sending = ref(false)
@@ -143,7 +143,7 @@ const router = useRouter()
 
 const thirdParties = computed(() => _user.ThirdParties)
 
-const onSigninClick = () => {
+const onBindClick = () => {
   if (!validate()) {
     return
   }

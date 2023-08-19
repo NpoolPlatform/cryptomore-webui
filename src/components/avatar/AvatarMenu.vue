@@ -13,8 +13,8 @@
             <q-space />
             <span :style='{fontWeight: 600}'>{{ _localUser.User?.LoginAccountType }}</span>
             <span :style='{color: "#3DBB77", marginLeft: "8px"}'>
-              {{ _localUser.User?.LoginAccountType === SignMethodType.Email ||
-                _localUser.User?.LoginAccountType === SignMethodType.Mobile ?
+              {{ _localUser.User?.LoginAccountType === basetypes.SignMethodType.Email ||
+                _localUser.User?.LoginAccountType === basetypes.SignMethodType.Mobile ?
                   _localUser.User.LoginAccount : '@' + _localUser.User?.ThirdPartyUsername }}
             </span>
             <q-space />
@@ -38,20 +38,40 @@
           {{ _localUser.User?.EmailAddress?.length ? _localUser.User?.EmailAddress : ' - ' }}
         </div>
         <q-space />
-        <div v-if='!logined' class='row cursor-pointer' @click='onSignupClick'>
+        <div v-if='!logined' class='row cursor-pointer' @click='onSignupClick(basetypes.SignMethodType.Email)'>
           <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
             {{ $t('MSG_SIGNUP') }}
           </div>
           <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
         </div>
         <div
-          v-if='logined &&
-            _localUser.User.LoginAccountType !== SignMethodType.Mobile &&
-            _localUser.User.LoginAccountType !== SignMethodType.Email &&
-            !_localUser.User.EmailAddress?.length &&
-            !_localUser.User.PhoneNO?.length'
+          v-if='logined && !_localUser.User.EmailAddress?.length'
           class='row cursor-pointer'
-          @click='onBindClick'
+          @click='onBindClick(basetypes.SignMethodType.Email)'
+        >
+          <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
+            {{ $t('MSG_BIND') }}
+          </div>
+          <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
+        </div>
+      </q-item>
+      <q-separator />
+      <q-item>
+        <q-icon name='smartphone' size='32px' :style='{marginRight: "8px"}' />
+        <div :style='{fontSize: "14px", lineHeight: "32px"}'>
+          {{ _localUser.User?.PhoneNO?.length ? _localUser.User?.PhoneNO : ' - ' }}
+        </div>
+        <q-space />
+        <div v-if='!logined' class='row cursor-pointer' @click='onSignupClick(basetypes.SignMethodType.Email)'>
+          <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
+            {{ $t('MSG_SIGNUP') }}
+          </div>
+          <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
+        </div>
+        <div
+          v-if='logined && !_localUser.User.PhoneNO?.length'
+          class='row cursor-pointer'
+          @click='onBindClick(basetypes.SignMethodType.Mobile)'
         >
           <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
             {{ $t('MSG_BIND') }}
@@ -81,8 +101,7 @@
 
 <script setup lang='ts'>
 import { Cookies } from 'quasar'
-import { user, localUser, notification } from 'src/mystore'
-import { SignMethodType } from 'src/mystore/basetypes'
+import { user, localUser, notification, basetypes } from 'src/mystore'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
@@ -108,13 +127,13 @@ const _viewerAddress = computed(() => {
 
 const showing = ref(false)
 const router = useRouter()
-const onSignupClick = () => {
-  void router.push({ path: '/signup' })
+const onSignupClick = (signupMethod: basetypes.SignMethodType) => {
+  void router.push({ path: '/signup', query: { accountType: signupMethod } })
   showing.value = false
 }
 
-const onBindClick = () => {
-  void router.push({ path: '/bindaccount', query: { accountType: SignMethodType.Email } })
+const onBindClick = (signupMethod: basetypes.SignMethodType) => {
+  void router.push({ path: '/bindaccount', query: { accountType: signupMethod } })
   showing.value = false
 }
 
