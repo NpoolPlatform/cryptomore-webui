@@ -218,6 +218,24 @@ const sendBtnText = computed(() => {
 const _user = user.useUserStore()
 const router = useRouter()
 
+const logout = () => {
+  _user.logout({
+    Message: {
+      Error: {
+        Title: t('MSG_LOGOUT'),
+        Message: t('MSG_LOGOUT_FAIL'),
+        Popup: true,
+        Type: notification.NotifyType.Error
+      }
+    }
+  }, (error: boolean) => {
+    if (error) {
+      return
+    }
+    void router.push({ path: '/signin' })
+  })
+}
+
 const onResetClick = () => {
   if (!validate()) {
     return
@@ -237,7 +255,7 @@ const onResetClick = () => {
       }
     }
   }, () => {
-    void router.push({ path: '/signin' })
+    logout()
   })
 }
 

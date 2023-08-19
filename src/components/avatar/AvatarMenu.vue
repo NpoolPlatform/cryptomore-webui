@@ -123,8 +123,8 @@ const onLogoutClick = () => {
   _user.logout({
     Message: {
       Error: {
-        Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
-        Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
+        Title: t('MSG_LOGOUT'),
+        Message: t('MSG_LOGOUT_FAIL'),
         Popup: true,
         Type: notification.NotifyType.Error
       }
