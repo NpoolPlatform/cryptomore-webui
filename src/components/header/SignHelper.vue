@@ -47,7 +47,7 @@ const _notif = notif.Notif.useNotifNotifStore()
 const notifs = computed(() => _notif.Notifs.filter((el) => !el.Notified).length)
 
 const router = useRouter()
-const balance = ref('N/A')
+const balance = ref('')
 const viewerAddress = computed(() => Cookies.get('viewer_address'))
 const walletLogin = computed(() => viewerAddress.value && viewerAddress.value.length > 0)
 const _logined = computed(() => logined.logined || walletLogin.value)
