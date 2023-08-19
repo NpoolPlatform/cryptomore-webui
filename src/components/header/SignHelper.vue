@@ -17,16 +17,18 @@
         {{ notifs }}
       </div>
     </div>
-    <Avatar :style='{marginRight: "16px"}' />
+    <Avatar />
   </div>
   <q-btn
     flat
+    :style='{minWidth: "32px", minHeight: "32px", maxWidth: walletLogin ? "100%" : "40px", marginRight: "4px", marginLeft: "4px"}'
     class='btn btn-small'
     :icon='"img:" + metamaskLogo'
     :label='balance'
-    size='1rem'
     @click='onWalletLoginClick'
-  />
+  >
+    <AvatarMenu />
+  </q-btn>
 </template>
 
 <script setup lang='ts'>
@@ -40,6 +42,7 @@ import bellIcon from '../../assets/Bell.svg'
 import { Cookies } from 'quasar'
 
 const Avatar = defineAsyncComponent(() => import('src/components/avatar/Avatar.vue'))
+const AvatarMenu = defineAsyncComponent(() => import('src/components/avatar/AvatarMenu.vue'))
 const HeaderToolBtn = defineAsyncComponent(() => import('src/components/header/HeaderToolBtn.vue'))
 
 const logined = user.useLocalUserStore()
@@ -48,7 +51,7 @@ const notifs = computed(() => _notif.Notifs.filter((el) => !el.Notified).length)
 
 const router = useRouter()
 const balance = ref('')
-const viewerAddress = computed(() => Cookies.get('viewer_address'))
+const viewerAddress = ref(Cookies.get('viewer_address'))
 const walletLogin = computed(() => viewerAddress.value && viewerAddress.value.length > 0)
 const _logined = computed(() => logined.logined || walletLogin.value)
 
@@ -70,6 +73,7 @@ const onWalletLoginClick = () => {
       }
       Cookies.set('active_wallet', 'MetaMask')
       Cookies.set('viewer_address', res[0])
+      viewerAddress.value = res[0]
       void web3.eth.getBalance(res[0])
         .then((res) => {
           balance.value = Number(web3.utils.fromWei(res, 'ether')).toFixed(4) + ' ETH'
