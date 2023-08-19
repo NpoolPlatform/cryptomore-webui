@@ -15,7 +15,7 @@
             <span :style='{color: "#3DBB77", marginLeft: "8px"}'>
               {{ _localUser.User?.LoginAccountType === basetypes.SignMethodType.Email ||
                 _localUser.User?.LoginAccountType === basetypes.SignMethodType.Mobile ?
-                  _localUser.User.LoginAccount : '@' + _localUser.User?.ThirdPartyUsername }}
+                  _localUser.User?.LoginAccount : '@' + _localUser.User?.ThirdPartyUsername }}
             </span>
             <q-space />
           </div>
