@@ -37,7 +37,7 @@ pipeline {
             set -e
           '''.stripIndent())
         }
-        
+
         sh (returnStdout: false, script: '''
           set +e
           PATH=/usr/local/bin:$PATH:./node_modules/@quasar/app/bin command quasar
@@ -67,9 +67,22 @@ pipeline {
       }
     }
 
+    stage('Generate docker image for feature') {
+      when {
+        expression { BUILD_TARGET == 'true' }
+        expression { BRANCH_NAME != 'master' }
+      }
+      steps {
+        sh(returnStdout: false, script: '''
+          feature_name=`echo $BRANCH_NAME | awk -F '/' '{ print $2 }'`
+          docker build -t $DOCKER_REGISTRY/entropypool/cryptomore-webui:$feature_name .
+        '''.stripIndent())
+      }
+    }
     stage('Generate docker image for development') {
       when {
         expression { BUILD_TARGET == 'true' }
+        expression { BRANCH_NAME == 'master' }
       }
       steps {
         sh 'docker build -t $DOCKER_REGISTRY/entropypool/cryptomore-webui:latest .'
@@ -217,6 +230,29 @@ pipeline {
       }
     }
 
+    stage('Release docker image for feature') {
+      when {
+        expression { RELEASE_TARGET == 'true' }
+        expression { BRANCH_NAME != 'master' }
+      }
+      steps {
+        sh(returnStdout: false, script: '''
+          feature_name=`echo $BRANCH_NAME | awk -F '/' '{ print $2 }'`
+          set +e
+          docker images | grep cryptomore-webui | grep $feature_name
+          rc=$?
+          set -e
+          if [ 0 -eq $rc ]; then
+            docker push $DOCKER_REGISTRY/entropypool/cryptomore-webui:$feature_name
+          fi
+          images=`docker images | grep entropypool | grep cryptomore-webui | grep none | awk '{ print $3 }'`
+          for image in $images; do
+            docker rmi $image -f
+          done
+        '''.stripIndent())
+      }
+    }
+
     stage('Release docker image for development') {
       when {
         expression { RELEASE_TARGET == 'true' }
@@ -282,7 +318,7 @@ pipeline {
     stage('Deploy for development') {
       when {
         expression { DEPLOY_TARGET == 'true' }
-        expression { TARGET_ENV == 'development' }
+        expression { TARGET_ENV ==~ /.*development.*/ }
       }
       steps {
         sh 'sed -i "s/uhub.service.ucloud.cn/$DOCKER_REGISTRY/g" k8s/01-cryptomore-webui.yaml'
@@ -329,6 +365,20 @@ pipeline {
           git checkout $tag
           sed -i "s/cryptomore-webui:latest/cryptomore-webui:$tag/g" k8s/01-cryptomore-webui.yaml
           sed -i "s/uhub.service.ucloud.cn/$DOCKER_REGISTRY/g" k8s/01-cryptomore-webui.yaml
+          kubectl apply -k k8s
+        '''.stripIndent())
+      }
+    }
+
+    stage('Deploy for feature') {
+      when {
+        expression { DEPLOY_TARGET == 'true' }
+        expression { BRANCH_NAME != 'master' }
+      }
+      steps {
+        sh(returnStdout: false, script: '''
+          feature_name=`echo $BRANCH_NAME | awk -F '/' '{ print $2 }'`
+          sed -i "s/cryptomore-webui:latest/cryptomore-webui:$feature_name/g" k8s/01-cryptomore-webui.yaml
           kubectl apply -k k8s
         '''.stripIndent())
       }
