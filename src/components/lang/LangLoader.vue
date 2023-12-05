@@ -45,20 +45,11 @@ watch(targetLangID, () => {
 })
 
 const _getMessages = () => {
-  const concurrent = 10
+  const concurrent = 1
   for (let i = 0; i < concurrent; i++) {
-    _setting.LangThrottling = true
     getMessages(i * 100, 100, concurrent)
   }
 }
-
-watch(langID, () => {
-  if (messages.value.length === 0) {
-    _getMessages()
-    return
-  }
-  _setting.LangThrottling = false
-})
 
 const getAppLangs = (offset: number, limit: number) => {
   lang.getAppLangs({
@@ -99,7 +90,6 @@ const getMessages = (offset: number, limit: number, concurrent: number) => {
     }
   }, (error: boolean, rows?: Array<g11nbase.Message>) => {
     if (error || !rows?.length) {
-      _setting.LangThrottling = false
       return
     }
     getMessages(offset + concurrent * limit, limit, concurrent)
