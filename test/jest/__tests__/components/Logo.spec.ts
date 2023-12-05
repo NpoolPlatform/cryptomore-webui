@@ -13,6 +13,5 @@ test('Logo Test', () => {
       plugins: [createTestingPinia()]
     }
   })
-  console.log('html: ', wrapper.html())
   expect(wrapper.html()).toContain('')
 })
