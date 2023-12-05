@@ -32,28 +32,28 @@
 
 <script setup lang='ts'>
 import { withDefaults, defineEmits, onMounted, computed, toRef, defineProps, ref } from 'vue'
-import { g11n, notification } from 'src/mystore'
+import { appcountry, notify } from 'src/npoolstore'
 import { useI18n } from 'vue-i18n'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
 
 interface Props {
-  country: g11n.AppCountry.AppCountry
+  country: appcountry.Country
 }
 const props = withDefaults(defineProps<Props>(), {
-  country: () => undefined as unknown as g11n.AppCountry.AppCountry
+  country: () => undefined as unknown as appcountry.Country
 })
 const country = toRef(props, 'country')
 const _country = ref(country)
 
-const emit = defineEmits<{(e: 'update:country', country: g11n.AppCountry.AppCountry): void}>()
-const onValueUpdated = (country: g11n.AppCountry.AppCountry) => {
+const emit = defineEmits<{(e: 'update:country', country: appcountry.Country): void}>()
+const onValueUpdated = (country: appcountry.Country) => {
   emit('update:country', country)
 }
 
-const appCountry = g11n.AppCountry.useAppCountryStore()
-const countries = computed(() => appCountry.Countries)
+const appCountry = appcountry.useAppCountryStore()
+const countries = computed(() => appCountry.countries())
 
 const getAppCountries = (offset: number, limit: number) => {
   appCountry.getAppCountries({
@@ -63,10 +63,10 @@ const getAppCountries = (offset: number, limit: number) => {
       Error: {
         Title: t('MSG_GET_COUNTRIES_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
-  }, (error: boolean, rows: Array<g11n.AppCountry.AppCountry>) => {
+  }, (error: boolean, rows: Array<appcountry.Country>) => {
     if (error) {
       return
     }
