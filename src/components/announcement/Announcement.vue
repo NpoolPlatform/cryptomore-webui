@@ -7,12 +7,13 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
-import { notif } from 'src/mystore'
+import { announcement } from 'src/npoolstore'
 
 import logoImg from '../../assets/Logo.svg'
+import { AppID } from 'src/const/const'
 
-const announcement = notif.Announcement.useNotifAnnouncementStore()
-const announcementHead = ref(announcement.Announcements?.[0])
+const _announcement = announcement.useAnnouncementStore()
+const announcementHead = ref(_announcement.announcements(AppID)?.[0])
 
 // TODO: display announcement like binance
 

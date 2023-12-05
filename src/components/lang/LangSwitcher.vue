@@ -28,49 +28,30 @@
 </template>
 
 <script setup lang='ts'>
-import { g11n, notif, _locale, user, notification } from 'src/mystore'
+import { applang, _locale, user, g11nbase } from 'src/npoolstore'
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
 
-// eslint-disable-next-line @typescript-eslint/unbound-method
-const { t } = useI18n({ useScope: 'global' })
-
-const lang = g11n.AppLang.useG11nAppLangStore()
-const langs = computed(() => lang.Langs)
+const lang = applang.useAppLangStore()
+const langs = computed(() => lang.langs(undefined))
 
 const locale = _locale.useLocaleStore()
 const curLang = computed(() => locale.AppLang?.Short)
 
 const logined = user.useLocalUserStore()
-const _notif = notif.Notif.useNotifNotifStore()
+const _user = user.useUserStore()
 
-const getNotifs = (offset: number, limit: number) => {
-  _notif.getNotifs({
-    Offset: offset,
-    Limit: limit,
-    Message: {
-      Error: {
-        Title: t('MSG_GET_WITHDRAW_ACCOUNTS_FAIL'),
-        Popup: true,
-        Type: notification.NotifyType.Error
-      }
-    }
-  }, (error: boolean, rows: Array<notif.Notif.Notif>) => {
-    if (error) {
-      return
-    }
-    if (rows.length === 0) {
-      return
-    }
-    getNotifs(offset + limit, limit)
-  })
-}
-
-const onLangClick = (language: g11n.AppLang.Lang) => {
+const onLangClick = (language: g11nbase.AppLang) => {
+  if (language.LangID === locale.langID()) {
+    return
+  }
   locale.setLang(language)
   if (logined.logined) {
-    _notif.$reset()
-    getNotifs(0, 100)
+    _user.updateUser({
+      SelectedLangID: language.LangID,
+      Message: {}
+    }, () => {
+      // TODO
+    })
   }
 }
 

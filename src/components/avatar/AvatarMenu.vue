@@ -13,8 +13,8 @@
             <q-space />
             <span :style='{fontWeight: 600}'>{{ _localUser.User?.LoginAccountType }}</span>
             <span :style='{color: "#3DBB77", marginLeft: "8px"}'>
-              {{ _localUser.User?.LoginAccountType === basetypes.SignMethodType.Email ||
-                _localUser.User?.LoginAccountType === basetypes.SignMethodType.Mobile ?
+              {{ _localUser.User?.LoginAccountType === appuserbase.SignMethodType.Email ||
+                _localUser.User?.LoginAccountType === appuserbase.SignMethodType.Mobile ?
                   _localUser.User?.LoginAccount : '@' + _localUser.User?.ThirdPartyUsername }}
             </span>
             <q-space />
@@ -38,7 +38,7 @@
           {{ _localUser.User?.EmailAddress?.length ? _localUser.User?.EmailAddress : ' - ' }}
         </div>
         <q-space />
-        <div v-if='!logined' class='row cursor-pointer' @click='onSignupClick(basetypes.SignMethodType.Email)'>
+        <div v-if='!logined' class='row cursor-pointer' @click='onSignupClick(appuserbase.SignMethodType.Email)'>
           <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
             {{ $t('MSG_SIGNUP') }}
           </div>
@@ -47,7 +47,7 @@
         <div
           v-if='logined && !_localUser.User.EmailAddress?.length'
           class='row cursor-pointer'
-          @click='onBindClick(basetypes.SignMethodType.Email)'
+          @click='onBindClick(appuserbase.SignMethodType.Email)'
         >
           <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
             {{ $t('MSG_BIND') }}
@@ -62,7 +62,7 @@
           {{ _localUser.User?.PhoneNO?.length ? _localUser.User?.PhoneNO : ' - ' }}
         </div>
         <q-space />
-        <div v-if='!logined' class='row cursor-pointer' @click='onSignupClick(basetypes.SignMethodType.Email)'>
+        <div v-if='!logined' class='row cursor-pointer' @click='onSignupClick(appuserbase.SignMethodType.Email)'>
           <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
             {{ $t('MSG_SIGNUP') }}
           </div>
@@ -71,7 +71,7 @@
         <div
           v-if='logined && !_localUser.User.PhoneNO?.length'
           class='row cursor-pointer'
-          @click='onBindClick(basetypes.SignMethodType.Mobile)'
+          @click='onBindClick(appuserbase.SignMethodType.Mobile)'
         >
           <div :style='{fontSize: "14px", lineHeight: "28px", color: "#3DBB77"}'>
             {{ $t('MSG_BIND') }}
@@ -103,7 +103,7 @@
 
 <script setup lang='ts'>
 import { Cookies } from 'quasar'
-import { user, localUser, notification, basetypes } from 'src/mystore'
+import { user, appuserbase, notify } from 'src/npoolstore'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
@@ -112,7 +112,7 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n({ useScope: 'global' })
 
 const _user = user.useUserStore()
-const _localUser = localUser.useLocalUserStore()
+const _localUser = user.useLocalUserStore()
 const logined = computed(() => _localUser.logined)
 const resetUser = computed(() => logined.value && (_localUser.User.EmailAddress?.length || _localUser.User.PhoneNO?.length))
 
@@ -129,12 +129,12 @@ const _viewerAddress = computed(() => {
 
 const showing = ref(false)
 const router = useRouter()
-const onSignupClick = (signupMethod: basetypes.SignMethodType) => {
+const onSignupClick = (signupMethod: appuserbase.SignMethodType) => {
   void router.push({ path: '/signup', query: { accountType: signupMethod } })
   showing.value = false
 }
 
-const onBindClick = (signupMethod: basetypes.SignMethodType) => {
+const onBindClick = (signupMethod: appuserbase.SignMethodType) => {
   void router.push({ path: '/bindaccount', query: { accountType: signupMethod } })
   showing.value = false
 }
@@ -147,7 +147,7 @@ const onLogoutClick = () => {
         Title: t('MSG_LOGOUT'),
         Message: t('MSG_LOGOUT_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
   }, (error: boolean) => {
