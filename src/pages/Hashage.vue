@@ -44,7 +44,7 @@
             color='#EDEEF0'
             :label='$t("MSG_JOIN_THE_WAITLIST")'
             @click='onJoinTheWaitlistClick'
-            :disable='!utils.validateEmailAddress(emailAddress)'
+            :disable='!validator.validateEmail(emailAddress)'
           />
         </div>
       </div>
@@ -256,7 +256,8 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
-import { subscribe, notify, utils, user } from 'src/npoolstore'
+import { subscribe, notify, user } from 'src/npoolstore'
+import { validator } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
 import { HashAgeAppID } from 'src/const/const'
 
