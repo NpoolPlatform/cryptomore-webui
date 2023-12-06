@@ -41,11 +41,10 @@
 </template>
 
 <script setup lang='ts'>
-import { user, notification, localUser } from 'src/mystore'
+import { user, notify, appuserbase, oauth } from 'src/npoolstore'
 import { computed, onMounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { SignMethodType } from 'src/mystore/basetypes'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
@@ -57,11 +56,13 @@ interface Query {
 
 const route = useRoute()
 const query = computed(() => route.query as unknown as Query)
-const _user = user.useUserStore()
-const _localUser = localUser.useLocalUserStore()
+
+const _localUser = user.useLocalUserStore()
 const logined = computed(() => _localUser.logined)
+
 const states = computed(() => query.value.state.split('-'))
 const clientName = computed(() => states.value.length ? states.value[0] + ' ' : '')
+
 const router = useRouter()
 const waiting = ref(true)
 
@@ -69,12 +70,13 @@ const bindAccount = () => {
   waiting.value = false
 }
 
+const auth = oauth.useOAuthStore()
 onMounted(() => {
   if (logined.value) {
     void router.push({ path: '/' })
     return
   }
-  _user.oauthLogin({
+  auth.oauthLogin({
     Code: query.value.code,
     State: query.value.state,
     Message: {
@@ -82,7 +84,7 @@ onMounted(() => {
         Title: t('MSG_OAUTH_LOGIN'),
         Message: t('MSG_OAUTH_LOGIN_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
   }, (error: boolean, user?: user.User) => {
@@ -103,11 +105,11 @@ const onSetLaterClick = () => {
 }
 
 const onBindEmailClick = () => {
-  void router.push({ path: '/bindaccount', query: { accountType: SignMethodType.Email } })
+  void router.push({ path: '/bindaccount', query: { accountType: appuserbase.SignMethodType.Email } })
 }
 
 const onBindMobileClick = () => {
-  void router.push({ path: '/bindaccount', query: { accountType: SignMethodType.Mobile } })
+  void router.push({ path: '/bindaccount', query: { accountType: appuserbase.SignMethodType.Mobile } })
 }
 
 </script>
