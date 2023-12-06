@@ -1,13 +1,14 @@
 import { defineStore } from 'pinia'
-import { SettingState } from './types'
+import { SettingState } from './state'
+import { constants } from 'src/const'
 
-export const useSettingStore = defineStore('local-setting', {
+export const useSettingStore = defineStore('setting', {
   state: (): SettingState => ({
-    ShowSideMenu: false,
-    ActiveMenuTarget: undefined as unknown as string,
-    ShowMainHeader: true,
-    ShowFooterTop: true,
-    LangThrottling: false
+    ShowBannerAnnouncement: true,
+    ShowSignHelper: true,
+    ShowHeader: true,
+    ShowFooter: true,
+    PricingMenu: constants.ServiceType.CryptoEnterprise
   }),
   getters: {},
   actions: {}

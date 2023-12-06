@@ -11,7 +11,7 @@
 <script setup lang='ts'>
 import { defineAsyncComponent, ref, watch } from 'vue'
 import { constants } from 'src/const'
-import { useSettingStore } from 'src/mystore/setting'
+import { useSettingStore } from 'src/localstore/setting'
 
 const HeadBackground = defineAsyncComponent(() => import('src/components/common/HeadBackground.vue'))
 const Switcher = defineAsyncComponent(() => import('src/components/pricing/Switcher.vue'))

@@ -1,14 +1,12 @@
 <script setup lang='ts'>
 import { onMounted, computed, watch } from 'vue'
 import { _locale, notify, applang, message, g11nbase, user } from 'src/npoolstore'
-import { useSettingStore } from 'src/localstore'
 
 const logined = user.useLocalUserStore()
 
 const locale = _locale.useLocaleStore()
 const langID = computed(() => locale.langID())
 
-const _setting = useSettingStore()
 const lang = applang.useAppLangStore()
 
 const _message = message.useMessageStore()
@@ -29,10 +27,6 @@ const setLang = (_langID: string) => {
     return
   }
   setTimeout(() => {
-    if (_setting.LangThrottling) {
-      setLang(_langID)
-      return
-    }
     locale.setLang(_lang)
   }, 100)
 }

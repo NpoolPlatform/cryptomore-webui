@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang='ts'>
-import { useSettingStore } from '../mystore/setting'
+import { useSettingStore } from 'src/localstore/setting'
 import { defineAsyncComponent } from 'vue'
 
 const MainHeader = defineAsyncComponent(() => import('src/components/header/MainHeader.vue'))
