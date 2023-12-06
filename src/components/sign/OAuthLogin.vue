@@ -43,7 +43,7 @@ const _oauth = oauth.useOAuthStore()
 onMounted(() => {
   third.getOAuthThirdParties({
     Offset: 0,
-    Limit: 10,
+    Limit: 100,
     Message: {
       Error: {
         Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),

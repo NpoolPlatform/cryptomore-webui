@@ -18,7 +18,7 @@
         class='btn btn-main btn-large subscribe-btn'
         :label='$t("MSG_SUBSCRIBE")'
         no-caps
-        :disable='!validator.validateEmail(emailAddress)'
+        :disable='!utils.validateEmailAddress(emailAddress)'
         @click='onSubscribeClick'
       />
     </div>
@@ -27,31 +27,30 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
-import { validator } from 'src/utils'
-import { subscriber, notification } from 'src/mystore'
+import { subscribe, notify, utils } from 'src/npoolstore'
 import { useI18n } from 'vue-i18n'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
 
 const emailAddress = ref('')
-const _subscriber = subscriber.useSubscriberStore()
+const _subscriber = subscribe.useSubscribeStore()
 
 const onSubscribeClick = () => {
-  _subscriber.createSubscriber({
+  _subscriber.createSubscribe({
     EmailAddress: emailAddress.value,
     Message: {
       Error: {
         Title: t('MSG_SUBSCRIBE'),
         Message: t('MSG_SUBSCRIBE_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       },
       Info: {
         Title: t('MSG_SUBSCRIBE'),
         Message: t('MSG_SUBSCRIBE_SUCCESS'),
         Popup: true,
-        Type: notification.NotifyType.Success
+        Type: notify.NotifyType.Success
       }
     }
   }, () => {
