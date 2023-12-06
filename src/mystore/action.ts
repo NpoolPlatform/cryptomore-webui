@@ -1,7 +1,7 @@
 import { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
-import { createAPI } from './request'
 import * as error from './error'
 import * as notification from './notification'
+import { createAPI } from 'src/npoolstore/sdk/axiosapi'
 
 const _notification = notification.useNotificationStore()
 const errorswitcher = error.useErrorStore()
