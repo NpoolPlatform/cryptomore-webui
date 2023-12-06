@@ -15,7 +15,7 @@ import { useRouter } from 'vue-router'
 
 const notification = notify.useNotificationStore()
 
-const notifyHead = ref({} as notify.Notification)
+const notifyHead = ref(undefined as unknown as notify.Notification)
 const notifications = computed(() => notification.Notifications.length)
 
 watch(notifications, () => {
