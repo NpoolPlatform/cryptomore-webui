@@ -8,13 +8,15 @@
 
 <script setup lang='ts'>
 import { computed, ref, watch, onMounted } from 'vue'
-import { notification } from 'src/mystore'
+import { notify, requesterror, user } from 'src/npoolstore'
 
 import logoImg from '../../assets/Logo.svg'
+import { useRouter } from 'vue-router'
 
-const _notification = notification.useNotificationStore()
-const notifyHead = ref(undefined as unknown as notification.Notification)
-const notifications = computed(() => _notification.Notifications.length)
+const notification = notify.useNotificationStore()
+
+const notifyHead = ref({} as notify.Notification)
+const notifications = computed(() => notification.Notifications.length)
 
 watch(notifications, () => {
   if (notifications.value === 0) {
@@ -23,22 +25,39 @@ watch(notifications, () => {
   if (notifyHead.value !== undefined) {
     return
   }
-  if (_notification.Notifications[0].Popup) {
+  if (notification.Notifications?.[0].Popup) {
     return
   }
-  notifyHead.value = _notification.Notifications[0]
+  notifyHead.value = notification.Notifications[0]
   setTimeout(() => {
-    _notification.Notifications.splice(0, 1)
-    notifyHead.value = undefined as unknown as notification.Notification
+    notification.Notifications.splice(0, 1)
+    notifyHead.value = {} as notify.Notification
   }, 3000)
 })
 
+const errorswitcher = requesterror.useErrorStore()
+const trigger = computed(() => errorswitcher.ErrorTrigger)
+const router = useRouter()
+const logined = user.useLocalUserStore()
+
+watch(trigger, () => {
+  if (!trigger.value) {
+    return
+  }
+  switch (trigger.value.Target) {
+    case requesterror.SwitchTarget.LOGIN:
+      void router.push('/signin')
+      errorswitcher.$reset()
+      logined.$reset()
+  }
+})
+
 onMounted(() => {
-  _notification.$subscribe((_, state) => {
+  notification.$subscribe((_, state) => {
     state.Notifications.forEach((notif, index) => {
       if (notif.Popup) {
         state.Notifications.splice(index, 1)
-        notification.notify(notif)
+        notify.notify(notif)
       }
     })
   })
