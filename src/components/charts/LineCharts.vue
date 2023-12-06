@@ -19,8 +19,10 @@ import {
   TitleComponent,
   TooltipComponent,
   LegendComponent,
-  GridComponent
+  GridComponent,
+  VisualMapComponent
 } from 'echarts/components'
+
 import VChart from 'vue-echarts'
 
 use([
@@ -34,7 +36,8 @@ use([
   TooltipComponent,
   LegendComponent,
   LineChart,
-  GridComponent
+  GridComponent,
+  VisualMapComponent
 ])
 
 interface Props {
