@@ -52,7 +52,12 @@
       <Agreement />
     </div>
     <div class='text-center' :style='{marginTop: "24px"}'>
-      <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}' @click='onSigninClick'>
+      <q-btn
+        flat class='btn btn-medium btn-main'
+        :style='{width: "100%"}'
+        @click='onSigninClick'
+        :loading='loading'
+      >
         {{ $t('MSG_SIGNIN') }}
       </q-btn>
     </div>
@@ -71,8 +76,8 @@ import { appcountry, appuserbase, notify, utils, user, appoauththirdparty, coder
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { QInput } from 'quasar'
-import { useReCaptcha } from 'vue-recaptcha-v3'
 import { constants } from 'src/const'
+import { useReCaptcha } from 'vue-recaptcha-v3'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
@@ -145,11 +150,13 @@ const thirdParties = computed(() => third.thirdParties())
 const _coderepo = coderepo.useCodeRepoStore()
 const recaptcha = useReCaptcha()
 
+const loading = ref(false)
 const onSigninClick = () => {
   if (!validate()) {
     return
   }
 
+  loading.value = false
   _coderepo.getGoogleToken({
     Recaptcha: recaptcha,
     Req: constants.GoogleTokenType.Login,
@@ -161,7 +168,10 @@ const onSigninClick = () => {
         Type: notify.NotifyType.Error
       }
     }
-  }, (token: string) => {
+  }, (token: string, err: boolean) => {
+    if (err) {
+      loading.value = false
+    }
     _user.login({
       Account: realAccount.value,
       AccountType: accountType.value,
@@ -176,6 +186,7 @@ const onSigninClick = () => {
         }
       }
     }, (error: boolean) => {
+      loading.value = false
       if (error) {
         return
       }
