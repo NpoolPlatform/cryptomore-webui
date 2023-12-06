@@ -4,6 +4,11 @@ import { RouteMetaImpl } from 'src/npoolstore/utils/intercepter'
 declare module 'vue-router' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface RouteMeta extends RouteMetaImpl {
+    ShowHeaderAnnouncement?: boolean
+    ShowTopTip?: boolean
+    ShowMainHeader?: boolean
+    ShowBigLogo?: boolean
+    ShowFooterTop?: boolean
   }
 }
 
@@ -16,11 +21,6 @@ const routes: RouteRecordRaw[] = [
         path: '',
         component: () => import('pages/Index.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -32,11 +32,6 @@ const routes: RouteRecordRaw[] = [
         path: 'signup',
         component: () => import('pages/Signup.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -48,11 +43,6 @@ const routes: RouteRecordRaw[] = [
         path: 'resetuser',
         component: () => import('pages/ResetUser.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -64,11 +54,6 @@ const routes: RouteRecordRaw[] = [
         path: 'signin',
         component: () => import('pages/Signin.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -80,11 +65,6 @@ const routes: RouteRecordRaw[] = [
         path: 'oauth/callback',
         component: () => import('pages/OAuthCallback.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -96,11 +76,6 @@ const routes: RouteRecordRaw[] = [
         path: 'bindaccount',
         component: () => import('pages/BindAccount.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -112,11 +87,6 @@ const routes: RouteRecordRaw[] = [
         path: 'terms',
         component: () => import('pages/Terms.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -128,11 +98,6 @@ const routes: RouteRecordRaw[] = [
         path: 'policy',
         component: () => import('pages/Policy.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -144,11 +109,6 @@ const routes: RouteRecordRaw[] = [
         path: 'career',
         component: () => import('pages/Career.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -160,11 +120,6 @@ const routes: RouteRecordRaw[] = [
         path: 'aboutus',
         component: () => import('pages/AboutUs.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -176,11 +131,6 @@ const routes: RouteRecordRaw[] = [
         path: 'pricing',
         component: () => import('pages/Pricing.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -192,11 +142,6 @@ const routes: RouteRecordRaw[] = [
         path: 'filecoin',
         component: () => import('pages/Filecoin.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -208,11 +153,6 @@ const routes: RouteRecordRaw[] = [
         path: 'bitcoin',
         component: () => import('pages/Bitcoin.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -224,11 +164,6 @@ const routes: RouteRecordRaw[] = [
         path: 'ethereum',
         component: () => import('pages/Ethereum.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -240,11 +175,6 @@ const routes: RouteRecordRaw[] = [
         path: 'solana',
         component: () => import('pages/Solana.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -256,11 +186,6 @@ const routes: RouteRecordRaw[] = [
         path: 'aleo',
         component: () => import('pages/Aleo.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -272,11 +197,6 @@ const routes: RouteRecordRaw[] = [
         path: 'ironfish',
         component: () => import('pages/Ironfish.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -288,11 +208,6 @@ const routes: RouteRecordRaw[] = [
         path: 'aptos',
         component: () => import('pages/Aptos.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -304,11 +219,6 @@ const routes: RouteRecordRaw[] = [
         path: 'sui',
         component: () => import('pages/Sui.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -320,11 +230,6 @@ const routes: RouteRecordRaw[] = [
         path: 'linera',
         component: () => import('pages/Linera.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -336,11 +241,6 @@ const routes: RouteRecordRaw[] = [
         path: 'hashage',
         component: () => import('pages/Hashage.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
@@ -352,11 +252,6 @@ const routes: RouteRecordRaw[] = [
         path: 'nodes',
         component: () => import('pages/Nodes.vue'),
         meta: {
-          ShowHeaderAnnouncement: false,
-          ShowTopTip: false,
-          ShowMainHeader: false,
-          ShowBigLogo: false,
-          ShowFooterTop: false,
           ShowBannerAnnouncement: true,
           ShowSignHelper: true,
           NeedLogined: false,
