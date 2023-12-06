@@ -41,20 +41,22 @@ const thirdParties = computed(() => third.thirdParties())
 const _oauth = oauth.useOAuthStore()
 
 onMounted(() => {
-  third.getOAuthThirdParties({
-    Offset: 0,
-    Limit: 100,
-    Message: {
-      Error: {
-        Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
-        Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
-        Popup: true,
-        Type: notify.NotifyType.Error
+  if (!thirdParties?.value?.length) {
+    third.getOAuthThirdParties({
+      Offset: 0,
+      Limit: 100,
+      Message: {
+        Error: {
+          Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
+          Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
+          Popup: true,
+          Type: notify.NotifyType.Error
+        }
       }
-    }
-  }, () => {
+    }, () => {
     // TODO
-  })
+    })
+  }
 })
 
 const onThirdPartyLoginClick = (_thirdParty: oauthbase.AppOAuthThirdParty) => {

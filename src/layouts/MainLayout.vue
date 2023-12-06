@@ -14,7 +14,7 @@
 <script setup lang='ts'>
 import { useSettingStore } from 'src/localstore/setting'
 import { defineAsyncComponent } from 'vue'
-
+import 'src/api/app'
 const MainHeader = defineAsyncComponent(() => import('src/components/header/MainHeader.vue'))
 const LangLoader = defineAsyncComponent(() => import('src/components/lang/LangLoader.vue'))
 const Notification = defineAsyncComponent(() => import('src/components/notification/Notification.vue'))
@@ -22,5 +22,4 @@ const Announcement = defineAsyncComponent(() => import('src/components/announcem
 const Footer = defineAsyncComponent(() => import('src/components/footer/Footer.vue'))
 
 const setting = useSettingStore()
-
 </script>
