@@ -88,7 +88,7 @@ const account = ref('')
 const verificationCode = ref('')
 const sending = ref(false)
 const timeout = ref(60)
-const country = ref({} as appcountry.Country)
+const country = ref(undefined as unknown as appcountry.Country)
 const realAccount = computed(() => {
   switch (accountType.value) {
     case appuserbase.SignMethodType.Email:
