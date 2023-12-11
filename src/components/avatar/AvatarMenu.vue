@@ -45,7 +45,7 @@
           <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
         </div>
         <div
-          v-if='logined && !_localUser.User.EmailAddress?.length'
+          v-if='logined && !_localUser.User.EmailAddress?.length && validAccountType'
           class='row cursor-pointer'
           @click='onBindClick(appuserbase.SignMethodType.Email)'
         >
@@ -69,7 +69,7 @@
           <q-icon name='chevron_right' :style='{color: "#3DBB77", marginTop: "4px"}' size='20px' />
         </div>
         <div
-          v-if='logined && !_localUser.User.PhoneNO?.length'
+          v-if='logined && !_localUser.User.PhoneNO?.length && validAccountType'
           class='row cursor-pointer'
           @click='onBindClick(appuserbase.SignMethodType.Mobile)'
         >
@@ -115,6 +115,7 @@ const _user = user.useUserStore()
 const _localUser = user.useLocalUserStore()
 const logined = computed(() => _localUser.logined)
 const resetUser = computed(() => logined.value && (_localUser.User.EmailAddress?.length || _localUser.User.PhoneNO?.length))
+const validAccountType = computed(() => _localUser.User?.LoginAccountType !== appuserbase.SignMethodType.Email && _localUser.User?.LoginAccountType !== appuserbase.SignMethodType.Mobile)
 
 const viewerAddress = computed(() => Cookies.get('viewer_address'))
 const _viewerAddress = computed(() => {
