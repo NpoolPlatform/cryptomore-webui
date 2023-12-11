@@ -217,6 +217,7 @@ const sendBtnText = computed(() => {
 
 const _user = user.useUserStore()
 const router = useRouter()
+const logined = user.useLocalUserStore()
 
 const logout = () => {
   _user.logout({
@@ -232,6 +233,7 @@ const logout = () => {
     if (error) {
       return
     }
+    logined.$reset()
     void router.push({ path: '/signin' })
   })
 }

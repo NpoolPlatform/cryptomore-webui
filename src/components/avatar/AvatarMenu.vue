@@ -151,7 +151,7 @@ const onLogoutClick = () => {
       }
     }
   }, (error: boolean) => {
-    _localUser.restUser()
+    _localUser.$reset()
     if (error) {
       return
     }
