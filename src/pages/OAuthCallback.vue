@@ -45,7 +45,6 @@ import { user, notify, appuserbase, oauth } from 'src/npoolstore'
 import { computed, onMounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { Cookies } from 'quasar'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
@@ -73,8 +72,7 @@ const bindAccount = () => {
 
 const auth = oauth.useOAuthStore()
 onMounted(() => {
-  if (logined.value && Cookies.get('X-User-ID') && Cookies.get('X-App-Login-Token')) {
-    console.log('----------------')
+  if (logined.value) {
     void router.push({ path: '/' })
     return
   }

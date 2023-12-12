@@ -47,7 +47,6 @@ watch(trigger, () => {
   switch (trigger.value.Target) {
     case requesterror.SwitchTarget.LOGIN:
       void router.push('/signin')
-      console.log('_____$reset()')
       logined.$reset()
       errorswitcher.$reset()
   }
