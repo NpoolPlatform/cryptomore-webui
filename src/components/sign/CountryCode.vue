@@ -81,8 +81,9 @@ const getAppCountries = (offset: number, limit: number) => {
 }
 
 onMounted(() => {
-  appCountry.$reset()
-  getAppCountries(0, 100)
+  if (!countries.value?.length) {
+    getAppCountries(0, 100)
+  }
 })
 
 </script>
