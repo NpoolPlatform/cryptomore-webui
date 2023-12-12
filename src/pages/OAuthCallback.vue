@@ -72,8 +72,7 @@ const bindAccount = () => {
 
 const auth = oauth.useOAuthStore()
 onMounted(() => {
-  console.log('logined: ', logined.value)
-  if (logined.value) {
+  if (logined.value && _localUser?.User?.EntID?.length > 0) {
     void router.push({ path: '/' })
     return
   }
