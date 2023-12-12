@@ -233,7 +233,7 @@ const logout = () => {
     if (error) {
       return
     }
-    logined.$reset()
+    logined.restUser()
     void router.push({ path: '/signin' })
   })
 }
