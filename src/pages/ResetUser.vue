@@ -2,21 +2,21 @@
   <div :style='{marginTop: "80px", marginBottom: "120px", maxWidth: "400px"}' class='horizontal-center'>
     <Title :text='$t("MSG_RESET_PASSWORD")' />
     <Switcher :style='{marginTop: "32px"}' v-model:account-type='accountType' />
-    <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
+    <CountryCode v-if='accountType === appuserbase.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
     <q-input
       dense
       v-model='account'
-      :style='{width: "100%", marginTop: accountType === basetypes.SignMethodType.Email ? "24px" : "12px"}'
-      :label='accountType === basetypes.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
+      :style='{width: "100%", marginTop: accountType === appuserbase.SignMethodType.Email ? "24px" : "12px"}'
+      :label='accountType === appuserbase.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
       ref='accountInput'
-      :rules='accountType === basetypes.SignMethodType.Email ? [val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")] : [val => validator.validatePhoneNO(val) || $t("MSG_INVALID_PHONE_NO")]'
+      :rules='accountType === appuserbase.SignMethodType.Email ? [val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")] : [val => validator.validatePhoneNO(val) || $t("MSG_INVALID_PHONE_NO")]'
       lazy-rules='ondemand'
       @blur='onAccountInputBlur'
       @focus='onAccountInputFocus'
     >
       <template #prepend>
-        <q-icon v-if='accountType === basetypes.SignMethodType.Email' color='primary' name='contact_mail' />
-        <q-icon v-if='accountType === basetypes.SignMethodType.Mobile' color='primary' name='contact_phone' />
+        <q-icon v-if='accountType === appuserbase.SignMethodType.Email' color='primary' name='contact_mail' />
+        <q-icon v-if='accountType === appuserbase.SignMethodType.Mobile' color='primary' name='contact_phone' />
       </template>
       <template #append>
         <q-btn
@@ -35,7 +35,7 @@
       :style='{width: "100%"}'
       :label='$t("MSG_VERIFICATION_CODE", { ACCOUNT_TYPE: accountType })'
       ref='verificationCodeInput'
-      :rules='[val => validator.validateVerficationCode(val) || $t("MSG_INVALID_VERIFICATION_CODE")]'
+      :rules='[val => validator.validateVerificationCode(val) || $t("MSG_INVALID_VERIFICATION_CODE")]'
       lazy-rules='ondemand'
       @blur='onVerificationCodeInputBlur'
       @focus='onVerificationCodeInputFocus'
@@ -77,9 +77,9 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, ref, computed, watch } from 'vue'
-import { user, g11n, basetypes, notif, notification } from 'src/mystore'
+import { user, appcountry, basetypes, notify, appuserbase, notifverify, utils } from 'src/npoolstore'
+import { validator } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
-import { validator, entropy } from 'src/utils'
 import { useRouter } from 'vue-router'
 import { QInput } from 'quasar'
 
@@ -90,17 +90,17 @@ const Title = defineAsyncComponent(() => import('src/components/sign/Title.vue')
 const Switcher = defineAsyncComponent(() => import('src/components/sign/Switcher.vue'))
 const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
 
-const accountType = ref(basetypes.SignMethodType.Email)
+const accountType = ref(appuserbase.SignMethodType.Email)
 const account = ref('')
 const verificationCode = ref('')
 const password = ref('')
 const plainPassword = ref(false)
-const country = ref(undefined as unknown as g11n.AppCountry.AppCountry)
+const country = ref(undefined as unknown as appcountry.Country)
 const realAccount = computed(() => {
   switch (accountType.value) {
-    case basetypes.SignMethodType.Email:
+    case appuserbase.SignMethodType.Email:
       return account.value
-    case basetypes.SignMethodType.Mobile:
+    case appuserbase.SignMethodType.Mobile:
       return country.value?.Code + account.value
   }
   return account.value
@@ -158,21 +158,21 @@ const onPasswordInputFocus = () => {
   resetValidation()
 }
 
-const userCode = notif.UserCode.useNotifUserCodeStore()
+const _notifverify = notifverify.useVerifyStore()
 const sendInterval = ref(-1)
 
 const sendAccountCode = (msgTitle: string, msg: string, account: string) => {
-  userCode.sendCode({
+  _notifverify.sendCode({
     Account: account,
-    AccountType: accountType.value,
-    UsedFor: basetypes.UsedFor.Update,
+    AccountType: accountType.value as unknown as appuserbase.SigninVerifyType,
+    UsedFor: basetypes.EventType.Update,
     ToUsername: account,
     Message: {
       Error: {
         Title: msgTitle,
         Message: msg,
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
   }, (error: boolean) => {
@@ -190,10 +190,10 @@ const onSendClick = () => {
     return false
   }
   switch (accountType.value) {
-    case basetypes.SignMethodType.Email:
+    case appuserbase.SignMethodType.Email:
       sendAccountCode(t('MSG_SEND_EMAIL_CODE'), t('MSG_SEND_EMAIL_CODE_FAIL'), realAccount.value)
       break
-    case basetypes.SignMethodType.Mobile:
+    case appuserbase.SignMethodType.Mobile:
       sendAccountCode(t('MSG_SEND_SMS_CODE'), t('MSG_SEND_SMS_CODE_FAIL'), realAccount.value)
       break
   }
@@ -225,7 +225,7 @@ const logout = () => {
         Title: t('MSG_LOGOUT'),
         Message: t('MSG_LOGOUT_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
   }, (error: boolean) => {
@@ -244,14 +244,14 @@ const onResetClick = () => {
   _user.resetUser({
     Account: realAccount.value,
     AccountType: accountType.value,
-    PasswordHash: entropy.encryptPassword(password.value),
+    PasswordHash: utils.encryptPassword(password.value),
     VerificationCode: verificationCode.value,
     Message: {
       Error: {
         Title: t('MSG_RESET'),
         Message: t('MSG_RESET_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
   }, () => {

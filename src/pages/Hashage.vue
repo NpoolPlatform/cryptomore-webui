@@ -44,7 +44,7 @@
             color='#EDEEF0'
             :label='$t("MSG_JOIN_THE_WAITLIST")'
             @click='onJoinTheWaitlistClick'
-            :disable='!validateEmail(emailAddress)'
+            :disable='!validator.validateEmail(emailAddress)'
           />
         </div>
       </div>
@@ -256,21 +256,22 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue'
-import { subscriber, notification, user } from 'src/mystore'
+import { subscribe, notify, user } from 'src/npoolstore'
+import { validator } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
 import { HashAgeAppID } from 'src/const/const'
-import { validateEmail } from 'src/utils/validator'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
 
 const logined = user.useLocalUserStore()
 const emailAddress = ref(logined.User?.EmailAddress)
-const _subscriber = subscriber.useSubscriberStore()
+
+const _subscriber = subscribe.useSubscribeStore()
 const faqTitle = ref('Who is HashAge ?')
 
 const onJoinTheWaitlistClick = () => {
-  _subscriber.createSubscriber({
+  _subscriber.createSubscribe({
     EmailAddress: emailAddress.value,
     SubscribeAppID: HashAgeAppID,
     Message: {
@@ -278,13 +279,13 @@ const onJoinTheWaitlistClick = () => {
         Title: t('MSG_SUBSCRIBE'),
         Message: t('MSG_SUBSCRIBE_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       },
       Info: {
         Title: t('MSG_SUBSCRIBE'),
         Message: t('MSG_SUBSCRIBE_SUCCESS'),
         Popup: true,
-        Type: notification.NotifyType.Success
+        Type: notify.NotifyType.Success
       }
     }
   }, () => {

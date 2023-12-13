@@ -197,7 +197,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { menu } from '../../menu'
-import { useSettingStore } from 'src/mystore/setting'
+import { useSettingStore } from 'src/localstore/setting'
 
 import cryptoPlusServiceIcon from 'src/assets/CryptoPlusServiceIcon.svg'
 import cryptoEnterproseIcon from 'src/assets/CryptoEnterprise.svg'

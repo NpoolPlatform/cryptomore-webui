@@ -170,7 +170,7 @@ import twitter from 'src/assets/Twitter.svg'
 import youtube from 'src/assets/Youtube.svg'
 import linktree from 'src/assets/Linktree.svg'
 import medium from 'src/assets/Medium.svg'
-import { useSettingStore } from 'src/mystore/setting'
+import { useSettingStore } from 'src/localstore/setting'
 import { ServiceType } from 'src/const/const'
 
 const Logo = defineAsyncComponent(() => import('src/components/logo/Logo.vue'))

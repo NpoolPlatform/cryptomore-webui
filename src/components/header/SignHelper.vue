@@ -33,7 +33,7 @@
 
 <script setup lang='ts'>
 import { computed, defineAsyncComponent, ref, onMounted } from 'vue'
-import { notif, user } from 'src/mystore'
+import { notif, user } from 'src/npoolstore'
 import { useRouter } from 'vue-router'
 import Web3 from 'web3'
 
@@ -46,8 +46,8 @@ const AvatarMenu = defineAsyncComponent(() => import('src/components/avatar/Avat
 const HeaderToolBtn = defineAsyncComponent(() => import('src/components/header/HeaderToolBtn.vue'))
 
 const logined = user.useLocalUserStore()
-const _notif = notif.Notif.useNotifNotifStore()
-const notifs = computed(() => _notif.Notifs.filter((el) => !el.Notified).length)
+const _notif = notif.useNotifStore()
+const notifs = computed(() => _notif.notifs(undefined, undefined).filter((el) => !el.Notified).length)
 
 const router = useRouter()
 const balance = ref('')

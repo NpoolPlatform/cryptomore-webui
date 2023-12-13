@@ -377,7 +377,7 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, computed, onMounted } from 'vue'
-import { chain, notification } from 'src/mystore'
+import { coincurrencyhistory, coincurrencybase, notify } from 'src/npoolstore'
 import { useI18n } from 'vue-i18n'
 import { useChatWoot } from '@productdevbook/chatwoot/vue'
 
@@ -391,13 +391,13 @@ const HeadBackground = defineAsyncComponent(() => import('src/components/common/
 const LabelIcon = defineAsyncComponent(() => import('src/components/product/LabelIcon.vue'))
 const LineCharts = defineAsyncComponent(() => import('src/components/charts/LineCharts.vue'))
 
-const chainStore = chain.CoinCurrency.useHistoryStore()
-const currencies = computed(() => chainStore.currencies('bitcoin'))
+const currency = coincurrencyhistory.useCoinCurrencyHistoryStore()
+const currencies = computed(() => currency.historiesByCoinName('bitcoin'))
 const xdatas = computed(() => Array.from(currencies.value).map((el) => el.CreatedAt))
 const ydatas = computed(() => Array.from(currencies.value).map((el) => Number(el.MarketValueHigh)))
 
 const fetchCurrencies = (offset: number, limit: number) => {
-  chainStore.getCurrencies({
+  currency.getCurrencyHistories({
     CoinNames: ['bitcoin'],
     Offset: offset,
     Limit: limit,
@@ -407,14 +407,11 @@ const fetchCurrencies = (offset: number, limit: number) => {
         Title: t('MSG_GET_CURRENCIES'),
         Message: t('MSG_GET_CURRENCIES_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
-  }, (error: boolean, rows: Array<chain.CoinCurrency.Currency>) => {
-    if (error) {
-      return
-    }
-    if (rows.length === 0) {
+  }, (error: boolean, rows?: Array<coincurrencybase.CoinCurrency>) => {
+    if (error || rows?.length === 0) {
       return
     }
     fetchCurrencies(offset + limit, limit)

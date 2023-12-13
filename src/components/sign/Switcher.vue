@@ -2,15 +2,15 @@
   <div class='row text-primary text-center horizontal-center'>
     <q-btn
       flat
-      :class='[accountType === basetypes.SignMethodType.Email ? "btn-main" : "btn-alt", "btn btn-small btn-left btn-switcher"]'
-      @click='onSwitchClick(basetypes.SignMethodType.Email)'
+      :class='[accountType === appuserbase.SignMethodType.Email ? "btn-main" : "btn-alt", "btn btn-small btn-left btn-switcher"]'
+      @click='onSwitchClick(appuserbase.SignMethodType.Email)'
     >
       {{ $t('MSG_EMAIL') }}
     </q-btn>
     <q-btn
       flat
-      :class='[accountType === basetypes.SignMethodType.Mobile ? "btn-main" : "btn-alt", "btn btn-small btn-right btn-switcher"]'
-      @click='onSwitchClick(basetypes.SignMethodType.Mobile)'
+      :class='[accountType === appuserbase.SignMethodType.Mobile ? "btn-main" : "btn-alt", "btn btn-small btn-right btn-switcher"]'
+      @click='onSwitchClick(appuserbase.SignMethodType.Mobile)'
     >
       {{ $t('MSG_MOBILE') }}
     </q-btn>
@@ -18,20 +18,20 @@
 </template>
 
 <script setup lang='ts'>
-import { basetypes } from 'src/mystore'
+import { appuserbase } from 'src/npoolstore'
 import { toRef, withDefaults, defineProps, defineEmits } from 'vue'
 
 interface Props {
-  accountType: basetypes.SignMethodType
+  accountType: appuserbase.SignMethodType
 }
 const props = withDefaults(defineProps<Props>(), {
-  accountType: basetypes.SignMethodType.Email
+  accountType: appuserbase.SignMethodType.Email
 })
 const accountType = toRef(props, 'accountType')
 
-const emit = defineEmits<{(e: 'update:accountType', method: basetypes.SignMethodType): void}>()
+const emit = defineEmits<{(e: 'update:accountType', method: appuserbase.SignMethodType): void}>()
 
-const onSwitchClick = (_method: basetypes.SignMethodType) => {
+const onSwitchClick = (_method: appuserbase.SignMethodType) => {
   emit('update:accountType', _method)
 }
 

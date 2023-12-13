@@ -30,41 +30,44 @@
 
 <script setup lang='ts'>
 import { computed, onMounted } from 'vue'
-import { user, notification } from 'src/mystore'
+import { appoauththirdparty, notify, oauth, oauthbase } from 'src/npoolstore'
 import { useI18n } from 'vue-i18n'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
 
-const _user = user.useUserStore()
-const thirdParties = computed(() => _user.ThirdParties)
+const third = appoauththirdparty.useAppOAuthThirdPartyStore()
+const thirdParties = computed(() => third.thirdParties())
+const _oauth = oauth.useOAuthStore()
 
 onMounted(() => {
-  _user.getAppOAuthThirdParties({
-    Offset: 0,
-    Limit: 10,
-    Message: {
-      Error: {
-        Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
-        Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
-        Popup: true,
-        Type: notification.NotifyType.Error
+  if (!thirdParties?.value?.length) {
+    third.getOAuthThirdParties({
+      Offset: 0,
+      Limit: 100,
+      Message: {
+        Error: {
+          Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
+          Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
+          Popup: true,
+          Type: notify.NotifyType.Error
+        }
       }
-    }
-  }, () => {
+    }, () => {
     // TODO
-  })
+    })
+  }
 })
 
-const onThirdPartyLoginClick = (_thirdParty: user.AppOAuthThirdParty) => {
-  _user.getOAuthLoginURL({
+const onThirdPartyLoginClick = (_thirdParty: oauthbase.AppOAuthThirdParty) => {
+  _oauth.getOAuthLoginURL({
     ClientName: _thirdParty.ClientName,
     Message: {
       Error: {
         Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
         Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
   }, (error: boolean, url?: string) => {

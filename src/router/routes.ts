@@ -1,9 +1,14 @@
 import { RouteRecordRaw } from 'vue-router'
-import { RouteMetaImpl } from '../utils'
+import { RouteMetaImpl } from 'src/npoolstore/utils/intercepter'
 
 declare module 'vue-router' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface RouteMeta extends RouteMetaImpl {
+    ShowHeaderAnnouncement?: boolean
+    ShowTopTip?: boolean
+    ShowMainHeader?: boolean
+    ShowBigLogo?: boolean
+    ShowFooterTop?: boolean
   }
 }
 

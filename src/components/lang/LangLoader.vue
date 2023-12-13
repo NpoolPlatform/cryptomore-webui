@@ -1,69 +1,99 @@
 <script setup lang='ts'>
 import { onMounted, computed, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { _locale, g11n, notification } from 'src/mystore'
+import { _locale, notify, applang, message, g11nbase, user } from 'src/npoolstore'
 
-// eslint-disable-next-line @typescript-eslint/unbound-method
-const { t } = useI18n({ useScope: 'global' })
+const logined = user.useLocalUserStore()
 
 const locale = _locale.useLocaleStore()
-const langID = computed(() => locale.AppLang?.LangID)
+const langID = computed(() => locale.langID())
 
-const message = g11n.Message.useMessageStore()
-const messages = computed(() => message.getMessagesByLangID(langID.value))
-watch(langID, () => {
-  if (messages.value.length === 0) {
-    getMessages(0, 500)
+const lang = applang.useAppLangStore()
+
+const _message = message.useMessageStore()
+const messages = computed(() => _message.messages(undefined, langID.value, undefined))
+const userLangID = computed(() => logined.selectedLangID)
+const targetLangID = computed(() => locale.langID() || userLangID.value || lang.mainLangID(undefined))
+
+watch(userLangID, () => {
+  if (!userLangID.value) {
+    return
   }
+  setLang(userLangID.value)
 })
 
-const lang = g11n.AppLang.useG11nAppLangStore()
-
-onMounted(() => {
-  if (lang.Langs.length === 0) {
-    getLangs(0, 100)
+const setLang = (_langID: string) => {
+  const _lang = lang.lang(undefined, _langID)
+  if (!_lang) {
+    return
   }
+  setTimeout(() => {
+    locale.setLang(_lang)
+  }, 100)
+}
+
+watch(targetLangID, () => {
+  if (!targetLangID.value) {
+    return
+  }
+  setLang(targetLangID.value)
 })
 
-const getLangs = (offset: number, limit: number) => {
-  lang.getLangs({
+const _getMessages = () => {
+  const concurrent = 1
+  for (let i = 0; i < concurrent; i++) {
+    getMessages(i * 100, 100, concurrent)
+  }
+}
+
+const getAppLangs = (offset: number, limit: number) => {
+  lang.getAppLangs({
     Offset: offset,
     Limit: limit,
     Message: {
       Error: {
-        Title: t('MSG_GET_LANG_MESSAGES'),
-        Message: t('MSG_GET_LANG_MESSAGES_FAIL'),
+        Title: 'MSG_GET_LANG_MESSAGES',
+        Message: 'MSG_GET_LANG_MESSAGES_FAIL',
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
-  }, (error: boolean, rows?: Array<g11n.AppLang.Lang>) => {
-    if (error || !rows?.length) {
+  }, (error: boolean, rows: Array<g11nbase.AppLang>) => {
+    if (error || !rows.length) {
+      setLang(targetLangID.value as string)
+      if (messages.value.length === 0) {
+        _getMessages()
+      }
       return
     }
-    getLangs(offset + limit, limit)
+    getAppLangs(offset + limit, limit)
   })
 }
 
-const getMessages = (offset: number, limit: number) => {
-  message.getMessages({
-    LangID: langID.value,
+const getMessages = (offset: number, limit: number, concurrent: number) => {
+  _message.getMessages({
     Disabled: false,
     Offset: offset,
     Limit: limit,
-    NotifyMessage: {
+    Message: {
       Error: {
-        Title: t('MSG_GET_LANG_MESSAGES'),
-        Message: t('MSG_GET_LANG_MESSAGES_FAIL'),
+        Title: 'MSG_GET_LANG_MESSAGES',
+        Message: 'MSG_GET_LANG_MESSAGES_FAIL',
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
-  }, (error: boolean, rows: Array<g11n.Message.Message>) => {
-    if (error || rows.length === 0) {
+  }, (error: boolean, rows?: Array<g11nbase.Message>) => {
+    if (error || !rows?.length) {
       return
     }
-    getMessages(offset + limit, limit)
+    getMessages(offset + concurrent * limit, limit, concurrent)
   })
 }
+
+onMounted(() => {
+  if (!lang.langs(undefined).length) {
+    getAppLangs(0, 100)
+  }
+})
+
 </script>

@@ -2,21 +2,21 @@
   <div :style='{marginTop: "80px", maxWidth: "400px", marginBottom: thirdParties.length ? "0px" : "64px"}' class='horizontal-center'>
     <Title :text='$t("MSG_BIND_ACCOUNT")' />
     <Switcher :style='{marginTop: "32px"}' v-model:account-type='accountType' />
-    <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
+    <CountryCode v-if='accountType === appuserbase.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
     <q-input
       dense
       v-model='account'
-      :style='{width: "100%", marginTop: accountType === basetypes.SignMethodType.Email ? "24px" : "12px"}'
-      :label='accountType === basetypes.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
+      :style='{width: "100%", marginTop: accountType === appuserbase.SignMethodType.Email ? "24px" : "12px"}'
+      :label='accountType === appuserbase.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
       ref='accountInput'
-      :rules='accountType === basetypes.SignMethodType.Email ? [val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")] : [val => validator.validatePhoneNO(val) || $t("MSG_INVALID_PHONE_NO")]'
+      :rules='accountType === appuserbase.SignMethodType.Email ? [val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")] : [val => validator.validatePhoneNO(val) || $t("MSG_INVALID_PHONE_NO")]'
       lazy-rules='ondemand'
       @blur='onAccountInputBlur'
       @focus='onAccountInputFocus'
     >
       <template #prepend>
-        <q-icon v-if='accountType === basetypes.SignMethodType.Email' color='primary' name='contact_mail' />
-        <q-icon v-if='accountType === basetypes.SignMethodType.Mobile' color='primary' name='contact_phone' />
+        <q-icon v-if='accountType === appuserbase.SignMethodType.Email' color='primary' name='contact_mail' />
+        <q-icon v-if='accountType === appuserbase.SignMethodType.Mobile' color='primary' name='contact_phone' />
       </template>
       <template #append>
         <q-btn
@@ -62,7 +62,7 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, ref, computed, watch, onMounted } from 'vue'
-import { user, g11n, basetypes, notification, notif, localUser } from 'src/mystore'
+import { appuserbase, appcountry, appoauththirdparty, user, notify, notifverify, basetypes } from 'src/npoolstore'
 import { useI18n } from 'vue-i18n'
 import { validator } from 'src/utils'
 import { useRouter, useRoute } from 'vue-router'
@@ -77,23 +77,23 @@ const Agreement = defineAsyncComponent(() => import('src/components/sign/Agreeme
 const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
 
 interface Query {
-  accountType: basetypes.SignMethodType
+  accountType: appuserbase.SignMethodType
 }
 
 const route = useRoute()
 const query = computed(() => route.query as unknown as Query)
 
-const accountType = ref(query.value.accountType ? query.value.accountType : basetypes.SignMethodType.Email)
+const accountType = ref(query.value.accountType ? query.value.accountType : appuserbase.SignMethodType.Email)
 const account = ref('')
 const verificationCode = ref('')
 const sending = ref(false)
 const timeout = ref(60)
-const country = ref(undefined as unknown as g11n.AppCountry.AppCountry)
+const country = ref(undefined as unknown as appcountry.Country)
 const realAccount = computed(() => {
   switch (accountType.value) {
-    case basetypes.SignMethodType.Email:
+    case appuserbase.SignMethodType.Email:
       return account.value
-    case basetypes.SignMethodType.Mobile:
+    case appuserbase.SignMethodType.Mobile:
       return country.value?.Code + account.value
   }
   return account.value
@@ -137,12 +137,13 @@ const onVerificationCodeInputFocus = () => {
   resetValidation()
 }
 
-const _user = user.useUserStore()
-const _localUser = localUser.useLocalUserStore()
+const logined = user.useLocalUserStore()
 const router = useRouter()
 
-const thirdParties = computed(() => _user.ThirdParties)
+const third = appoauththirdparty.useAppOAuthThirdPartyStore()
+const thirdParties = computed(() => third.thirdParties())
 
+const _user = user.useUserStore()
 const onBindClick = () => {
   if (!validate()) {
     return
@@ -152,14 +153,14 @@ const onBindClick = () => {
     NewAccountType: accountType.value,
     NewAccount: realAccount.value,
     NewVerificationCode: verificationCode.value,
-    Account: _localUser.User.LoginAccount,
-    AccountType: _localUser.User.LoginAccountType,
+    Account: logined.User.LoginAccount,
+    AccountType: logined.User.LoginAccountType,
     Message: {
       Error: {
         Title: t('MSG_BIND_ACCOUNT'),
         Message: t('MSG_BIND_ACCOUNT_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
   }, () => {
@@ -168,7 +169,7 @@ const onBindClick = () => {
 }
 
 onMounted(() => {
-  _user.getAppOAuthThirdParties({
+  third.getOAuthThirdParties({
     Offset: 0,
     Limit: 10,
     Message: {
@@ -176,7 +177,7 @@ onMounted(() => {
         Title: t('MSG_GET_APP_OAUTH_THIRD_PARTIES'),
         Message: t('MSG_GET_APP_OAUTH_THIRD_PARTIES_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
   }, () => {
@@ -184,21 +185,20 @@ onMounted(() => {
   })
 })
 
-const userCode = notif.UserCode.useNotifUserCodeStore()
 const sendInterval = ref(-1)
-
+const _notifverify = notifverify.useVerifyStore()
 const sendAccountCode = (msgTitle: string, msg: string, account: string) => {
-  userCode.sendCode({
+  _notifverify.sendCode({
     Account: account,
-    AccountType: accountType.value,
-    UsedFor: basetypes.UsedFor.Update,
+    AccountType: accountType.value as unknown as appuserbase.SigninVerifyType,
+    UsedFor: basetypes.EventType.Update,
     ToUsername: account,
     Message: {
       Error: {
         Title: msgTitle,
         Message: msg,
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
   }, (error: boolean) => {
@@ -216,10 +216,10 @@ const onSendClick = () => {
     return false
   }
   switch (accountType.value) {
-    case basetypes.SignMethodType.Email:
+    case appuserbase.SignMethodType.Email:
       sendAccountCode(t('MSG_SEND_EMAIL_CODE'), t('MSG_SEND_EMAIL_CODE_FAIL'), realAccount.value)
       break
-    case basetypes.SignMethodType.Mobile:
+    case appuserbase.SignMethodType.Mobile:
       sendAccountCode(t('MSG_SEND_SMS_CODE'), t('MSG_SEND_SMS_CODE_FAIL'), realAccount.value)
       break
   }

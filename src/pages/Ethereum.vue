@@ -181,8 +181,8 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, computed, onMounted } from 'vue'
-import { chain, notification } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
+import { coincurrencyhistory, coincurrencybase, notify } from 'src/npoolstore'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
@@ -194,13 +194,13 @@ const HeadBackground = defineAsyncComponent(() => import('src/components/common/
 const LabelIcon = defineAsyncComponent(() => import('src/components/product/LabelIcon.vue'))
 const LineCharts = defineAsyncComponent(() => import('src/components/charts/LineCharts.vue'))
 
-const chainStore = chain.CoinCurrency.useHistoryStore()
-const currencies = computed(() => chainStore.currencies('ethereum'))
+const currency = coincurrencyhistory.useCoinCurrencyHistoryStore()
+const currencies = computed(() => currency.historiesByCoinName('ethereum'))
 const xdatas = computed(() => Array.from(currencies.value).map((el) => el.CreatedAt))
 const ydatas = computed(() => Array.from(currencies.value).map((el) => Number(el.MarketValueHigh)))
 
 const fetchCurrencies = (offset: number, limit: number) => {
-  chainStore.getCurrencies({
+  currency.getCurrencyHistories({
     CoinNames: ['ethereum'],
     Offset: offset,
     Limit: limit,
@@ -210,14 +210,11 @@ const fetchCurrencies = (offset: number, limit: number) => {
         Title: t('MSG_GET_CURRENCIES'),
         Message: t('MSG_GET_CURRENCIES_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
-  }, (error: boolean, rows: Array<chain.CoinCurrency.Currency>) => {
-    if (error) {
-      return
-    }
-    if (rows.length === 0) {
+  }, (error: boolean, rows?: Array<coincurrencybase.CoinCurrency>) => {
+    if (error || rows?.length === 0) {
       return
     }
     fetchCurrencies(offset + limit, limit)

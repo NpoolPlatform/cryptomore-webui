@@ -2,21 +2,21 @@
   <div :style='{marginTop: "80px", maxWidth: "400px", marginBottom: thirdParties.length ? "0px" : "64px"}' class='horizontal-center'>
     <Title :text='$t("MSG_SIGNIN")' />
     <Switcher :style='{marginTop: "32px"}' v-model:account-type='accountType' />
-    <CountryCode v-if='accountType === basetypes.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
+    <CountryCode v-if='accountType === appuserbase.SignMethodType.Mobile' v-model:country='country' :style='{width: "100%", marginTop: "24px"}' />
     <q-input
       dense
       v-model='account'
-      :style='{width: "100%", marginTop: accountType === basetypes.SignMethodType.Email ? "24px" : "12px"}'
-      :label='accountType === basetypes.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
+      :style='{width: "100%", marginTop: accountType === appuserbase.SignMethodType.Email ? "24px" : "12px"}'
+      :label='accountType === appuserbase.SignMethodType.Email ? $t("MSG_EMAIL_ADDRESS") : $t("MSG_PHONE_NO")'
       ref='accountInput'
-      :rules='accountType === basetypes.SignMethodType.Email ? [val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")] : [val => validator.validatePhoneNO(val) || $t("MSG_INVALID_PHONE_NO")]'
+      :rules='accountType === appuserbase.SignMethodType.Email ? [val => validator.validateEmail(val) || $t("MSG_INVALID_EMAIL")] : [val => validator.validatePhoneNO(val) || $t("MSG_INVALID_PHONE_NO")]'
       lazy-rules='ondemand'
       @blur='onAccountInputBlur'
       @focus='onAccountInputFocus'
     >
       <template #prepend>
-        <q-icon v-if='accountType === basetypes.SignMethodType.Email' color='primary' name='contact_mail' />
-        <q-icon v-if='accountType === basetypes.SignMethodType.Mobile' color='primary' name='contact_phone' />
+        <q-icon v-if='accountType === appuserbase.SignMethodType.Email' color='primary' name='contact_mail' />
+        <q-icon v-if='accountType === appuserbase.SignMethodType.Mobile' color='primary' name='contact_phone' />
       </template>
     </q-input>
     <q-input
@@ -52,7 +52,12 @@
       <Agreement />
     </div>
     <div class='text-center' :style='{marginTop: "24px"}'>
-      <q-btn flat class='btn btn-medium btn-main' :style='{width: "100%"}' @click='onSigninClick'>
+      <q-btn
+        flat class='btn btn-medium btn-main'
+        :style='{width: "100%"}'
+        @click='onSigninClick'
+        :loading='loading'
+      >
         {{ $t('MSG_SIGNIN') }}
       </q-btn>
     </div>
@@ -67,14 +72,13 @@
 
 <script setup lang='ts'>
 import { defineAsyncComponent, ref, computed, watch } from 'vue'
-import { user, g11n, basetypes, notification } from 'src/mystore'
+import { appcountry, appuserbase, notify, utils, user, appoauththirdparty, coderepo } from 'src/npoolstore'
+import { validator } from 'src/mystore'
 import { useI18n } from 'vue-i18n'
-import { validator, entropy } from 'src/utils'
 import { useRouter } from 'vue-router'
 import { QInput } from 'quasar'
-import { useReCaptcha } from 'vue-recaptcha-v3'
-import { useRecaptchaStore } from 'src/mystore/recaptcha'
 import { constants } from 'src/const'
+import { useReCaptcha } from 'vue-recaptcha-v3'
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { t } = useI18n({ useScope: 'global' })
@@ -85,16 +89,16 @@ const Agreement = defineAsyncComponent(() => import('src/components/sign/Agreeme
 const CountryCode = defineAsyncComponent(() => import('src/components/sign/CountryCode.vue'))
 const OAuthLogin = defineAsyncComponent(() => import('src/components/sign/OAuthLogin.vue'))
 
-const accountType = ref(basetypes.SignMethodType.Email)
+const accountType = ref(appuserbase.SignMethodType.Email)
 const account = ref('')
 const password = ref('')
 const plainPassword = ref(false)
-const country = ref(undefined as unknown as g11n.AppCountry.AppCountry)
+const country = ref(undefined as unknown as appcountry.Country)
 const realAccount = computed(() => {
   switch (accountType.value) {
-    case basetypes.SignMethodType.Email:
+    case appuserbase.SignMethodType.Email:
       return account.value
-    case basetypes.SignMethodType.Mobile:
+    case appuserbase.SignMethodType.Mobile:
       return country.value?.Code + account.value
   }
   return account.value
@@ -140,17 +144,21 @@ const onPasswordInputFocus = () => {
 
 const _user = user.useUserStore()
 const router = useRouter()
+
+const third = appoauththirdparty.useAppOAuthThirdPartyStore()
+const thirdParties = computed(() => third.thirdParties())
+
+const _coderepo = coderepo.useCodeRepoStore()
 const recaptcha = useReCaptcha()
-const _recaptcha = useRecaptchaStore()
 
-const thirdParties = computed(() => _user.ThirdParties)
-
+const loading = ref(false)
 const onSigninClick = () => {
   if (!validate()) {
     return
   }
 
-  _recaptcha.getGoogleToken({
+  loading.value = false
+  _coderepo.getGoogleToken({
     Recaptcha: recaptcha,
     Req: constants.GoogleTokenType.Login,
     Message: {
@@ -158,24 +166,28 @@ const onSigninClick = () => {
         Title: t('MSG_GET_GOOGLE_TOKEN'),
         Message: t('MSG_GET_GOOGLE_TOKEN_FAIL'),
         Popup: true,
-        Type: notification.NotifyType.Error
+        Type: notify.NotifyType.Error
       }
     }
-  }, (token: string) => {
+  }, (token: string, err: boolean) => {
+    if (err) {
+      loading.value = false
+    }
     _user.login({
       Account: realAccount.value,
       AccountType: accountType.value,
-      PasswordHash: entropy.encryptPassword(password.value),
+      PasswordHash: utils.encryptPassword(password.value),
       ManMachineSpec: token,
       Message: {
         Error: {
           Title: t('MSG_SIGNIN'),
           Message: t('MSG_SIGNIN_FAIL'),
           Popup: true,
-          Type: notification.NotifyType.Error
+          Type: notify.NotifyType.Error
         }
       }
     }, (error: boolean) => {
+      loading.value = false
       if (error) {
         return
       }
