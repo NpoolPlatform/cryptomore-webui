@@ -40,7 +40,7 @@
       </div>
     </div>
   </div>
-  <div class='partners section-start-margin'>
+  <div v-if='false' class='partners section-start-margin'>
     <div class='content-width horizontal-center'>
       <div class='row'>
         <q-space />

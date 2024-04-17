@@ -213,7 +213,7 @@
             </div>
             <q-slide-transition>
               <div class='faq-subtitle color-main-transparent-80' v-show='faqTitle === "Who is HashAge ?"' :style='{color: "rgba(49, 55, 61, 0.6) !important"}'>
-                HashAge is a creative crypto platform that is backed by Hpool, the world leading PoC mining pool. HashAge will be online at 2023 Q4. HashAge's founder team members contain Crypto Scientists, Crypto Miners, Software Engineers, Storage Experts, and IDC Holders. HashAge aims to be one of the leading crypto platforms of the world with its commitment to the reliability and security of its service.
+                HashAge is a creative crypto platform. HashAge will be online at 2023 Q4. HashAge's founder team members contain Crypto Scientists, Crypto Miners, Software Engineers, Storage Experts, and IDC Holders. HashAge aims to be one of the leading crypto platforms of the world with its commitment to the reliability and security of its service.
               </div>
             </q-slide-transition>
           </div>
