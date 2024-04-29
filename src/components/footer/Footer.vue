@@ -102,7 +102,7 @@
             <div class='menu-list-item cursor-pointer' @click='onGotoUrl("https://www.bnbchain.org/en/smartChain")'>
               {{ $t('MSG_BINANCE_SMART_CHAIN') }}
             </div>
-            <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/aleo" })'>
+            <div v-if='false' class='menu-list-item cursor-pointer' @click='void router.push({ path: "/aleo" })'>
               {{ $t('MSG_ALEO') }}
             </div>
             <div class='menu-list-item cursor-pointer' @click='void router.push({ path: "/ironfish" })'>
