@@ -30,14 +30,14 @@
             </tr>
             <tr>
               <td>Seed</td>
-              <td>$ 3M</td>
-              <td>2022-06-06</td>
+              <td>$ 6M</td>
+              <td>2022-06-29</td>
               <td />
             </tr>
             <tr>
-              <td>Angel</td>
-              <td>$ 30M</td>
-              <td>2022-08-06</td>
+              <td>Seed</td>
+              <td>$ 6M</td>
+              <td>2022-08-16</td>
             </tr>
           </tbody>
         </table>
